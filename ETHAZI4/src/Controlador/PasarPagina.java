@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import Vista.Bienvenida;
 import Vista.Despedida;
 import Vista.Destino;
 import Vista.Lista;
@@ -38,9 +39,23 @@ public class PasarPagina {
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE PAGO A DESPEDIDA
+    public void classPagoaDestino(){
+        //SE CREA EL OBJ DE LA CLASE DESTINO
+        Destino obj= new Destino();
+        obj.setVisible(true); 
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE PAGO A DESPEDIDA
     public void classPagoaDespedida(){
         //SE CREA EL OBJ DE LA CLASE DESPEDIDA
         Despedida obj= new Despedida();
+        obj.setVisible(true); 
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE DESPEDIDA A BIENVENIDA
+    public static void classDespedidaABienvenida(){
+        //SE CREA EL OBJ DE LA CLASE BIENVENIDA
+        Bienvenida obj= new Bienvenida();
         obj.setVisible(true); 
     } 
 }

@@ -1,16 +1,23 @@
 
 package Vista;
 
+import Controlador.ControladorPago;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class Pago extends javax.swing.JFrame {
-
+    
+    public double valor=100;
+    
     public Pago() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
+        
+        totalAPagar.setText(String.valueOf(valor+" €"));
+        
+        ControladorPago Controlador = new ControladorPago(cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005);
         
         ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
         Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(bi200.getWidth(), bi200.getHeight(), Image.SCALE_DEFAULT));bi200.setIcon(icono);
@@ -36,11 +43,11 @@ public class Pago extends javax.swing.JFrame {
         Icon icono6 = new ImageIcon(Imagen6.getImage().getScaledInstance(bi5.getWidth(), bi5.getHeight(), Image.SCALE_DEFAULT));bi5.setIcon(icono6);
         this.repaint();
 
-        ImageIcon Imagen7 = new ImageIcon ("src/Imagenes/2euros.gif");
+        ImageIcon Imagen7 = new ImageIcon ("src/Imagenes/2euros.jpg");
         Icon icono7 = new ImageIcon(Imagen7.getImage().getScaledInstance(mo2.getWidth(), mo2.getHeight(), Image.SCALE_DEFAULT));mo2.setIcon(icono7);
         this.repaint();
 
-        ImageIcon Imagen8 = new ImageIcon ("src/Imagenes/1.gif");
+        ImageIcon Imagen8 = new ImageIcon ("src/Imagenes/1.jpg");
         Icon icono8 = new ImageIcon(Imagen8.getImage().getScaledInstance(mo1.getWidth(), mo1.getHeight(), Image.SCALE_DEFAULT));mo1.setIcon(icono8);
         this.repaint();
 
@@ -75,8 +82,8 @@ public class Pago extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cancelarCompra = new javax.swing.JButton();
-        confirmarPedido = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
+        confirmar = new javax.swing.JButton();
         totalAPagar = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         bi50 = new javax.swing.JButton();
@@ -95,11 +102,12 @@ public class Pago extends javax.swing.JFrame {
         actualizaPago = new javax.swing.JLabel();
         bi200 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        reiniciarPago = new javax.swing.JButton();
+        reiniciar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
@@ -114,29 +122,20 @@ public class Pago extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
 
-        cancelarCompra.setBackground(new java.awt.Color(51, 51, 51));
-        cancelarCompra.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        cancelarCompra.setForeground(new java.awt.Color(255, 255, 255));
-        cancelarCompra.setText("CANCELAR COMPRA");
-        cancelarCompra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        cancelarCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarCompraActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cancelarCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 170, 90));
+        cancelar.setBackground(new java.awt.Color(51, 51, 51));
+        cancelar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        cancelar.setText("CANCELAR");
+        cancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 170, 90));
 
-        confirmarPedido.setBackground(new java.awt.Color(51, 51, 51));
-        confirmarPedido.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        confirmarPedido.setForeground(new java.awt.Color(255, 255, 255));
-        confirmarPedido.setText("CONFIRMAR PEDIDO");
-        confirmarPedido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        confirmarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmarPedidoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(confirmarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 170, 90));
+        confirmar.setBackground(new java.awt.Color(51, 51, 51));
+        confirmar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        confirmar.setForeground(new java.awt.Color(255, 255, 255));
+        confirmar.setText("CONFIRMAR");
+        confirmar.setActionCommand("CONFIRMAR");
+        confirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 170, 90));
 
         totalAPagar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(totalAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 80, 30));
@@ -145,106 +144,22 @@ public class Pago extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("TOTAL A PAGAR:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
-
-        bi50.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bi50ActionPerformed(evt);
-            }
-        });
         getContentPane().add(bi50, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 110, 60));
-
-        bi20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bi20ActionPerformed(evt);
-            }
-        });
         getContentPane().add(bi20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 110, 60));
-
-        bi10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bi10ActionPerformed(evt);
-            }
-        });
         getContentPane().add(bi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 110, 60));
-
-        bi5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bi5ActionPerformed(evt);
-            }
-        });
         getContentPane().add(bi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 110, 60));
-
-        mo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo2ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 80, 60));
-
-        mo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo1ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 80, 60));
-
-        mo05.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo05ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo05, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 80, 60));
-
-        mo02.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo02ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo02, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 80, 60));
-
-        mo01.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo01ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo01, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 80, 60));
-
-        mo005.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo005ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo005, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 80, 60));
-
-        bi100.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bi100ActionPerformed(evt);
-            }
-        });
         getContentPane().add(bi100, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 110, 60));
-
-        mo002.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo002ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo002, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 80, 60));
-
-        mo001.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mo001ActionPerformed(evt);
-            }
-        });
         getContentPane().add(mo001, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 80, 60));
 
         actualizaPago.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(actualizaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 80, 30));
-
-        bi200.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bi200ActionPerformed(evt);
-            }
-        });
         getContentPane().add(bi200, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 110, 60));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -253,14 +168,12 @@ public class Pago extends javax.swing.JFrame {
         jLabel5.setText("PAGADO:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, -1, -1));
 
-        reiniciarPago.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        reiniciarPago.setText("REINICIAR PAGO");
-        reiniciarPago.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reiniciarPagoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(reiniciarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 120, -1));
+        reiniciar.setBackground(new java.awt.Color(51, 51, 51));
+        reiniciar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
+        reiniciar.setForeground(new java.awt.Color(255, 255, 255));
+        reiniciar.setText("REINICIAR PAGO");
+        reiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -273,74 +186,6 @@ public class Pago extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCompraActionPerformed
-    
-    }//GEN-LAST:event_cancelarCompraActionPerformed
-
-    private void confirmarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarPedidoActionPerformed
- 
-    }//GEN-LAST:event_confirmarPedidoActionPerformed
-
-    private void bi50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi50ActionPerformed
-      
-    }//GEN-LAST:event_bi50ActionPerformed
-
-    private void bi20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi20ActionPerformed
-       
-    }//GEN-LAST:event_bi20ActionPerformed
-
-    private void bi10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi10ActionPerformed
-      
-    }//GEN-LAST:event_bi10ActionPerformed
-
-    private void bi5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi5ActionPerformed
-      
-    }//GEN-LAST:event_bi5ActionPerformed
-
-    private void mo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo2ActionPerformed
-      
-    }//GEN-LAST:event_mo2ActionPerformed
-
-    private void mo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo1ActionPerformed
-     
-    }//GEN-LAST:event_mo1ActionPerformed
-
-    private void mo05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo05ActionPerformed
-  
-    }//GEN-LAST:event_mo05ActionPerformed
-
-    private void mo02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo02ActionPerformed
-
-    }//GEN-LAST:event_mo02ActionPerformed
-
-    private void mo01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo01ActionPerformed
-     
-    }//GEN-LAST:event_mo01ActionPerformed
-
-    private void mo005ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo005ActionPerformed
-   
-    }//GEN-LAST:event_mo005ActionPerformed
-
-    private void bi100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi100ActionPerformed
-  
-    }//GEN-LAST:event_bi100ActionPerformed
-
-    private void mo002ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo002ActionPerformed
-  
-    }//GEN-LAST:event_mo002ActionPerformed
-
-    private void mo001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mo001ActionPerformed
-     
-    }//GEN-LAST:event_mo001ActionPerformed
-
-    private void bi200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bi200ActionPerformed
-
-    }//GEN-LAST:event_bi200ActionPerformed
-
-    private void reiniciarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarPagoActionPerformed
-
-    }//GEN-LAST:event_reiniciarPagoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel actualizaPago;
@@ -350,8 +195,8 @@ public class Pago extends javax.swing.JFrame {
     public javax.swing.JButton bi200;
     private javax.swing.JButton bi5;
     private javax.swing.JButton bi50;
-    private javax.swing.JButton cancelarCompra;
-    public javax.swing.JButton confirmarPedido;
+    private javax.swing.JButton cancelar;
+    public javax.swing.JButton confirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -367,7 +212,7 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JButton mo05;
     private javax.swing.JButton mo1;
     private javax.swing.JButton mo2;
-    private javax.swing.JButton reiniciarPago;
+    private javax.swing.JButton reiniciar;
     private javax.swing.JLabel totalAPagar;
     // End of variables declaration//GEN-END:variables
 }

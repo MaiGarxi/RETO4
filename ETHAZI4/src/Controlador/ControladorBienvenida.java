@@ -15,6 +15,5 @@ public class ControladorBienvenida {
               pasar.classBienvenidaaDestino();
             }
         }); 
-    }
-    
+    }   
 }

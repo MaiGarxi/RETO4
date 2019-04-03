@@ -1,12 +1,26 @@
 
 package Vista;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Despedida extends javax.swing.JFrame {
 
     public Despedida() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
+        
+        Timer timer = new Timer();
+        TimerTask task;
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                Controlador.PasarPagina.classDespedidaABienvenida();
+                dispose(); 
+            }
+        };
+         timer.schedule(task, 5000); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -17,6 +31,7 @@ public class Despedida extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
