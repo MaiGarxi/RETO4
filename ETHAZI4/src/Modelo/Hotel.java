@@ -1,6 +1,8 @@
 
 package Modelo;
 
+import java.util.ArrayList;
+
 public class Hotel {
 
     protected int cod_hotel,estrellas,num_habitaciones,num_camas,cp;
@@ -77,7 +79,11 @@ public class Hotel {
         this.localidad = localidad;
     }
 
-    
+    public ArrayList <Hotel>  buscar_hoteles(String salida,String destino,String entrada)
+    {
+        ArrayList<Hotel> hoteles = new ArrayList<Hotel>();
+    return hoteles;
+    }
     
     
 }

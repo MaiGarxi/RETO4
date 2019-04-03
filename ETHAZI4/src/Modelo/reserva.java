@@ -1,6 +1,9 @@
 
 package Modelo;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 public class reserva {
     protected int cod_reserva,cod_hotel;
     protected double precio;
@@ -40,6 +43,17 @@ public class reserva {
     public reserva() {
     }
 
-
+   public ArrayList <reserva> Crear_reservas (ArrayList<Hotel> hoteles)
+    {
+         ArrayList <reserva> reservas;
+         reservas = new ArrayList<reserva>();
+        for(int x=0;hoteles.size()>x;x++)
+        {
+           reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,100.0);
+        reservas.add(reser);
+        
+        }
+      return reservas;
+    }
     
 }
