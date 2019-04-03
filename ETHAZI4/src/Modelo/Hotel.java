@@ -2,9 +2,17 @@
 package Modelo;
 
 public class Hotel {
-    protected int cod_hotel,estrellas,num_habitaciones,cod_destino,cod_reserva;
 
-    public Hotel(int cod_hotel, int estrellas, int num_habitaciones, int cod_destino, int cod_reserva) {
+    public int getNum_camas() {
+        return num_camas;
+    }
+
+    public void setNum_camas(int num_camas) {
+        this.num_camas = num_camas;
+    }
+    protected int cod_hotel,estrellas,num_habitaciones,cod_destino,cod_reserva,num_camas;
+
+    public Hotel(int cod_hotel, int estrellas, int num_habitaciones, int cod_destino, int cod_reserva,int num_camas) {
         this.cod_hotel = cod_hotel;
         this.estrellas = estrellas;
         this.num_habitaciones = num_habitaciones;
