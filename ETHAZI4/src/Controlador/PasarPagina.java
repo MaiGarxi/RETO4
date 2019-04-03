@@ -11,34 +11,34 @@ public class PasarPagina {
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE BIENVENIDA A DESTINO
-    public static void classBienvenidaaDestino(){
+    public void classBienvenidaaDestino(){
         //SE CREA EL OBJ DE LA CLASE DESTINO
         Destino obj= new Destino();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
-    public static void classDestinoaLista(){
+    public void classDestinoaLista(){
         //SE CREA EL OBJ DE LA CLASE LISTA
         Lista obj= new Lista();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
-    public static void classListaaDestino(){
+    public void classListaaDestino(){
         Destino obj= new Destino();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LISTA A PAGO
-    public static void classListaaPago(){
+    public void classListaaPago(){
         //SE CREA EL OBJ DE LA CLASE PAGO
         Pago obj= new Pago();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE PAGO A DESPEDIDA
-    public static void classPagoaDespedida(){
+    public void classPagoaDespedida(){
         //SE CREA EL OBJ DE LA CLASE DESPEDIDA
         Despedida obj= new Despedida();
         obj.setVisible(true); 

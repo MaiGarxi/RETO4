@@ -12,7 +12,7 @@ public class Pago extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-                ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
+        ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
         Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(bi200.getWidth(), bi200.getHeight(), Image.SCALE_DEFAULT));bi200.setIcon(icono);
         this.repaint();
 
@@ -114,9 +114,9 @@ public class Pago extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
 
-        cancelarCompra.setBackground(new java.awt.Color(255, 255, 51));
-        cancelarCompra.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        cancelarCompra.setForeground(new java.awt.Color(0, 0, 0));
+        cancelarCompra.setBackground(new java.awt.Color(51, 51, 51));
+        cancelarCompra.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        cancelarCompra.setForeground(new java.awt.Color(255, 255, 255));
         cancelarCompra.setText("CANCELAR COMPRA");
         cancelarCompra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelarCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -124,11 +124,11 @@ public class Pago extends javax.swing.JFrame {
                 cancelarCompraActionPerformed(evt);
             }
         });
-        getContentPane().add(cancelarCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 150, 80));
+        getContentPane().add(cancelarCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 170, 90));
 
-        confirmarPedido.setBackground(new java.awt.Color(255, 255, 51));
-        confirmarPedido.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        confirmarPedido.setForeground(new java.awt.Color(0, 0, 0));
+        confirmarPedido.setBackground(new java.awt.Color(51, 51, 51));
+        confirmarPedido.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        confirmarPedido.setForeground(new java.awt.Color(255, 255, 255));
         confirmarPedido.setText("CONFIRMAR PEDIDO");
         confirmarPedido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         confirmarPedido.addActionListener(new java.awt.event.ActionListener() {

@@ -1,12 +1,16 @@
 
 package Vista;
 
+import Controlador.ControladorDestino;
+
 public class Destino extends javax.swing.JFrame {
 
     public Destino() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
+        
+        ControladorDestino Controlador = new ControladorDestino(buscar);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -22,6 +26,7 @@ public class Destino extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -43,9 +48,11 @@ public class Destino extends javax.swing.JFrame {
         getContentPane().add(entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
         getContentPane().add(salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
+        buscar.setBackground(new java.awt.Color(51, 51, 51));
         buscar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        buscar.setForeground(new java.awt.Color(0, 0, 0));
+        buscar.setForeground(new java.awt.Color(255, 255, 255));
         buscar.setText("BUSCAR");
+        buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, 220, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
