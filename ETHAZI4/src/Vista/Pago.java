@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 
 public class Pago extends javax.swing.JFrame {
     
-    public double valor=100;
+    public double valor;
     
     public Pago() {
         initComponents();
