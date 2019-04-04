@@ -1,6 +1,7 @@
 
 package Modelo;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class Hotel {
@@ -85,5 +86,19 @@ public class Hotel {
     return hoteles;
     }
     
+       public ArrayList <Hotel>  ordenar_hoteles(ArrayList<Hotel> hoteles)
+    {
+        
+    return hoteles;
+    } 
+       
+       public ArrayList <String> obtener_destinos()
+       {
+      /*  conectar con =new conectar();
+        Connection reg=con.conexion();
+*/       ArrayList<String> Destinos= new ArrayList<String>();
+       Destinos.add("Barcelona");
+       return Destinos;
+       }
     
 }
