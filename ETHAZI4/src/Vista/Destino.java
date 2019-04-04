@@ -9,12 +9,10 @@ public class Destino extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
-
+        Bienvenida bien = new Bienvenida();
+        bien.dispose();
         ControladorDestino Controlador = new ControladorDestino(buscar,destino);
-    }
-    
-
-
+    }    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -36,7 +34,8 @@ public class Destino extends javax.swing.JFrame {
         jLabel2.setText("DESTINO:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 190, 50));
 
-        getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 320, 40));
+        destino.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        getContentPane().add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 320, 40));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));

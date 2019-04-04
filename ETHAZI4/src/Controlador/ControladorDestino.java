@@ -21,8 +21,7 @@ public class ControladorDestino {
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */
-        
-        
+               
         /*Eventos 
         */
         buscar.addMouseListener(new MouseAdapter() {

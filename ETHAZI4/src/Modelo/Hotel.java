@@ -85,7 +85,7 @@ public class Hotel {
     return hoteles;
     }
     
-       public ArrayList <Hotel>  ordenar_hoteles(ArrayList<Hotel> hoteles)
+    public ArrayList <Hotel>  ordenar_hoteles(ArrayList<Hotel> hoteles)
     {       
     return hoteles;
     } 
@@ -97,5 +97,14 @@ public class Hotel {
         {
             destino.addItem(dest.ConsultaDestino().get(x));       
         }      
-    }   
+    }  
+    
+    public void obtener_hoteles(JComboBox<String> hotel)
+    {      
+        Consultas dest = new Consultas ();      
+        for(int x=0;dest.ConsultaHoteles_Nombre(localidad).size()>x;x++)
+        {
+            hotel.addItem(dest.ConsultaHoteles_Nombre(localidad).get(x));       
+        }      
+    }
 }
