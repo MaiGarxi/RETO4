@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.ControladorDestino;
+import Controlador.PasarPagina;
 
 public class Destino extends javax.swing.JFrame {
 
@@ -9,7 +10,7 @@ public class Destino extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
-        
+
         ControladorDestino Controlador = new ControladorDestino(buscar,destino);
     }
 
