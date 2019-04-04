@@ -3,6 +3,7 @@ package Modelo;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 
 public class Hotel {
 
@@ -92,13 +93,19 @@ public class Hotel {
     return hoteles;
     } 
        
-       public ArrayList <String> obtener_destinos()
+       public void obtener_destinos(JComboBox<String> destino)
        {
       /*  conectar con =new conectar();
         Connection reg=con.conexion();
 */       ArrayList<String> Destinos= new ArrayList<String>();
        Destinos.add("Barcelona");
-       return Destinos;
+       
+                  for(int x=0;Destinos.size()>x;x++)
+        {
+      destino.addItem(Destinos.get(x));
+        
+        }
+       
        }
     
 }

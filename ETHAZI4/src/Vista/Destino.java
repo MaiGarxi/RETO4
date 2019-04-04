@@ -10,7 +10,7 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar);
+        ControladorDestino Controlador = new ControladorDestino(buscar,destino);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -63,7 +63,7 @@ public class Destino extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
-    private javax.swing.JComboBox<String> destino;
+    public javax.swing.JComboBox<String> destino;
     private com.toedter.calendar.JCalendar entrada;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

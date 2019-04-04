@@ -8,7 +8,8 @@ import javax.swing.JButton;
 public class ControladorLista {
     
     public ControladorLista(JButton reservar, JButton anterior) {
-        
+           /*Eventos 
+        */
         reservar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
@@ -22,5 +23,8 @@ public class ControladorLista {
               pasar.classListaaDestino();
             }
         }); 
+        
+           /*Eventos 
+        */
     }
 }
