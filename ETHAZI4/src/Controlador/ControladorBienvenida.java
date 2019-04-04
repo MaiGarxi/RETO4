@@ -16,4 +16,8 @@ public class ControladorBienvenida {
             }
         }); 
     }   
+
+    public ControladorBienvenida() {
+
+    }
 }
