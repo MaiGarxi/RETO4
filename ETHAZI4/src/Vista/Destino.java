@@ -2,7 +2,6 @@
 package Vista;
 
 import Controlador.ControladorDestino;
-import Controlador.PasarPagina;
 
 public class Destino extends javax.swing.JFrame {
 
@@ -13,6 +12,8 @@ public class Destino extends javax.swing.JFrame {
 
         ControladorDestino Controlador = new ControladorDestino(buscar,destino);
     }
+    
+
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
