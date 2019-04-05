@@ -21,7 +21,7 @@ public class ControladorLista {
              System.out.println(aux.Crear_array(hotel).get(0).getCod_hotel());
                         
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classListaaPago();
+              pasar.classListaaPago(aux.Crear_array(hotel));
             }
         });
         
