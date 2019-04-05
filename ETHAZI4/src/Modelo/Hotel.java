@@ -114,13 +114,12 @@ public class Hotel {
     
     public JComboBox<String> Crear_array(JComboBox<String>hotel)
     {
-          ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
+        ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
         String Des= (String) hotel.getSelectedItem();
         Consultas dest = new Consultas (); 
-       for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)
+        for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)
         {
-            reserva reser= new reserva( Integer.parseInt(dest.hotel_para_reservar(Des).get(x)),(x+1),100.0);
-                
+            reserva reser= new reserva( Integer.parseInt(dest.hotel_para_reservar(Des).get(x)),(x+1),100.0);              
         } 
            return hotel; 
     }
