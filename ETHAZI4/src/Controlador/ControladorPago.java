@@ -25,12 +25,7 @@ public class ControladorPago {
         cancelar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classListaaDestino();
-              Consultas con = new Consultas();
-              for(int i=0; i<reservas.size();i++){
-                  con.InsertarReserva(reservas.get(i).getCod_reserva(), reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
-              }
-                  
+              pasar.classListaaDestino();                                
             }
         });
         
@@ -46,14 +41,21 @@ public class ControladorPago {
                 if (valor==pago2){                 
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     PasarPagina pasar= new PasarPagina(); 
-                    pasar.classPagoaDespedida();                    
+                    pasar.classPagoaDespedida();  
+                    Consultas con = new Consultas();
+                    for(int i=0; i<reservas.size();i++){
+                        con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+                    }
                 }
                 if (pago2>valor){
                     double cambio;
                     cambio = calcularCambio(pago2,valor);
                     PasarPagina pasar= new PasarPagina(); 
                     pasar.classPagoaDespedida();
-                    
+                    Consultas con = new Consultas();
+                    for(int i=0; i<reservas.size();i++){
+                    con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+                    }                    
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                 }                  

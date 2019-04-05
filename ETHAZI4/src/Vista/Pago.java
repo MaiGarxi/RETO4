@@ -197,15 +197,11 @@ public class Pago extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-    this.setVisible(false);
+    
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-    this.setVisible(false);
-    if (pago2<valor){
-        JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
-        this.setVisible(true);
-    }  
+
     }//GEN-LAST:event_confirmarActionPerformed
 
 
