@@ -127,14 +127,23 @@ public class Pago extends javax.swing.JFrame {
         cancelar.setForeground(new java.awt.Color(255, 255, 255));
         cancelar.setText("CANCELAR");
         cancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 170, 90));
 
         confirmar.setBackground(new java.awt.Color(51, 51, 51));
         confirmar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         confirmar.setForeground(new java.awt.Color(255, 255, 255));
         confirmar.setText("CONFIRMAR");
-        confirmar.setActionCommand("CONFIRMAR");
         confirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarActionPerformed(evt);
+            }
+        });
         getContentPane().add(confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 170, 90));
 
         totalAPagar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -185,6 +194,14 @@ public class Pago extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+    this.setVisible(false);
+    }//GEN-LAST:event_cancelarActionPerformed
+
+    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
+     this.setVisible(false);
+    }//GEN-LAST:event_confirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,7 +4,6 @@ package Controlador;
 import Modelo.Hotel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -16,15 +15,13 @@ public class ControladorDestino {
         que la componen
         */
         
-        Hotel aux = new Hotel();
-         ArrayList<String> Destinos= new ArrayList<String>();
-        aux.obtener_destinos(destino);
+         Hotel aux = new Hotel();
+         aux.obtener_destinos(destino);
        
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */
-        
-        
+               
         /*Eventos 
         */
         buscar.addMouseListener(new MouseAdapter() {

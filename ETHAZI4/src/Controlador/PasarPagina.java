@@ -9,7 +9,7 @@ import Vista.Pago;
 
 
 public class PasarPagina {
-    
+     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE BIENVENIDA A DESTINO
     public void classBienvenidaaDestino(){

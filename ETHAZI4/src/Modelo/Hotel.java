@@ -1,16 +1,14 @@
 
 package Modelo;
 
-import java.sql.Connection;
+import bbdd.Consultas;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 
 public class Hotel {
 
     protected int cod_hotel,estrellas,num_habitaciones,num_camas,cp;
-    protected String nombre,localidad;
-
-
+    protected String nombre,localidad;   
 
     public Hotel() {
     }
@@ -87,25 +85,26 @@ public class Hotel {
     return hoteles;
     }
     
-       public ArrayList <Hotel>  ordenar_hoteles(ArrayList<Hotel> hoteles)
-    {
-        
+    public ArrayList <Hotel>  ordenar_hoteles(ArrayList<Hotel> hoteles)
+    {       
     return hoteles;
     } 
        
-       public void obtener_destinos(JComboBox<String> destino)
-       {
-      /*  conectar con =new conectar();
-        Connection reg=con.conexion();
-*/       ArrayList<String> Destinos= new ArrayList<String>();
-       Destinos.add("Barcelona");
-       
-                  for(int x=0;Destinos.size()>x;x++)
+    public void obtener_destinos(JComboBox<String> destino)
+    {      
+        Consultas dest = new Consultas ();      
+        for(int x=0;dest.ConsultaDestino().size()>x;x++)
         {
-      destino.addItem(Destinos.get(x));
-        
-        }
-       
-       }
+            destino.addItem(dest.ConsultaDestino().get(x));       
+        }      
+    }  
     
+    public void obtener_hoteles(JComboBox<String> hotel)
+    {      
+        Consultas dest = new Consultas ();      
+        for(int x=0;dest.ConsultaHoteles_Nombre(localidad).size()>x;x++)
+        {
+            hotel.addItem(dest.ConsultaHoteles_Nombre(localidad).get(x));       
+        }      
+    }
 }
