@@ -46,12 +46,22 @@ public class Lista extends javax.swing.JFrame {
         reservar.setForeground(new java.awt.Color(255, 255, 255));
         reservar.setText("RESERVAR");
         reservar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        reservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservarActionPerformed(evt);
+            }
+        });
         getContentPane().add(reservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 620, 170, 80));
 
         anterior.setBackground(new java.awt.Color(51, 51, 51));
         anterior.setForeground(new java.awt.Color(51, 51, 51));
         anterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anteriorActionPerformed(evt);
+            }
+        });
         getContentPane().add(anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 160, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
@@ -59,6 +69,14 @@ public class Lista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
+    this.setVisible(false);
+    }//GEN-LAST:event_anteriorActionPerformed
+
+    private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
+    this.setVisible(false);
+    }//GEN-LAST:event_reservarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,8 +9,7 @@ public class Destino extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
-        Bienvenida bien = new Bienvenida();
-        bien.dispose();
+
         ControladorDestino Controlador = new ControladorDestino(buscar,destino);
     }    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -54,6 +53,11 @@ public class Destino extends javax.swing.JFrame {
         buscar.setForeground(new java.awt.Color(255, 255, 255));
         buscar.setText("BUSCAR");
         buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
         getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, 220, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
@@ -61,6 +65,10 @@ public class Destino extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+    this.setVisible(false);
+    }//GEN-LAST:event_buscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;

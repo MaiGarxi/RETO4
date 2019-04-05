@@ -24,30 +24,137 @@ public class ControladorPago {
         
         reiniciar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
-                      pago=0;      
+                pago2=0;
+                actualizaPago.setText(String.valueOf(pago2+" €"));
             }
         }); 
         
         confirmar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) { 
-            if (valor==pago2){
-            }
-            if (pago2>valor){
-                double cambio;
-                calcularCambio(pago2,valor);
-            } else if (pago2<valor){
-                JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
-            }
-              PasarPagina pasar= new PasarPagina(); 
-              pasar.classPagoaDespedida();
+                if (valor==pago2){
+                    //InsertarReserva
+                }
+                if (pago2>valor){
+                    double cambio;
+                    cambio = calcularCambio(pago2,valor);
+                    //InsertarReserva
+                } else if (pago2<valor){
+                    JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
+                }
+                  PasarPagina pasar= new PasarPagina(); 
+                  pasar.classPagoaDespedida();
+                }
+        });
+        
+        bi200.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=200;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
             }
         });
         
         bi100.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) { 
-            double valor=100;
-            calculadora(pago2,valor);
-            actualizaPago.setText(String.valueOf(pago2+" €"));
+                double valor=100;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        bi50.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=50;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        bi20.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=20;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        bi10.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=10;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        bi5.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=5;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo2.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=2;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=1;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo05.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=0.5;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo02.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=0.2;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo01.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=0.1;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo005.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=0.05;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo002.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=0.02;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
+            }
+        });
+        
+        mo001.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) { 
+                double valor=0.01;
+                pago2=calculadora(pago2,valor);
+                actualizaPago.setText(String.valueOf(pago2+" €"));
             }
         });
     }
