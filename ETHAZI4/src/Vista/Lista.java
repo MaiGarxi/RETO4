@@ -74,7 +74,7 @@ public class Lista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
-    this.setVisible(false);      
+         
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
