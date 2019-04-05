@@ -33,6 +33,7 @@ public class Lista extends javax.swing.JFrame {
         jLabel2.setText("HOTEL");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 130, 60));
 
+        hotel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         getContentPane().add(hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 280, 30));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N

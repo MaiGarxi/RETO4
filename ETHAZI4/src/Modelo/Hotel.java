@@ -114,15 +114,17 @@ public class Hotel {
     
     public ArrayList<reserva> Crear_array(JComboBox<String>hotel)
     {
-          ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
+        ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
         String Des= (String) hotel.getSelectedItem();
         System.out.println(Des);
         Consultas dest = new Consultas (); 
-       for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)
+        for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)
         {
+
              System.out.println(Des);
             reserva reser= new reserva( Integer.parseInt(dest.hotel_para_reservar(Des).get(x)),(x+1),100.0);
                 hoteles_reserva.add(reser);
+
         } 
            return hoteles_reserva; 
     }
