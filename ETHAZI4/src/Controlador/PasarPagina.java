@@ -19,9 +19,9 @@ public class PasarPagina {
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
-    public void classDestinoaLista(){
+    public void classDestinoaLista(String localidad){
         //SE CREA EL OBJ DE LA CLASE LISTA
-        Lista obj= new Lista();
+        Lista obj= new Lista(localidad);
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

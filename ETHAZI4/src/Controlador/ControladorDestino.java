@@ -27,7 +27,7 @@ public class ControladorDestino {
         buscar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classDestinoaLista();
+              pasar.classDestinoaLista((String) destino.getSelectedItem());
             }
         }); 
         

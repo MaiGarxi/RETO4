@@ -9,15 +9,17 @@ import javax.swing.JComboBox;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>hotel) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>hotel,String localidad) {
         
         Hotel aux = new Hotel();
-        aux.obtener_hoteles(hotel);
+        aux.obtener_hoteles(hotel,localidad);
         
            /*Eventos 
         */
         reservar.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {          
+            public void mouseClicked(MouseEvent e) {  
+             System.out.println(   aux.Crear_array(hotel));
+                        
               PasarPagina pasar= new PasarPagina(); 
               pasar.classListaaPago();
             }

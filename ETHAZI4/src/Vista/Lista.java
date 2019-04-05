@@ -5,12 +5,12 @@ import Controlador.ControladorLista;
 
 public class Lista extends javax.swing.JFrame {
 
-    public Lista() {
+    public Lista(String localidad) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -81,7 +81,7 @@ public class Lista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
-    private javax.swing.JComboBox<String> hotel;
+    public javax.swing.JComboBox<String> hotel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

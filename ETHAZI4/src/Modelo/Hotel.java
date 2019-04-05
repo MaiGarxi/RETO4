@@ -2,6 +2,7 @@
 package Modelo;
 
 import bbdd.Consultas;
+
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 
@@ -99,12 +100,29 @@ public class Hotel {
         }      
     }  
     
-    public void obtener_hoteles(JComboBox<String> hotel)
+    public void obtener_hoteles(JComboBox<String> hotel,String localidad)
     {      
-        Consultas dest = new Consultas ();      
+      
+        Consultas dest = new Consultas ();    
+        System.out.println(localidad);
         for(int x=0;dest.ConsultaHoteles_Nombre(localidad).size()>x;x++)
         {
+           
             hotel.addItem(dest.ConsultaHoteles_Nombre(localidad).get(x));       
         }      
     }
+    
+    public JComboBox<String> Crear_array(JComboBox<String>hotel)
+    {
+          ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
+        String Des= (String) hotel.getSelectedItem();
+        Consultas dest = new Consultas (); 
+       for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)
+        {
+            reserva reser= new reserva( Integer.parseInt(dest.hotel_para_reservar(Des).get(x)),(x+1),100.0);
+                
+        } 
+           return hotel; 
+    }
+    
 }
