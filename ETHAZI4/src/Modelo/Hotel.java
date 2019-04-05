@@ -120,11 +120,9 @@ public class Hotel {
         Consultas dest = new Consultas (); 
         for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)
         {
-
-             System.out.println(Des);
+            System.out.println(Des);
             reserva reser= new reserva( Integer.parseInt(dest.hotel_para_reservar(Des).get(x)),(x+1),100.0);
-                hoteles_reserva.add(reser);
-
+            hoteles_reserva.add(reser);
         } 
            return hoteles_reserva; 
     }

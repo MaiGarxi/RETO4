@@ -1,8 +1,10 @@
 
 package Controlador;
 
+import Modelo.reserva;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -13,8 +15,12 @@ public class ControladorPago {
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public double valor, pago2;
 
-    public ControladorPago(JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005) {
+    public ControladorPago(ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar) {
         
+        reserva reserv = new reserva();
+        totalAPagar.setText(String.valueOf(reserv.calcular_total_pagar(reservas)+" €"));
+        valor = reserv.calcular_total_pagar(reservas);
+
         cancelar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
@@ -31,10 +37,10 @@ public class ControladorPago {
         
         confirmar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) { 
-                if (valor==pago2){
-                PasarPagina pasar= new PasarPagina(); 
-                pasar.classPagoaDespedida();
-                JOptionPane.showMessageDialog(null, "Pago realizado");
+                if (valor==pago2){                 
+                    JOptionPane.showMessageDialog(null, "Pago realizado");   
+                    PasarPagina pasar= new PasarPagina(); 
+                    pasar.classPagoaDespedida();
                     
                 }
                 if (pago2>valor){
@@ -44,8 +50,7 @@ public class ControladorPago {
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                 }
-                  PasarPagina pasar= new PasarPagina(); 
-                  pasar.classPagoaDespedida();
+                  
                 }
         });
         

@@ -15,12 +15,9 @@ public class Pago extends javax.swing.JFrame {
     public Pago(ArrayList<reserva>reservas) {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable (false);
-        reserva reserv = new reserva();
+        setResizable (false);               
         
-        totalAPagar.setText(String.valueOf(reserv.calcular_total_pagar(reservas)+" €"));
-        
-        ControladorPago Controlador = new ControladorPago(cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005);
+        ControladorPago Controlador = new ControladorPago(reservas,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar);
         
         ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
         Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(bi200.getWidth(), bi200.getHeight(), Image.SCALE_DEFAULT));bi200.setIcon(icono);
