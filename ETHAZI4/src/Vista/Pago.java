@@ -2,7 +2,9 @@
 package Vista;
 
 import Controlador.ControladorPago;
+import Modelo.reserva;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -10,7 +12,7 @@ public class Pago extends javax.swing.JFrame {
     
     public double valor;
     
-    public Pago() {
+    public Pago(ArrayList<reserva>reservas) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);

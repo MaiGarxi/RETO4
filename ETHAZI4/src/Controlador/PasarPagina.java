@@ -1,11 +1,13 @@
 
 package Controlador;
 
+import Modelo.reserva;
 import Vista.Bienvenida;
 import Vista.Despedida;
 import Vista.Destino;
 import Vista.Lista;
 import Vista.Pago;
+import java.util.ArrayList;
 
 
 public class PasarPagina {
@@ -32,9 +34,9 @@ public class PasarPagina {
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LISTA A PAGO
-    public void classListaaPago(){
+    public void classListaaPago(ArrayList<reserva>reservas){
         //SE CREA EL OBJ DE LA CLASE PAGO
-        Pago obj= new Pago();
+        Pago obj= new Pago(reservas);
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
