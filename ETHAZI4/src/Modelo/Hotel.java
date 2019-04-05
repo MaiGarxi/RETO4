@@ -101,13 +101,11 @@ public class Hotel {
     }  
     
     public void obtener_hoteles(JComboBox<String> hotel,String localidad)
-    {      
-      
+    {           
         Consultas dest = new Consultas ();    
         System.out.println(localidad);
         for(int x=0;dest.ConsultaHoteles_Nombre(localidad).size()>x;x++)
-        {
-           
+        {          
             hotel.addItem(dest.ConsultaHoteles_Nombre(localidad).get(x));       
         }      
     }

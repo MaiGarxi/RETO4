@@ -10,7 +10,7 @@ public class Despedida extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
-        
+
         Timer timer = new Timer();
         TimerTask task;
         task = new TimerTask() {

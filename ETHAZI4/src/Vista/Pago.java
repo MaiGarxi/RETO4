@@ -7,10 +7,11 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class Pago extends javax.swing.JFrame {
     
-    public double valor;
+    public double valor, pago2;
     
     public Pago(ArrayList<reserva>reservas) {
         initComponents();
@@ -147,47 +148,47 @@ public class Pago extends javax.swing.JFrame {
         getContentPane().add(confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 170, 90));
 
         totalAPagar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(totalAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 80, 30));
+        getContentPane().add(totalAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("TOTAL A PAGAR:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
-        getContentPane().add(bi50, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 110, 60));
-        getContentPane().add(bi20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 110, 60));
-        getContentPane().add(bi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 110, 60));
-        getContentPane().add(bi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 110, 60));
-        getContentPane().add(mo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 80, 60));
-        getContentPane().add(mo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 80, 60));
-        getContentPane().add(mo05, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 80, 60));
-        getContentPane().add(mo02, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 80, 60));
-        getContentPane().add(mo01, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 80, 60));
-        getContentPane().add(mo005, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 80, 60));
-        getContentPane().add(bi100, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 110, 60));
-        getContentPane().add(mo002, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 80, 60));
-        getContentPane().add(mo001, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 80, 60));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
+        getContentPane().add(bi50, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 110, 60));
+        getContentPane().add(bi20, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 110, 60));
+        getContentPane().add(bi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 110, 60));
+        getContentPane().add(bi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 110, 60));
+        getContentPane().add(mo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 80, 60));
+        getContentPane().add(mo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 80, 60));
+        getContentPane().add(mo05, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 80, 60));
+        getContentPane().add(mo02, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 80, 60));
+        getContentPane().add(mo01, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 80, 60));
+        getContentPane().add(mo005, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 80, 60));
+        getContentPane().add(bi100, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 110, 60));
+        getContentPane().add(mo002, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 80, 60));
+        getContentPane().add(mo001, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, 80, 60));
 
         actualizaPago.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(actualizaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 80, 30));
-        getContentPane().add(bi200, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 110, 60));
+        getContentPane().add(actualizaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 80, 30));
+        getContentPane().add(bi200, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 110, 60));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("PAGADO:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, -1, -1));
 
         reiniciar.setBackground(new java.awt.Color(51, 51, 51));
         reiniciar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         reiniciar.setForeground(new java.awt.Color(255, 255, 255));
         reiniciar.setText("REINICIAR PAGO");
         reiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 120, -1));
+        getContentPane().add(reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Seleccione el dinero a ingresar:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 220, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 220, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
@@ -196,11 +197,15 @@ public class Pago extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-   
+    this.setVisible(false);
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-   
+    this.setVisible(false);
+    if (pago2<valor){
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
+        this.setVisible(true);
+    }  
     }//GEN-LAST:event_confirmarActionPerformed
 
 

@@ -2,6 +2,7 @@
 package Controlador;
 
 import Modelo.reserva;
+import bbdd.Consultas;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -25,6 +26,11 @@ public class ControladorPago {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
               pasar.classListaaDestino();
+              Consultas con = new Consultas();
+              for(int i=0; i<reservas.size();i++){
+                  con.InsertarReserva(reservas.get(i).getCod_reserva(), reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+              }
+                  
             }
         });
         
@@ -38,19 +44,19 @@ public class ControladorPago {
         confirmar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) { 
                 if (valor==pago2){                 
-                    JOptionPane.showMessageDialog(null, "Pago realizado");   
+                    JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     PasarPagina pasar= new PasarPagina(); 
-                    pasar.classPagoaDespedida();
-                    
+                    pasar.classPagoaDespedida();                    
                 }
                 if (pago2>valor){
                     double cambio;
                     cambio = calcularCambio(pago2,valor);
+                    PasarPagina pasar= new PasarPagina(); 
+                    pasar.classPagoaDespedida();
                     
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
-                }
-                  
+                }                  
                 }
         });
         

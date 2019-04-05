@@ -17,7 +17,7 @@ public class PasarPagina {
     public void classBienvenidaaDestino(){
         //SE CREA EL OBJ DE LA CLASE DESTINO
         Destino obj= new Destino();
-        obj.setVisible(true); 
+        obj.setVisible(true);  
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
@@ -59,5 +59,5 @@ public class PasarPagina {
         //SE CREA EL OBJ DE LA CLASE BIENVENIDA
         Bienvenida obj= new Bienvenida();
         obj.setVisible(true); 
-    } 
+    }     
 }

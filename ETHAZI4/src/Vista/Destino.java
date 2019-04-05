@@ -67,7 +67,7 @@ public class Destino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-
+    this.setVisible(false);
     }//GEN-LAST:event_buscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
