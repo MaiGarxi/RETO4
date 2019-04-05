@@ -10,7 +10,11 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
+<<<<<<< HEAD
         ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio);
+=======
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad,precio);
+>>>>>>> 077ea970b55433e893ef4802afa1e58d29ea337c
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -86,7 +90,7 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel precio;
+    public javax.swing.JLabel precio;
     private javax.swing.JButton reservar;
     // End of variables declaration//GEN-END:variables
 }
