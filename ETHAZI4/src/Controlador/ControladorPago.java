@@ -32,12 +32,15 @@ public class ControladorPago {
         confirmar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) { 
                 if (valor==pago2){
-                    //InsertarReserva
+                PasarPagina pasar= new PasarPagina(); 
+                pasar.classPagoaDespedida();
+                JOptionPane.showMessageDialog(null, "Pago realizado");
+                    
                 }
                 if (pago2>valor){
                     double cambio;
                     cambio = calcularCambio(pago2,valor);
-                    //InsertarReserva
+                    
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                 }

@@ -41,7 +41,7 @@ public class ControladorLista {
         
         hotel.addActionListener (new ActionListener () {
             public void actionPerformed(ActionEvent e) {
-            precio.setText(String.valueOf(100));
+            precio.setText(String.valueOf(100 + " €"));
             }
         });
            /*Eventos 

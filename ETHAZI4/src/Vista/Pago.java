@@ -199,11 +199,11 @@ public class Pago extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-    this.setVisible(false);
+   
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-     this.setVisible(false);
+   
     }//GEN-LAST:event_confirmarActionPerformed
 
 

@@ -10,11 +10,7 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-<<<<<<< HEAD
         ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio);
-=======
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad,precio);
->>>>>>> 077ea970b55433e893ef4802afa1e58d29ea337c
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,6 +40,8 @@ public class Lista extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("PRECIO");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, 100, 40));
+
+        precio.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 110, 40));
 
         reservar.setBackground(new java.awt.Color(51, 51, 51));
@@ -76,11 +74,11 @@ public class Lista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
-    this.setVisible(false);
+  
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
-    this.setVisible(false);
+    
     }//GEN-LAST:event_reservarActionPerformed
 
 
