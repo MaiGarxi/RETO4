@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>hotel,String localidad,JLabel precio) {
-        
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>hotel,String localidad, JLabel precio) {
+       
         Hotel aux = new Hotel();
         aux.obtener_hoteles(hotel,localidad);
         
@@ -40,14 +40,11 @@ public class ControladorLista {
     
         
         hotel.addActionListener (new ActionListener () {
-    public void actionPerformed(ActionEvent e) {
-       precio.setText(String.valueOf(100));
-    }
-});
+            public void actionPerformed(ActionEvent e) {
+            precio.setText(String.valueOf(100 + " €"));
+            }
+        });
            /*Eventos 
-        
-        */
-           
-           
+        */                 
     }
 }
