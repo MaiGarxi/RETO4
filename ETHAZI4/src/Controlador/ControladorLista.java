@@ -18,7 +18,7 @@ public class ControladorLista {
         */
         reservar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {  
-             System.out.println(   aux.Crear_array(hotel));
+             System.out.println(aux.Crear_array(hotel).get(0).getCod_hotel());
                         
               PasarPagina pasar= new PasarPagina(); 
               pasar.classListaaPago();
