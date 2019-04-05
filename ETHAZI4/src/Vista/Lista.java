@@ -10,7 +10,7 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,7 +34,7 @@ public class Lista extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 130, 60));
 
         hotel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        getContentPane().add(hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 280, 30));
+        getContentPane().add(hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 280, 50));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));

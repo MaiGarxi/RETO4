@@ -12,8 +12,6 @@ public class Bienvenida extends javax.swing.JFrame {
      
         ControladorBienvenida Controlador = new ControladorBienvenida(jButton1);
     }
-    
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

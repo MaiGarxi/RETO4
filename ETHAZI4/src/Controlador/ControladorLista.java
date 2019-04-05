@@ -6,10 +6,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>hotel,String localidad) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>hotel,String localidad, JLabel precio) {
         
         Hotel aux = new Hotel();
         aux.obtener_hoteles(hotel,localidad);
@@ -33,9 +34,6 @@ public class ControladorLista {
         }); 
         
            /*Eventos 
-        
-        */
-           
-           
+        */                 
     }
 }
