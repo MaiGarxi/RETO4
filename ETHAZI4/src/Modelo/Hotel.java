@@ -4,7 +4,9 @@ package Modelo;
 import bbdd.Consultas;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
+import javax.swing.JList;
 
 public class Hotel {
 
@@ -86,34 +88,70 @@ public class Hotel {
     return hoteles;
     }
     
-    public ArrayList <Hotel>  ordenar_hoteles(ArrayList<Hotel> hoteles)
+    public ArrayList <String>  ordenar_destinos(ArrayList<String> Destinos,String localidad)
     {       
-    return hoteles;
+        String auxe;
+    
+          
+            for(int f=0;f<Destinos.size();f++)
+            {
+                 
+                if(Destinos.get(f).equals(localidad))
+                {
+                    auxe=Destinos.get(f);
+                    Destinos.set(f,Destinos.get(0));
+                    Destinos.set(0,auxe);
+                    
+                }
+            }
+        
+    return Destinos;
     } 
        
-    public void obtener_destinos(JComboBox<String> destino)
+    public void obtener_destinos(JComboBox<String> destino,String locali)
     {      
+        
         Consultas dest = new Consultas ();      
-        for(int x=0;dest.ConsultaDestino().size()>x;x++)
+        Hotel ex=new Hotel();
+      
+        for(int x=0; ex.ordenar_destinos(dest.ConsultaDestino(), locali).size()>x;x++)
         {
-            destino.addItem(dest.ConsultaDestino().get(x));       
+           destino.addItem(ex.ordenar_destinos(dest.ConsultaDestino(), locali).get(x));       
         }      
-    }  
+    }
+   
+     public void obtener_destinos(JComboBox<String> destino)
+    {
+        destino.removeAllItems();
+        Consultas dest = new Consultas ();      
+        Hotel ex=new Hotel();
+        for(int x=0; dest.ConsultaDestino().size()>x;x++)
+        {
+            destino.addItem( dest.ConsultaDestino().get(x));       
+        }      
+    }
     
-    public void obtener_hoteles(JComboBox<String> hotel,String localidad)
+    
+
+    
+    public void obtener_hoteles(JList<String> hotel,String localidad)
     {           
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+        hotel.setModel(listModel);
         Consultas dest = new Consultas ();    
         System.out.println(localidad);
         for(int x=0;dest.ConsultaHoteles_Nombre(localidad).size()>x;x++)
         {          
-            hotel.addItem(dest.ConsultaHoteles_Nombre(localidad).get(x));       
+            
+            listModel.addElement(dest.ConsultaHoteles_Nombre(localidad).get(x));       
         }      
     }
     
-    public ArrayList<reserva> Crear_array(JComboBox<String>hotel)
+    public ArrayList<reserva> Crear_array(JList<String> hotel)
     {
         ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
-        String Des= (String) hotel.getSelectedItem();
+        String Des= (String) hotel.getSelectedValue();
         System.out.println(Des);
         Consultas dest = new Consultas (); 
         for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)

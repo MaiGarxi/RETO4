@@ -9,30 +9,60 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>hotel,String localidad, JLabel precio) {
-       
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1) {
+      
+/*Apenas de inicia el controlador*/
+        
         Hotel aux = new Hotel();
-        aux.obtener_hoteles(hotel,localidad);
+        aux.obtener_hoteles(jList1,localidad);
+         aux.obtener_destinos(Destinos,localidad);
+         
+  /*Apenas de inicia el controlador*/      
         
            /*Eventos 
         */
+           
+           
+           /*Cambiar el precio*/
+                   jList1.addListSelectionListener(new ListSelectionListener() {
+      public void valueChanged(ListSelectionEvent evt) {
+        //System.out.println(jList1.getSelectedValue());
+        precio.setText(String.valueOf(100 + " €"));
+      }
+      });
+            /*Cambiar el precio*/
+            
+            
+                /*Reservar*/
         reservar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {  
-             System.out.println(aux.Crear_array(hotel).get(0).getCod_hotel());
+            
                         
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classListaaPago(aux.Crear_array(hotel));
+              pasar.classListaaPago(aux.Crear_array(jList1));
             }
         });  
+                  /*Reservar*/
+
         
-        hotel.addActionListener (new ActionListener () {
+  
+                    /*Cambiar Destinos*/
+       Destinos.addActionListener (new ActionListener () {
             public void actionPerformed(ActionEvent e) {
-            precio.setText(String.valueOf(100 + " €"));
+             String localidad= (String) Destinos.getSelectedItem();
+             Destinos.removeAllItems();
+             aux.obtener_hoteles(jList1,localidad);
+               aux.obtener_destinos(Destinos,localidad);
             }
         });
+                    /*Cambiar Destinos*/
+       
            /*Eventos 
         */                 
     }
