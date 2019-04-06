@@ -15,10 +15,10 @@ import javax.swing.event.ListSelectionListener;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel jLabel5) {
       
 /*Apenas de inicia el controlador*/
-        
+        jLabel5.setVisible(false);
         Hotel aux = new Hotel();
         aux.obtener_hoteles(jList1,localidad);
          aux.obtener_destinos(Destinos,localidad);
@@ -33,6 +33,7 @@ public class ControladorLista {
                    jList1.addListSelectionListener(new ListSelectionListener() {
       public void valueChanged(ListSelectionEvent evt) {
         //System.out.println(jList1.getSelectedValue());
+         jLabel5.setVisible(false);
         precio.setText(String.valueOf(100 + " €"));
       }
       });
@@ -41,11 +42,20 @@ public class ControladorLista {
             
                 /*Reservar*/
         reservar.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {  
+            public void mouseClicked(MouseEvent e) { 
+            
+            if(jList1.isSelectionEmpty())
+            {
+             jLabel5.setVisible(true);
+            }
+            else{
+             PasarPagina pasar= new PasarPagina(); 
+              pasar.classListaaPago(aux.Crear_array(jList1));
+            }
+            
             
                         
-              PasarPagina pasar= new PasarPagina(); 
-              pasar.classListaaPago(aux.Crear_array(jList1));
+            
             }
         });  
                   /*Reservar*/

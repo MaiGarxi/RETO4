@@ -10,7 +10,7 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,jLabel5);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -26,6 +26,7 @@ public class Lista extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,7 +44,7 @@ public class Lista extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 100, 40));
 
         precio.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 110, 40));
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 130, 40));
 
         reservar.setBackground(new java.awt.Color(51, 51, 51));
         reservar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -89,6 +90,11 @@ public class Lista extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 340, 410));
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel5.setText("Debes Escoger un Hotel");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 590, 200, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
 
@@ -100,7 +106,7 @@ public class Lista extends javax.swing.JFrame {
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
-    this.setVisible(false);  
+    
     }//GEN-LAST:event_reservarActionPerformed
 
 
@@ -111,6 +117,7 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     public javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
