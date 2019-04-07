@@ -10,7 +10,9 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
 
-        ControladorDestino Controlador = new ControladorDestino(buscar,destino);
+
+
+         ControladorDestino Controlador = new ControladorDestino(buscar,destino);
     }    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,7 +69,7 @@ public class Destino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-    
+    setVisible(false);
     }//GEN-LAST:event_buscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

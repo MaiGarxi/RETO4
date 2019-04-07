@@ -7,7 +7,6 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 public class Pago extends javax.swing.JFrame {
     
@@ -141,11 +140,6 @@ public class Pago extends javax.swing.JFrame {
         confirmar.setForeground(new java.awt.Color(255, 255, 255));
         confirmar.setText("CONFIRMAR");
         confirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        confirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmarActionPerformed(evt);
-            }
-        });
         getContentPane().add(confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 170, 90));
 
         totalAPagar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -203,12 +197,8 @@ public class Pago extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-    
+
     }//GEN-LAST:event_cancelarActionPerformed
-
-    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-
-    }//GEN-LAST:event_confirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

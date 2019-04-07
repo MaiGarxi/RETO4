@@ -1,8 +1,6 @@
 
 package Vista;
 
-import Controlador.ControladorBienvenida;
-
 public class Bienvenida extends javax.swing.JFrame {
 
     public Bienvenida() {
@@ -10,7 +8,6 @@ public class Bienvenida extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
      
-        ControladorBienvenida Controlador = new ControladorBienvenida(jButton1);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -61,7 +58,8 @@ public class Bienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
+    Controlador.PasarPagina.classBienvenidaaDestino();
+    dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

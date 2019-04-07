@@ -68,19 +68,17 @@ public class reserva {
    }
    
    public String crear_txt(ArrayList<reserva> reservas)
-   {
-      
-          try{
-                 String ruta= "src\\modelo\\Reserva.txt"; 
-              FileWriter archivo = new FileWriter(ruta);
-           for(int x=0;x<reservas.size();x++)
-        {
-    
+   {      
+        try{
+            String ruta= "src\\modelo\\Reserva.txt"; 
+            FileWriter archivo = new FileWriter(ruta);
+            for(int x=0;x<reservas.size();x++)
+        {    
           String mensaje =         " \n"
-				+"                                                              S.L.                        "+" \t\n"
+				+"                                                             BIDAI-ON S.L.                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
-				+" -Número de Reservas Realizadas"+(reservas.size())+"  \t \n\n"  
+				+" -Número de Reservas Realizadas: "+(reservas.size())+"  \t \n\n"  
 				+" -Còdigo de Reserva : " +reservas.get(x).cod_reserva+" \t\t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
@@ -89,16 +87,11 @@ public class reserva {
 				
 				+" -Precio final: " +reservas.get(x).calcular_total_pagar(reservas)+" €";
                                 archivo.write(mensaje);
-   }
-           archivo.close();
-     return "Archivo Creado Con Exito";         
-   }catch(IOException e){
-       return  "Hubo un error";
-       
-   }
-          
-   }
-   
-
-    
+        }
+            archivo.close();
+            return "Archivo Creado Con Exito";         
+        }catch(IOException e){
+           return  "Hubo un error";       
+        }         
+   }   
 }
