@@ -10,14 +10,14 @@ import Vista.Pago;
 import java.util.ArrayList;
 
 
-public class PasarPagina {
-     
+public class PasarPagina{
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE BIENVENIDA A DESTINO
-    public void classBienvenidaaDestino(){
+    public static void classBienvenidaaDestino(){
         //SE CREA EL OBJ DE LA CLASE DESTINO
         Destino obj= new Destino();
-        obj.setVisible(true);  
+        obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
@@ -59,5 +59,5 @@ public class PasarPagina {
         //SE CREA EL OBJ DE LA CLASE BIENVENIDA
         Bienvenida obj= new Bienvenida();
         obj.setVisible(true); 
-    }     
+    }  
 }

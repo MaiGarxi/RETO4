@@ -90,27 +90,21 @@ public class Hotel {
     
     public ArrayList <String>  ordenar_destinos(ArrayList<String> Destinos,String localidad)
     {       
-        String auxe;
-    
-          
+        String auxe;              
             for(int f=0;f<Destinos.size();f++)
-            {
-                 
+            {                 
                 if(Destinos.get(f).equals(localidad))
                 {
                     auxe=Destinos.get(f);
                     Destinos.set(f,Destinos.get(0));
-                    Destinos.set(0,auxe);
-                    
+                    Destinos.set(0,auxe);                    
                 }
-            }
-        
+            }        
     return Destinos;
     } 
        
     public void obtener_destinos(JComboBox<String> destino,String locali)
-    {      
-        
+    {              
         Consultas dest = new Consultas ();      
         Hotel ex=new Hotel();
       
@@ -130,10 +124,7 @@ public class Hotel {
             destino.addItem( dest.ConsultaDestino().get(x));       
         }      
     }
-    
-    
-
-    
+   
     public void obtener_hoteles(JList<String> hotel,String localidad)
     {           
         DefaultListModel listModel;
@@ -142,8 +133,7 @@ public class Hotel {
         Consultas dest = new Consultas ();    
         System.out.println(localidad);
         for(int x=0;dest.ConsultaHoteles_Nombre(localidad).size()>x;x++)
-        {          
-            
+        {                      
             listModel.addElement(dest.ConsultaHoteles_Nombre(localidad).get(x));       
         }      
     }

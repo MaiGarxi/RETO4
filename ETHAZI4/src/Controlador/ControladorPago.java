@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 public class ControladorPago {
@@ -48,7 +47,7 @@ public class ControladorPago {
                         con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
                     }
                     reserva a= new reserva();
-                   System.out.println( a.crear_txt(reservas));
+                    System.out.println( a.crear_txt(reservas));
                 }
                 if (pago2>valor){
                     double cambio;
@@ -61,6 +60,8 @@ public class ControladorPago {
                     }                    
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
+                    PasarPagina pasar= new PasarPagina(); 
+                    pasar.classListaaPago(reservas);
                 }                  
                 }
         });
@@ -283,5 +284,4 @@ public class ControladorPago {
             
         return cambio;
      }
-
 }
