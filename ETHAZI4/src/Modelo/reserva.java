@@ -79,10 +79,10 @@ public class reserva {
 				+" **********************************************************************************************************************"+" \t\n"
 				
 				+" -Número de Reservas Realizadas: "+(reservas.size())+"  \t \n\n"  
-				+" -Còdigo de Reserva : " +reservas.get(x).cod_reserva+" \t\t\n"
+				+" -Código de Reserva : " +reservas.get(x).cod_reserva+" \t\t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
-				+" -Còdigo del Hotel Reservado: " + reservas.get(x).cod_hotel+"  \t\n" 
+				+" -Código del Hotel Reservado: " + reservas.get(x).cod_hotel+"  \t\n" 
 				+" **********************************************************************************************************************"+" \t\n"
 				
 				+" -Precio final: " +reservas.get(x).calcular_total_pagar(reservas)+" €";

@@ -1,27 +1,43 @@
 
 package Controlador;
 
+import Modelo.Hotel;
 import Modelo.reserva;
 import bbdd.Consultas;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 
 public class ControladorPago {
     public double cambio=0, pago=0;
     public double billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public double valor, pago2;
+    public ArrayList<reserva> reservax;
 
-    public ControladorPago(ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar/*,JList<String> lista*/) {
+    public ControladorPago( JList<String> Lista, ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar) {
         
         reserva reserv = new reserva();
         totalAPagar.setText(String.valueOf(reserv.calcular_total_pagar(reservas)+" €"));
         valor = reserv.calcular_total_pagar(reservas);
-
+        
+        /* MOSTRAR RESERVAS*/
+        reservax =new ArrayList();
+        DefaultListModel modelo = new DefaultListModel();
+        Lista.setModel(modelo);
+        for(int x=0;x<reservas.size();x++)
+        {
+        reservax.add(reservas.get(x));       
+        modelo.addElement((x+1)+")  Codigo Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Codigo Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Precio: "+reservax.get(x).getPrecio()+" €");              
+        }
+        
         cancelar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
@@ -283,5 +299,5 @@ public class ControladorPago {
             JOptionPane.showMessageDialog(null,Change);
             
         return cambio;
-     }
+     }   
 }
