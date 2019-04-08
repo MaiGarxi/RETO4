@@ -2,8 +2,12 @@
 package Modelo;
 
 import bbdd.Consultas;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
@@ -88,9 +92,12 @@ public class Hotel {
     return hoteles;
     }
     
-    public ArrayList <String>  ordenar_destinos(ArrayList<String> Destinos,String localidad)
+    public ArrayList <String>  ordenar_destinos(ArrayList <String> Destinos,String localidad)
     {       
-        String auxe;              
+      
+            
+          
+            String auxe;              
             for(int f=0;f<Destinos.size();f++)
             {                 
                 if(Destinos.get(f).equals(localidad))
@@ -99,58 +106,83 @@ public class Hotel {
                     Destinos.set(f,Destinos.get(0));
                     Destinos.set(0,auxe);                    
                 }
-            }        
-    return Destinos;
+            }
+            return Destinos;
+  
+        
     } 
        
     public void obtener_destinos(JComboBox<String> destino,String locali)
     {              
-        Consultas dest = new Consultas ();      
-        Hotel ex=new Hotel();
-      
-        for(int x=0; ex.ordenar_destinos(dest.ConsultaDestino(), locali).size()>x;x++)
-        {
-           destino.addItem(ex.ordenar_destinos(dest.ConsultaDestino(), locali).get(x));       
-        }      
+        try {
+            Consultas dest = new Consultas ();
+            Hotel ex=new Hotel();
+            ArrayList<String> Destinos = new ArrayList<String>();
+            ResultSet resultado=dest.ConsultaDestino();
+              while (resultado.next())
+              {                 
+                Destinos.add(resultado.getString("Localidad"));
+               }
+            for (int x=0;Destinos.size()>x;x++)
+            {
+                destino.addItem(ex.ordenar_destinos(Destinos,locali).get(x));      
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
    
      public void obtener_destinos(JComboBox<String> destino)
     {
-        destino.removeAllItems();
-        Consultas dest = new Consultas ();      
-        Hotel ex=new Hotel();
-        for(int x=0; dest.ConsultaDestino().size()>x;x++)
-        {
-            destino.addItem( dest.ConsultaDestino().get(x));       
-        }      
+        try {
+            destino.removeAllItems();
+            Consultas dest = new Consultas ();
+            ResultSet resultado=dest.ConsultaDestino();
+            
+            while (resultado.next())
+            {
+                destino.addItem(resultado.getString("Localidad"));
+            }      
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
    
-    public void obtener_hoteles(JList<String> hotel,String localidad)
+    public void obtener_hoteles(JList<String> hotel,String localidad) 
     {           
-        DefaultListModel listModel;
-        listModel = new DefaultListModel();
-        hotel.setModel(listModel);
-        Consultas dest = new Consultas ();    
-        System.out.println(localidad);
-        for(int x=0;dest.ConsultaHoteles_Nombre(localidad).size()>x;x++)
-        {                      
-            listModel.addElement(dest.ConsultaHoteles_Nombre(localidad).get(x));       
-        }      
+        try {
+            DefaultListModel listModel;
+            listModel = new DefaultListModel();
+            hotel.setModel(listModel);
+            Consultas dest = new Consultas ();
+            ResultSet resultado=dest.ConsultaHoteles_Nombre(localidad);                
+            while (resultado.next()){
+                listModel.addElement(resultado.getString("Nombre"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No existe ningùn Hotel");
+        }
     }
     
     public ArrayList<reserva> Crear_array(JList<String> hotel)
     {
-        ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
-        String Des= (String) hotel.getSelectedValue();
-        System.out.println(Des);
-        Consultas dest = new Consultas (); 
-        for(int x=0;dest.hotel_para_reservar(Des).size()>x;x++)
-        {
+        try {
+            ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
+            String Des= (String) hotel.getSelectedValue();
             System.out.println(Des);
-            reserva reser= new reserva( Integer.parseInt(dest.hotel_para_reservar(Des).get(x)),(x+1),100.0);
-            hoteles_reserva.add(reser);
-        } 
-           return hoteles_reserva; 
+            Consultas dest = new Consultas ();
+            ResultSet resultado = dest.hotel_para_reservar(Des);
+            for(int x=0;resultado.next();x++)
+            {
+                reserva reser= new reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0);
+                hoteles_reserva.add(reser);
+            } 
+            return hoteles_reserva;
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
     
 }

@@ -2,10 +2,11 @@
 package Vista;
 
 import Controlador.ControladorLista;
+import java.sql.SQLException;
 
 public class Lista extends javax.swing.JFrame {
 
-    public Lista(String localidad) {
+    public Lista(String localidad) throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
