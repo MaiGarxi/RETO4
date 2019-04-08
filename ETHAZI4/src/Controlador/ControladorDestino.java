@@ -5,7 +5,10 @@ import Modelo.Hotel;
 import com.toedter.calendar.JCalendar;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -33,8 +36,12 @@ public class ControladorDestino {
         */
         buscar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
-              pasar.classDestinoaLista((String) destino.getSelectedItem());
+                try {
+                    PasarPagina pasar= new PasarPagina();
+                    pasar.classDestinoaLista((String) destino.getSelectedItem());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }); 
         

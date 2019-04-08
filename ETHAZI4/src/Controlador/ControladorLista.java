@@ -49,7 +49,7 @@ public class ControladorLista {
             }
             else{
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.classListaaPago(aux.Crear_array(jList1));
+                pasar.classListaaPago(aux.Crear_array(jList1,"Entrada","Salida"));
             }            
             }
             });  

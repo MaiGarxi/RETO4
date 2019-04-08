@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.ControladorNoRegistrado;
+
 public class NoRegistrado extends javax.swing.JFrame {
 
     public NoRegistrado() {
@@ -7,6 +9,8 @@ public class NoRegistrado extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
+        
+        ControladorNoRegistrado Controlador = new ControladorNoRegistrado(H,M,Registrar,apellidos,contraseña,dni,fecha_nac,nombre,password,contraseña);
     }
     
 
@@ -45,6 +49,11 @@ public class NoRegistrado extends javax.swing.JFrame {
         BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         BotonAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAnteriorActionPerformed(evt);
+            }
+        });
         getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 100, 70));
 
         jlabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -119,6 +128,11 @@ public class NoRegistrado extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
+    Controlador.PasarPagina.classBienvenidaaLogin();
+    dispose();
+    }//GEN-LAST:event_BotonAnteriorActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
