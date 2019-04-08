@@ -7,19 +7,19 @@ import javax.swing.JOptionPane;
 
 public class Usuario {
     
-    public String dni,nombre,apellidos,contraseña, sexo, fecha;
+    public String dni,nombre,apellidos,contraseña, sexo, fecha, administrador;
 
     public Usuario() {
     }
 
-    public Usuario(String dni,String nombre,String apellidos,String contraseña, String fecha, String sexo)
-    {
-    this.dni=dni;
-    this.nombre=nombre;
-    this.apellidos=apellidos;
-    this.contraseña=contraseña;
-    this.fecha=fecha;
-    this.sexo=sexo;
+    public Usuario(String dni, String nombre, String apellidos, String contraseña, String sexo, String fecha, String administrador) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.contraseña = contraseña;
+        this.sexo = sexo;
+        this.fecha = fecha;
+        this.administrador = administrador;
     }
 
     public String getDni() {
@@ -69,7 +69,17 @@ public class Usuario {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+    public String getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(String administrador) {
+        this.administrador = administrador;
+    }
+
        
+    
     public void Login(String us, String pass){
         
         if ( (us == null) || (us.equals("")) )

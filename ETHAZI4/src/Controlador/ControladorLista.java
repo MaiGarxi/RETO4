@@ -2,11 +2,13 @@
 package Controlador;
 
 import Modelo.Hotel;
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -16,7 +18,7 @@ import javax.swing.event.ListSelectionListener;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel jLabel5) throws SQLException {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel jLabel5, JDateChooser entrada, JDateChooser salida) throws SQLException {
       
     /*Apenas de inicia el controlador*/
     
@@ -25,7 +27,13 @@ public class ControladorLista {
         aux.obtener_hoteles(jList1,localidad);
         aux.obtener_destinos(Destinos,localidad);
          
-    /*Apenas de inicia el controlador*/      
+    /*Apenas de inicia el controlador*/    
+    
+        /*String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(entrada.getDate());
+        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(salida.getDate());*/
+        entrada.setMinSelectableDate(new Date());
+        salida.setMinSelectableDate(new Date());
+        salida.setDate(entrada.getDate());
         
            /*Eventos 
         */                     
