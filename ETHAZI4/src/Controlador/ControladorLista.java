@@ -33,10 +33,7 @@ public class ControladorLista {
            /*Eventos 
         */     
            
-           /*Fechas*/ 
-
-        
-        
+           /*Fechas*/        
         entrada.setMinSelectableDate(new Date());
         salida.setMinSelectableDate(new Date());
         entrada.addPropertyChangeListener((PropertyChangeEvent evt) -> {
