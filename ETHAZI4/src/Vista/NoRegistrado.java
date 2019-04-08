@@ -46,7 +46,7 @@ public class NoRegistrado extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("DATOS USUARIO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 210, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 210, 30));
 
         BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
@@ -56,84 +56,84 @@ public class NoRegistrado extends javax.swing.JFrame {
                 BotonAnteriorActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 140, 80));
+        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 140, 80));
 
         jlabel2.setBackground(new java.awt.Color(255, 255, 255));
         jlabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jlabel2.setForeground(new java.awt.Color(0, 0, 0));
         jlabel2.setText("NOMBRE:");
-        getContentPane().add(jlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
+        getContentPane().add(jlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
         jlabel1.setBackground(new java.awt.Color(255, 255, 255));
         jlabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jlabel1.setForeground(new java.awt.Color(0, 0, 0));
         jlabel1.setText("DNI:");
-        getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 40, 20));
+        getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 40, 20));
 
         Registrar.setBackground(new java.awt.Color(51, 51, 51));
         Registrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         Registrar.setForeground(new java.awt.Color(255, 255, 255));
         Registrar.setText("REGISTRAR");
         Registrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 140, 60));
+        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 140, 60));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("APELLIDOS:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
 
         jlabel3.setBackground(new java.awt.Color(255, 255, 255));
         jlabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jlabel3.setForeground(new java.awt.Color(0, 0, 0));
         jlabel3.setText("SEXO:");
-        getContentPane().add(jlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 50, -1));
+        getContentPane().add(jlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 50, -1));
 
         pass.setBackground(new java.awt.Color(255, 255, 255));
         pass.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         pass.setForeground(new java.awt.Color(0, 0, 0));
         pass.setText("CONTRASEÑA:");
-        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, -1, -1));
+        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
         gruposexo.add(H);
         H.setText("Hombre");
-        getContentPane().add(H, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
+        getContentPane().add(H, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, -1));
 
         gruposexo.add(M);
         M.setText("Mujer");
-        getContentPane().add(M, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
-        getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 130, -1));
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 100, -1));
-        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 130, -1));
+        getContentPane().add(M, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
+        getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 130, -1));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 100, -1));
+        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 130, -1));
 
         fecha_nac.setDateFormatString("yyyy-MM-dd");
-        getContentPane().add(fecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 100, 20));
+        getContentPane().add(fecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 100, 20));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 180, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 180, -1));
 
         contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 130, -1));
+        getContentPane().add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("REPETIR CONTRASEÑA:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 130, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, -1, -1));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 130, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
     PasarPagina pasar = new PasarPagina();
-    pasar.Bienvenida();
+    pasar.Login();
     dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
   

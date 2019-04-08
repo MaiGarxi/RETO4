@@ -132,14 +132,14 @@ public class Pago extends javax.swing.JFrame {
         cancelar.setForeground(new java.awt.Color(255, 255, 255));
         cancelar.setText("CANCELAR");
         cancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 150, 70));
+        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, 150, 70));
 
         confirmar.setBackground(new java.awt.Color(51, 51, 51));
         confirmar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         confirmar.setForeground(new java.awt.Color(255, 255, 255));
         confirmar.setText("CONFIRMAR");
         confirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, 150, 70));
+        getContentPane().add(confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 650, 150, 70));
 
         totalAPagar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(totalAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 80, 30));
@@ -187,12 +187,12 @@ public class Pago extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("RESERVA:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, 40));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, 40));
 
         Lista.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(Lista);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 610, 120));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 680, 120));
 
         jButton6.setBackground(new java.awt.Color(204, 0, 51));
         jButton6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -204,10 +204,10 @@ public class Pago extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 120, 30));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
 
         jlabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
-        getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
+        getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
