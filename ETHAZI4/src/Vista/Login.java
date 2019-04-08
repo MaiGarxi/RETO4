@@ -1,6 +1,10 @@
 package Vista;
 
 import Controlador.ControladorUsuario;
+import Controlador.PasarPagina;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
     
@@ -56,13 +60,18 @@ public class Login extends javax.swing.JFrame {
                 BotonAnteriorActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 120, 80));
+        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 130, 80));
 
         conectar.setBackground(new java.awt.Color(51, 51, 51));
         conectar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         conectar.setForeground(new java.awt.Color(255, 255, 255));
         conectar.setText("CONECTAR");
         conectar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        conectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conectarActionPerformed(evt);
+            }
+        });
         getContentPane().add(conectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 160, 80));
 
         Nuevousuario.setBackground(new java.awt.Color(51, 51, 51));
@@ -101,9 +110,20 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-    Controlador.PasarPagina.classLoginaBienvenida();
+    PasarPagina pasar = new PasarPagina();
+    pasar.Bienvenida();
     dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
+
+    private void conectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectarActionPerformed
+    PasarPagina pasar = new PasarPagina();
+        try {
+            pasar.Lista();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    dispose();
+    }//GEN-LAST:event_conectarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;

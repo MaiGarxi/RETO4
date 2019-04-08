@@ -1,6 +1,7 @@
 
 package Vista;
 
+import Controlador.PasarPagina;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -16,7 +17,8 @@ public class Despedida extends javax.swing.JFrame {
         task = new TimerTask() {
             @Override
             public void run() {
-                Controlador.PasarPagina.classDespedidaABienvenida();
+                PasarPagina pasar = new PasarPagina();
+                pasar.Bienvenida();
                 dispose(); 
             }
         };

@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import Modelo.Hotel;
@@ -57,7 +56,7 @@ public class ControladorLista {
             }
             else{
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.classListaaPago(aux.Crear_array(jList1,"Entrada","Salida"));
+                pasar.Pago(aux.Crear_array(jList1,"Entrada","Salida"));
             }            
             }
             });  
@@ -71,7 +70,7 @@ public class ControladorLista {
                 String localidad= (String) Destinos.getSelectedItem();
                 Destinos.removeAllItems();
                 aux.obtener_hoteles(jList1,localidad);
-               aux.obtener_destinos(Destinos,localidad);
+                aux.obtener_destinos(Destinos,localidad);
             }
         });
             /*Cambiar Destinos*/
@@ -81,7 +80,7 @@ public class ControladorLista {
         anterior.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) { 
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.classListaaLogin();
+                pasar.Login();
             }
             });  
     }

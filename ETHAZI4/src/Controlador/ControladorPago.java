@@ -43,7 +43,7 @@ public class ControladorPago {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
                 try {                                
-                    pasar.classPagoaLista();
+                    pasar.Lista();
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -82,7 +82,7 @@ public class ControladorPago {
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                     PasarPagina pasar= new PasarPagina(); 
-                    pasar.classListaaPago(reservas);
+                    pasar.Pago(reservas);
                 }                  
                 }
         });

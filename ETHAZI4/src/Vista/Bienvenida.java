@@ -1,13 +1,14 @@
 
 package Vista;
 
+import Controlador.PasarPagina;
+
 public class Bienvenida extends javax.swing.JFrame {
 
     public Bienvenida() {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable (false);
-     
+        setResizable (false);     
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -58,7 +59,8 @@ public class Bienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Controlador.PasarPagina.classBienvenidaaLogin();
+    PasarPagina pasar = new PasarPagina();
+    pasar.Login();
     dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

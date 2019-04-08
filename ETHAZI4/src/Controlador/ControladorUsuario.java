@@ -21,7 +21,7 @@ public class ControladorUsuario{
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
                 try {
-                    pasar.classLoginaLista();
+                    pasar.Lista();
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -31,14 +31,14 @@ public class ControladorUsuario{
         actualizar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classLoginaActualizar();
+              pasar.Actualizar();
             }
         }); 
         
         Nuevousuario.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classLoginaNew();
+              pasar.New();
             }
         }); 
         

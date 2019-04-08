@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.ControladorLista;
+import Controlador.PasarPagina;
 import java.sql.SQLException;
 
 public class Lista extends javax.swing.JFrame {
@@ -49,7 +50,7 @@ public class Lista extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("HOTEL");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 130, 60));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 130, 60));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -64,23 +65,28 @@ public class Lista extends javax.swing.JFrame {
         reservar.setForeground(new java.awt.Color(255, 255, 255));
         reservar.setText("RESERVAR");
         reservar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(reservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 620, 170, 80));
+        getContentPane().add(reservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 620, 140, 80));
 
         anterior.setBackground(new java.awt.Color(51, 51, 51));
         anterior.setForeground(new java.awt.Color(51, 51, 51));
         anterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 160, 80));
+        anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anteriorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 140, 80));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hotel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jPanel1.add(hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 260, 40));
+        jPanel1.add(hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 260, 40));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Destino");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 160));
 
@@ -108,21 +114,21 @@ public class Lista extends javax.swing.JFrame {
 
         individual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         individual.setText("INDIVIDUAL");
-        getContentPane().add(individual, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 110, -1));
+        getContentPane().add(individual, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 110, -1));
 
         infantil.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         infantil.setText("INFANTIL");
-        getContentPane().add(infantil, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 110, -1));
+        getContentPane().add(infantil, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 110, -1));
 
         doble.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         doble.setText("DOBLE");
         doble.setActionCommand("");
-        getContentPane().add(doble, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 110, -1));
+        getContentPane().add(doble, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 110, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("TIPO DE HABITACIÓN:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 160, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 150, 30));
 
         jButton6.setBackground(new java.awt.Color(204, 0, 51));
         jButton6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -134,26 +140,32 @@ public class Lista extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("ENTRADA");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
         entrada.setDateFormatString("yyyy-MM-dd");
         entrada.setDoubleBuffered(false);
-        getContentPane().add(entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 120, 40));
+        getContentPane().add(entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 130, 40));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("SALIDA");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, -1));
 
         salida.setDateFormatString("yyyy-MM-dd");
         salida.setMinSelectableDate(entrada.getDate());
-        getContentPane().add(salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 120, 40));
+        getContentPane().add(salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 130, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
+    PasarPagina pasar = new PasarPagina();
+    pasar.Login();
+    dispose();
+    }//GEN-LAST:event_anteriorActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;

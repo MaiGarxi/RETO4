@@ -16,80 +16,52 @@ import java.util.ArrayList;
 public class PasarPagina{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE BIENVENIDA A LOGIN
-    public static void classBienvenidaaLogin(){
+    //FUNCION PARA PASAR A BIENVENIDA
+    public void Bienvenida(){
+        //SE CREA EL OBJ DE LA CLASE BIENVENIDA
+        Bienvenida obj= new Bienvenida();
+        obj.setVisible(true); 
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR A LOGIN
+    public void Login(){
         //SE CREA EL OBJ DE LA CLASE LOGIN
         Login obj= new Login();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE BIENVENIDA A LOGIN
-    public static void classLoginaBienvenida(){
-        //SE CREA EL OBJ DE LA CLASE BIENVENIDA
-        Bienvenida obj= new Bienvenida();
-        obj.setVisible(true); 
-    } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE LOGIN A ACTUALIZAR
-    public void classLoginaActualizar(){
+    //FUNCION PARA PASAR A ACTUALIZAR
+    public void Actualizar(){
         //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
         Actualizar obj= new Actualizar();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE LOGIN A NUEVO USUARIO
-    public void classLoginaNew(){
-        //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
+    //FUNCION PARA PASAR A NUEVO USUARIO
+    public void New(){
+        //SE CREA EL OBJ DE LA CLASE NUEVO USUARIO
         NoRegistrado obj= new NoRegistrado();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE LOGIN A ACTUALIZAR
-    public void classActualizaraLogin(){
-        //SE CREA EL OBJ DE LA CLASE LOGIN
-        Login obj= new Login();
-        obj.setVisible(true); 
-    } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE DESTINO A LISTA
-    public void classLoginaLista() throws SQLException {
+    //FUNCION PARA PASAR A LISTA
+    public void Lista() throws SQLException {
         //SE CREA EL OBJ DE LA CLASE LISTA
         Lista obj= new Lista();
         obj.setVisible(true); 
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE DESTINO A LISTA
-    public void classListaaLogin() {
-        //SE CREA EL OBJ DE LA CLASE LISTA
-        Login obj= new Login();
-        obj.setVisible(true); 
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE LISTA A PAGO
-    public void classListaaPago(ArrayList<reserva>reservas){
+    //FUNCION PARA PASAR A PAGO
+    public void Pago(ArrayList<reserva>reservas){
         //SE CREA EL OBJ DE LA CLASE PAGO
         Pago obj= new Pago(reservas);
         obj.setVisible(true); 
-    } 
+    }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE PAGO A LISTA
-    public void classPagoaLista() throws SQLException{
-        //SE CREA EL OBJ DE LA CLASE LISTA
-        Lista obj= new Lista();
-        obj.setVisible(true); 
-    } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE PAGO A DESPEDIDA
+    //FUNCION PARA PASAR A DESPEDIDA
     public void classPagoaDespedida(){
         //SE CREA EL OBJ DE LA CLASE DESPEDIDA
         Despedida obj= new Despedida();
         obj.setVisible(true); 
-    } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE DESPEDIDA A BIENVENIDA
-    public static void classDespedidaABienvenida(){
-        //SE CREA EL OBJ DE LA CLASE BIENVENIDA
-        Bienvenida obj= new Bienvenida();
-        obj.setVisible(true); 
-    }  
+    }   
 }
