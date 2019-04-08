@@ -18,14 +18,14 @@ import javax.swing.event.ListSelectionListener;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel jLabel5, JDateChooser entrada, JDateChooser salida) throws SQLException {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos, JLabel precio,JList<String> jList1,JLabel jLabel5, JDateChooser entrada, JDateChooser salida) throws SQLException {
       
     /*Apenas de inicia el controlador*/
     
         jLabel5.setVisible(false);
         Hotel aux = new Hotel();
-        aux.obtener_hoteles(jList1,localidad);
-        aux.obtener_destinos(Destinos,localidad);
+        /*aux.obtener_hoteles(jList1);*/
+        aux.obtener_destinos(Destinos);
          
     /*Apenas de inicia el controlador*/    
     
@@ -71,7 +71,7 @@ public class ControladorLista {
                 String localidad= (String) Destinos.getSelectedItem();
                 Destinos.removeAllItems();
                 aux.obtener_hoteles(jList1,localidad);
-                aux.obtener_destinos(Destinos,localidad);
+               aux.obtener_destinos(Destinos,localidad);
             }
         });
             /*Cambiar Destinos*/
@@ -81,7 +81,7 @@ public class ControladorLista {
         anterior.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) { 
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.classListaaDestino();
+                pasar.classListaaLogin();
             }
             });  
     }

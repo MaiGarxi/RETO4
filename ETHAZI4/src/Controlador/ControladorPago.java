@@ -5,7 +5,10 @@ import Modelo.reserva;
 import bbdd.Consultas;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -39,7 +42,11 @@ public class ControladorPago {
         cancelar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classListaaDestino();                                
+                try {                                
+                    pasar.classPagoaLista();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         

@@ -5,7 +5,6 @@ import Modelo.reserva;
 import Vista.Actualizar;
 import Vista.Bienvenida;
 import Vista.Despedida;
-import Vista.Destino;
 import Vista.Lista;
 import Vista.Login;
 import Vista.NoRegistrado;
@@ -52,25 +51,19 @@ public class PasarPagina{
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE LOGIN A DESTINO
-    public void classLoginaDestino(){
-        //SE CREA EL OBJ DE LA CLASE DESTINO
-        Destino obj= new Destino();
-        obj.setVisible(true); 
-    } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
-    public void classDestinoaLista(String localidad) throws SQLException{
+    public void classLoginaLista() throws SQLException {
         //SE CREA EL OBJ DE LA CLASE LISTA
-        Lista obj= new Lista(localidad);
+        Lista obj= new Lista();
         obj.setVisible(true); 
-    } 
+    }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
-    public void classListaaDestino(){
-        Destino obj= new Destino();
+    public void classListaaLogin() {
+        //SE CREA EL OBJ DE LA CLASE LISTA
+        Login obj= new Login();
         obj.setVisible(true); 
-    } 
+    }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LISTA A PAGO
     public void classListaaPago(ArrayList<reserva>reservas){
@@ -79,10 +72,10 @@ public class PasarPagina{
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE PAGO A DESPEDIDA
-    public void classPagoaDestino(){
-        //SE CREA EL OBJ DE LA CLASE DESTINO
-        Destino obj= new Destino();
+    //FUNCION PARA PASAR DE PAGO A LISTA
+    public void classPagoaLista() throws SQLException{
+        //SE CREA EL OBJ DE LA CLASE LISTA
+        Lista obj= new Lista();
         obj.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

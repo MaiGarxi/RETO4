@@ -6,12 +6,12 @@ import java.sql.SQLException;
 
 public class Lista extends javax.swing.JFrame {
 
-    public Lista(String localidad) throws SQLException {
+    public Lista() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,jLabel5,entrada,salida);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel, precio,jList1,jLabel5,entrada,salida);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

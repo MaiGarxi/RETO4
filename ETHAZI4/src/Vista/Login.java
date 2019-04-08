@@ -56,35 +56,35 @@ public class Login extends javax.swing.JFrame {
                 BotonAnteriorActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 100, 70));
+        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 120, 80));
 
         conectar.setBackground(new java.awt.Color(51, 51, 51));
         conectar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         conectar.setForeground(new java.awt.Color(255, 255, 255));
         conectar.setText("CONECTAR");
         conectar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(conectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 160, 80));
+        getContentPane().add(conectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 160, 80));
 
         Nuevousuario.setBackground(new java.awt.Color(51, 51, 51));
         Nuevousuario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         Nuevousuario.setForeground(new java.awt.Color(255, 255, 255));
         Nuevousuario.setText("NUEVO USUARIO");
         Nuevousuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(Nuevousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 160, 40));
+        getContentPane().add(Nuevousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 160, 40));
 
         delete.setBackground(new java.awt.Color(51, 51, 51));
         delete.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         delete.setForeground(new java.awt.Color(255, 255, 255));
         delete.setText("ELIMINAR USUARIO");
         delete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 160, 40));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 160, 40));
 
         actualizar.setBackground(new java.awt.Color(51, 51, 51));
         actualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         actualizar.setForeground(new java.awt.Color(255, 255, 255));
         actualizar.setText("ACTUALIZAR DATOS");
         actualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 160, 40));
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 160, 40));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
@@ -95,7 +95,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         jLabel1.setOpaque(true);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
