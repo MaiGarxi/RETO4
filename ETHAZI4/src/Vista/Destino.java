@@ -10,7 +10,7 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
 
-         ControladorDestino Controlador = new ControladorDestino(buscar,destino,entrada,salida);
+        ControladorDestino Controlador = new ControladorDestino(buscar,destino,entrada,salida);
     }    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -1,7 +1,6 @@
 
 package Controlador;
 
-import Modelo.Hotel;
 import Modelo.reserva;
 import bbdd.Consultas;
 import java.awt.event.MouseAdapter;
@@ -12,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 
 public class ControladorPago {

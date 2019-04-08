@@ -1,11 +1,15 @@
 package Vista;
 
+import Controlador.ControladorUsuario;
+
 public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
+        
+        ControladorUsuario Controlador = new ControladorUsuario(conectar,actualizar,Nuevousuario,delete,us,pass);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -18,7 +22,7 @@ public class Login extends javax.swing.JFrame {
         conectar = new javax.swing.JButton();
         Nuevousuario = new javax.swing.JButton();
         delete = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -47,6 +51,11 @@ public class Login extends javax.swing.JFrame {
         BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         BotonAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAnteriorActionPerformed(evt);
+            }
+        });
         getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 100, 70));
 
         conectar.setBackground(new java.awt.Color(51, 51, 51));
@@ -70,12 +79,12 @@ public class Login extends javax.swing.JFrame {
         delete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 160, 40));
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ACTUALIZAR DATOS");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 160, 40));
+        actualizar.setBackground(new java.awt.Color(51, 51, 51));
+        actualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        actualizar.setText("ACTUALIZAR DATOS");
+        actualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 160, 40));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
@@ -91,12 +100,17 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
+    Controlador.PasarPagina.classLoginaBienvenida();
+    dispose();
+    }//GEN-LAST:event_BotonAnteriorActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton Nuevousuario;
+    private javax.swing.JButton actualizar;
     private javax.swing.JButton conectar;
     private javax.swing.JButton delete;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
