@@ -23,15 +23,11 @@ public class ControladorLista {
     
         jLabel5.setVisible(false);
         Hotel aux = new Hotel();
-        /*aux.obtener_hoteles(jList1);*/
         aux.obtener_destinos(Destinos);
          
     /*Apenas de inicia el controlador*/    
-    
-        /*String fecha1 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(entrada.getDate());
-        String fecha2 = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(salida.getDate());*/
+
         entrada.setMinSelectableDate(new Date());
-        salida.setMinSelectableDate(new Date());
         salida.setDate(entrada.getDate());
         
            /*Eventos 

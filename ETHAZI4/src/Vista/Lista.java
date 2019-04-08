@@ -65,6 +65,11 @@ public class Lista extends javax.swing.JFrame {
         reservar.setForeground(new java.awt.Color(255, 255, 255));
         reservar.setText("RESERVAR");
         reservar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        reservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservarActionPerformed(evt);
+            }
+        });
         getContentPane().add(reservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 620, 140, 80));
 
         anterior.setBackground(new java.awt.Color(51, 51, 51));
@@ -135,6 +140,11 @@ public class Lista extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Cerrar Sesión");
         jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 120, 30));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -166,6 +176,16 @@ public class Lista extends javax.swing.JFrame {
     pasar.Login();
     dispose();
     }//GEN-LAST:event_anteriorActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    PasarPagina pasar = new PasarPagina();
+    pasar.Bienvenida();
+    dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
+
+    }//GEN-LAST:event_reservarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
