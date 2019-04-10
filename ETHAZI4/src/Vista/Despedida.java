@@ -2,8 +2,13 @@
 package Vista;
 
 import Controlador.PasarPagina;
+import static bbdd.Consultas.reg;
+import static ethazi4.ETHAZI4.consul;
+import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Despedida extends javax.swing.JFrame {
 
@@ -17,9 +22,18 @@ public class Despedida extends javax.swing.JFrame {
         task = new TimerTask() {
             @Override
             public void run() {
-                PasarPagina pasar = new PasarPagina();
-                pasar.Bienvenida();
-                dispose(); 
+                try {
+                    reg.close();
+                    if(reg.isClosed())
+                    {
+                    System.out.print("Conexion Cerrada");
+                    }
+                    PasarPagina pasar = new PasarPagina();
+                    pasar.Bienvenida(); 
+                    dispose();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Despedida.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         };
          timer.schedule(task, 5000); 

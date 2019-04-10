@@ -2,6 +2,7 @@ package Modelo;
 
 import Controlador.PasarPagina;
 import bbdd.Consultas;
+import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -86,8 +87,8 @@ public class Usuario {
             else if ( (pass != null) || us != null )
             {   
                 int count=0;
-                Consultas cone = new Consultas();
-                ResultSet resultado = cone.ObtenerUsuario(us, pass);
+                
+                ResultSet resultado = consul.ObtenerUsuario(us, pass);
                 while (resultado.next())
                 {
                     count++;
