@@ -12,7 +12,7 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,jLabel5);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,error);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -25,7 +25,7 @@ public class Lista extends javax.swing.JFrame {
         anterior = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jLabel5 = new javax.swing.JLabel();
+        error = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -78,10 +78,10 @@ public class Lista extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 390, 320));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel5.setText("Debes Escoger un Hotel");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 610, 200, 30));
+        error.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        error.setForeground(new java.awt.Color(255, 51, 51));
+        error.setText("Debes escoger un Hotel");
+        getContentPane().add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 610, 200, 30));
 
         jPanel2.setBackground(new java.awt.Color(102, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -158,6 +158,7 @@ public class Lista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
+    private javax.swing.JLabel error;
     public javax.swing.JComboBox<String> hotel;
     private javax.swing.JButton jButton6;
     private javax.swing.JCheckBox jCheckBox1;
@@ -172,7 +173,6 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     public javax.swing.JList<String> jList1;

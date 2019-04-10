@@ -10,7 +10,7 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida);
+        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,6 +36,7 @@ public class Destino extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        error = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,7 +78,7 @@ public class Destino extends javax.swing.JFrame {
         buscar.setForeground(new java.awt.Color(255, 255, 255));
         buscar.setText("BUSCAR");
         buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 120, 70));
+        getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 120, 70));
 
         entrada.setWeekOfYearVisible(false);
         getContentPane().add(entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 200, 170));
@@ -99,7 +100,7 @@ public class Destino extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         destino.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jPanel1.add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 220, 40));
+        jPanel1.add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 220, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,6 +143,11 @@ public class Destino extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 600, 260));
 
+        error.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        error.setForeground(new java.awt.Color(255, 51, 51));
+        error.setText("Debes escoger al menos una noche");
+        getContentPane().add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 290, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
 
@@ -159,6 +165,7 @@ public class Destino extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> destino;
     private javax.swing.JRadioButton doble;
     private com.toedter.calendar.JCalendar entrada;
+    private javax.swing.JLabel error;
     private javax.swing.JRadioButton individual;
     private javax.swing.JRadioButton infantil;
     private javax.swing.JButton jButton6;

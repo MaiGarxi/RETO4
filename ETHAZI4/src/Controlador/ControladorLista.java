@@ -13,11 +13,11 @@ import javax.swing.event.ListSelectionEvent;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel jLabel5) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error) {
           
             /*Apenas de inicia el controlador*/
     
-        jLabel5.setVisible(false);
+        error.setVisible(false);
         Hotel aux = new Hotel();
         aux.obtener_hoteles(jList1,localidad);
         aux.obtener_destinos(Destinos,localidad);
@@ -27,7 +27,7 @@ public class ControladorLista {
            /*Cambiar el precio*/
         jList1.addListSelectionListener((ListSelectionEvent evt) -> {
             //System.out.println(jList1.getSelectedValue());
-            jLabel5.setVisible(false);
+            error.setVisible(false);
             precio.setText(String.valueOf(100 + " €"));
         });
             /*Cambiar el precio*/
@@ -39,7 +39,7 @@ public class ControladorLista {
             
             if(jList1.isSelectionEmpty())
             {
-                jLabel5.setVisible(true);                
+                error.setVisible(true);                
             }
             else{
                 PasarPagina pasar= new PasarPagina(); 
