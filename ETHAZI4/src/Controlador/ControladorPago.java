@@ -43,7 +43,7 @@ public class ControladorPago {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
                 try {                                
-                    pasar.Lista();
+                    pasar.LoginaLista();
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
                 }
