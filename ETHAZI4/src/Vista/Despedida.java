@@ -1,6 +1,7 @@
 
 package Vista;
 
+import Controlador.PasarPagina;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -16,7 +17,8 @@ public class Despedida extends javax.swing.JFrame {
         task = new TimerTask() {
             @Override
             public void run() {
-                Controlador.PasarPagina.classDespedidaABienvenida();
+                PasarPagina pasar = new PasarPagina();
+                pasar.Bienvenida();
                 dispose(); 
             }
         };
@@ -40,10 +42,10 @@ public class Despedida extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 430, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 630, 280));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 630, 280));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

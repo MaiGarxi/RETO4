@@ -5,7 +5,10 @@ import Modelo.reserva;
 import bbdd.Consultas;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -33,13 +36,17 @@ public class ControladorPago {
         for(int x=0;x<reservas.size();x++)
         {
         reservax.add(reservas.get(x));       
-        modelo.addElement((x+1)+")  Codigo Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Codigo Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Precio: "+reservax.get(x).getPrecio()+" €");              
+        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Precio: "+reservax.get(x).getPrecio()+" €");              
         }
         
         cancelar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classListaaDestino();                                
+                try {                                
+                    pasar.Lista();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
@@ -75,7 +82,7 @@ public class ControladorPago {
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                     PasarPagina pasar= new PasarPagina(); 
-                    pasar.classListaaPago(reservas);
+                    pasar.Pago(reservas);
                 }                  
                 }
         });
