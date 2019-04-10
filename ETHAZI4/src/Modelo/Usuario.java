@@ -1,25 +1,27 @@
-
 package Modelo;
 
+import Controlador.PasarPagina;
+import bbdd.Consultas;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 public class Usuario {
     
-    public String dni,nombre,apellidos,contraseña, sexo, fecha, administrador;
+    public String dni,nombre,apellidos,contraseña, sexo, fecha;
 
     public Usuario() {
     }
 
-    public Usuario(String dni, String nombre, String apellidos, String contraseña, String sexo, String fecha, String administrador) {
+    public Usuario(String dni, String nombre, String apellidos, String contraseña, String sexo, String fecha) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.contraseña = contraseña;
         this.sexo = sexo;
         this.fecha = fecha;
-        this.administrador = administrador;
     }
 
     public String getDni() {
@@ -68,48 +70,105 @@ public class Usuario {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
-
-    public String getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(String administrador) {
-        this.administrador = administrador;
-    }
-
-       
+    }      
     
-    public void Login(String us, String pass){
-        
-        if ( (us == null) || (us.equals("")) )
+    public void Login(String us, String pass) throws SQLException{
+        try
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
-        }
-             else if ( (pass == null) || (pass.equals("")) )
-             {
-                JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
-             }
-              /* else if ( (pass != null) || us != null )
-                {
-                    Consultas cone = new Consultas();
-                    cliente cliente;
-                    cliente= cone.ObtenerCliente(us, pass);
-                    if (cliente==null){
-                        JOptionPane.showMessageDialog(null,"El usuario "+us+" no existe o has introducido mal la contraseña");
-                    }
-                    JOptionPane.showMessageDialog(null,"Bienvenido "+cliente.nombre);
-                    registro_a_actualizar(cliente);
-                  
+            Usuario usuario= new Usuario();
+            if ( (us == null) || (us.equals("")) )
+            {
+                JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
+            }else if ( (pass == null) || (pass.equals("")) )
+            {
+                JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
             }
-        }  */     
+            else if ( (pass != null) || us != null )
+            {   
+                int count=0;
+                Consultas cone = new Consultas();
+                ResultSet resultado = cone.ObtenerUsuario(us, pass);
+                while (resultado.next())
+                {
+                    count++;
+                    usuario.setDni(resultado.getString("DNI"));
+                    usuario.setNombre(resultado.getString("Nombre"));
+                    usuario.setFecha(resultado.getString("Fecha_nac"));
+                    usuario.setContraseña(resultado.getString("contraseña"));
+                    usuario.setApellidos(resultado.getString("Apellidos"));
+                    usuario.setSexo(resultado.getString("Sexo"));  
+                }          
+                if (usuario.dni==null && usuario.contraseña==null){
+                    JOptionPane.showMessageDialog(null,"El usuario "+us+" no existe o as introducido mal la contraseña");
+                } else{
+                JOptionPane.showMessageDialog(null,"Bienvenido "+usuario.nombre);
+                PasarPagina pasar = new PasarPagina();
+                pasar.Lista();             
+            }
+        }
+        }catch (SQLException ex) {
+            System.out.println("Hubo un error");
+        }
+    }       
+    
+    public void CrearUsuario(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
+
+        if ( (dni == null) || (dni.equals("")) )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado el Dni");
+        }else if ( (nombre == null) || (nombre.equals("")) )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado el Nombre del usuario");
+        }else if ( (apellidos == null) || (apellidos.equals("")) )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado los Apellidos"); 
+        }else if ( (contraseña == null) || (contraseña.equals("")) )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
+        }else if ( (password == null) || (password.equals("")) )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
+        }else if ( (sexo.isEmpty()))
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado el sexo");
+        }else if ( (fecha == null) || (fecha.equals(""))  )
+        {
+           JOptionPane.showMessageDialog(null,"No has ingresado la Fecha de Nacimiento");
+        }else if (contraseña.equals(password)==false)
+        {
+            JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
+        }
+        dni = dni.toUpperCase();
+        Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
+	Matcher m = dniPattern.matcher(dni);
+        Pattern nombrePattern = Pattern.compile("[a-zA-Z]*");
+	Matcher n = nombrePattern.matcher(nombre);
+        
+        if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.isEmpty()))
+        {
+	/*if(m.matches()){
+            if(n.matches()){
+                    JOptionPane.showMessageDialog(null,"Registro correcto");
+                    Insertar cone =new Insertar(); 
+                    cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
+                    noregistrado_a_registrado();  
+                    aux++; 
+                }
+            else{
+                JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener números");
+            }                                
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"DNI no valido! introduzca por este formato: 12345678A");
+            }*/
+        }  
     }
         
     public void Delete(String us,String  pass){
 
         if ( (us == null) || (us.equals("")) )
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado el Nombre del usuario");
+           JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
         }
              else if ( (pass == null) || (pass.equals("")) )
              {

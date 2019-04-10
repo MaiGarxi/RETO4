@@ -93,23 +93,18 @@ public class Hotel {
     }
     
     public ArrayList <String>  ordenar_destinos(ArrayList <String> Destinos,String localidad)
-    {       
-      
-            
-          
-            String auxe;              
-            for(int f=0;f<Destinos.size();f++)
-            {                 
-                if(Destinos.get(f).equals(localidad))
-                {
-                    auxe=Destinos.get(f);
-                    Destinos.set(f,Destinos.get(0));
-                    Destinos.set(0,auxe);                    
-                }
+    {                 
+        String auxe;              
+        for(int f=0;f<Destinos.size();f++)
+        {                 
+            if(Destinos.get(f).equals(localidad))
+            {
+                auxe=Destinos.get(f);
+                Destinos.set(f,Destinos.get(0));
+                Destinos.set(0,auxe);                    
             }
-            return Destinos;
-  
-        
+        }
+        return Destinos;       
     } 
        
     public void obtener_destinos(JComboBox<String> destino,String locali)

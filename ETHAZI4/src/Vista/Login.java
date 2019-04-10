@@ -2,9 +2,6 @@ package Vista;
 
 import Controlador.ControladorUsuario;
 import Controlador.PasarPagina;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
     
@@ -116,13 +113,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAnteriorActionPerformed
 
     private void conectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectarActionPerformed
-    PasarPagina pasar = new PasarPagina();
-        try {
-            pasar.Lista();
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    dispose();
+    
     }//GEN-LAST:event_conectarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

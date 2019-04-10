@@ -2,6 +2,7 @@
 package Controlador;
 
 import Modelo.Usuario;
+import Vista.Bienvenida;
 import java.awt.TextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,14 +19,14 @@ public class ControladorUsuario{
             /*Eventos 
         */
         conectar.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
+            public void mouseClicked(MouseEvent e) {   
+                Usuario usu = new Usuario();
                 try {
-                    pasar.Lista();
+                    usu.Login(us.getText(), pass.getText());  
                 } catch (SQLException ex) {
-                    Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Hubo un error");
                 }
-            }
+            }   
         }); 
         
         actualizar.addMouseListener(new MouseAdapter() {
