@@ -1,7 +1,6 @@
 
 package Controlador;
 
-import Modelo.Hotel;
 import Modelo.reserva;
 import bbdd.Consultas;
 import java.awt.event.MouseAdapter;
@@ -12,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 
 public class ControladorPago {
@@ -35,17 +33,19 @@ public class ControladorPago {
         for(int x=0;x<reservas.size();x++)
         {
         reservax.add(reservas.get(x));       
-        modelo.addElement((x+1)+")  Codigo Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Codigo Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Precio: "+reservax.get(x).getPrecio()+" €");              
+        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Precio: "+reservax.get(x).getPrecio()+" €");              
         }
         
         cancelar.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.classListaaDestino();                                
+              pasar.LoginaDestino();
             }
         });
         
         reiniciar.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {          
                 pago2=0;
                 actualizaPago.setText(String.valueOf(pago2+" €"));
@@ -53,6 +53,7 @@ public class ControladorPago {
         }); 
         
         confirmar.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 if (valor==pago2){                 
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
@@ -77,12 +78,13 @@ public class ControladorPago {
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                     PasarPagina pasar= new PasarPagina(); 
-                    pasar.classListaaPago(reservas);
+                    pasar.ListaaPago(reservas);
                 }                  
                 }
         });
         
         bi200.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=200;
                 pago2=calculadora(pago2,valor);
@@ -91,6 +93,7 @@ public class ControladorPago {
         });
         
         bi100.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=100;
                 pago2=calculadora(pago2,valor);
@@ -99,6 +102,7 @@ public class ControladorPago {
         });
         
         bi50.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=50;
                 pago2=calculadora(pago2,valor);
@@ -107,6 +111,7 @@ public class ControladorPago {
         });
         
         bi20.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=20;
                 pago2=calculadora(pago2,valor);
@@ -115,6 +120,7 @@ public class ControladorPago {
         });
         
         bi10.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=10;
                 pago2=calculadora(pago2,valor);
@@ -123,6 +129,7 @@ public class ControladorPago {
         });
         
         bi5.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=5;
                 pago2=calculadora(pago2,valor);
@@ -131,6 +138,7 @@ public class ControladorPago {
         });
         
         mo2.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=2;
                 pago2=calculadora(pago2,valor);
@@ -139,6 +147,7 @@ public class ControladorPago {
         });
         
         mo1.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=1;
                 pago2=calculadora(pago2,valor);
@@ -147,6 +156,7 @@ public class ControladorPago {
         });
         
         mo05.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=0.5;
                 pago2=calculadora(pago2,valor);
@@ -155,6 +165,7 @@ public class ControladorPago {
         });
         
         mo02.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=0.2;
                 pago2=calculadora(pago2,valor);
@@ -163,6 +174,7 @@ public class ControladorPago {
         });
         
         mo01.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=0.1;
                 pago2=calculadora(pago2,valor);
@@ -171,6 +183,7 @@ public class ControladorPago {
         });
         
         mo005.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=0.05;
                 pago2=calculadora(pago2,valor);
@@ -179,6 +192,7 @@ public class ControladorPago {
         });
         
         mo002.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=0.02;
                 pago2=calculadora(pago2,valor);
@@ -187,6 +201,7 @@ public class ControladorPago {
         });
         
         mo001.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) { 
                 double valor=0.01;
                 pago2=calculadora(pago2,valor);

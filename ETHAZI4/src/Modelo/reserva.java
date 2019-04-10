@@ -6,13 +6,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class reserva {
+    
     protected int cod_reserva,cod_hotel;
     protected double precio;
+    protected String entrada,salida;
 
-    public reserva(int cod_reserva, int cod_hotel, double precio) {
+    public reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
         this.cod_reserva = cod_reserva;
         this.cod_hotel = cod_hotel;
         this.precio = precio;
+        this.entrada = entrada;
+        this.salida = salida;
     }
 
     public int getCod_reserva() {
@@ -39,7 +43,21 @@ public class reserva {
         this.precio = precio;
     }
 
+    public String getEntrada() {
+        return entrada;
+    }
 
+    public void setEntrada(String entrada) {
+        this.entrada = entrada;
+    }
+
+    public String getSalida() {
+        return salida;
+    }
+
+    public void setSalida(String salida) {
+        this.salida = salida;
+    }
 
     public reserva() {
     }
@@ -50,8 +68,8 @@ public class reserva {
          reservas = new ArrayList<reserva>();
         for(int x=0;hoteles.size()>x;x++)
         {
-           reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,100.0);
-        reservas.add(reser);
+           /*reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,100.0);
+        reservas.add(reser);*/ //modificar segun la base de datos**************************************
         
         }
       return reservas;
