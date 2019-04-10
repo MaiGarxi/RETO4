@@ -16,8 +16,6 @@ public class ControladorNoRegistrado {
 
     public ControladorNoRegistrado(JRadioButton H, JRadioButton M, JButton Registrar, JTextField apellidos, JPasswordField contraseña, JTextField dni, JDateChooser fecha_nac, JTextField nombre, JPasswordField password, JPasswordField contraseña0, JButton BotonAnterior) {
         
-        
-        
         Registrar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

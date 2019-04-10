@@ -236,12 +236,11 @@ public class Usuario {
         if (contraseña.equals(password) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
             if(n.matches()){
-                    /*JOptionPane.showMessageDialog(null,"Usuario actualizado");
-                    Consultas cone =new Consultas(); 
-                    cliente cliente;
-                    cone.ActualizarCliente(dni,nombre,apellidos,fecha,sexo,contraseña);                   
-                    noregistrado_a_registrado();  
-                     */                  
+                    JOptionPane.showMessageDialog(null,"Usuario actualizado");
+                    Consultas cone =new Consultas();                    
+                    cone.ActualizarUsuario(dni,nombre,apellidos,fecha,sexo,contraseña); 
+                    PasarPagina pasar = new PasarPagina();
+                    pasar.ActualizaraLogin();
                 }
             else{
                 JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");
