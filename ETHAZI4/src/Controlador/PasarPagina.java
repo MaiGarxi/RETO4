@@ -101,6 +101,7 @@ public class PasarPagina{
     public void classPagoaDespedida(){
         //SE CREA EL OBJ DE LA CLASE DESPEDIDA
         obj8= new Despedida();
-        obj8.setVisible(true); 
+        obj8.setVisible(true);
+        obj7.setVisible(false); 
     }   
 }
