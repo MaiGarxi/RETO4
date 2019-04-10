@@ -2,7 +2,6 @@ package Modelo;
 
 import Controlador.PasarPagina;
 import bbdd.Consultas;
-import java.awt.TextField;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -86,8 +85,9 @@ public class Usuario {
             }
             else if ( (pass != null) || us != null )
             {   
-                Consultas cone = new Consultas();
-                ResultSet resultado = cone.ObtenerUsuario(us, pass);
+                Consultas consul = new Consultas();  
+                ResultSet resultado = consul.ObtenerUsuario(us, pass);
+
                 while (resultado.next())
                 {
                     usuario.setDni(resultado.getString("DNI"));

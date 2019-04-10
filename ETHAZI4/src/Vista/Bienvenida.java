@@ -2,6 +2,8 @@
 package Vista;
 
 import Controlador.PasarPagina;
+import bbdd.Consultas;
+import static ethazi4.ETHAZI4.consul;
 
 public class Bienvenida extends javax.swing.JFrame {
 
@@ -60,7 +62,8 @@ public class Bienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
-    PasarPagina pasar = new PasarPagina();
+   consul=new Consultas();
+        PasarPagina pasar = new PasarPagina();
     pasar.Login();
     dispose();
     }//GEN-LAST:event_continuarActionPerformed

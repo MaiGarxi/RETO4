@@ -1,7 +1,8 @@
 
 package Modelo;
 
-import bbdd.Consultas;
+
+import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -110,10 +111,10 @@ public class Hotel {
     public void obtener_destinos(JComboBox<String> destino,String locali)
     {              
         try {
-            Consultas dest = new Consultas ();
+           
             Hotel ex=new Hotel();
             ArrayList<String> Destinos = new ArrayList<String>();
-            ResultSet resultado=dest.ConsultaDestino();
+            ResultSet resultado=consul.ConsultaDestino();
               while (resultado.next())
               {                 
                 Destinos.add(resultado.getString("Localidad"));
@@ -131,8 +132,8 @@ public class Hotel {
     {
         try {
             destino.removeAllItems();
-            Consultas dest = new Consultas ();
-            ResultSet resultado=dest.ConsultaDestino();
+            
+            ResultSet resultado=consul.ConsultaDestino();
             
             while (resultado.next())
             {
@@ -149,8 +150,8 @@ public class Hotel {
             DefaultListModel listModel;
             listModel = new DefaultListModel();
             hotel.setModel(listModel);
-            Consultas dest = new Consultas ();
-            ResultSet resultado=dest.ConsultaHoteles_Nombre(localidad);                
+           
+            ResultSet resultado=consul.ConsultaHoteles_Nombre(localidad);                
             while (resultado.next()){
                 listModel.addElement(resultado.getString("Nombre"));
             }
@@ -167,8 +168,8 @@ public class Hotel {
             ArrayList<Reserva> hoteles_reserva = new ArrayList<Reserva>();
             String Des= (String) hotel.getSelectedValue();
             System.out.println(Des);
-            Consultas dest = new Consultas ();
-            ResultSet resultado = dest.hotel_para_reservar(Des);
+            
+            ResultSet resultado = consul.hotel_para_reservar(Des);
             for(int x=0;resultado.next();x++)
             {
                 Reserva reser= new Reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,entrada,salida);
