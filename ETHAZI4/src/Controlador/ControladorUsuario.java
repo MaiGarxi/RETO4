@@ -16,10 +16,13 @@ public class ControladorUsuario{
             /*Eventos 
         */
         conectar.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {   
                 Usuario usu = new Usuario();
+                PasarPagina pasar= new PasarPagina(); 
                 try {
-                    usu.Login(us.getText(), pass.getText());  
+                    usu.Login(us.getText(), pass.getText()); 
+                    pasar.LoginaDestino();
                 } catch (SQLException ex) {
                     System.out.println("Hubo un error");
                 }
@@ -27,6 +30,7 @@ public class ControladorUsuario{
         }); 
         
         actualizar.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
               pasar.LoginaActualizar();
@@ -34,6 +38,7 @@ public class ControladorUsuario{
         }); 
         
         Nuevousuario.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
               pasar.LoginaNew();
@@ -41,6 +46,7 @@ public class ControladorUsuario{
         }); 
         
         Nuevousuario.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {          
              /* Usuario usu = new Usuario();
               usu.Delete(us, pass);*/

@@ -103,7 +103,7 @@ public class Usuario {
                 } else{
                 JOptionPane.showMessageDialog(null,"Bienvenido "+usuario.nombre);
                 PasarPagina pasar = new PasarPagina();
-                pasar.LoginaLista();
+                pasar.LoginaDestino();
             }
         }
         }catch (SQLException ex) {

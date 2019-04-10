@@ -47,11 +47,6 @@ public class Actualizar extends javax.swing.JFrame {
         BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         BotonAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAnteriorActionPerformed(evt);
-            }
-        });
         getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 120, 80));
 
         jlabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,12 +122,6 @@ public class Actualizar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
-    PasarPagina pasar = new PasarPagina();
-    pasar.Login();
-    dispose();
-    }//GEN-LAST:event_BotonAnteriorActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;

@@ -71,11 +71,6 @@ public class Lista extends javax.swing.JFrame {
         anterior.setForeground(new java.awt.Color(51, 51, 51));
         anterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        anterior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                anteriorActionPerformed(evt);
-            }
-        });
         getContentPane().add(anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 140, 80));
 
         jList1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -163,12 +158,6 @@ public class Lista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
-    PasarPagina pasar = new PasarPagina();
-    pasar.Login();
-    dispose();
-    }//GEN-LAST:event_anteriorActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
     PasarPagina pasar = new PasarPagina();

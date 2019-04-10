@@ -5,6 +5,7 @@ import Modelo.reserva;
 import Vista.Actualizar;
 import Vista.Bienvenida;
 import Vista.Despedida;
+import Vista.Destino;
 import Vista.Lista;
 import Vista.Login;
 import Vista.NoRegistrado;
@@ -17,11 +18,12 @@ public class PasarPagina{
     
     public static Bienvenida obj1;
     public static Login obj2; 
-    public static Actualizar obj3; 
-    public static NoRegistrado obj4; 
-    public static Lista obj5; 
-    public static Pago obj6;
-    public static Despedida obj7;
+    public static Destino obj3;
+    public static Actualizar obj4; 
+    public static NoRegistrado obj5; 
+    public static Lista obj6; 
+    public static Pago obj7;
+    public static Despedida obj8;
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A BIENVENIDA
@@ -32,47 +34,57 @@ public class PasarPagina{
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A LOGIN
-    public void Login(){
+    public void BienvenidaaLogin(){
         //SE CREA EL OBJ DE LA CLASE LOGIN   
         obj2= new Login();
         obj2.setVisible(true); 
+        obj1.setVisible(false); 
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR A Destino
+    public void LoginaDestino(){
+        //SE CREA EL OBJ DE LA CLASE DESTINO   
+        obj3= new Destino();
+        obj3.setVisible(true); 
+        obj2.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A ACTUALIZAR
     public void LoginaActualizar(){
         //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
-        obj3= new Actualizar();
-        obj3.setVisible(true);
+        obj4= new Actualizar();
+        obj4.setVisible(true);
         obj2.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A NUEVO USUARIO
     public void LoginaNew(){
         //SE CREA EL OBJ DE LA CLASE NUEVO USUARIO
-        obj4= new NoRegistrado();
-        obj4.setVisible(true);
+        obj5= new NoRegistrado();
+        obj5.setVisible(true);
         obj2.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A LISTA
-    public void LoginaLista() throws SQLException {
+    public void DestinoaLista(String localidad) throws SQLException {
         //SE CREA EL OBJ DE LA CLASE LISTA
-        obj5= new Lista();
-        obj5.setVisible(true);
-        obj2.setVisible(false);
+        obj6= new Lista();
+        obj6.setVisible(true);
+        obj3.setVisible(false);
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A PAGO
-    public void Pago(ArrayList<reserva>reservas){
+    public void ListaaPago(ArrayList<reserva>reservas){
         //SE CREA EL OBJ DE LA CLASE PAGO
-        obj6= new Pago(reservas);
-        obj6.setVisible(true); 
+        obj7= new Pago(reservas);
+        obj7.setVisible(true); 
+        obj6.setVisible(false);
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A DESPEDIDA
     public void classPagoaDespedida(){
         //SE CREA EL OBJ DE LA CLASE DESPEDIDA
-        obj7= new Despedida();
-        obj7.setVisible(true); 
+        obj8= new Despedida();
+        obj8.setVisible(true); 
     }   
 }
