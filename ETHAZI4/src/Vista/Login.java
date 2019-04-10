@@ -44,9 +44,12 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         pass.setBackground(new java.awt.Color(255, 255, 255));
+        pass.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         pass.setForeground(new java.awt.Color(0, 0, 0));
         pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 150, 30));
+
+        us.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 150, 30));
 
         BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
