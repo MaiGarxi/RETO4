@@ -3,7 +3,7 @@ package Vista;
 
 import Controlador.ControladorPago;
 import Controlador.PasarPagina;
-import Modelo.reserva;
+import Modelo.Reserva;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
@@ -13,7 +13,7 @@ public class Pago extends javax.swing.JFrame {
     
     public double valor, pago2;
     
-    public Pago(ArrayList<reserva>reservas) {
+    public Pago(ArrayList<Reserva>reservas) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);               
@@ -82,7 +82,7 @@ public class Pago extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         cancelar = new javax.swing.JButton();
         confirmar = new javax.swing.JButton();
         totalAPagar = new javax.swing.JLabel();
@@ -108,7 +108,7 @@ public class Pago extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Lista = new javax.swing.JList<>();
-        jButton6 = new javax.swing.JButton();
+        exit = new javax.swing.JButton();
         jlabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,9 +121,9 @@ public class Pago extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLabel3.setText("ALEJANDRO");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        name.setText("ALEJANDRO");
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
 
@@ -163,21 +163,21 @@ public class Pago extends javax.swing.JFrame {
         getContentPane().add(mo001, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 80, 60));
 
         actualizaPago.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(actualizaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 80, 30));
+        getContentPane().add(actualizaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, 80, 30));
         getContentPane().add(bi200, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 110, 60));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("PAGADO:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, -1, -1));
 
         reiniciar.setBackground(new java.awt.Color(51, 51, 51));
         reiniciar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         reiniciar.setForeground(new java.awt.Color(255, 255, 255));
         reiniciar.setText("REINICIAR PAGO");
         reiniciar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 120, -1));
+        getContentPane().add(reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 640, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -194,17 +194,17 @@ public class Pago extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 680, 120));
 
-        jButton6.setBackground(new java.awt.Color(204, 0, 51));
-        jButton6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Cerrar Sesión");
-        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        exit.setBackground(new java.awt.Color(204, 0, 51));
+        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        exit.setForeground(new java.awt.Color(255, 255, 255));
+        exit.setText("Cerrar Sesión");
+        exit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                exitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
 
         jlabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
@@ -212,11 +212,11 @@ public class Pago extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
     PasarPagina pasar = new PasarPagina();
     pasar.Bienvenida();
     dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_exitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -230,9 +230,8 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JButton bi50;
     private javax.swing.JButton cancelar;
     public javax.swing.JButton confirmar;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -248,6 +247,7 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JButton mo05;
     private javax.swing.JButton mo1;
     private javax.swing.JButton mo2;
+    private javax.swing.JLabel name;
     private javax.swing.JButton reiniciar;
     private javax.swing.JLabel totalAPagar;
     // End of variables declaration//GEN-END:variables

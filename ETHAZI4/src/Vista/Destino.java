@@ -10,7 +10,7 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error);
+        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -18,8 +18,8 @@ public class Destino extends javax.swing.JFrame {
         anterior = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        name = new javax.swing.JLabel();
+        exit = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
         entrada = new com.toedter.calendar.JCalendar();
         salida = new com.toedter.calendar.JCalendar();
@@ -55,23 +55,23 @@ public class Destino extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLabel7.setText("ALEJANDRO");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        name.setText("ALEJANDRO");
+        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
 
-        jButton6.setBackground(new java.awt.Color(204, 0, 51));
-        jButton6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Cerrar Sesión");
-        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        exit.setBackground(new java.awt.Color(204, 0, 51));
+        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        exit.setForeground(new java.awt.Color(255, 255, 255));
+        exit.setText("Cerrar Sesión");
+        exit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                exitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
 
         buscar.setBackground(new java.awt.Color(51, 51, 51));
         buscar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -154,9 +154,9 @@ public class Destino extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
   
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_exitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -166,22 +166,22 @@ public class Destino extends javax.swing.JFrame {
     private javax.swing.JRadioButton doble;
     private com.toedter.calendar.JCalendar entrada;
     private javax.swing.JLabel error;
+    private javax.swing.JButton exit;
     private javax.swing.JRadioButton individual;
     private javax.swing.JRadioButton infantil;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JLabel name;
     private com.toedter.calendar.JCalendar salida;
     // End of variables declaration//GEN-END:variables
 }

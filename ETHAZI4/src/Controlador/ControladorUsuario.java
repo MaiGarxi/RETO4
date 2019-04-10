@@ -43,16 +43,14 @@ public class ControladorUsuario{
             }
         }); 
         
-        Nuevousuario.addMouseListener(new MouseAdapter() {
+        delete.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-             /* Usuario usu = new Usuario();
-              usu.Delete(us, pass);*/
-
+                Usuario usu = new Usuario();
+                usu.Delete(us.getText(), pass.getText());
             }
-        }); 
+        });          
         
-        /*Eventos 
-        */
+            /*Eventos*/
     }
 }
