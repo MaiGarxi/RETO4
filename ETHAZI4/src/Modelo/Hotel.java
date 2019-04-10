@@ -1,11 +1,9 @@
 
 package Modelo;
 
-
 import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,7 +88,7 @@ public class Hotel {
     public ArrayList <Hotel>  buscar_hoteles(String salida,String destino,String entrada)
     {
         ArrayList<Hotel> hoteles = new ArrayList<Hotel>();
-    return hoteles;
+        return hoteles;
     }
     
     public ArrayList <String>  ordenar_destinos(ArrayList <String> Destinos,String localidad)
