@@ -59,10 +59,6 @@ public class reserva {
         this.salida = salida;
     }
 
-
-
-
-
     public reserva() {
     }
 

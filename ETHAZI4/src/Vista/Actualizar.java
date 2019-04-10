@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.PasarPagina;
+import Controlador.ControladorActualizar;
 
 public class Actualizar extends javax.swing.JFrame {
     
@@ -8,7 +8,9 @@ public class Actualizar extends javax.swing.JFrame {
     public Actualizar() {  
         initComponents();
         setLocationRelativeTo(null);
-        setResizable (false);     
+        setResizable (false); 
+        
+        ControladorActualizar control = new ControladorActualizar(H,M,BotonAnterior,actualizar,apellidos,contraseña,dni,fecha_nac,gruposexo,nombre,password);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -47,7 +49,7 @@ public class Actualizar extends javax.swing.JFrame {
         BotonAnterior.setBackground(new java.awt.Color(51, 51, 51));
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         BotonAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 120, 80));
+        getContentPane().add(BotonAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 130, 80));
 
         jlabel2.setBackground(new java.awt.Color(255, 255, 255));
         jlabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N

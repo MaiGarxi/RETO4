@@ -18,11 +18,9 @@ public class ControladorUsuario{
         conectar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {   
-                Usuario usu = new Usuario();
-                PasarPagina pasar= new PasarPagina(); 
+                Usuario usu = new Usuario(); 
                 try {
-                    usu.Login(us.getText(), pass.getText()); 
-                    pasar.LoginaDestino();
+                    usu.Login(us.getText(), pass.getText());                    
                 } catch (SQLException ex) {
                     System.out.println("Hubo un error");
                 }

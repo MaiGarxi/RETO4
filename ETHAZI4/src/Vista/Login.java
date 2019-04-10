@@ -64,11 +64,6 @@ public class Login extends javax.swing.JFrame {
         conectar.setForeground(new java.awt.Color(255, 255, 255));
         conectar.setText("CONECTAR");
         conectar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        conectar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conectarActionPerformed(evt);
-            }
-        });
         getContentPane().add(conectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 160, 80));
 
         Nuevousuario.setBackground(new java.awt.Color(51, 51, 51));
@@ -111,10 +106,6 @@ public class Login extends javax.swing.JFrame {
     pasar.Bienvenida();
     dispose();
     }//GEN-LAST:event_BotonAnteriorActionPerformed
-
-    private void conectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectarActionPerformed
-    
-    }//GEN-LAST:event_conectarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAnterior;

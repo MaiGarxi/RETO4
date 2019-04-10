@@ -1,7 +1,6 @@
 package Vista;
 
 import Controlador.ControladorNoRegistrado;
-import Controlador.PasarPagina;
 
 public class NoRegistrado extends javax.swing.JFrame {
 
@@ -11,7 +10,7 @@ public class NoRegistrado extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorNoRegistrado Controlador = new ControladorNoRegistrado(H,M,Registrar,apellidos,contraseña,dni,fecha_nac,nombre,password,contraseña);
+        ControladorNoRegistrado Controlador = new ControladorNoRegistrado(H,M,Registrar,apellidos,contraseña,dni,fecha_nac,nombre,password,contraseña,BotonAnterior);
     }
     
 

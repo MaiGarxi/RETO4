@@ -49,6 +49,15 @@ public class ControladorDestino {
             }else{buscar.setEnabled(true);}
         });  
             /*Fechas*/
+            
+        anterior.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+                PasarPagina pasar= new PasarPagina(); 
+                pasar.DestinoaLogin();
+            }
+        });
+                
         buscar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          

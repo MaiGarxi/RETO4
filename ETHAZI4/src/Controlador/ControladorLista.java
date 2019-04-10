@@ -1,11 +1,10 @@
 package Controlador;
 
 import Modelo.Hotel;
-import com.toedter.calendar.JCalendar;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -14,13 +13,14 @@ import javax.swing.event.ListSelectionEvent;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos, JLabel precio,JList<String> jList1,JLabel jLabel5, JCalendar entrada, JCalendar salida) throws SQLException {
-      
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel jLabel5) {
+          
             /*Apenas de inicia el controlador*/
     
         jLabel5.setVisible(false);
         Hotel aux = new Hotel();
-        aux.obtener_destinos(Destinos);
+        aux.obtener_hoteles(jList1,localidad);
+        aux.obtener_destinos(Destinos,localidad);
          
             /*Apenas de inicia el controlador*/    
                   
@@ -53,10 +53,10 @@ public class ControladorLista {
             /*Cambiar Destinos*/
             
         Destinos.addActionListener ((ActionEvent e) -> {
-            String localidad= (String) Destinos.getSelectedItem();
+            String localidad1 = (String) Destinos.getSelectedItem();
             Destinos.removeAllItems();
-            aux.obtener_hoteles(jList1,localidad);
-            aux.obtener_destinos(Destinos,localidad);
+            aux.obtener_hoteles(jList1, localidad1);
+            aux.obtener_destinos(Destinos, localidad1);
         });
             /*Cambiar Destinos*/
        
@@ -66,7 +66,7 @@ public class ControladorLista {
             @Override
             public void mouseClicked(MouseEvent e) { 
                 PasarPagina pasar= new PasarPagina(); 
-                
+                pasar.ListaaDestino();
             }
             });  
     }
