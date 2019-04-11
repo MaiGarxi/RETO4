@@ -54,9 +54,9 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A ACTUALIZAR
-    public void LoginaActualizar(){
+    public void LoginaActualizar(ArrayList<Usuario> Users){
         //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
-        obj4= new Actualizar();
+        obj4= new Actualizar(Users);
         obj4.setVisible(true);
         obj2.setVisible(false);
     } 
