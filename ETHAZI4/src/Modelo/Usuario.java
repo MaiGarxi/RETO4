@@ -1,7 +1,7 @@
 package Modelo;
 
 import Controlador.PasarPagina;
-import bbdd.Consultas;
+import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -85,7 +85,7 @@ public class Usuario {
             }
             else if ( (pass != null) || us != null )
             {   
-                Consultas consul = new Consultas();  
+                  
                 ResultSet resultado = consul.ObtenerUsuario(us, pass);
 
                 while (resultado.next())
@@ -147,8 +147,8 @@ public class Usuario {
 	if(m.matches()){
             if(n.matches()){
                     JOptionPane.showMessageDialog(null,"Registro correcto");
-                    Consultas cone =new Consultas(); 
-                    cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha); 
+                
+                    consul.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha); 
                     PasarPagina pasar = new PasarPagina();
                     pasar.NewaLogin();
                 }
@@ -177,8 +177,8 @@ public class Usuario {
                  }
                     else if ( (pass != null) || us != null )
                     {                                           
-                        Consultas cone =new Consultas(); 
-                        ResultSet resultado = cone.ObtenerUsuario(us, pass);
+                         
+                        ResultSet resultado = consul.ObtenerUsuario(us, pass);
                         while (resultado.next())
                         {
                             usuario.setDni(resultado.getString("DNI"));
@@ -195,8 +195,8 @@ public class Usuario {
                             if (n == JOptionPane.YES_OPTION) 
                             {
                                 JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
-                                Consultas con =new Consultas();                          
-                                con.BorrarUsuario(us,pass); 
+                                                          
+                                consul.BorrarUsuario(us,pass); 
                             }
                                 else {
                                     JOptionPane.showMessageDialog(null, "GRACIAS");
@@ -237,8 +237,8 @@ public class Usuario {
         {
             if(n.matches()){
                     JOptionPane.showMessageDialog(null,"Usuario actualizado");
-                    Consultas cone =new Consultas();                    
-                    cone.ActualizarUsuario(dni,nombre,apellidos,fecha,sexo,contraseña); 
+                                       
+                    consul.ActualizarUsuario(dni,nombre,apellidos,fecha,sexo,contraseña); 
                     PasarPagina pasar = new PasarPagina();
                     pasar.ActualizaraLogin();
                 }
