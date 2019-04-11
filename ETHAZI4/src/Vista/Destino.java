@@ -12,7 +12,7 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users);
+        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users,jSpinner1,jSpinner2,doble,individual,infantil);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -124,6 +124,7 @@ public class Destino extends javax.swing.JFrame {
         jPanel1.add(individual, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, -1));
 
         jSpinner2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 6, 1));
         jPanel1.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 40, 20));
 
         infantil.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -131,6 +132,7 @@ public class Destino extends javax.swing.JFrame {
         jPanel1.add(infantil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 110, -1));
 
         jSpinner1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 40, 20));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
