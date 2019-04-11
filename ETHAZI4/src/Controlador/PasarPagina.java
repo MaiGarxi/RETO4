@@ -1,7 +1,8 @@
 
 package Controlador;
 
-import Modelo.Reserva;
+import Modelo.reserva;
+import Modelo.Usuario;
 import Vista.Actualizar;
 import Vista.Bienvenida;
 import Vista.Despedida;
@@ -41,9 +42,9 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A Destino
-    public void LoginaDestino(){
+    public void LoginaDestino(ArrayList<Usuario> Users){
         //SE CREA EL OBJ DE LA CLASE DESTINO   
-        obj3= new Destino();
+        obj3= new Destino(Users);
         obj3.setVisible(true); 
         obj2.setVisible(false);
     } 
@@ -78,9 +79,9 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A LISTA
-    public void DestinoaLista(String localidad) throws SQLException {
+    public void DestinoaLista(String localidad,ArrayList<Usuario> Users) throws SQLException {
         //SE CREA EL OBJ DE LA CLASE LISTA
-        obj6= new Lista(localidad);
+        obj6= new Lista(localidad,Users);
         obj6.setVisible(true);
         obj3.setVisible(false);
     }  
@@ -90,9 +91,9 @@ public class PasarPagina{
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A PAGO
-    public void ListaaPago(ArrayList<Reserva>reservas){
+    public void ListaaPago(ArrayList<reserva>reservas,ArrayList<Usuario> Users){
         //SE CREA EL OBJ DE LA CLASE PAGO
-        obj7= new Pago(reservas);
+        obj7= new Pago(reservas,Users);
         obj7.setVisible(true); 
         obj6.setVisible(false);
     }  

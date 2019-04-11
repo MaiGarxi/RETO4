@@ -4,6 +4,7 @@ import Controlador.PasarPagina;
 import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -72,7 +73,7 @@ public class Usuario {
         this.fecha = fecha;
     }      
     
-    public void Login(String us, String pass) throws SQLException{
+    public Usuario Login(String us, String pass) throws SQLException{
         try
         {
             Usuario usuario= new Usuario();
@@ -101,13 +102,14 @@ public class Usuario {
                     JOptionPane.showMessageDialog(null,"El usuario "+us+" no existe o as introducido mal la contraseña");
                 } else{
                 JOptionPane.showMessageDialog(null,"Bienvenido "+usuario.nombre);
-                PasarPagina pasar = new PasarPagina();
-                pasar.LoginaDestino();
+               return usuario;
             }
         }
         }catch (SQLException ex) {
             System.out.println("Hubo un error");
+            return null;
         }
+        return null;
     }       
     
     public void CrearUsuario(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
@@ -246,5 +248,12 @@ public class Usuario {
                 JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");
             }                                 
         }
-    }   
+    }
+    
+    public ArrayList<Usuario> crear_Array(Usuario usuario)
+    {
+    ArrayList<Usuario> users= new ArrayList<Usuario>();
+    users.add(usuario);
+    return users;
+    }
 }

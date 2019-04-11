@@ -2,15 +2,17 @@
 package Vista;
 
 import Controlador.ControladorDestino;
+import Modelo.Usuario;
+import java.util.ArrayList;
 
 public class Destino extends javax.swing.JFrame {
 
-    public Destino() {
+    public Destino(ArrayList<Usuario> Users) {
        initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit);
+        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

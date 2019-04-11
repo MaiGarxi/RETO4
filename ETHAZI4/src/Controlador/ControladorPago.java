@@ -1,7 +1,8 @@
 
 package Controlador;
 
-import Modelo.Reserva;
+import Modelo.reserva;
+import Modelo.Usuario;
 import bbdd.Consultas;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,11 +19,11 @@ public class ControladorPago {
     public double billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public double valor, pago2;
-    public ArrayList<Reserva> reservax;
+    public ArrayList<reserva> reservax;
 
-    public ControladorPago( JList<String> Lista, ArrayList<Reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar) {
+    public ControladorPago( JList<String> Lista, ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,ArrayList<Usuario> Users) {
         
-        Reserva reserv = new Reserva();
+        reserva reserv = new reserva();
         totalAPagar.setText(String.valueOf(reserv.calcular_total_pagar(reservas)+" €"));
         valor = reserv.calcular_total_pagar(reservas);
         
@@ -40,7 +41,7 @@ public class ControladorPago {
             @Override
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.LoginaDestino();
+              pasar.LoginaDestino(Users);
             }
         });
         
@@ -63,7 +64,7 @@ public class ControladorPago {
                     for(int i=0; i<reservas.size();i++){
                         con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
                     }
-                    Reserva a= new Reserva();
+                    reserva a= new reserva();
                     System.out.println( a.crear_txt(reservas));
                 }
                 if (pago2>valor){
