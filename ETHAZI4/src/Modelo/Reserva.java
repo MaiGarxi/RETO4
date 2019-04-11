@@ -5,13 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class reserva {
+public class Reserva {
     
     protected int cod_reserva,cod_hotel;
     protected double precio;
-    protected String entrada,salida;
+    public String entrada;
+    protected String salida;
 
-    public reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
+    public Reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
         this.cod_reserva = cod_reserva;
         this.cod_hotel = cod_hotel;
         this.precio = precio;
@@ -59,13 +60,13 @@ public class reserva {
         this.salida = salida;
     }
 
-    public reserva() {
+    public Reserva() {
     }
 
-   public ArrayList <reserva> Crear_reservas (ArrayList<Hotel> hoteles)
+   public ArrayList <Reserva> Crear_reservas (ArrayList<Hotel> hoteles)
     {
-         ArrayList <reserva> reservas;
-         reservas = new ArrayList<reserva>();
+         ArrayList <Reserva> reservas;
+         reservas = new ArrayList<Reserva>();
         for(int x=0;hoteles.size()>x;x++)
         {
            /*reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,100.0);
@@ -75,7 +76,7 @@ public class reserva {
       return reservas;
     }
    
-    public  double calcular_total_pagar (ArrayList<reserva> reservas)
+    public  double calcular_total_pagar (ArrayList<Reserva> reservas)
    {
         double precio_final =0;
            for(int x=0;reservas.size()>x;x++)
@@ -85,7 +86,7 @@ public class reserva {
    return precio_final;
    }
    
-   public String crear_txt(ArrayList<reserva> reservas)
+   public String crear_txt(ArrayList<Reserva> reservas)
    {      
         try{
             String ruta= "src\\modelo\\Reserva.txt"; 

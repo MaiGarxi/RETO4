@@ -2,7 +2,6 @@ package Modelo;
 
 import Controlador.PasarPagina;
 import bbdd.Consultas;
-import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -86,12 +85,11 @@ public class Usuario {
             }
             else if ( (pass != null) || us != null )
             {   
-                int count=0;
-                
+                Consultas consul = new Consultas();  
                 ResultSet resultado = consul.ObtenerUsuario(us, pass);
+
                 while (resultado.next())
                 {
-                    count++;
                     usuario.setDni(resultado.getString("DNI"));
                     usuario.setNombre(resultado.getString("Nombre"));
                     usuario.setFecha(resultado.getString("Fecha_nac"));
@@ -116,30 +114,29 @@ public class Usuario {
 
         if ( (dni == null) || (dni.equals("")) )
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado el Dni");
+           JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
         }else if ( (nombre == null) || (nombre.equals("")) )
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado el Nombre del usuario");
+           JOptionPane.showMessageDialog(null,"No has ingresado el Nombre");
         }else if ( (apellidos == null) || (apellidos.equals("")) )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado los Apellidos"); 
         }else if ( (contraseña == null) || (contraseña.equals("")) )
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
+           JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
         }else if ( (password == null) || (password.equals("")) )
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
+           JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
         }else if ( (sexo.isEmpty()))
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado el sexo");
+           JOptionPane.showMessageDialog(null,"No has ingresado el Sexo");
         }else if ( (fecha == null) || (fecha.equals(""))  )
         {
            JOptionPane.showMessageDialog(null,"No has ingresado la Fecha de Nacimiento");
         }else if (contraseña.equals(password)==false)
         {
-            JOptionPane.showMessageDialog(null,"No coinciden las contraseñas");           
+            JOptionPane.showMessageDialog(null,"No coincide la contraseña");           
         }
-        dni = dni.toUpperCase();
         Pattern dniPattern = Pattern.compile("\\d{8}[A-HJ-NP-TV-Z]");
 	Matcher m = dniPattern.matcher(dni);
         Pattern nombrePattern = Pattern.compile("[a-zA-Z]*");
@@ -147,55 +144,68 @@ public class Usuario {
         
         if (contraseña.equals(password) && (!fecha.equals("")) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.isEmpty()))
         {
-	/*if(m.matches()){
+	if(m.matches()){
             if(n.matches()){
                     JOptionPane.showMessageDialog(null,"Registro correcto");
-                    Insertar cone =new Insertar(); 
-                    cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha);                   
-                    noregistrado_a_registrado();  
-                    aux++; 
+                    Consultas cone =new Consultas(); 
+                    cone.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha); 
+                    PasarPagina pasar = new PasarPagina();
+                    pasar.NewaLogin();
                 }
             else{
-                JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener números");
+                JOptionPane.showMessageDialog(null,"Nombre no válido! No puede contener números");
             }                                
         }
         else{
             JOptionPane.showMessageDialog(null,"DNI no valido! introduzca por este formato: 12345678A");
-            }*/
+            }
         }  
     }
         
     public void Delete(String us,String  pass){
-
-        if ( (us == null) || (us.equals("")) )
+           
+        try
         {
-           JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
-        }
-             else if ( (pass == null) || (pass.equals("")) )
-             {
-                JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
-             }
-                else if ( (pass != null) || us != null )
-                {                                           
-                        /*Consultas conex =new Consultas(); 
-                        cliente clientex; 
-                        clientex = conex.ObtenerCliente(us,pass); 
-                        if (clientex==null){
-                                JOptionPane.showMessageDialog(null,"No se ha podido borrar el usuario "+us+" porque no existe o has introducido mal la contraseña");
-                        } else {     
-                        int n= JOptionPane.showConfirmDialog(null, "¿Quiere borrar su usuario?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
-                        if (n == JOptionPane.YES_OPTION) 
+            Usuario usuario= new Usuario();
+            if ( (us == null) || (us.equals("")) )
+            {
+               JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
+            }
+                 else if ( (pass == null) || (pass.equals("")) )
+                 {
+                    JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
+                 }
+                    else if ( (pass != null) || us != null )
+                    {                                           
+                        Consultas cone =new Consultas(); 
+                        ResultSet resultado = cone.ObtenerUsuario(us, pass);
+                        while (resultado.next())
                         {
-                            JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
-                            Consultas cone =new Consultas(); 
-                            cliente cliente;                            
-                            cliente = cone.BorrarCliente(us,pass); 
+                            usuario.setDni(resultado.getString("DNI"));
+                            usuario.setNombre(resultado.getString("Nombre"));
+                            usuario.setFecha(resultado.getString("Fecha_nac"));
+                            usuario.setContraseña(resultado.getString("contraseña"));
+                            usuario.setApellidos(resultado.getString("Apellidos"));
+                            usuario.setSexo(resultado.getString("Sexo"));  
                         }
-                            else {
-                                JOptionPane.showMessageDialog(null, "GRACIAS");
+                            if (usuario.dni==null && usuario.contraseña == null){
+                                    JOptionPane.showMessageDialog(null,"No se ha podido borrar el usuario "+us+" porque no existe o has introducido mal la contraseña");
+                            } else {     
+                            int n= JOptionPane.showConfirmDialog(null, "¿Quiere borrar su usuario?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
+                            if (n == JOptionPane.YES_OPTION) 
+                            {
+                                JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
+                                Consultas con =new Consultas();                          
+                                con.BorrarUsuario(us,pass); 
                             }
-                        }*/
-                }                       
+                                else {
+                                    JOptionPane.showMessageDialog(null, "GRACIAS");
+                                }
+                            }
+                    } 
+        }catch (SQLException ex) {
+            System.out.println("Hubo un error");
+        }
     }
     
     public void Actualizar(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
@@ -226,17 +236,15 @@ public class Usuario {
         if (contraseña.equals(password) && (!dni.equals("")) && (!nombre.equals("")) && (!apellidos.equals("")) && (!sexo.equals("")))
         {
             if(n.matches()){
-                    /*JOptionPane.showMessageDialog(null,"Usuario actualizado");
-                    Consultas cone =new Consultas(); 
-                    cliente cliente;
-                    cone.ActualizarCliente(dni,nombre,apellidos,fecha,sexo,contraseña);                   
-                    noregistrado_a_registrado();  
-                     */                  
+                    JOptionPane.showMessageDialog(null,"Usuario actualizado");
+                    Consultas cone =new Consultas();                    
+                    cone.ActualizarUsuario(dni,nombre,apellidos,fecha,sexo,contraseña); 
+                    PasarPagina pasar = new PasarPagina();
+                    pasar.ActualizaraLogin();
                 }
             else{
                 JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");
             }                                 
         }
-    }
-    
+    }   
 }

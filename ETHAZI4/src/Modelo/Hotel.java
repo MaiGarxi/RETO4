@@ -1,11 +1,9 @@
 
 package Modelo;
 
-
 import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,7 +88,7 @@ public class Hotel {
     public ArrayList <Hotel>  buscar_hoteles(String salida,String destino,String entrada)
     {
         ArrayList<Hotel> hoteles = new ArrayList<Hotel>();
-    return hoteles;
+        return hoteles;
     }
     
     public ArrayList <String>  ordenar_destinos(ArrayList <String> Destinos,String localidad)
@@ -161,18 +159,18 @@ public class Hotel {
         }
     }
     
-    public ArrayList<reserva> Crear_array(JList<String> hotel,String entrada, String salida)
+    public ArrayList<Reserva> Crear_array(JList<String> hotel,String entrada, String salida)
     {
 
         try {
-            ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
+            ArrayList<Reserva> hoteles_reserva = new ArrayList<Reserva>();
             String Des= (String) hotel.getSelectedValue();
             System.out.println(Des);
             
             ResultSet resultado = consul.hotel_para_reservar(Des);
             for(int x=0;resultado.next();x++)
             {
-                reserva reser= new reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,entrada,salida);
+                Reserva reser= new Reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,entrada,salida);
                 hoteles_reserva.add(reser);
             } 
             return hoteles_reserva;

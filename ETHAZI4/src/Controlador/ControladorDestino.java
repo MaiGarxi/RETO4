@@ -2,6 +2,7 @@
 package Controlador;
 
 import Modelo.Hotel;
+import Modelo.Reserva;
 import com.toedter.calendar.JCalendar;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,14 +17,14 @@ import javax.swing.JLabel;
 
 public class ControladorDestino {
     
-   public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error) {
+   public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error, JLabel name, JButton exit) {
         
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */
         error.setVisible(false);
         Hotel aux = new Hotel();
-        aux.obtener_destinos(destino);
+        aux.obtener_destinos(destino);               
        
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen

@@ -1,7 +1,7 @@
 
 package Controlador;
 
-import Modelo.reserva;
+import Modelo.Reserva;
 import Vista.Actualizar;
 import Vista.Bienvenida;
 import Vista.Despedida;
@@ -90,7 +90,7 @@ public class PasarPagina{
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A PAGO
-    public void ListaaPago(ArrayList<reserva>reservas){
+    public void ListaaPago(ArrayList<Reserva>reservas){
         //SE CREA EL OBJ DE LA CLASE PAGO
         obj7= new Pago(reservas);
         obj7.setVisible(true); 

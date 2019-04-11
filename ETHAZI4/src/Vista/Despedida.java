@@ -3,7 +3,6 @@ package Vista;
 
 import Controlador.PasarPagina;
 import static bbdd.Consultas.reg;
-import static ethazi4.ETHAZI4.consul;
 import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
