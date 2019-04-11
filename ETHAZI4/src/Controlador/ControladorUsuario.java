@@ -14,6 +14,7 @@ public class ControladorUsuario{
     
     public ControladorUsuario(JButton conectar, JButton actualizar, JButton Nuevousuario, JButton delete, TextField us, JPasswordField pass) {
     
+        
             /*Eventos 
         */
         conectar.addMouseListener(new MouseAdapter() {
@@ -22,11 +23,11 @@ public class ControladorUsuario{
                 Usuario usu = new Usuario(); 
                 try {
                     Usuario recibe=new Usuario();
-                     ArrayList<Usuario> users= new ArrayList<Usuario>();
-                   recibe= usu.Login(us.getText(), pass.getText());
-                  users=usu.crear_Array(recibe);
-                     PasarPagina pasar = new PasarPagina();
-                pasar.LoginaDestino(users);
+                    ArrayList<Usuario> users= new ArrayList<Usuario>();
+                    recibe= usu.Login(us.getText(), pass.getText());
+                    users=usu.crear_Array(recibe);
+                    PasarPagina pasar = new PasarPagina();
+                    pasar.LoginaDestino(users);
                 } catch (SQLException ex) {
                     System.out.println("Hubo un error");
                 }
@@ -35,10 +36,19 @@ public class ControladorUsuario{
         
         actualizar.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
-              pasar.LoginaActualizar();
-            }
+            public void mouseClicked(MouseEvent e) { 
+                Usuario usu = new Usuario(); 
+                try {
+                    Usuario recibe=new Usuario();
+                    ArrayList<Usuario> users= new ArrayList<Usuario>();
+                    recibe= usu.Login(us.getText(), pass.getText());
+                    users=usu.crear_Array(recibe);
+                    PasarPagina pasar = new PasarPagina();
+                    pasar.LoginaActualizar(users);
+                } catch (SQLException ex) {
+                    System.out.println("Hubo un error");
+                }
+            } 
         }); 
         
         Nuevousuario.addMouseListener(new MouseAdapter() {

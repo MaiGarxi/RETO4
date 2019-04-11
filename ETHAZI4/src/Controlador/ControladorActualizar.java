@@ -6,6 +6,7 @@ import Vista.Actualizar;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -16,16 +17,14 @@ import javax.swing.JTextField;
 
 public class ControladorActualizar {
 
-    public ControladorActualizar(JRadioButton H, JRadioButton M, JButton BotonAnterior, JButton actualizar, JTextField apellidos, JPasswordField contraseña, JTextField dni, JDateChooser fecha_nac, ButtonGroup gruposexo, JTextField nombre, JPasswordField password) {
-        
-        Usuario usu = new Usuario();
+    public ControladorActualizar(ArrayList<Usuario> actu, JRadioButton H, JRadioButton M, JButton BotonAnterior, JButton actualizar, JTextField apellidos, JPasswordField contraseña, JTextField dni, JDateChooser fecha_nac, ButtonGroup gruposexo, JTextField nombre, JPasswordField password) {
         
         dni.setEnabled(false);
-        dni.setText(usu.dni);
-        nombre.setText(usu.nombre);
-        apellidos.setText(usu.apellidos);
-        contraseña.setText(usu.contraseña);
-        password.setText(usu.contraseña);
+        dni.setText(actu.get(0).dni);
+        nombre.setText(actu.get(0).nombre);
+        apellidos.setText(actu.get(0).apellidos);
+        contraseña.setText(actu.get(0).contraseña);
+        password.setText(actu.get(0).contraseña);
         
         BotonAnterior.addMouseListener(new MouseAdapter() {
             @Override
@@ -40,7 +39,7 @@ public class ControladorActualizar {
             public void mouseClicked(MouseEvent e) { 
                 String sexo = "";
                 if (H.isSelected()){
-                    sexo= "V";
+                    sexo= "H";
                 } else if (M.isSelected()){
                     sexo= "M";
                 } 
