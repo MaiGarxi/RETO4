@@ -3,37 +3,53 @@ package Modelo;
 
 public class Habitacion {
     
-    protected int individual,doble,infantil;
+    protected int Cod_habitacion, capacidad, Capacidad_niños, Cod_hotel;
+    protected String tipo;
 
-    public Habitacion(int individual, int doble, int infantil) {
-        this.individual = individual;
-        this.doble = doble;
-        this.infantil = infantil;
+    public Habitacion() {
     }
 
-    public int getIndividual() {
-        return individual;
+    public int getCod_habitacion() {
+        return Cod_habitacion;
     }
 
-    public void setIndividual(int individual) {
-        this.individual = individual;
+    public void setCod_habitacion(int Cod_habitacion) {
+        this.Cod_habitacion = Cod_habitacion;
     }
 
-    public int getDoble() {
-        return doble;
+    public int getCapacidad() {
+        return capacidad;
     }
 
-    public void setDoble(int doble) {
-        this.doble = doble;
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
     }
 
-    public int getInfantil() {
-        return infantil;
+    public int getCapacidad_niños() {
+        return Capacidad_niños;
     }
 
-    public void setInfantil(int infantil) {
-        this.infantil = infantil;
+    public void setCapacidad_niños(int Capacidad_niños) {
+        this.Capacidad_niños = Capacidad_niños;
     }
+
+    public int getCod_hotel() {
+        return Cod_hotel;
+    }
+
+    public void setCod_hotel(int Cod_hotel) {
+        this.Cod_hotel = Cod_hotel;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
     
     
 }
