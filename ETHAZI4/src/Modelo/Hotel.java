@@ -178,5 +178,28 @@ public class Hotel {
         }
 
     }
-    
+   
+     public ArrayList<Habitacion> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
+     int cantidad_habitaciones=0;
+     if(ninos==0)
+     {
+     if(habitaciones==adultos)
+     {
+         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=habitaciones;x++)
+         {
+             individual hab=new individual();
+             patrones.add(hab);
+         }
+     }
+     else{
+        if(adultos>habitaciones)
+        {
+            
+        }
+     }
+     }
+        return null;
+     
+     }
 }

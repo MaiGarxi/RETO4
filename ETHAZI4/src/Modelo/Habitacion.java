@@ -3,10 +3,16 @@ package Modelo;
 
 public class Habitacion {
     
-    protected int Cod_habitacion, capacidad, Capacidad_niños, Cod_hotel;
-    protected String tipo;
+    protected int Cod_habitacion, Capacidad_niños, Cod_hotel;
+    
 
     public Habitacion() {
+    }
+
+    public Habitacion(int Cod_habitacion, int Capacidad_niños, int Cod_hotel) {
+        this.Cod_habitacion = Cod_habitacion;
+        this.Capacidad_niños = Capacidad_niños;
+        this.Cod_hotel = Cod_hotel;
     }
 
     public int getCod_habitacion() {
@@ -17,13 +23,7 @@ public class Habitacion {
         this.Cod_habitacion = Cod_habitacion;
     }
 
-    public int getCapacidad() {
-        return capacidad;
-    }
 
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
 
     public int getCapacidad_niños() {
         return Capacidad_niños;
@@ -41,13 +41,7 @@ public class Habitacion {
         this.Cod_hotel = Cod_hotel;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+ 
     
     
     
