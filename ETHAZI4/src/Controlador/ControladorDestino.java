@@ -79,7 +79,7 @@ public class ControladorDestino {
                         pasar.DestinoaLista((String) destino.getSelectedItem(),Users);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    }                   
                 }              
             }
         }); 
