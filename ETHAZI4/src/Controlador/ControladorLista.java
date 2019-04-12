@@ -15,12 +15,13 @@ import javax.swing.event.ListSelectionEvent;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name) {
           
             /*Apenas de inicia el controlador*/
   
        
         error.setVisible(false);
+        name.setText(Users.get(0).nombre);
         Hotel aux = new Hotel();
         aux.obtener_hoteles(jList1,localidad);
         aux.obtener_destinos(Destinos,localidad);

@@ -22,8 +22,9 @@ public class ControladorPago {
     public double valor, pago2;
     public ArrayList<reserva> reservax;
 
-    public ControladorPago( JList<String> Lista, ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,ArrayList<Usuario> Users) {
+    public ControladorPago( JList<String> Lista, ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,ArrayList<Usuario> Users,JLabel name) {
         
+        name.setText(Users.get(0).nombre);
         reserva reserv = new reserva();
         totalAPagar.setText(String.valueOf(reserv.calcular_total_pagar(reservas)+" €"));
         valor = reserv.calcular_total_pagar(reservas);
