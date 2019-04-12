@@ -159,18 +159,16 @@ public class Hotel {
         }
     }
     
-    public ArrayList<reserva> Crear_array(JList<String> hotel,String entrada, String salida)
+    public ArrayList<reserva> Crear_array(JList<String> hotel,String fecha1, String fecha2)
     {
-
         try {
             ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
             String Des= (String) hotel.getSelectedValue();
-            System.out.println(Des);
-            
+            System.out.println(Des);            
             ResultSet resultado = consul.hotel_para_reservar(Des);
             for(int x=0;resultado.next();x++)
             {
-                reserva reser= new reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,entrada,salida);
+                reserva reser= new reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,fecha1,fecha2);
                 hoteles_reserva.add(reser);
             } 
             return hoteles_reserva;
