@@ -1,10 +1,13 @@
  
                                                              BIDAI-ON S.L.                         	
  ********************************************************************************************************************** 	
- -Número de Reservas Realizadas: 1  	 
-
- -Código de Reserva : 2 		
- ********************************************************************************************************************** 	
- -Código del Hotel Reservado: 1  	
+ -Nombre :  		
+ -Apellidos :  		
+ -DNI : Modelo.reserva@70acc2d9 		
+ -Código de Reserva : 6 		
+ -Fecha de entrada: 2019-04-25 		
+ -Fecha de salida : 2019-04-27 		
+ -Número de habitación(es) :  		
+ -Número de personas que cubre la reserva :  		
  ********************************************************************************************************************** 	
  -Precio final: 100.0 €

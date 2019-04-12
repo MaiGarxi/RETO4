@@ -150,7 +150,7 @@ public class Usuario {
             if(n.matches()){
                     JOptionPane.showMessageDialog(null,"Registro correcto");
                 
-                    consul.InsertarCliente(dni,nombre,apellidos,contraseña,sexo,fecha); 
+                    consul.InsertarUsuario(dni,nombre,apellidos,contraseña,sexo,fecha); 
                     PasarPagina pasar = new PasarPagina();
                     pasar.NewaLogin();
                 }

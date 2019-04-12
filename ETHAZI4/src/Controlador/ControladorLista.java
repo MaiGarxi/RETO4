@@ -15,7 +15,7 @@ import javax.swing.event.ListSelectionEvent;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas) {
           
             /*Apenas de inicia el controlador*/
   
@@ -47,7 +47,7 @@ public class ControladorLista {
             }
             else{
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.ListaaPago(aux.Crear_array(jList1,"Entrada","Salida"),Users);
+                pasar.ListaaPago(aux.Crear_array(jList1,entradas, salidas),Users);
             }            
             }
             });  
@@ -73,5 +73,13 @@ public class ControladorLista {
                 pasar.ListaaDestino();
             }
             });  
+        
+        exit.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+                PasarPagina pasar= new PasarPagina(); 
+                pasar.Bienvenida();
+            }
+        }); 
     }
 }

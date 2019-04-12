@@ -22,7 +22,7 @@ public class ControladorPago {
     public double valor, pago2;
     public ArrayList<reserva> reservax;
 
-    public ControladorPago( JList<String> Lista, ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,ArrayList<Usuario> Users,JLabel name) {
+    public ControladorPago( JList<String> Lista, ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,ArrayList<Usuario> Users,JLabel name,JButton exit) {
         
         name.setText(Users.get(0).nombre);
         reserva reserv = new reserva();
@@ -36,7 +36,7 @@ public class ControladorPago {
         for(int x=0;x<reservas.size();x++)
         {
         reservax.add(reservas.get(x));       
-        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Precio: "+reservax.get(x).getPrecio()+" €");              
+        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Entrada: "+reservax.get(x).getEntrada()+" Salida: "+reservax.get(x).getSalida()+" Precio: "+reservax.get(x).getPrecio()+" €");              
         }
         
         cancelar.addMouseListener(new MouseAdapter() {
@@ -64,7 +64,7 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();  
                    
                     for(int i=0; i<reservas.size();i++){
-                        consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+                        consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni());
                     }
                     reserva a= new reserva();
                     System.out.println( a.crear_txt(reservas));
@@ -76,7 +76,7 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();
                     Consultas con = new Consultas();
                     for(int i=0; i<reservas.size();i++){
-                    con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+                    consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni());
                     }                    
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");

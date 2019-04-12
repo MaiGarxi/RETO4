@@ -19,7 +19,7 @@ public class Pago extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);               
         
-        ControladorPago Controlador = new ControladorPago(Lista, reservas,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,Users,name);
+        ControladorPago Controlador = new ControladorPago(Lista, reservas,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,Users,name,exit);
         
         ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
         Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(bi200.getWidth(), bi200.getHeight(), Image.SCALE_DEFAULT));bi200.setIcon(icono);
@@ -146,7 +146,6 @@ public class Pago extends javax.swing.JFrame {
         getContentPane().add(totalAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("TOTAL A PAGAR:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
         getContentPane().add(bi50, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 110, 60));
@@ -169,7 +168,6 @@ public class Pago extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("PAGADO:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, -1, -1));
 
@@ -181,16 +179,14 @@ public class Pago extends javax.swing.JFrame {
         getContentPane().add(reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 640, 120, -1));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Seleccione el dinero a ingresar:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 220, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("RESERVA:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, 40));
 
-        Lista.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        Lista.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jScrollPane1.setViewportView(Lista);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 680, 120));
