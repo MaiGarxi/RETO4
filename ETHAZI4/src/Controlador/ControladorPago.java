@@ -4,6 +4,7 @@ package Controlador;
 import Modelo.reserva;
 import Modelo.Usuario;
 import bbdd.Consultas;
+import static ethazi4.ETHAZI4.consul;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -60,9 +61,9 @@ public class ControladorPago {
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     PasarPagina pasar= new PasarPagina(); 
                     pasar.classPagoaDespedida();  
-                    Consultas con = new Consultas();
+                   
                     for(int i=0; i<reservas.size();i++){
-                        con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+                        consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
                     }
                     reserva a= new reserva();
                     System.out.println( a.crear_txt(reservas));
