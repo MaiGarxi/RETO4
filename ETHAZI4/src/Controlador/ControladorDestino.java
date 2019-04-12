@@ -16,23 +16,19 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 
 public class ControladorDestino {
     
-   public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error, JLabel name, JButton exit,ArrayList<Usuario> Users,JSpinner adultos,JSpinner ninos,JRadioButton doble,JRadioButton individual,JRadioButton infantil) {
-  
-       name.setText(Users.get(0).nombre);
-      infantil.setEnabled(false);
-       ninos.setEnabled(false);
-       adultos.setEnabled(false);
+   public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error, JLabel name, JButton exit,ArrayList<Usuario> Users,JSpinner adultos,JSpinner ninos,JSpinner hab) {        
+      
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */
         error.setVisible(false);
         Hotel aux = new Hotel();
-        aux.obtener_destinos(destino);               
+        aux.obtener_destinos(destino); 
+        name.setText(Users.get(0).nombre);
        
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
@@ -67,68 +63,7 @@ public class ControladorDestino {
                 PasarPagina pasar= new PasarPagina(); 
                 pasar.DestinoaLogin();
             }
-        });
-        
-        individual.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {    
-                if(individual.isSelected())
-                {
-                 adultos.setEnabled(true);
-               infantil.setEnabled(true);
-                }
-                else{
-                if(doble.isSelected())
-                {
-                
-                }
-                else{
-                adultos.setEnabled(false);
-               infantil.setEnabled(false);
-                }
-                
-                }
-             
-            }
-        });
-        
-        doble.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {          
-                if(doble.isSelected())
-                {
-                 adultos.setEnabled(true);
-               infantil.setEnabled(true);
-                }
-                else{
-                if(individual.isSelected())
-                {
-                
-                }
-                else{
-                adultos.setEnabled(false);
-               infantil.setEnabled(false);
-                }
-                
-                }
-            }
-        });
-        
-         infantil.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) { 
-                if(infantil.isSelected())
-                {
-                ninos.setEnabled(true);  
-                }
-                else
-                {
-                ninos.setEnabled(false);  
-                }
-                 
-            }
-        });
-        
+        });       
                 
         buscar.addMouseListener(new MouseAdapter() {
             @Override
