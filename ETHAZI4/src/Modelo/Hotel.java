@@ -180,5 +180,22 @@ public class Hotel {
         }
 
     }
-    
+   
+     public  ArrayList<int> (int habitaciones,int adultos,int ninos){
+     int cantidad_habitaciones=0;
+     if(ninos==0)
+     {
+     if(habitaciones==adultos)
+     {
+         cantidad_habitaciones=adultos;
+     }
+     else{
+        if(adultos>habitaciones)
+        {
+            
+        }
+     }
+     }
+     return cantidad_habitaciones;
+     }
 }
