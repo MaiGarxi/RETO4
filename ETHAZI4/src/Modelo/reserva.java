@@ -93,17 +93,17 @@ public class reserva {
             FileWriter archivo = new FileWriter(ruta);
             for(int x=0;x<reservas.size();x++)
         {    
-          String mensaje =         " \n"
+          String mensaje =       " \n"
 				+"                                                             BIDAI-ON S.L.                        "+" \t\n"
-				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Número de Reservas Realizadas: "+(reservas.size())+"  \t \n\n"  
+				+" **********************************************************************************************************************"+" \t\n"				
+                                +" -Nombre : " +" \t\t\n"
+                                +" -Apellidos : " +" \t\t\n"
+                                +" -DNI : " +" \t\t\n"
 				+" -Código de Reserva : " +reservas.get(x).cod_reserva+" \t\t\n"
                                 +" -Fecha de entrada: " +reservas.get(x).entrada+" \t\t\n"
-                                +" -Código de Reserva : " +reservas.get(x).salida+" \t\t\n"
-				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Código del Hotel Reservado: " + reservas.get(x).cod_hotel+"  \t\n" 
+                                +" -Fecha de salida : " +reservas.get(x).salida+" \t\t\n"
+                                +" -Número de habitación(es) : " +" \t\t\n"
+                                +" -Número de personas que cubre la reserva : " +" \t\t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
 				+" -Precio final: " +reservas.get(x).calcular_total_pagar(reservas)+" €";

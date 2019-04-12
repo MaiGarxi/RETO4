@@ -163,7 +163,7 @@ public class Hotel {
     {
         try {
             ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
-            String Des= (String) hotel.getSelectedValue();
+            String Des = (String) hotel.getSelectedValue();
             System.out.println(Des);            
             ResultSet resultado = consul.hotel_para_reservar(Des);
             for(int x=0;resultado.next();x++)
