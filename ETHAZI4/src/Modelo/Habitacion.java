@@ -3,37 +3,47 @@ package Modelo;
 
 public class Habitacion {
     
-    protected int individual,doble,infantil;
+    protected int Cod_habitacion, Capacidad_niños, Cod_hotel;
+    
 
-    public Habitacion(int individual, int doble, int infantil) {
-        this.individual = individual;
-        this.doble = doble;
-        this.infantil = infantil;
+    public Habitacion() {
     }
 
-    public int getIndividual() {
-        return individual;
+    public Habitacion(int Cod_habitacion, int Capacidad_niños, int Cod_hotel) {
+        this.Cod_habitacion = Cod_habitacion;
+        this.Capacidad_niños = Capacidad_niños;
+        this.Cod_hotel = Cod_hotel;
     }
 
-    public void setIndividual(int individual) {
-        this.individual = individual;
+    public int getCod_habitacion() {
+        return Cod_habitacion;
     }
 
-    public int getDoble() {
-        return doble;
+    public void setCod_habitacion(int Cod_habitacion) {
+        this.Cod_habitacion = Cod_habitacion;
     }
 
-    public void setDoble(int doble) {
-        this.doble = doble;
+
+
+    public int getCapacidad_niños() {
+        return Capacidad_niños;
     }
 
-    public int getInfantil() {
-        return infantil;
+    public void setCapacidad_niños(int Capacidad_niños) {
+        this.Capacidad_niños = Capacidad_niños;
     }
 
-    public void setInfantil(int infantil) {
-        this.infantil = infantil;
+    public int getCod_hotel() {
+        return Cod_hotel;
     }
+
+    public void setCod_hotel(int Cod_hotel) {
+        this.Cod_hotel = Cod_hotel;
+    }
+
+ 
+    
+    
     
     
 }

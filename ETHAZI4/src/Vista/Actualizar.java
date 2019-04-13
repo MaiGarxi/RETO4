@@ -1,16 +1,18 @@
 package Vista;
 
 import Controlador.ControladorActualizar;
+import Modelo.Usuario;
+import java.util.ArrayList;
 
 public class Actualizar extends javax.swing.JFrame {
     
 
-    public Actualizar() {  
+    public Actualizar(ArrayList<Usuario> Users) {  
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false); 
         
-        ControladorActualizar control = new ControladorActualizar(H,M,BotonAnterior,actualizar,apellidos,contraseña,dni,fecha_nac,gruposexo,nombre,password);
+        ControladorActualizar control = new ControladorActualizar(Users,H,M,BotonAnterior,actualizar,apellidos,contraseña,dni,fecha_nac,gruposexo,nombre,password);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -5,14 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Reserva {
+public class reserva {
     
     protected int cod_reserva,cod_hotel;
     protected double precio;
-    public String entrada;
+    protected String entrada;
     protected String salida;
 
-    public Reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
+    public reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
         this.cod_reserva = cod_reserva;
         this.cod_hotel = cod_hotel;
         this.precio = precio;
@@ -60,23 +60,23 @@ public class Reserva {
         this.salida = salida;
     }
 
-    public Reserva() {
+    public reserva() {
     }
 
-   public ArrayList <Reserva> Crear_reservas (ArrayList<Hotel> hoteles)
+   public ArrayList <reserva> Crear_reservas (ArrayList<Hotel> hoteles)
     {
-         ArrayList <Reserva> reservas;
-         reservas = new ArrayList<Reserva>();
+         ArrayList <reserva> reservas;
+         reservas = new ArrayList<reserva>();
         for(int x=0;hoteles.size()>x;x++)
         {
-           /*reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,100.0);
-        reservas.add(reser);*/ //modificar segun la base de datos**************************************
+            reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,100.0,reservas.get(x).entrada,reservas.get(x).salida);
+            reservas.add(reser);
         
         }
       return reservas;
     }
    
-    public  double calcular_total_pagar (ArrayList<Reserva> reservas)
+    public  double calcular_total_pagar (ArrayList<reserva> reservas)
    {
         double precio_final =0;
            for(int x=0;reservas.size()>x;x++)
@@ -86,22 +86,24 @@ public class Reserva {
    return precio_final;
    }
    
-   public String crear_txt(ArrayList<Reserva> reservas)
+   public String crear_txt(ArrayList<reserva> reservas)
    {      
         try{
             String ruta= "src\\modelo\\Reserva.txt"; 
             FileWriter archivo = new FileWriter(ruta);
             for(int x=0;x<reservas.size();x++)
         {    
-          String mensaje =         " \n"
+          String mensaje =       " \n"
 				+"                                                             BIDAI-ON S.L.                        "+" \t\n"
-				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Número de Reservas Realizadas: "+(reservas.size())+"  \t \n\n"  
+				+" **********************************************************************************************************************"+" \t\n"				
+                                +" -Nombre : " +" \t\t\n"
+                                +" -Apellidos : " +" \t\t\n"
+                                +" -DNI : " +" \t\t\n"
 				+" -Código de Reserva : " +reservas.get(x).cod_reserva+" \t\t\n"
-				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Código del Hotel Reservado: " + reservas.get(x).cod_hotel+"  \t\n" 
+                                +" -Fecha de entrada: " +reservas.get(x).entrada+" \t\t\n"
+                                +" -Fecha de salida : " +reservas.get(x).salida+" \t\t\n"
+                                +" -Número de habitación(es) : " +" \t\t\n"
+                                +" -Número de personas que cubre la reserva : " +" \t\t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
 				+" -Precio final: " +reservas.get(x).calcular_total_pagar(reservas)+" €";
@@ -113,4 +115,6 @@ public class Reserva {
            return  "Hubo un error";       
         }         
    }   
+   
+  
 }

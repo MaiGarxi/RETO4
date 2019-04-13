@@ -159,18 +159,16 @@ public class Hotel {
         }
     }
     
-    public ArrayList<Reserva> Crear_array(JList<String> hotel,String entrada, String salida)
+    public ArrayList<reserva> Crear_array(JList<String> hotel,String fecha1, String fecha2)
     {
-
         try {
-            ArrayList<Reserva> hoteles_reserva = new ArrayList<Reserva>();
-            String Des= (String) hotel.getSelectedValue();
-            System.out.println(Des);
-            
+            ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
+            String Des = (String) hotel.getSelectedValue();
+            System.out.println(Des);            
             ResultSet resultado = consul.hotel_para_reservar(Des);
             for(int x=0;resultado.next();x++)
             {
-                Reserva reser= new Reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,entrada,salida);
+                reserva reser= new reserva( Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,fecha1,fecha2);
                 hoteles_reserva.add(reser);
             } 
             return hoteles_reserva;
@@ -180,5 +178,128 @@ public class Hotel {
         }
 
     }
-    
+   
+     public ArrayList<Habitacion> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
+     
+     if(ninos==0)
+     {
+     if(habitaciones==adultos)
+     {
+         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=habitaciones;x++)
+         {
+             individual hab=new individual();
+             patrones.add(hab);
+         }
+     }
+     else{
+        if(adultos>habitaciones)
+        {
+         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=adultos;x++)
+         {
+             individual hab=new individual();
+             patrones.add(hab);
+         } 
+        }
+        else{
+             ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=habitaciones;x++)
+         {
+             individual hab=new individual();
+             patrones.add(hab);
+         }
+        }
+     }
+     }else{
+     if(ninos>0)
+     {
+     int personas=ninos+adultos;
+         if(personas%2==0)
+        {
+         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=personas/2;x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         } 
+        }
+         else{
+           ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=Math.floor(habitaciones/2);x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         }
+         individual hab=new individual();
+         patrones.add(hab);
+         }
+     }
+     }
+        return null;
+     
+     }
+     
+     public ArrayList<Habitacion> Devolver_habitaciones_dos(int habitaciones,int adultos,int ninos)
+     {
+         if(habitaciones==adultos)
+     {
+          ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         if(adultos%2==0)
+        {
+        
+         for(int x=0;x<=adultos/2;x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         }
+         
+         
+        }
+         else{
+          
+         for(int x=0;x<=Math.floor(habitaciones/2);x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         }
+         individual hab=new individual();
+         patrones.add(hab);
+         }
+ return patrones;
+     }
+         else{
+  
+          if(adultos%2==0)
+        {
+         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=adultos/2;x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         }
+        }
+         else{
+               ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         for(int x=0;x<=Math.floor(adultos/2);x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         }
+         individual hab=new individual();
+         patrones.add(hab);   
+          return patrones;
+                 }
+           
+        }
+
+         
+         
+          
+      
+     }
+     
+     
+     
+     
 }

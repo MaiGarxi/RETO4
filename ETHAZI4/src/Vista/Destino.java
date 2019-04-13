@@ -2,15 +2,17 @@
 package Vista;
 
 import Controlador.ControladorDestino;
+import Modelo.Usuario;
+import java.util.ArrayList;
 
 public class Destino extends javax.swing.JFrame {
 
-    public Destino() {
+    public Destino(ArrayList<Usuario> Users) {
        initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit);
+        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users,adultos,niños,hab);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,13 +31,11 @@ public class Destino extends javax.swing.JFrame {
         destino = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        doble = new javax.swing.JRadioButton();
-        individual = new javax.swing.JRadioButton();
-        jSpinner2 = new javax.swing.JSpinner();
-        infantil = new javax.swing.JRadioButton();
-        jSpinner1 = new javax.swing.JSpinner();
+        niños = new javax.swing.JSpinner();
+        adultos = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        hab = new javax.swing.JSpinner();
         error = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -100,48 +100,45 @@ public class Destino extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         destino.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jPanel1.add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 220, 40));
+        jPanel1.add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 220, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Destino");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 140, -1));
 
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("TIPO DE HABITACIÓN:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 150, 30));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("NÚMERO DE HABITACIÓN/ES:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 30));
 
-        doble.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        doble.setText("DOBLE");
-        doble.setActionCommand("");
-        jPanel1.add(doble, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, -1));
+        niños.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        niños.setModel(new javax.swing.SpinnerNumberModel(0, 0, 2, 1));
+        niños.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(niños, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 40, 20));
 
-        individual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        individual.setText("INDIVIDUAL");
-        jPanel1.add(individual, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, -1));
-
-        jSpinner2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jPanel1.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 40, 20));
-
-        infantil.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        infantil.setText("INFANTIL");
-        jPanel1.add(infantil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 110, -1));
-
-        jSpinner1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 40, 20));
+        adultos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        adultos.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        adultos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(adultos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 40, 20));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NIÑOS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ADULTOS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 600, 260));
+        hab.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        hab.setModel(new javax.swing.SpinnerNumberModel(1, 0, 10, 1));
+        hab.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(hab, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 40, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 440, 260));
 
         error.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         error.setForeground(new java.awt.Color(255, 51, 51));
@@ -160,15 +157,14 @@ public class Destino extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner adultos;
     private javax.swing.JButton anterior;
     private javax.swing.JButton buscar;
     public javax.swing.JComboBox<String> destino;
-    private javax.swing.JRadioButton doble;
     private com.toedter.calendar.JCalendar entrada;
     private javax.swing.JLabel error;
     private javax.swing.JButton exit;
-    private javax.swing.JRadioButton individual;
-    private javax.swing.JRadioButton infantil;
+    private javax.swing.JSpinner hab;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -179,9 +175,8 @@ public class Destino extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JLabel name;
+    private javax.swing.JSpinner niños;
     private com.toedter.calendar.JCalendar salida;
     // End of variables declaration//GEN-END:variables
 }

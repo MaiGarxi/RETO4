@@ -1,8 +1,10 @@
 
 package Controlador;
 
-import Modelo.Reserva;
+import Modelo.reserva;
+import Modelo.Usuario;
 import bbdd.Consultas;
+import static ethazi4.ETHAZI4.consul;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -18,11 +20,12 @@ public class ControladorPago {
     public double billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public double valor, pago2;
-    public ArrayList<Reserva> reservax;
+    public ArrayList<reserva> reservax;
 
-    public ControladorPago( JList<String> Lista, ArrayList<Reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar) {
+    public ControladorPago( JList<String> Lista, ArrayList<reserva>reservas,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,ArrayList<Usuario> Users,JLabel name,JButton exit) {
         
-        Reserva reserv = new Reserva();
+        name.setText(Users.get(0).nombre);
+        reserva reserv = new reserva();
         totalAPagar.setText(String.valueOf(reserv.calcular_total_pagar(reservas)+" €"));
         valor = reserv.calcular_total_pagar(reservas);
         
@@ -33,14 +36,14 @@ public class ControladorPago {
         for(int x=0;x<reservas.size();x++)
         {
         reservax.add(reservas.get(x));       
-        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Precio: "+reservax.get(x).getPrecio()+" €");              
+        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Hotel: "+String.valueOf(reservax.get(x).getCod_hotel())+"\n"+" Entrada: "+reservax.get(x).getEntrada()+" Salida: "+reservax.get(x).getSalida()+" Precio: "+reservax.get(x).getPrecio()+" €");              
         }
         
         cancelar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
               PasarPagina pasar= new PasarPagina(); 
-              pasar.LoginaDestino();
+              pasar.LoginaDestino(Users);
             }
         });
         
@@ -59,11 +62,11 @@ public class ControladorPago {
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     PasarPagina pasar= new PasarPagina(); 
                     pasar.classPagoaDespedida();  
-                    Consultas con = new Consultas();
+                   
                     for(int i=0; i<reservas.size();i++){
-                        con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+                        consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni());
                     }
-                    Reserva a= new Reserva();
+                    reserva a= new reserva();
                     System.out.println( a.crear_txt(reservas));
                 }
                 if (pago2>valor){
@@ -73,7 +76,7 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();
                     Consultas con = new Consultas();
                     for(int i=0; i<reservas.size();i++){
-                    con.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel());
+                    consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni());
                     }                    
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");

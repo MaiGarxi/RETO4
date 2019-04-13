@@ -1,10 +1,12 @@
 package Controlador;
 
 import Modelo.Hotel;
+import Modelo.Usuario;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -13,11 +15,13 @@ import javax.swing.event.ListSelectionEvent;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas) {
           
             /*Apenas de inicia el controlador*/
-    
+  
+       
         error.setVisible(false);
+        name.setText(Users.get(0).nombre);
         Hotel aux = new Hotel();
         aux.obtener_hoteles(jList1,localidad);
         aux.obtener_destinos(Destinos,localidad);
@@ -43,7 +47,7 @@ public class ControladorLista {
             }
             else{
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.ListaaPago(aux.Crear_array(jList1,"Entrada","Salida"));
+                pasar.ListaaPago(aux.Crear_array(jList1,entradas, salidas),Users);
             }            
             }
             });  
@@ -69,5 +73,13 @@ public class ControladorLista {
                 pasar.ListaaDestino();
             }
             });  
+        
+        exit.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+                PasarPagina pasar= new PasarPagina(); 
+                pasar.Bienvenida();
+            }
+        }); 
     }
 }
