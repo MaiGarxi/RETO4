@@ -86,6 +86,7 @@ public class ControladorDestino {
                     try {      
                         ArrayList<Habitacion> patron1=new ArrayList<Habitacion>();
                          ArrayList<Habitacion> patron2=new ArrayList<Habitacion>();
+                         ArrayList<Habitacion> patron3=new ArrayList<Habitacion>();
                         PasarPagina pasar= new PasarPagina();
                            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------");
                      patron1=  aux.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
@@ -95,13 +96,19 @@ public class ControladorDestino {
                      System.out.println(patron1.get(x).getClass());
                      }
                      
-                      patron2=  aux.Devolver_habitaciones_dos((int) hab.getValue(),(int) adultos.getValue(),(int) ninos.getValue());
+                      patron2=  aux.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
                        for(int x=0;x<patron2.size();x++)
                      {
                          System.out.println("Patron2");
                      System.out.println(patron2.get(x).getClass());
                      }
-                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas);
+                        patron3=  aux.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
+                        for(int x=0;x<patron3.size();x++)
+                     {
+                         System.out.println("Patron3");
+                     System.out.println(patron3.get(x).getClass());
+                     }
+                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron1,patron2,patron3);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                     }                   

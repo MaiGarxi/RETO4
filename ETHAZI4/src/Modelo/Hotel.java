@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Hotel {
 
@@ -286,11 +288,114 @@ public class Hotel {
      
      public ArrayList<Habitacion> Devolver_habitaciones_tres(int habitaciones,int adultos,int ninos)
      {
-         
-     return null;
-     }
+         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+          if(adultos%2!=0)
+        {
+           
+           
+            for(int x=0;x<Math.ceil(adultos/2);x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         }
+         doble hab=new doble();
+         patrones.add(hab);   
+          
+                 }
+     
+      
+
+     
+    return patrones;
      
      
      
+}
      
+          public ArrayList<Habitacion> Devolver_habitaciones_cuatro(int habitaciones,int adultos,int ninos)
+     {
+         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+          if(habitaciones>adultos)
+        {
+           
+           
+            for(int x=0;x<Math.ceil(adultos/2);x++)
+         {
+             doble hab=new doble();
+             patrones.add(hab);
+         }
+         doble hab=new doble();
+         patrones.add(hab);   
+          
+                 }
+     
+      
+
+     
+    return patrones;
+     
+     
+     
+}
+          
+          public void agregar_habitacion(ArrayList<Habitacion> patrones,DefaultTableModel modelo )
+          {
+              int individuales = 0,dobles = 0;
+             
+              String tipo=" ";
+            for(int x=0;x<patrones.size();x++)
+                     {
+                     if(patrones.get(x) instanceof doble)
+                     {
+                         dobles=dobles+1;
+                     }
+                     else{
+                          individuales=individuales+1;
+                     }
+                   
+                     }
+                     if(dobles>0)
+                     {
+                         if(dobles>1)
+                         {
+                         tipo=" "+dobles+" Habitaciones Dobles";
+                         }
+                         else if(dobles==1)
+                         {
+                         tipo=" "+dobles+" Habitacion Doble";
+                         }   
+                     
+                      if(individuales>0)
+                     {
+                         if(individuales>1)
+                         {
+                          tipo+=" y "+individuales+"  Habitaciones Individuales";
+                         }
+                         else if(individuales==1)
+                         {
+                          tipo+=" y "+individuales+"  Habitacion Individual";
+                         }
+                    
+                     }
+                     }
+                     else
+                     {
+                     if(individuales>0)
+                     {
+                      if(individuales>1)
+                         {
+                          tipo=" "+individuales+"  Habitaciones Individuales";
+                         }
+                         else if(individuales==1)
+                         {
+                          tipo=" "+individuales+"  Habitacion Individual";
+                         }
+                     } 
+                     }
+                     
+                     
+                     int capacidad=individuales+(dobles*2);
+                      String[]datos={tipo,String.valueOf(capacidad)};
+            modelo.addRow(datos);
+          }
 }
