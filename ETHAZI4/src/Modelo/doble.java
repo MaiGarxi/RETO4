@@ -12,6 +12,7 @@ package Modelo;
 public class doble extends Habitacion {
 protected int capacidad;
 protected String Tipo;
+
     public doble() {
     }
 

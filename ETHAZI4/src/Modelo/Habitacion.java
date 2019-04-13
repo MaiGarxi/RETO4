@@ -3,7 +3,7 @@ package Modelo;
 
 public class Habitacion {
     
-    protected int Cod_habitacion, Capacidad_niños, Cod_hotel;
+    protected int Cod_habitacion, Capacidad_niños, Cod_hotel,cantidad_ninos;
     
 
     public Habitacion() {

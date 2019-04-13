@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import Modelo.Habitacion;
 import Modelo.Hotel;
 
 import Modelo.Usuario;
@@ -82,8 +83,24 @@ public class ControladorDestino {
                     error.setVisible(true);
                 }else{ 
                     error.setVisible(false);
-                    try {                        
+                    try {      
+                        ArrayList<Habitacion> patron1=new ArrayList<Habitacion>();
+                         ArrayList<Habitacion> patron2=new ArrayList<Habitacion>();
                         PasarPagina pasar= new PasarPagina();
+                           System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------");
+                     patron1=  aux.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
+                     for(int x=0;x<patron1.size();x++)
+                     {
+                         System.out.println("Patron1");
+                     System.out.println(patron1.get(x).getClass());
+                     }
+                     
+                      patron2=  aux.Devolver_habitaciones_dos((int) hab.getValue(),(int) adultos.getValue(),(int) ninos.getValue());
+                       for(int x=0;x<patron2.size();x++)
+                     {
+                         System.out.println("Patron2");
+                     System.out.println(patron2.get(x).getClass());
+                     }
                         pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);

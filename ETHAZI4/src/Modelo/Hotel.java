@@ -181,12 +181,11 @@ public class Hotel {
    
      public ArrayList<Habitacion> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
      
-     if(ninos==0)
-     {
+    ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
      if(habitaciones==adultos)
      {
-         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-         for(int x=0;x<=habitaciones;x++)
+        
+         for(int x=0;x<habitaciones;x++)
          {
              individual hab=new individual();
              patrones.add(hab);
@@ -195,60 +194,45 @@ public class Hotel {
      else{
         if(adultos>habitaciones)
         {
-         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-         for(int x=0;x<=adultos;x++)
+         
+         for(int x=0;x<adultos;x++)
          {
              individual hab=new individual();
              patrones.add(hab);
          } 
         }
         else{
-             ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-         for(int x=0;x<=habitaciones;x++)
+            
+         for(int x=0;x<habitaciones;x++)
          {
              individual hab=new individual();
              patrones.add(hab);
          }
         }
      }
-     }else{
+ 
      if(ninos>0)
      {
-     int personas=ninos+adultos;
-         if(personas%2==0)
-        {
-         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-         for(int x=0;x<=personas/2;x++)
-         {
-             doble hab=new doble();
-             patrones.add(hab);
-         } 
+
+
         }
-         else{
-           ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-         for(int x=0;x<=Math.floor(habitaciones/2);x++)
-         {
-             doble hab=new doble();
-             patrones.add(hab);
-         }
-         individual hab=new individual();
-         patrones.add(hab);
-         }
-     }
-     }
-        return null;
+
+     
+     
+        return patrones;
      
      }
      
      public ArrayList<Habitacion> Devolver_habitaciones_dos(int habitaciones,int adultos,int ninos)
      {
+          ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
          if(habitaciones==adultos)
      {
-          ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+         
          if(adultos%2==0)
         {
         
-         for(int x=0;x<=adultos/2;x++)
+         for(int x=0;x<adultos/2;x++)
          {
              doble hab=new doble();
              patrones.add(hab);
@@ -258,7 +242,7 @@ public class Hotel {
         }
          else{
           
-         for(int x=0;x<=Math.floor(habitaciones/2);x++)
+         for(int x=0;x<Math.floor(habitaciones/2);x++)
          {
              doble hab=new doble();
              patrones.add(hab);
@@ -272,16 +256,16 @@ public class Hotel {
   
           if(adultos%2==0)
         {
-         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-         for(int x=0;x<=adultos/2;x++)
+         
+         for(int x=0;x<adultos/2;x++)
          {
              doble hab=new doble();
              patrones.add(hab);
          }
         }
          else{
-               ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-         for(int x=0;x<=Math.floor(adultos/2);x++)
+           
+         for(int x=0;x<Math.floor(adultos/2);x++)
          {
              doble hab=new doble();
              patrones.add(hab);
@@ -292,12 +276,18 @@ public class Hotel {
                  }
            
         }
-        return null;
+      return patrones;
 
          
          
           
       
+     }
+     
+     public ArrayList<Habitacion> Devolver_habitaciones_tres(int habitaciones,int adultos,int ninos)
+     {
+         
+     return null;
      }
      
      
