@@ -1,9 +1,7 @@
-
 package Controlador;
 
 import Modelo.Habitacion;
 import Modelo.Hotel;
-
 import Modelo.Usuario;
 import com.toedter.calendar.JCalendar;
 import java.awt.event.MouseAdapter;
@@ -30,7 +28,7 @@ public class ControladorDestino {
         Hotel aux = new Hotel();
         aux.obtener_destinos(destino); 
         name.setText(Users.get(0).nombre);       
-       
+        Habitacion habi = new Habitacion();
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */    
@@ -41,9 +39,7 @@ public class ControladorDestino {
         entrada.addPropertyChangeListener((PropertyChangeEvent evt) -> {
             salida.setMinSelectableDate(entrada.getDate());
         });   
-        
-        
-        
+       
         salida.addPropertyChangeListener((PropertyChangeEvent evt) -> {
             String entradas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(entrada.getDate());
             String salidas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(salida.getDate());
@@ -85,29 +81,29 @@ public class ControladorDestino {
                     error.setVisible(false);
                     try {      
                         ArrayList<Habitacion> patron1=new ArrayList<Habitacion>();
-                         ArrayList<Habitacion> patron2=new ArrayList<Habitacion>();
-                         ArrayList<Habitacion> patron3=new ArrayList<Habitacion>();
+                        ArrayList<Habitacion> patron2=new ArrayList<Habitacion>();
+                        ArrayList<Habitacion> patron3=new ArrayList<Habitacion>();
                         PasarPagina pasar= new PasarPagina();
-                           System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------");
-                     patron1=  aux.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                     for(int x=0;x<patron1.size();x++)
-                     {
-                         System.out.println("Patron1");
-                     System.out.println(patron1.get(x).getClass());
-                     }
+                        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------");
+                        patron1=  habi.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
+                        for(int x=0;x<patron1.size();x++)
+                        {
+                            System.out.println("Patron1");
+                            System.out.println(patron1.get(x).getClass());
+                        }
                      
-                      patron2=  aux.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                       for(int x=0;x<patron2.size();x++)
-                     {
-                         System.out.println("Patron2");
-                     System.out.println(patron2.get(x).getClass());
-                     }
-                        patron3=  aux.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
+                        patron2=  habi.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
+                        for(int x=0;x<patron2.size();x++)
+                        {
+                            System.out.println("Patron2");
+                            System.out.println(patron2.get(x).getClass());
+                        }
+                        patron3=  habi.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
                         for(int x=0;x<patron3.size();x++)
-                     {
-                         System.out.println("Patron3");
-                     System.out.println(patron3.get(x).getClass());
-                     }
+                        {
+                            System.out.println("Patron3");
+                            System.out.println(patron3.get(x).getClass());
+                        }
                         pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron1,patron2,patron3);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);

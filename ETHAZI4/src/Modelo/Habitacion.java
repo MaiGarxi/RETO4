@@ -1,11 +1,13 @@
 
 package Modelo;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 public class Habitacion {
     
     protected int Cod_habitacion, Capacidad_niños, Cod_hotel,cantidad_ninos;
     
-
     public Habitacion() {
     }
 
@@ -40,10 +42,166 @@ public class Habitacion {
     public void setCod_hotel(int Cod_hotel) {
         this.Cod_hotel = Cod_hotel;
     }
+    
+        public ArrayList<Habitacion> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
+     
+        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        if(habitaciones==adultos)
+        {        
+            for(int x=0;x<habitaciones;x++)
+            {
+                individual hab=new individual();
+                patrones.add(hab);
+            }
+        }
+        else{
+           if(adultos>habitaciones)
+           {         
+                for(int x=0;x<adultos;x++)
+                {
+                    individual hab=new individual();
+                    patrones.add(hab);
+                } 
+           }
+           else{            
+                for(int x=0;x<habitaciones;x++)
+                {
+                    individual hab=new individual();
+                    patrones.add(hab);
+                }
+           }
+        }
 
- 
-    
-    
-    
-    
+        if(ninos>0)
+        {
+           }    
+           return patrones;    
+        }
+     
+    public ArrayList<Habitacion> Devolver_habitaciones_dos(int habitaciones,int adultos,int ninos)
+    {
+        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        if(habitaciones==adultos)
+        {
+            if(adultos%2==0)
+            {        
+                for(int x=0;x<adultos/2;x++)
+                {
+                    doble hab=new doble();
+                    patrones.add(hab);
+                }
+            }else{          
+                for(int x=0;x<Math.floor(habitaciones/2);x++)
+                {
+                    doble hab=new doble();
+                    patrones.add(hab);
+                }
+                individual hab=new individual();
+                patrones.add(hab);
+                }
+            return patrones;
+        }else{  
+            if(adultos%2==0)
+            {       
+                for(int x=0;x<adultos/2;x++)
+                {
+                    doble hab=new doble();
+                    patrones.add(hab);
+                }
+            }else{          
+                for(int x=0;x<Math.floor(adultos/2);x++)
+                {
+                    doble hab=new doble();
+                    patrones.add(hab);
+                }
+                individual hab=new individual();
+                patrones.add(hab);   
+                return patrones;
+            }           
+        }
+        
+        return patrones;  
+    }
+     
+     public ArrayList<Habitacion> Devolver_habitaciones_tres(int habitaciones,int adultos,int ninos)
+     {
+        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        if(adultos%2!=0)
+        {                      
+            for(int x=0;x<Math.ceil(adultos/2);x++)
+            {
+                doble hab=new doble();
+                patrones.add(hab);
+            }
+            doble hab=new doble();
+            patrones.add(hab);             
+        }    
+        
+        return patrones;    
+    }
+     
+    public ArrayList<Habitacion> Devolver_habitaciones_cuatro(int habitaciones,int adultos,int ninos)
+    {
+        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        if(habitaciones>adultos)
+        {  
+            for(int x=0;x<Math.ceil(adultos/2);x++)
+                {
+                    doble hab=new doble();
+                    patrones.add(hab);
+                }
+            doble hab=new doble();
+            patrones.add(hab);   
+        }
+     
+        return patrones; 
+    }
+          
+    public void agregar_habitacion(ArrayList<Habitacion> patrones,DefaultTableModel modelo )
+    {
+        int individuales = 0,dobles = 0;
+        String tipo=" ";
+        for(int x=0;x<patrones.size();x++)
+        {
+            if(patrones.get(x) instanceof doble)
+            {
+                dobles=dobles+1;
+            }else{
+                individuales=individuales+1;
+            }
+        }
+        if(dobles>0)
+        {
+            if(dobles>1)
+            {
+                tipo=" "+dobles+" Habitaciones Dobles";
+            }else if(dobles==1){
+                tipo=" "+dobles+" Habitacion Doble";
+            }   
+                     
+            if(individuales>0)
+            {
+                if(individuales>1)
+                {
+                    tipo+=" y "+individuales+"  Habitaciones Individuales";
+                }else if(individuales==1){
+                    tipo+=" y "+individuales+"  Habitacion Individual";
+                }
+            }
+        }else{
+            if(individuales>0){
+                if(individuales>1)
+                {
+                    tipo=" "+individuales+"  Habitaciones Individuales";
+                }
+                else if(individuales==1){
+                    tipo=" "+individuales+"  Habitacion Individual";
+                }
+            } 
+        }
+                     
+        int capacidad=individuales+(dobles*2);
+        String[]datos={tipo,String.valueOf(capacidad)};
+         modelo.addRow(datos);
+    }
 }

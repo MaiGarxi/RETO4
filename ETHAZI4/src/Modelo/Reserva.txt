@@ -3,10 +3,10 @@
  ********************************************************************************************************************** 	
  -Nombre :  		
  -Apellidos :  		
- -DNI : Modelo.reserva@70acc2d9 		
- -Código de Reserva : 6 		
- -Fecha de entrada: 2019-04-25 		
- -Fecha de salida : 2019-04-27 		
+ -DNI :  		
+ -Código de Reserva : 2 		
+ -Fecha de entrada: 2019-04-14 		
+ -Fecha de salida : 2019-04-15 		
  -Número de habitación(es) :  		
  -Número de personas que cubre la reserva :  		
  ********************************************************************************************************************** 	
