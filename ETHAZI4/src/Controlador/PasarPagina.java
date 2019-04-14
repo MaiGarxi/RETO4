@@ -33,6 +33,10 @@ public class PasarPagina{
         //SE CREA EL OBJ DE LA CLASE BIENVENIDA
         obj1= new Bienvenida();
         obj1.setVisible(true); 
+        //CON ESTO CERRAMOS LAS VENTANAS
+        obj3.setVisible(false);
+        obj4.setVisible(false);
+        obj7.setVisible(false);
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A LOGIN
@@ -42,13 +46,15 @@ public class PasarPagina{
         obj2.setVisible(true); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR A Destino
+    //FUNCION PARA PASAR A DESTINO
     public void LoginaDestino(ArrayList<Usuario> Users){
         //SE CREA EL OBJ DE LA CLASE DESTINO   
         obj3= new Destino(Users);
         obj3.setVisible(true); 
         obj2.setVisible(false);
     } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR A LOGIN
     public void DestinoaLogin(){
         obj2.setVisible(true); 
         obj3.setVisible(false);
@@ -61,6 +67,8 @@ public class PasarPagina{
         obj4.setVisible(true);
         obj2.setVisible(false);
     } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR A LOGIN
     public void ActualizaraLogin(){
         obj2.setVisible(true);
         obj4.setVisible(false);
@@ -73,6 +81,8 @@ public class PasarPagina{
         obj5.setVisible(true);
         obj2.setVisible(false);
     } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR A LOGIN
     public void NewaLogin(){
         //SE CREA EL OBJ DE LA CLASE NUEVO USUARIO
         obj2.setVisible(true);
@@ -86,6 +96,8 @@ public class PasarPagina{
         obj6.setVisible(true);
         obj3.setVisible(false);
     }  
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR A DESTINO
     public void ListaaDestino() {
         obj3.setVisible(true);
         obj6.setVisible(false);

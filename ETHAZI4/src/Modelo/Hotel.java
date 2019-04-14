@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
-import javax.swing.table.DefaultTableModel;
 
 public class Hotel {
 
@@ -156,7 +155,7 @@ public class Hotel {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No existe ningùn Hotel");
+            System.out.println("No existe ningún Hotel");
         }
     }
     
