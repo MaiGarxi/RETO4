@@ -66,7 +66,7 @@ public class ControladorDestino {
             @Override
             public void mouseClicked(MouseEvent e) {          
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.Bienvenida();
+                pasar.DestinoaBienvenida();
             }
         }); 
                 

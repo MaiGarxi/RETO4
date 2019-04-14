@@ -33,9 +33,25 @@ public class PasarPagina{
         //SE CREA EL OBJ DE LA CLASE BIENVENIDA
         obj1= new Bienvenida();
         obj1.setVisible(true); 
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE DESTINO A BIENVENIDA
+    public void DestinoaBienvenida(){
+        obj1= new Bienvenida();
+        obj1.setVisible(true); 
         //CON ESTO CERRAMOS LAS VENTANAS
         obj3.setVisible(false);
-        obj4.setVisible(false);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE LISTA A BIENVENIDA
+    public void ListaaBienvenida(){
+        obj1.setVisible(true); 
+        obj6.setVisible(false);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE PAGO A BIENVENIDA
+    public void PagoaBienvenida(){
+        obj1.setVisible(true); 
         obj7.setVisible(false);
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
