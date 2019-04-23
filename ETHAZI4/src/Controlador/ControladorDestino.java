@@ -83,28 +83,16 @@ public class ControladorDestino {
                         ArrayList<Habitacion> patron1=new ArrayList<Habitacion>();
                         ArrayList<Habitacion> patron2=new ArrayList<Habitacion>();
                         ArrayList<Habitacion> patron3=new ArrayList<Habitacion>();
-                        PasarPagina pasar= new PasarPagina();
-                        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------");
+                        ArrayList<Habitacion> patron4=new ArrayList<Habitacion>();
+                        
+                      
                         patron1=  habi.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                        for(int x=0;x<patron1.size();x++)
-                        {
-                            System.out.println("Patron1");
-                            System.out.println(patron1.get(x).getClass());
-                        }
-                     
                         patron2=  habi.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                        for(int x=0;x<patron2.size();x++)
-                        {
-                            System.out.println("Patron2");
-                            System.out.println(patron2.get(x).getClass());
-                        }
                         patron3=  habi.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                        for(int x=0;x<patron3.size();x++)
-                        {
-                            System.out.println("Patron3");
-                            System.out.println(patron3.get(x).getClass());
-                        }
-                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron1,patron2,patron3);
+                        patron4=  habi.Devolver_habitaciones_cuatro(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
+              
+                        PasarPagina pasar= new PasarPagina();
+                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron1,patron2,patron3,patron4);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                     }                   

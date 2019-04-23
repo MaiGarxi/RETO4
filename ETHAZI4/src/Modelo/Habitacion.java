@@ -143,15 +143,17 @@ public class Habitacion {
     public ArrayList<Habitacion> Devolver_habitaciones_cuatro(int habitaciones,int adultos,int ninos)
     {
         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-        if(habitaciones>adultos)
+        if(habitaciones>=adultos)
         {  
-            for(int x=0;x<Math.ceil(adultos/2);x++)
+            
+            for(int x=0;x<habitaciones;x++)
                 {
+                    System.out.println(habitaciones);
                     doble hab=new doble();
                     patrones.add(hab);
                 }
-            doble hab=new doble();
-            patrones.add(hab);   
+
+ 
         }
      
         return patrones; 
@@ -166,7 +168,7 @@ public class Habitacion {
             if(patrones.get(x) instanceof doble)
             {
                 dobles=dobles+1;
-            }else{
+            }else if(patrones.get(x) instanceof individual){
                 individuales=individuales+1;
             }
         }
@@ -200,8 +202,26 @@ public class Habitacion {
             } 
         }
                      
+        if(individuales>0 || dobles>0){
         int capacidad=individuales+(dobles*2);
-        String[]datos={tipo,String.valueOf(capacidad)};
+        String[]datos={tipo,0+" ",capacidad+""};
          modelo.addRow(datos);
+        }
+        
     }
+    
+     public double obtener_precio_reserva(ArrayList<Habitacion> patrones)
+     {
+         double precio=0.0;
+          for(int x=0;x<patrones.size();x++)
+        {
+            if(patrones.get(x) instanceof doble)
+            {
+                precio=precio+100;
+            }else if(patrones.get(x) instanceof individual){
+                precio=precio+50;
+            }
+        }
+     return precio;
+     }
 }
