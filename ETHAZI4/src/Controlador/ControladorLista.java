@@ -73,7 +73,8 @@ public class ControladorLista {
       {
           double preciox=0.0;
           Habitacion habi = new Habitacion();
-      
+           preciox= habi.obtener_precio_reserva(patron.get(jTable1.getSelectedRow()));
+   
           
           
        /*   
