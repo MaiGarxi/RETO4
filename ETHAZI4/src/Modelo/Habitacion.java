@@ -90,6 +90,8 @@ public class Habitacion {
     public ArrayList<Habitacion> Devolver_habitaciones_dos(int habitaciones,int adultos,int ninos)
     {
         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        if(adultos !=1)
+        {
         if(habitaciones==adultos)
         {
             if(adultos%2==0)
@@ -132,12 +134,14 @@ public class Habitacion {
         {
           patrones.get(0).cantidad_ninos=ninos; 
            }   
+        }
         return patrones;  
     }
      
      public ArrayList<Habitacion> Devolver_habitaciones_tres(int habitaciones,int adultos,int ninos)
      {
         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        
         if(adultos%2!=0)
         {                      
             for(int x=0;x<Math.ceil(adultos/2);x++)
@@ -153,31 +157,76 @@ public class Habitacion {
            } 
         }    
         
-           
+        
         return patrones;    
     }
      
     public ArrayList<Habitacion> Devolver_habitaciones_cuatro(int habitaciones,int adultos,int ninos)
     {
         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
-        if(habitaciones>=adultos && adultos%2==0)
+        if(habitaciones!=2 && adultos !=2)
+        {
+        if(habitaciones>=adultos )
         {
             if(habitaciones%2==0)
             {
-            for(int x=0;x<habitaciones/2;x++)
+                if((habitaciones/2)%2==0)
+                {
+                for(int x=0;x<(habitaciones/2)/2;x++)
                 {
                     doble hab=new doble();
                     patrones.add(hab);
                 }
+                for(int x=0;x<(habitaciones/2);x++)
+                {
+                    individual hab=new individual();
+                    patrones.add(hab);
+                }
+                }
+                else{
+               
+                 for(int x=0;x<Math.ceil((habitaciones/2)/2)+1;x++)
+                {
+                    doble hab=new doble();
+                    patrones.add(hab);
+                }
+                  for(int x=0;x<(habitaciones/2)-1;x++)
+                {
+                    individual hab=new individual();
+                    patrones.add(hab);
+                }
+                }
+
             }
             else{
-            for(int x=0;x<Math.floor(habitaciones/2);x++)
-                {
-                    doble hab=new doble();
-                    patrones.add(hab);
-                }
-                individual hab=new individual();
-                patrones.add(hab);
+               if(Math.floor(habitaciones/2)!=1)
+                       {
+                        for(int x=0;x<Math.floor(habitaciones/2)-1;x++)
+                        {
+                           doble hab=new doble();
+                              patrones.add(hab);
+                        }
+                        int subHabitaciones=(int) (habitaciones-(Math.floor(habitaciones/2)));
+                        for(int x=0;x<subHabitaciones;x++)
+                        {
+                           individual hab=new individual();
+                              patrones.add(hab);
+                        }
+                       }
+               else{
+                for(int x=0;x<Math.floor(habitaciones/2);x++)
+                        {
+                           doble hab=new doble();
+                              patrones.add(hab);
+                        }
+                        int subHabitaciones=(int) (habitaciones-(Math.floor(habitaciones/2)));
+                        for(int x=0;x<subHabitaciones;x++)
+                        {
+                           individual hab=new individual();
+                              patrones.add(hab);
+                        }
+               }
+         
                 }
             }
         
@@ -195,6 +244,7 @@ public class Habitacion {
         {
             patrones.get(0).cantidad_ninos=ninos; 
            }   
+        }
         }
          
         return patrones; 
@@ -321,15 +371,15 @@ public class Habitacion {
         {
             if(patrones.get(x) instanceof doble)
             {
-                precio=precio+100;
+                precio=precio+20;
             }else if(patrones.get(x) instanceof individual){
-                precio=precio+50;
+                precio=precio+10;
             }
         }
           for(int u=0;u<patrones.get(0).cantidad_ninos;u++)
           {
             System.out.println(  patrones.get(0).cantidad_ninos);
-          precio=precio+25.0;
+          precio=precio+5.0;
           }
      return precio;
      }
