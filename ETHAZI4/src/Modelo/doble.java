@@ -2,7 +2,7 @@ package Modelo;
 
 public class doble extends Habitacion {
     
-    protected int capacidad;
+  
     protected String Tipo;
 
     public doble() {
@@ -10,17 +10,13 @@ public class doble extends Habitacion {
 
     public doble(int capacidad, String Tipo, int Cod_habitacion, int Capacidad_niños, int Cod_hotel) {
         super(Cod_habitacion, Capacidad_niños, Cod_hotel);
-        this.capacidad = capacidad;
+        
         this.Tipo = Tipo;
     }
 
-    public int getCapacidad() {
-        return capacidad;
-    }
+  
 
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
+    
 
     public String getTipo() {
         return Tipo;

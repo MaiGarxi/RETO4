@@ -80,19 +80,16 @@ public class ControladorDestino {
                 }else{ 
                     error.setVisible(false);
                     try {      
-                        ArrayList<Habitacion> patron1=new ArrayList<Habitacion>();
-                        ArrayList<Habitacion> patron2=new ArrayList<Habitacion>();
-                        ArrayList<Habitacion> patron3=new ArrayList<Habitacion>();
-                        ArrayList<Habitacion> patron4=new ArrayList<Habitacion>();
-                        
+                        ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
+                       
                       
-                        patron1=  habi.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                        patron2=  habi.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                        patron3=  habi.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-                        patron4=  habi.Devolver_habitaciones_cuatro(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString()));
-              
+                        patron.add(habi.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
+                        patron.add(habi.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
+                        patron.add(habi.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
+                        patron.add(habi.Devolver_habitaciones_cuatro(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
+                           
                         PasarPagina pasar= new PasarPagina();
-                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron1,patron2,patron3,patron4);
+                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                     }                   

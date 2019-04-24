@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 public class Lista extends javax.swing.JFrame {
 
-    public Lista(String localidad,ArrayList<Usuario> Users, String entradas, String salidas,ArrayList<Habitacion> patron1,ArrayList<Habitacion> patron2,ArrayList<Habitacion> patron3,ArrayList<Habitacion> patron4) throws SQLException {
+    public Lista(String localidad,ArrayList<Usuario> Users, String entradas, String salidas,ArrayList<ArrayList> patron) throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,error,Users,name,exit,entradas,salidas,jTable1,patron1,patron2,patron3,patron4);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,error,Users,name,exit,entradas,salidas,jTable1,patron);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -177,7 +177,7 @@ public class Lista extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 390, 140));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 480, 140));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));

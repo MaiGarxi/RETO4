@@ -22,7 +22,7 @@ import javax.swing.table.TableColumnModel;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<Habitacion> patron1,ArrayList<Habitacion> patron2,ArrayList<Habitacion> patron3,ArrayList<Habitacion> patron4) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron) {
           
         /*Apenas de inicia el controlador*/
       
@@ -60,10 +60,7 @@ public class ControladorLista {
         error.setVisible(false);
         modelo.setRowCount(0);
         Habitacion habi = new Habitacion();
-        habi.agregar_habitacion(patron1,modelo);
-        habi.agregar_habitacion(patron2,modelo);
-        habi.agregar_habitacion(patron3,modelo);
-        habi.agregar_habitacion(patron4,modelo);
+        habi.grande_agregar(patron,modelo);
           precio.setText(String.valueOf(" "));
         });
             /*Seleccionar Hotel*/
@@ -76,21 +73,7 @@ public class ControladorLista {
       {
           double preciox=0.0;
           Habitacion habi = new Habitacion();
-          switch(jTable1.getSelectedRow())
-          {
-              case 0: 
-                preciox= habi.obtener_precio_reserva(patron1);
-                  break;
-              case 1:
-                  preciox= habi.obtener_precio_reserva(patron2); 
-                  break;
-              case 2:
-                   preciox= habi.obtener_precio_reserva(patron3);
-                  break;
-              case 3:
-                   preciox= habi.obtener_precio_reserva(patron4);
-                  break;
-          }
+      
           
           
        /*   
