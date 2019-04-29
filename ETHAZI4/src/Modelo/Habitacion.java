@@ -255,7 +255,7 @@ public class Habitacion {
          for(int l=0;l<patron.size();l++)
          {
          capacidades.add(orden_agregar(patron.get(l)));
-         System.out.println(capacidades.get(l)+"Capacidades");
+         
          }
        
                    
@@ -265,20 +265,31 @@ public class Habitacion {
         {
             for(int f=0;f<((patron.size()-k)-1);f++)
             {  
+             
                 if(capacidades.get(f)>capacidades.get(f+1))
                 {
+                    System.out.println("---------------------------------------------------------------------------");
+                    System.out.println("Entra en el patron "+capacidades.get(f)+" Es mayor que "+capacidades.get(f+1));
+                    System.out.println("---------------------------------------------------------------------------");
                     parad=patron.get(f+1);
                     patron.set(f+1,patron.get(f));
                     patron.set(f,parad);
                    auxi=capacidades.get(f+1);
                     capacidades.set(f+1,capacidades.get(f));
                     capacidades.set(f, auxi);
+                    System.out.println("---------------------------------------------------------------------------");
+                    System.out.println("patrones: "+patron.get(f));
+                    System.out.println("---------------------------------------------------------------------------");
+                    
                 }
             }
        }
         
          for(int f=0;f<4;f++)
          {
+             System.out.println("---------------------------------------------------------------------------");
+                    System.out.println(f+"   patrones: "+patron.get(f));
+                    System.out.println("---------------------------------------------------------------------------");
         agregar_habitacion(patron.get(f),modelo);
          }
           }
@@ -291,7 +302,7 @@ public class Habitacion {
               for(int x=0;x<patrones.size();x++)
                 {
 
-            System.out.println(patrones.get(x));
+
             if(patrones.get(x) instanceof doble)
             {
                 dobles=dobles+1;
@@ -300,11 +311,15 @@ public class Habitacion {
             }
                }
               if(individuales>0 || dobles>0){
-        int capacidad=individuales+(dobles*2);
+              int capacidad=individuales+(dobles*2);
              patrones.get(0).capacidad=capacidad;
              return capacidad;
               }
-             return 0;
+              else{
+   
+              return 100000;
+              }
+            
           }
               
     public void agregar_habitacion(ArrayList<Habitacion> patrones,DefaultTableModel modelo )
@@ -371,15 +386,15 @@ public class Habitacion {
         {
             if(patrones.get(x) instanceof doble)
             {
-                precio=precio+20;
+                precio=precio+80;
             }else if(patrones.get(x) instanceof individual){
-                precio=precio+10;
+                precio=precio+50;
             }
         }
           for(int u=0;u<patrones.get(0).cantidad_ninos;u++)
           {
             System.out.println(  patrones.get(0).cantidad_ninos);
-          precio=precio+5.0;
+          precio=precio+20;
           }
      return precio;
      }
