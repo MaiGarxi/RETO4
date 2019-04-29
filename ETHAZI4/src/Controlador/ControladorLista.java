@@ -22,7 +22,7 @@ import javax.swing.table.TableColumnModel;
 
 public class ControladorLista {
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias) {
           
         /*Apenas de inicia el controlador*/
       
@@ -83,7 +83,8 @@ public class ControladorLista {
         System.out.println(jTable1.getValueAt( jTable1.getSelectedRow(), 1));
         System.out.println(jTable1.getValueAt( jTable1.getSelectedRow(), 2));
           */
-    precio.setText(String.valueOf(preciox + " €"));
+       
+    precio.setText(String.valueOf((preciox*dias) + " € "+"  Por "+dias+" Noches"));
        }});
            
            

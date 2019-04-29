@@ -106,9 +106,9 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A LISTA
-    public void DestinoaLista(String localidad,ArrayList<Usuario> Users, String entradas, String salidas,ArrayList<ArrayList> patron) throws SQLException {
+    public void DestinoaLista(String localidad,ArrayList<Usuario> Users, String entradas, String salidas,ArrayList<ArrayList> patron,int dias) throws SQLException {
         //SE CREA EL OBJ DE LA CLASE LISTA
-        obj6= new Lista(localidad,Users, entradas, salidas,patron);
+        obj6= new Lista(localidad,Users, entradas, salidas,patron,dias);
         obj6.setVisible(true);
         obj3.setVisible(false);
     }  
