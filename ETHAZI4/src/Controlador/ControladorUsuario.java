@@ -53,7 +53,8 @@ public class ControladorUsuario{
         
         Nuevousuario.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
+            public void mouseClicked(MouseEvent e) {
+                
               PasarPagina pasar= new PasarPagina(); 
               pasar.LoginaNew();
             }
