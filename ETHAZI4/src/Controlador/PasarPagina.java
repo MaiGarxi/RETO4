@@ -1,7 +1,6 @@
 
 package Controlador;
 
-import Modelo.Habitacion;
 import Modelo.reserva;
 import Modelo.Usuario;
 import Vista.Actualizar;
@@ -56,10 +55,12 @@ public class PasarPagina{
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A LOGIN
-    public void Login(){
+    public void BienvenidaaLogin(){
         //SE CREA EL OBJ DE LA CLASE LOGIN   
         obj2= new Login();
-        obj2.setVisible(true); 
+        obj1= new Bienvenida();
+        obj2.setVisible(true);         
+        obj1.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A DESTINO

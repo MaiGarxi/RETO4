@@ -1,9 +1,7 @@
 
 package Vista;
 
-import Controlador.PasarPagina;
-import bbdd.Consultas;
-import static ethazi4.ETHAZI4.consul;
+import Controlador.ControladorBienvenida;
 
 public class Bienvenida extends javax.swing.JFrame {
 
@@ -11,7 +9,9 @@ public class Bienvenida extends javax.swing.JFrame {
         
         initComponents();
         setLocationRelativeTo(null);
-        setResizable (false);    
+        setResizable (false);  
+        
+        ControladorBienvenida Controlador = new ControladorBienvenida(continuar);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,11 +48,6 @@ public class Bienvenida extends javax.swing.JFrame {
         continuar.setForeground(new java.awt.Color(51, 51, 51));
         continuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/siguiente.png"))); // NOI18N
         continuar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        continuar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continuarActionPerformed(evt);
-            }
-        });
         getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 530, 140, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
@@ -60,13 +55,6 @@ public class Bienvenida extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
-    consul=new Consultas();
-    PasarPagina pasar = new PasarPagina();
-    pasar.Login();
-    dispose();
-    }//GEN-LAST:event_continuarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton continuar;
