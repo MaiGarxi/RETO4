@@ -5,7 +5,10 @@ import Modelo.Usuario;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -31,7 +34,11 @@ public class ControladorNoRegistrado {
                 }
                 String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
                 Usuario usu = new Usuario();
-                usu.CrearUsuario(dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText());
+                try {
+                    usu.CrearUsuario(dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorNoRegistrado.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }    
         });
 
