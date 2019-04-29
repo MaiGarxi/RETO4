@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 public class Lista extends javax.swing.JFrame {
 
-    public Lista(String localidad,ArrayList<Usuario> Users, String entradas, String salidas,ArrayList<ArrayList> patron) throws SQLException {
+    public Lista(String localidad,ArrayList<Usuario> Users, String entradas, String salidas,ArrayList<ArrayList> patron, int dias) throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,error,Users,name,exit,entradas,salidas,jTable1,patron);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, precio,jList1,error,Users,name,exit,entradas,salidas,jTable1,patron, dias);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -58,10 +58,10 @@ public class Lista extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel3.setText("PRECIO:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 650, 100, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 610, 100, 40));
 
         precio.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 650, 130, 40));
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 660, 400, 50));
 
         reservar.setBackground(new java.awt.Color(51, 51, 51));
         reservar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N

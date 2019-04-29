@@ -1,7 +1,14 @@
 
 package Modelo;
 
+import static ethazi4.ETHAZI4.consul;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Habitacion {
@@ -398,4 +405,12 @@ public class Habitacion {
           }
      return precio;
      }
+     
+       public int obtener_dia(Date dia_entrada, Date dia_salida) 
+       {
+        long ms=dia_salida.getTime()-dia_entrada.getTime();
+        long dias=ms/(1000*60*60*24);
+          System.out.println("diassssssss"+(int)dias);
+       return (int)dias;
+       }
 }

@@ -43,6 +43,8 @@ public class ControladorDestino {
         salida.addPropertyChangeListener((PropertyChangeEvent evt) -> {
             String entradas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(entrada.getDate());
             String salidas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(salida.getDate());
+            
+            
             if((entradas.compareTo(salidas)) ==0){
                 error.setVisible(true);
             }else{ 
@@ -74,6 +76,7 @@ public class ControladorDestino {
             @Override
             public void mouseClicked(MouseEvent e) {  
                 String entradas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(entrada.getDate());
+                
                 String salidas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(salida.getDate());
                 if((entradas.compareTo(salidas)) ==0){
                     error.setVisible(true);
@@ -82,14 +85,15 @@ public class ControladorDestino {
                     try {      
                         ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
                        
-                      
+                      int dias=habi.obtener_dia(entrada.getDate(), salida.getDate());
                         patron.add(habi.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
                         patron.add(habi.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
                         patron.add(habi.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
                         patron.add(habi.Devolver_habitaciones_cuatro(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
                            
                         PasarPagina pasar= new PasarPagina();
-                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron);
+                        
+                        pasar.DestinoaLista((String) destino.getSelectedItem(),Users, entradas,salidas,patron,dias);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                     }                   
