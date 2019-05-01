@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Destino extends javax.swing.JFrame {
 
     public Destino(ArrayList<Usuario> Users) {
-       initComponents();
+        initComponents();
         setLocationRelativeTo(null);
         setResizable (false);
         

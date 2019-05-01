@@ -7,17 +7,20 @@ import java.util.ArrayList;
 
 public class reserva {
     
-    protected int cod_reserva,cod_hotel;
+    protected int cod_reserva,cod_hotel,cod_habitacion;
     protected double precio;
     protected String entrada;
     protected String salida;
+    protected String dni;
 
-    public reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
+    public reserva(int cod_reserva, int cod_hotel, int cod_habitacion, double precio, String entrada, String salida, String dni) {
         this.cod_reserva = cod_reserva;
         this.cod_hotel = cod_hotel;
+        this.cod_habitacion = cod_habitacion;
         this.precio = precio;
         this.entrada = entrada;
         this.salida = salida;
+        this.dni = dni;
     }
 
     public int getCod_reserva() {
@@ -34,6 +37,14 @@ public class reserva {
 
     public void setCod_hotel(int cod_hotel) {
         this.cod_hotel = cod_hotel;
+    }
+
+    public int getCod_habitacion() {
+        return cod_habitacion;
+    }
+
+    public void setCod_habitacion(int cod_habitacion) {
+        this.cod_habitacion = cod_habitacion;
     }
 
     public double getPrecio() {
@@ -60,34 +71,43 @@ public class reserva {
         this.salida = salida;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    
+
     public reserva() {
     }
 
-   public ArrayList <reserva> Crear_reservas (ArrayList<Hotel> hoteles)
+    public ArrayList <reserva> Crear_reservas (ArrayList<Hotel> hoteles)
     {
-         ArrayList <reserva> reservas;
-         reservas = new ArrayList<reserva>();
+        ArrayList <reserva> reservas;
+        reservas = new ArrayList<reserva>();
         for(int x=0;hoteles.size()>x;x++)
         {
-            reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,100.0,reservas.get(x).entrada,reservas.get(x).salida);
-            reservas.add(reser);
-        
+            reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel, reservas.get(x).cod_habitacion,reservas.get(x).precio,reservas.get(x).entrada,reservas.get(x).salida,reservas.get(x).dni);
+            reservas.add(reser);        
         }
-      return reservas;
+        return reservas;
     }
    
-    public  double calcular_total_pagar (ArrayList<reserva> reservas)
-   {
+    public double calcular_total_pagar (ArrayList<reserva> reservas)
+    {
         double precio_final =0;
            for(int x=0;reservas.size()>x;x++)
         {
             precio_final = precio_final + reservas.get(x).precio;       
         }
-   return precio_final;
-   }
+        return precio_final;
+    }
    
-   public String crear_txt(ArrayList<reserva> reservas)
-   {      
+    public String crear_txt(ArrayList<reserva> reservas,ArrayList<Usuario> Users)
+    {      
         try{
             String ruta= "src\\modelo\\Reserva.txt"; 
             FileWriter archivo = new FileWriter(ruta);
@@ -96,14 +116,14 @@ public class reserva {
           String mensaje =       " \n"
 				+"                                                             BIDAI-ON S.L.                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"				
-                                +" -Nombre : " +" \t\t\n"
-                                +" -Apellidos : " +" \t\t\n"
-                                +" -DNI : " +" \t\t\n"
+                                +" -Nombre : "+Users.get(0).nombre+" \t\t\n"
+                                +" -Apellidos : "+Users.get(0).apellidos +" \t\t\n"
+                                +" -DNI : "+Users.get(x).dni +" \t\t\n"
 				+" -Código de Reserva : " +reservas.get(x).cod_reserva+" \t\t\n"
                                 +" -Fecha de entrada: " +reservas.get(x).entrada+" \t\t\n"
                                 +" -Fecha de salida : " +reservas.get(x).salida+" \t\t\n"
                                 +" -Número de habitación(es) : " +" \t\t\n"
-                                +" -Número de personas que cubre la reserva : " +" \t\t\n"
+                                +" -Número de personas que cubre la reserva : "+" \t\t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
 				+" -Precio final: " +reservas.get(x).calcular_total_pagar(reservas)+" €";
@@ -114,7 +134,5 @@ public class reserva {
         }catch(IOException e){
            return  "Hubo un error";       
         }         
-   }   
-   
-  
+    }     
 }

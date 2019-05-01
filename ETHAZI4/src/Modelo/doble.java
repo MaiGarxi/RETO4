@@ -14,10 +14,6 @@ public class doble extends Habitacion {
         this.Tipo = Tipo;
     }
 
-  
-
-    
-
     public String getTipo() {
         return Tipo;
     }

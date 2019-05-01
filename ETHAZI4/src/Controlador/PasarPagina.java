@@ -34,6 +34,31 @@ public class PasarPagina{
         obj1.setVisible(true); 
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE DESPEDIDA A BIENVENIDA
+    public void DespedidaaBienvenida(){
+        obj1= new Bienvenida();
+        obj1.setVisible(true); 
+        obj8.setVisible(false);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE DESTINO A BIENVENIDA
+    public void DestinoaBienvenida(){
+        obj1.setVisible(true); 
+        obj3.setVisible(false);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE LISTA A BIENVENIDA
+    public void ListaaBienvenida(){
+        obj1.setVisible(true); 
+        obj6.setVisible(false);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE PAGO A BIENVENIDA
+    public void PagoaBienvenida(){
+        obj1.setVisible(true); 
+        obj7.setVisible(false);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE BIENVENIDA A LOGIN
     public void BienvenidaaLogin(){
         //SE CREA EL OBJ DE LA CLASE LOGIN   
@@ -115,29 +140,4 @@ public class PasarPagina{
         obj8.setVisible(true);
         obj7.setVisible(false); 
     } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE DESPEDIDA A BIENVENIDA
-    public void DespedidaaBienvenida(){
-        obj1= new Bienvenida();
-        obj1.setVisible(true); 
-        obj8.setVisible(false);
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE DESTINO A BIENVENIDA
-    public void DestinoaBienvenida(){
-        obj1.setVisible(true); 
-        obj3.setVisible(false);
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE LISTA A BIENVENIDA
-    public void ListaaBienvenida(){
-        obj1.setVisible(true); 
-        obj6.setVisible(false);
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE PAGO A BIENVENIDA
-    public void PagoaBienvenida(){
-        obj1.setVisible(true); 
-        obj7.setVisible(false);
-    }
 }

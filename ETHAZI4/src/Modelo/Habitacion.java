@@ -1,14 +1,8 @@
 
 package Modelo;
 
-import static ethazi4.ETHAZI4.consul;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Habitacion {
@@ -40,8 +34,6 @@ public class Habitacion {
         this.Cod_habitacion = Cod_habitacion;
     }
 
-
-
     public int getCapacidad_niños() {
         return Capacidad_niños;
     }
@@ -58,7 +50,7 @@ public class Habitacion {
         this.Cod_hotel = Cod_hotel;
     }
     
-        public ArrayList<Habitacion> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
+    public ArrayList<Habitacion> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
      
         ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
         if(habitaciones==adultos)
@@ -68,31 +60,29 @@ public class Habitacion {
                 individual hab=new individual();
                 patrones.add(hab);
             }
-        }
-        else{
-           if(adultos>habitaciones)
-           {         
+        }else{
+            if(adultos>habitaciones)
+            {         
                 for(int x=0;x<adultos;x++)
                 {
                     individual hab=new individual();
                     patrones.add(hab);
                 } 
-           }
-           else{            
+            }else{            
                 for(int x=0;x<habitaciones;x++)
                 {
                     individual hab=new individual();
                     patrones.add(hab);
                 }
-           }
+            }    
         }
-  if(ninos>0)
+        if(ninos>0)
         {
             patrones.get(0).cantidad_ninos=ninos; 
-         } 
+        } 
          
            return patrones;    
-        }
+    }
      
     public ArrayList<Habitacion> Devolver_habitaciones_dos(int habitaciones,int adultos,int ninos)
     {
@@ -138,9 +128,9 @@ public class Habitacion {
             }           
         }
             if(ninos>0)
-        {
-          patrones.get(0).cantidad_ninos=ninos; 
-           }   
+            {
+                patrones.get(0).cantidad_ninos=ninos; 
+            }   
         }
         return patrones;  
     }
@@ -206,7 +196,7 @@ public class Habitacion {
 
             }
             else{
-               if(Math.floor(habitaciones/2)!=1)
+                if(Math.floor(habitaciones/2)!=1)
                        {
                         for(int x=0;x<Math.floor(habitaciones/2)-1;x++)
                         {
@@ -220,7 +210,7 @@ public class Habitacion {
                               patrones.add(hab);
                         }
                        }
-               else{
+                else{
                 for(int x=0;x<Math.floor(habitaciones/2);x++)
                         {
                            doble hab=new doble();
@@ -232,102 +222,78 @@ public class Habitacion {
                            individual hab=new individual();
                               patrones.add(hab);
                         }
-               }
-         
-                }
+                }         
             }
-        
-        else if(habitaciones>=adultos)
-        {  
-            
-            for(int x=0;x<adultos;x++)
-                {
-                    System.out.println(habitaciones);
-                    individual hab=new individual();
-                    patrones.add(hab);
-                }
+        }else if(habitaciones>=adultos)
+            {  
 
-        if(ninos>0)
-        {
-            patrones.get(0).cantidad_ninos=ninos; 
-           }   
-        }
-        }
-         
+                for(int x=0;x<adultos;x++)
+                    {
+                        System.out.println(habitaciones);
+                        individual hab=new individual();
+                        patrones.add(hab);
+                    }
+
+                if(ninos>0)
+                {
+                    patrones.get(0).cantidad_ninos=ninos; 
+                }   
+            }
+        }       
         return patrones; 
     }
-          public void grande_agregar(ArrayList<ArrayList> patron,DefaultTableModel modelo )
-          {
-         ArrayList<Integer> capacidades=new ArrayList<Integer>();
-         for(int l=0;l<patron.size();l++)
-         {
-         capacidades.add(orden_agregar(patron.get(l)));
-         
-         }
-       
+    
+    public void grande_agregar(ArrayList<ArrayList> patron,DefaultTableModel modelo )
+    {
+        ArrayList<Integer> capacidades=new ArrayList<Integer>();
+        for(int l=0;l<patron.size();l++)
+        {
+        capacidades.add(orden_agregar(patron.get(l)));
+        }      
                    
-          ArrayList<Habitacion> parad=new ArrayList<Habitacion>();
-          int auxi;
+        ArrayList<Habitacion> parad=new ArrayList<Habitacion>();
+        int auxi;
         for(int k=0;k<(patron.size()-1);k++)
         {
             for(int f=0;f<((patron.size()-k)-1);f++)
-            {  
-             
+            {              
                 if(capacidades.get(f)>capacidades.get(f+1))
                 {
-                    System.out.println("---------------------------------------------------------------------------");
-                    System.out.println("Entra en el patron "+capacidades.get(f)+" Es mayor que "+capacidades.get(f+1));
-                    System.out.println("---------------------------------------------------------------------------");
                     parad=patron.get(f+1);
                     patron.set(f+1,patron.get(f));
                     patron.set(f,parad);
-                   auxi=capacidades.get(f+1);
+                    auxi=capacidades.get(f+1);
                     capacidades.set(f+1,capacidades.get(f));
-                    capacidades.set(f, auxi);
-                    System.out.println("---------------------------------------------------------------------------");
-                    System.out.println("patrones: "+patron.get(f));
-                    System.out.println("---------------------------------------------------------------------------");
-                    
+                    capacidades.set(f, auxi);                    
                 }
             }
-       }
-        
-         for(int f=0;f<4;f++)
-         {
-             System.out.println("---------------------------------------------------------------------------");
-                    System.out.println(f+"   patrones: "+patron.get(f));
-                    System.out.println("---------------------------------------------------------------------------");
-        agregar_habitacion(patron.get(f),modelo);
-         }
-          }
-          
-       
-          
-          public int orden_agregar(ArrayList<Habitacion> patrones)
-          {
-              int individuales = 0,dobles = 0;
-              for(int x=0;x<patrones.size();x++)
-                {
-
-
+        }        
+        for(int f=0;f<4;f++)
+        {
+            agregar_habitacion(patron.get(f),modelo);
+        }
+    }
+         
+    public int orden_agregar(ArrayList<Habitacion> patrones)
+    {
+        int individuales = 0,dobles = 0;
+        for(int x=0;x<patrones.size();x++)
+        {
             if(patrones.get(x) instanceof doble)
             {
                 dobles=dobles+1;
             }else if(patrones.get(x) instanceof individual){
                 individuales=individuales+1;
             }
-               }
-              if(individuales>0 || dobles>0){
-              int capacidad=individuales+(dobles*2);
-             patrones.get(0).capacidad=capacidad;
-             return capacidad;
-              }
-              else{
-   
-              return 100000;
-              }
-            
-          }
+        }
+        if(individuales>0 || dobles>0){
+            int capacidad=individuales+(dobles*2);
+            patrones.get(0).capacidad=capacidad;
+            return capacidad;
+        }else{
+            return 100000;
+        }
+    }
               
     public void agregar_habitacion(ArrayList<Habitacion> patrones,DefaultTableModel modelo )
     {
@@ -386,9 +352,9 @@ public class Habitacion {
         
     }
     
-     public double obtener_precio_reserva(ArrayList<Habitacion> patrones)
-     {
-         double precio=0.0;
+    public double obtener_precio_reserva(ArrayList<Habitacion> patrones)
+    {
+        double precio=0.0;
           for(int x=0;x<patrones.size();x++)
         {
             if(patrones.get(x) instanceof doble)
@@ -398,19 +364,18 @@ public class Habitacion {
                 precio=precio+50;
             }
         }
-          for(int u=0;u<patrones.get(0).cantidad_ninos;u++)
-          {
-            System.out.println(  patrones.get(0).cantidad_ninos);
-          precio=precio+20;
-          }
-     return precio;
-     }
+        for(int u=0;u<patrones.get(0).cantidad_ninos;u++)
+        {
+            System.out.println(patrones.get(0).cantidad_ninos);
+            precio=precio+20;
+        }
+        return precio;
+    }
      
-       public int obtener_dia(Date dia_entrada, Date dia_salida) 
-       {
+    public int obtener_dia(Date dia_entrada, Date dia_salida) 
+    {
         long ms=dia_salida.getTime()-dia_entrada.getTime();
-        long dias=ms/(1000*60*60*24);
-          System.out.println("diassssssss"+(int)dias);
-       return (int)dias;
-       }
+        long dias=ms/(1000*60*60*24);       
+        return (int)dias;
+    }
 }

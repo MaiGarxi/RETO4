@@ -47,6 +47,14 @@ public class ControladorPago {
             }
         });
         
+        exit.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+              PasarPagina pasar= new PasarPagina(); 
+              pasar.PagoaBienvenida();
+            }
+        });
+        
         reiniciar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
@@ -64,10 +72,10 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();  
                    
                     for(int i=0; i<reservas.size();i++){
-                        consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni());
+                        consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni(),reservas.get(i).getCod_habitacion());
                     }
                     reserva a= new reserva();
-                    System.out.println( a.crear_txt(reservas));
+                    System.out.println( a.crear_txt(reservas,Users));
                 }
                 if (pago2>valor){
                     double cambio;
@@ -76,7 +84,7 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();
                     Consultas con = new Consultas();
                     for(int i=0; i<reservas.size();i++){
-                    consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni());
+                    consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida(), Users.get(0).getDni(),reservas.get(i).getCod_habitacion());
                     }                    
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");

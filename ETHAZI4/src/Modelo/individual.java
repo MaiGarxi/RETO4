@@ -1,7 +1,6 @@
 package Modelo;
 
-public class individual extends Habitacion{
-    
+public class individual extends Habitacion{   
     
     protected String Tipo;
 
@@ -13,10 +12,6 @@ public class individual extends Habitacion{
         
         this.Tipo = Tipo;
     }
-
-    
-
-   
 
     public String getTipo() {
         return Tipo;

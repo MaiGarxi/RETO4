@@ -85,7 +85,7 @@ public class ControladorDestino {
                     try {      
                         ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
                        
-                      int dias=habi.obtener_dia(entrada.getDate(), salida.getDate());
+                        int dias=habi.obtener_dia(entrada.getDate(), salida.getDate());
                         patron.add(habi.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
                         patron.add(habi.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
                         patron.add(habi.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
