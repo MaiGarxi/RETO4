@@ -106,7 +106,7 @@ public class reserva {
                                 +" -Número de personas que cubre la reserva : "+" \t\t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
-				+" -Precio final: " +reservas.get(x).calcular_total_pagar(reservas)+" €";
+				+" -Precio final: " +reservas.get(x).precio+" €";
                                 archivo.write(mensaje);
         }
             archivo.close();
