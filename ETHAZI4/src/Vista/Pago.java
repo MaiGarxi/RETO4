@@ -2,7 +2,6 @@
 package Vista;
 
 import Controlador.ControladorPago;
-import Controlador.PasarPagina;
 import Modelo.reserva;
 import Modelo.Usuario;
 import java.awt.Image;
@@ -14,12 +13,12 @@ public class Pago extends javax.swing.JFrame {
     
     public double valor, pago2;
     
-    public Pago(ArrayList<reserva>reservas,ArrayList<Usuario> Users) {
+    public Pago(ArrayList<reserva>reservas,ArrayList<Usuario> Users,double preci) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);               
         
-        ControladorPago Controlador = new ControladorPago(Lista, reservas,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,Users,name,exit);
+        ControladorPago Controlador = new ControladorPago(preci,Lista, reservas,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,Users,name,exit);
         
         ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
         Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(bi200.getWidth(), bi200.getHeight(), Image.SCALE_DEFAULT));bi200.setIcon(icono);

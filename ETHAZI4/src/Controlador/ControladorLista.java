@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 public class ControladorLista {
-    
+    public double preci=0.0;
     public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias) {
           
         /*Apenas de inicia el controlador*/
@@ -35,6 +35,7 @@ public class ControladorLista {
         Hotel aux = new Hotel();
         aux.obtener_hoteles(jList1,localidad);
         aux.obtener_destinos(Destinos,localidad);
+        
        
         
         /*TAMAÑO DE LAS COLUMNAS*/
@@ -43,7 +44,6 @@ public class ControladorLista {
                           jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                   TableColumnModel columnModel= jTable1.getColumnModel();
                                   columnModel.getColumn(0).setPreferredWidth(300);
-                                  System.out.println(columnModel.getColumn(0).getWidth());
                                   columnModel.getColumn(1).setPreferredWidth(50);
                                   columnModel.getColumn(2).setPreferredWidth(70);
         /*TAMAÑO DE LAS COLUMNAS*/
@@ -69,12 +69,13 @@ public class ControladorLista {
         {
             double preciox=0.0;
             Habitacion habi = new Habitacion();
-            preciox= habi.obtener_precio_reserva(patron.get(jTable1.getSelectedRow()));         
-            precio.setText(String.valueOf((preciox*dias) + " € "+"  Por "+dias+" Noches"));
+            preciox= (habi.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
+            preci= preciox*dias;
+            precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
         }});
            
            
-            /*Seleccionar Habitaciòn*/
+            /*Seleccionar Habitación*/
                         
                 /*Reservar*/
         reservar.addMouseListener(new MouseAdapter() {
@@ -83,7 +84,7 @@ public class ControladorLista {
             
             if(jList1.isSelectionEmpty())
             {
-                error.setText("Debes escoger un Hotel");
+                error.setText("         Debes Escoger un Hotel");
                 
                 error.setVisible(true);                
             }
@@ -95,7 +96,7 @@ public class ControladorLista {
             }
             else if(jTable1.getSelectedRow()>-1){
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.ListaaPago(aux.Crear_array(jList1,entradas, salidas),Users);   
+                pasar.ListaaPago(aux.Crear_array(jList1,entradas, salidas,preci),Users,preci);   
             }            
             }
             });  

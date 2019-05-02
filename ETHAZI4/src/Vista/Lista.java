@@ -2,7 +2,6 @@
 package Vista;
 
 import Controlador.ControladorLista;
-import Modelo.Habitacion;
 import Modelo.Usuario;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -58,10 +57,10 @@ public class Lista extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel3.setText("PRECIO:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 610, 100, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, 100, 40));
 
         precio.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 660, 400, 50));
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 660, 260, 40));
 
         reservar.setBackground(new java.awt.Color(51, 51, 51));
         reservar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -84,8 +83,7 @@ public class Lista extends javax.swing.JFrame {
 
         error.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         error.setForeground(new java.awt.Color(255, 51, 51));
-        error.setText("Debes escoger un Hotel");
-        getContentPane().add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 610, 240, 30));
+        getContentPane().add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 600, 250, 30));
 
         jPanel2.setBackground(new java.awt.Color(102, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,6 +145,9 @@ public class Lista extends javax.swing.JFrame {
         jLabel5.setText("HABITACIÓN/ES:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 270, 40));
 
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         jTable1.setFont(new java.awt.Font("Source Sans Pro", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,7 +178,7 @@ public class Lista extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 480, 140));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 390, 140));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
