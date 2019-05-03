@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.Habitacion;
+import Modelo.Cama;
 import Modelo.Hotel;
 import Modelo.Usuario;
 import com.toedter.calendar.JCalendar;
@@ -28,7 +28,7 @@ public class ControladorDestino {
         Hotel aux = new Hotel();
         aux.obtener_destinos(destino); 
         name.setText(Users.get(0).nombre);       
-        Habitacion habi = new Habitacion();
+        Cama habi = new Cama();
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */    

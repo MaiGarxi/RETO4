@@ -4,16 +4,16 @@ package Modelo;
 public class Ubicacion {
     
     
-    protected int Cod_ubicacion,Cp, Cod_hotel;
+    protected int Cod_ubicacion,Cp, Cod_alojamiento;
     protected String Localidad, Direccion;
 
     public Ubicacion() {
     }
 
-    public Ubicacion(int Cod_ubicacion, int Cp, int Cod_hotel, String Localidad, String Direccion) {
+    public Ubicacion(int Cod_ubicacion, int Cp, int Cod_alojamiento, String Localidad, String Direccion) {
         this.Cod_ubicacion = Cod_ubicacion;
         this.Cp = Cp;
-        this.Cod_hotel = Cod_hotel;
+        this.Cod_alojamiento = Cod_alojamiento;
         this.Localidad = Localidad;
         this.Direccion = Direccion;
     }
@@ -34,12 +34,12 @@ public class Ubicacion {
         this.Cp = Cp;
     }
 
-    public int getCod_hotel() {
-        return Cod_hotel;
+    public int getCod_alojamiento() {
+        return Cod_alojamiento;
     }
 
-    public void setCod_hotel(int Cod_hotel) {
-        this.Cod_hotel = Cod_hotel;
+    public void setCod_alojamiento(int Cod_alojamiento) {
+        this.Cod_alojamiento = Cod_alojamiento;
     }
 
     public String getLocalidad() {
@@ -57,6 +57,7 @@ public class Ubicacion {
     public void setDireccion(String Direccion) {
         this.Direccion = Direccion;
     }
-    
+
+  
     
 }

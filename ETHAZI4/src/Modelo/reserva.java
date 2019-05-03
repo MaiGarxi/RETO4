@@ -7,20 +7,17 @@ import java.util.ArrayList;
 
 public class reserva {
     
-    protected int cod_reserva,cod_hotel,cod_habitacion;
+    protected int cod_reserva,cod_hotel;
     protected double precio;
     protected String entrada;
     protected String salida;
-    protected String dni;
 
-    public reserva(int cod_reserva, int cod_hotel, int cod_habitacion, double precio, String entrada, String salida, String dni) {
+    public reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
         this.cod_reserva = cod_reserva;
         this.cod_hotel = cod_hotel;
-        this.cod_habitacion = cod_habitacion;
         this.precio = precio;
         this.entrada = entrada;
         this.salida = salida;
-        this.dni = dni;
     }
 
     public int getCod_reserva() {
@@ -37,14 +34,6 @@ public class reserva {
 
     public void setCod_hotel(int cod_hotel) {
         this.cod_hotel = cod_hotel;
-    }
-
-    public int getCod_habitacion() {
-        return cod_habitacion;
-    }
-
-    public void setCod_habitacion(int cod_habitacion) {
-        this.cod_habitacion = cod_habitacion;
     }
 
     public double getPrecio() {
@@ -70,15 +59,6 @@ public class reserva {
     public void setSalida(String salida) {
         this.salida = salida;
     }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
     
 
     public reserva() {
@@ -90,7 +70,7 @@ public class reserva {
         reservas = new ArrayList<reserva>();
         for(int x=0;hoteles.size()>x;x++)
         {
-            reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel, reservas.get(x).cod_habitacion,reservas.get(x).precio,reservas.get(x).entrada,reservas.get(x).salida,reservas.get(x).dni);
+            reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,reservas.get(x).precio,reservas.get(x).entrada,reservas.get(x).salida);
             reservas.add(reser);        
         }
         return reservas;
@@ -126,7 +106,7 @@ public class reserva {
                                 +" -Número de personas que cubre la reserva : "+" \t\t\n"
 				+" **********************************************************************************************************************"+" \t\n"
 				
-				+" -Precio final: " +reservas.get(x).calcular_total_pagar(reservas)+" €";
+				+" -Precio final: " +reservas.get(x).precio+" €";
                                 archivo.write(mensaje);
         }
             archivo.close();

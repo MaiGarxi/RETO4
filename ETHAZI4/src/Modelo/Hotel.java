@@ -11,18 +11,17 @@ import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 
-public class Hotel {
+public class Hotel extends Alojamiento{
 
-    protected int cod_hotel,estrellas;
-    protected String nombre;   
+    protected int cod_hotel,estrellas; 
 
     public Hotel() {
     }
 
-    public Hotel(int cod_hotel, int estrellas, String nombre) {
+    public Hotel(int cod_hotel, int estrellas, String Cod_alojamiento, String Nombre, int habitacion_disponible) {
+        super(Cod_alojamiento, Nombre, habitacion_disponible);
         this.cod_hotel = cod_hotel;
         this.estrellas = estrellas;
-        this.nombre = nombre;
     }
 
     public int getCod_hotel() {
@@ -40,15 +39,7 @@ public class Hotel {
     public void setEstrellas(int estrellas) {
         this.estrellas = estrellas;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
+    
     
 
     public ArrayList <Hotel>  buscar_hoteles(String salida,String destino,String entrada)
@@ -125,7 +116,7 @@ public class Hotel {
         }
     }
     
-    public ArrayList<reserva> Crear_array(JList<String> hotel,String fecha1, String fecha2)
+    public ArrayList<reserva> Crear_array(JList<String> hotel,String fecha1, String fecha2, double precio)
     {
         try {
             ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
@@ -133,7 +124,7 @@ public class Hotel {
             ResultSet resultado = consul.hotel_para_reservar(Des);
             for(int x=0;resultado.next();x++)
             {
-                reserva reser= new reserva( Integer.parseInt(resultado.getString("Cod_reserva")),Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),100.0,fecha1,fecha2,resultado.getString(Des));
+                reserva reser= new reserva(Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),precio,fecha1,fecha2);
                 hoteles_reserva.add(reser);
             } 
             return hoteles_reserva;
