@@ -5,54 +5,60 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
-public class Habitacion {
+public class Cama {
     
-    protected int Cod_habitacion, Capacidad_niños, Cod_hotel,cantidad_ninos,capacidad;
+    protected String Cod_cama;
+    protected int Capacidad;
+    protected int Capacidad_inf;
+    protected String Cod_habitacion;
+
+    public Cama() {
+    }
+
+    public Cama(String Cod_cama, int Capacidad, int Capacidad_inf, String Cod_habitacion) {
+        this.Cod_cama = Cod_cama;
+        this.Capacidad = Capacidad;
+        this.Capacidad_inf = Capacidad_inf;
+        this.Cod_habitacion = Cod_habitacion;
+    }
+
+    public String getCod_cama() {
+        return Cod_cama;
+    }
+
+    public void setCod_cama(String Cod_cama) {
+        this.Cod_cama = Cod_cama;
+    }
 
     public int getCapacidad() {
-        return capacidad;
+        return Capacidad;
     }
 
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
-    
-    public Habitacion() {
+    public void setCapacidad(int Capacidad) {
+        this.Capacidad = Capacidad;
     }
 
-    public Habitacion(int Cod_habitacion, int Capacidad_niños, int Cod_hotel) {
-        this.Cod_habitacion = Cod_habitacion;
-        this.Capacidad_niños = Capacidad_niños;
-        this.Cod_hotel = Cod_hotel;
+    public int getCapacidad_inf() {
+        return Capacidad_inf;
     }
 
-    public int getCod_habitacion() {
+    public void setCapacidad_inf(int Capacidad_inf) {
+        this.Capacidad_inf = Capacidad_inf;
+    }
+
+    public String getCod_habitacion() {
         return Cod_habitacion;
     }
 
-    public void setCod_habitacion(int Cod_habitacion) {
+    public void setCod_habitacion(String Cod_habitacion) {
         this.Cod_habitacion = Cod_habitacion;
     }
 
-    public int getCapacidad_niños() {
-        return Capacidad_niños;
-    }
 
-    public void setCapacidad_niños(int Capacidad_niños) {
-        this.Capacidad_niños = Capacidad_niños;
-    }
-
-    public int getCod_hotel() {
-        return Cod_hotel;
-    }
-
-    public void setCod_hotel(int Cod_hotel) {
-        this.Cod_hotel = Cod_hotel;
-    }
     
-    public ArrayList<Habitacion> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
+    public ArrayList<Cama> Devolver_habitaciones_uno(int habitaciones,int adultos,int ninos){
      
-        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        ArrayList<Cama> patrones=new ArrayList<Cama>();
         if(habitaciones==adultos)
         {        
             for(int x=0;x<habitaciones;x++)
@@ -78,15 +84,15 @@ public class Habitacion {
         }
         if(ninos>0)
         {
-            patrones.get(0).cantidad_ninos=ninos; 
+            patrones.get(0).Capacidad_inf=ninos; 
         } 
          
            return patrones;    
     }
      
-    public ArrayList<Habitacion> Devolver_habitaciones_dos(int habitaciones,int adultos,int ninos)
+    public ArrayList<Cama> Devolver_habitaciones_dos(int habitaciones,int adultos,int ninos)
     {
-        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        ArrayList<Cama> patrones=new ArrayList<Cama>();
         if(adultos !=1)
         {
         if(habitaciones==adultos)
@@ -129,15 +135,15 @@ public class Habitacion {
         }
             if(ninos>0)
             {
-                patrones.get(0).cantidad_ninos=ninos; 
+                patrones.get(0).Capacidad_inf=ninos; 
             }   
         }
         return patrones;  
     }
      
-     public ArrayList<Habitacion> Devolver_habitaciones_tres(int habitaciones,int adultos,int ninos)
+     public ArrayList<Cama> Devolver_habitaciones_tres(int habitaciones,int adultos,int ninos)
      {
-        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        ArrayList<Cama> patrones=new ArrayList<Cama>();
         
         if(adultos%2!=0)
         {                      
@@ -150,7 +156,7 @@ public class Habitacion {
             patrones.add(hab);   
                if(ninos>0)
         {
-            patrones.get(0).cantidad_ninos=ninos; 
+            patrones.get(0).Capacidad_inf=ninos; 
            } 
         }    
         
@@ -158,9 +164,9 @@ public class Habitacion {
         return patrones;    
     }
      
-    public ArrayList<Habitacion> Devolver_habitaciones_cuatro(int habitaciones,int adultos,int ninos)
+    public ArrayList<Cama> Devolver_habitaciones_cuatro(int habitaciones,int adultos,int ninos)
     {
-        ArrayList<Habitacion> patrones=new ArrayList<Habitacion>();
+        ArrayList<Cama> patrones=new ArrayList<Cama>();
         if(habitaciones!=2 && adultos !=2)
         {
         if(habitaciones>=adultos )
@@ -236,7 +242,7 @@ public class Habitacion {
 
                 if(ninos>0)
                 {
-                    patrones.get(0).cantidad_ninos=ninos; 
+                    patrones.get(0).Capacidad_inf=ninos; 
                 }   
             }
         }       
@@ -251,7 +257,7 @@ public class Habitacion {
         capacidades.add(orden_agregar(patron.get(l)));
         }      
                    
-        ArrayList<Habitacion> parad=new ArrayList<Habitacion>();
+        ArrayList<Cama> parad=new ArrayList<Cama>();
         int auxi;
         for(int k=0;k<(patron.size()-1);k++)
         {
@@ -274,7 +280,7 @@ public class Habitacion {
         }
     }
          
-    public int orden_agregar(ArrayList<Habitacion> patrones)
+    public int orden_agregar(ArrayList<Cama> patrones)
     {
         int individuales = 0,dobles = 0;
         for(int x=0;x<patrones.size();x++)
@@ -288,14 +294,14 @@ public class Habitacion {
         }
         if(individuales>0 || dobles>0){
             int capacidad=individuales+(dobles*2);
-            patrones.get(0).capacidad=capacidad;
+            patrones.get(0).Capacidad=capacidad;
             return capacidad;
         }else{
             return 100000;
         }
     }
               
-    public void agregar_habitacion(ArrayList<Habitacion> patrones,DefaultTableModel modelo )
+    public void agregar_habitacion(ArrayList<Cama> patrones,DefaultTableModel modelo )
     {
 
         int individuales = 0,dobles = 0;
@@ -346,13 +352,13 @@ public class Habitacion {
          
         if(individuales>0 || dobles>0){
         int capacidad=individuales+(dobles*2);
-        String[]datos={tipo+" ",patrones.get(0).cantidad_ninos+"",capacidad+""};
+        String[]datos={tipo+" ",patrones.get(0).Capacidad_inf+"",capacidad+""};
          modelo.addRow(datos);
         }
         
     }
     
-    public double obtener_precio_reserva(ArrayList<Habitacion> patrones)
+    public double obtener_precio_reserva(ArrayList<Cama> patrones)
     {
         double precio=0.0;
           for(int x=0;x<patrones.size();x++)
@@ -364,9 +370,9 @@ public class Habitacion {
                 precio=precio+50;
             }
         }
-        for(int u=0;u<patrones.get(0).cantidad_ninos;u++)
+        for(int u=0;u<patrones.get(0).Capacidad_inf;u++)
         {
-            System.out.println(patrones.get(0).cantidad_ninos);
+            System.out.println(patrones.get(0).Capacidad_inf);
             precio=precio+20;
         }
         return precio;

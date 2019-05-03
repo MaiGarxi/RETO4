@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.Habitacion;
+import Modelo.Cama;
 import Modelo.Hotel;
 import Modelo.Usuario;
 
@@ -55,7 +55,7 @@ public class ControladorLista {
         jList1.addListSelectionListener((ListSelectionEvent evt) -> {           
             error.setVisible(false);
             modelo.setRowCount(0);
-            Habitacion habi = new Habitacion();
+            Cama habi = new Cama();
             habi.grande_agregar(patron,modelo);
             precio.setText(String.valueOf(" "));
         });
@@ -68,7 +68,7 @@ public class ControladorLista {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
             double preciox=0.0;
-            Habitacion habi = new Habitacion();
+            Cama habi = new Cama();
             preciox= (habi.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
             preci= preciox*dias;
             precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
