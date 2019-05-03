@@ -48,20 +48,6 @@ public class Hotel extends Alojamiento{
         return hoteles;
     }
     
-    public ArrayList <String>  ordenar_destinos(ArrayList <String> Destinos,String localidad)
-    {                 
-        String auxe;              
-        for(int f=0;f<Destinos.size();f++)
-        {                 
-            if(Destinos.get(f).equals(localidad))
-            {
-                auxe=Destinos.get(f);
-                Destinos.set(f,Destinos.get(0));
-                Destinos.set(0,auxe);                    
-            }
-        }
-        return Destinos;       
-    } 
        
     public void obtener_destinos(JComboBox<String> destino,String locali)
     {              
@@ -83,38 +69,8 @@ public class Hotel extends Alojamiento{
         }
     }
    
-     public void obtener_destinos(JComboBox<String> destino)
-    {
-        try {
-            destino.removeAllItems();
-            
-            ResultSet resultado=consul.ConsultaDestino();
-            
-            while (resultado.next())
-            {
-                destino.addItem(resultado.getString("Localidad"));
-            }      
-        } catch (SQLException ex) {
-            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
    
-    public void obtener_hoteles(JList<String> hotel,String localidad) 
-    {           
-        try {
-            DefaultListModel listModel;
-            listModel = new DefaultListModel();
-            hotel.setModel(listModel);
-           
-            ResultSet resultado=consul.ConsultaHoteles_Nombre(localidad);                
-            while (resultado.next()){
-                listModel.addElement(resultado.getString("Nombre"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No existe ningún Hotel");
-        }
-    }
     
     public ArrayList<reserva> Crear_array(JList<String> hotel,String fecha1, String fecha2, double precio)
     {

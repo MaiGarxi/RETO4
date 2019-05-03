@@ -1,7 +1,9 @@
 package Controlador;
 
+import Modelo.Alojamiento;
 import Modelo.Cama;
 import Modelo.Hotel;
+import Modelo.Ubicacion;
 import Modelo.Usuario;
 
 import java.awt.Color;
@@ -22,7 +24,7 @@ import javax.swing.table.TableColumnModel;
 
 public class ControladorLista {
     public double preci=0.0;
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JList<String> jList1,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias) {
           
         /*Apenas de inicia el controlador*/
       
@@ -32,9 +34,11 @@ public class ControladorLista {
         jTable1.setModel(modelo);
         error.setVisible(false);
         name.setText(Users.get(0).nombre);
-        Hotel aux = new Hotel();
-        aux.obtener_hoteles(jList1,localidad);
-        aux.obtener_destinos(Destinos,localidad);
+        Alojamiento aux = new Alojamiento();
+        aux.obtener_alojamiento(jList1,localidad,Alojamiento);
+        Ubicacion ubi = new Ubicacion();
+        ubi.obtener_destinos(Destinos);
+        Hotel hot = new Hotel(); //hay que modificar esto
         
        
         
@@ -55,8 +59,8 @@ public class ControladorLista {
         jList1.addListSelectionListener((ListSelectionEvent evt) -> {           
             error.setVisible(false);
             modelo.setRowCount(0);
-            Cama habi = new Cama();
-            habi.grande_agregar(patron,modelo);
+            Cama cama = new Cama();
+            cama.grande_agregar(patron,modelo);
             precio.setText(String.valueOf(" "));
         });
             /*Seleccionar Hotel*/
@@ -68,8 +72,8 @@ public class ControladorLista {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
             double preciox=0.0;
-            Cama habi = new Cama();
-            preciox= (habi.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
+            Cama cama = new Cama();
+            preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
             preci= preciox*dias;
             precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
         }});
@@ -84,7 +88,7 @@ public class ControladorLista {
             
             if(jList1.isSelectionEmpty())
             {
-                error.setText("         Debes Escoger un Hotel");
+                error.setText(" Debes Escoger un Alojamiento");
                 
                 error.setVisible(true);                
             }
@@ -96,7 +100,7 @@ public class ControladorLista {
             }
             else if(jTable1.getSelectedRow()>-1){
                 PasarPagina pasar= new PasarPagina(); 
-                pasar.ListaaPago(aux.Crear_array(jList1,entradas, salidas,preci),Users,preci);   
+                pasar.ListaaPago(hot.Crear_array(jList1,entradas, salidas,preci),Users,preci);   
             }            
             }
             });  
@@ -108,8 +112,8 @@ public class ControladorLista {
         Destinos.addActionListener ((ActionEvent e) -> {
             String localidad1 = (String) Destinos.getSelectedItem();
             Destinos.removeAllItems();
-            aux.obtener_hoteles(jList1, localidad1);
-            aux.obtener_destinos(Destinos, localidad1);
+            aux.obtener_alojamiento(jList1, localidad, Alojamiento);
+            ubi.obtener_destinos(Destinos);
             modelo.setRowCount(0); 
             precio.setText(String.valueOf(" "));
         });

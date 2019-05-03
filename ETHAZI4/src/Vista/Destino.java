@@ -12,11 +12,12 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users,adultos,niños,hab);
+        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users,adultos,niños,hab,hotel,casa,apartamento);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        alojamientos = new javax.swing.ButtonGroup();
         anterior = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -36,6 +37,9 @@ public class Destino extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         hab = new javax.swing.JSpinner();
+        hotel = new javax.swing.JCheckBox();
+        casa = new javax.swing.JCheckBox();
+        apartamento = new javax.swing.JCheckBox();
         error = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -106,38 +110,52 @@ public class Destino extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("NÚMERO DE HABITACIÓN/ES:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 30));
 
         niños.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         niños.setModel(new javax.swing.SpinnerNumberModel(0, 0, 2, 1));
         niños.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(niños, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 40, 20));
+        jPanel1.add(niños, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 40, 20));
 
         adultos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         adultos.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         adultos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(adultos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 40, 20));
+        jPanel1.add(adultos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 40, 20));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NIÑOS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ADULTOS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
         hab.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         hab.setModel(new javax.swing.SpinnerNumberModel(1, 0, 10, 1));
         hab.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(hab, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 40, -1));
+        jPanel1.add(hab, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 40, -1));
+
+        alojamientos.add(hotel);
+        hotel.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        hotel.setText("HOTEL");
+        jPanel1.add(hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 70, 30));
+
+        alojamientos.add(casa);
+        casa.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        casa.setText("CASA");
+        jPanel1.add(casa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 70, 30));
+
+        alojamientos.add(apartamento);
+        apartamento.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        apartamento.setText("APARTAMENTO");
+        jPanel1.add(apartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 440, 260));
 
         error.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         error.setForeground(new java.awt.Color(255, 51, 51));
-        error.setText("Debes escoger al menos una noche");
         getContentPane().add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 290, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
@@ -149,13 +167,17 @@ public class Destino extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner adultos;
+    private javax.swing.ButtonGroup alojamientos;
     private javax.swing.JButton anterior;
+    private javax.swing.JCheckBox apartamento;
     private javax.swing.JButton buscar;
+    private javax.swing.JCheckBox casa;
     public javax.swing.JComboBox<String> destino;
     private com.toedter.calendar.JCalendar entrada;
     private javax.swing.JLabel error;
     private javax.swing.JButton exit;
     private javax.swing.JSpinner hab;
+    private javax.swing.JCheckBox hotel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

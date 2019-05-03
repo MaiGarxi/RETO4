@@ -1,6 +1,13 @@
 
 package Modelo;
 
+import static ethazi4.ETHAZI4.consul;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+
 public class Ubicacion {
     
     
@@ -58,6 +65,21 @@ public class Ubicacion {
         this.Direccion = Direccion;
     }
 
-  
+     public void obtener_destinos(JComboBox<String> destino)
+    {
+        try {
+            destino.removeAllItems();
+            
+            ResultSet resultado=consul.ConsultaDestino();
+            
+            while (resultado.next())
+            {
+                destino.addItem(resultado.getString("Localidad"));
+            }      
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
 }
