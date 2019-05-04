@@ -77,6 +77,7 @@ public class Destino extends javax.swing.JFrame {
         buscar.setForeground(new java.awt.Color(255, 255, 255));
         buscar.setText("BUSCAR");
         buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 120, 70));
 
         entrada.setWeekOfYearVisible(false);
@@ -99,6 +100,7 @@ public class Destino extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         destino.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        destino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 220, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -138,18 +140,18 @@ public class Destino extends javax.swing.JFrame {
         jPanel1.add(hab, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 40, -1));
 
         alojamientos.add(hotel);
-        hotel.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         hotel.setText("HOTEL");
+        hotel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 70, 30));
 
         alojamientos.add(casa);
-        casa.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         casa.setText("CASA");
+        casa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(casa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 70, 30));
 
         alojamientos.add(apartamento);
-        apartamento.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         apartamento.setText("APARTAMENTO");
+        apartamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(apartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 440, 260));

@@ -108,12 +108,12 @@ public class ControladorLista {
                 /*Reservar*/  
                 
             /*Cambiar Destinos*/
-            
+             
         Destinos.addActionListener ((ActionEvent e) -> {
             String localidad1 = (String) Destinos.getSelectedItem();
             Destinos.removeAllItems();
-            aux.obtener_alojamiento(jList1, localidad, Alojamiento);
-            ubi.obtener_destinos(Destinos);
+            aux.obtener_alojamiento(jList1, localidad1, Alojamiento);
+            ubi.obtener_destinos(Destinos,localidad1);
             modelo.setRowCount(0); 
             precio.setText(String.valueOf(" "));
         });

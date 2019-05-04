@@ -49,25 +49,7 @@ public class Hotel extends Alojamiento{
     }
     
        
-    public void obtener_destinos(JComboBox<String> destino,String locali)
-    {              
-        try {
-           
-            Hotel ex=new Hotel();
-            ArrayList<String> Destinos = new ArrayList<String>();
-            ResultSet resultado=consul.ConsultaDestino();
-              while (resultado.next())
-              {                 
-                Destinos.add(resultado.getString("Localidad"));
-               }
-            for (int x=0;Destinos.size()>x;x++)
-            {
-                destino.addItem(ex.ordenar_destinos(Destinos,locali).get(x));      
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+   
    
 
    

@@ -4,6 +4,7 @@ package Modelo;
 import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -80,6 +81,41 @@ public class Ubicacion {
             Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   
+      public void obtener_destinos(JComboBox<String> destino,String locali)
+    {              
+        try {
+           
+            Ubicacion ex=new Ubicacion();
+            ArrayList<String> Destinos = new ArrayList<String>();
+            ResultSet resultado=consul.ConsultaDestino();
+              while (resultado.next())
+              {                 
+                Destinos.add(resultado.getString("Localidad"));
+               }
+            for (int x=0;Destinos.size()>x;x++)
+            {
+                
+                destino.addItem(ex.ordenar_destinos(Destinos,locali).get(x));      
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
-    
+      
+          public ArrayList <String>  ordenar_destinos(ArrayList <String> Destinos,String localidad)
+    {                 
+        String auxe;              
+        for(int f=0;f<Destinos.size();f++)
+        {                 
+            if(Destinos.get(f).equals(localidad))
+            {
+                auxe=Destinos.get(f);
+                Destinos.set(f,Destinos.get(0));
+                Destinos.set(0,auxe);                    
+            }
+        }
+        return Destinos;       
+    } 
 }
