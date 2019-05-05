@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
+import javax.swing.table.TableColumn;
 
 public class Hotel extends Alojamiento{
 
@@ -54,12 +55,12 @@ public class Hotel extends Alojamiento{
 
    
     
-    public ArrayList<reserva> Crear_array(JList<String> hotel,String fecha1, String fecha2, double precio)
+    public ArrayList<reserva> Crear_array(String hotel,String fecha1, String fecha2, double precio)
     {
         try {
             ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
-            String Des = (String) hotel.getSelectedValue();            
-            ResultSet resultado = consul.hotel_para_reservar(Des);
+              System.out.println(hotel);
+            ResultSet resultado = consul.hotel_para_reservar(hotel);
             for(int x=0;resultado.next();x++)
             {
                 reserva reser= new reserva(Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),precio,fecha1,fecha2);

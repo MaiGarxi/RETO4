@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
+import javax.swing.table.DefaultTableModel;
 
 public class Alojamiento {
     
@@ -101,16 +102,15 @@ public class Alojamiento {
         }
     } 
     
-        public void obtener_alojamiento(JList<String> alojamiento,String localidad, String Alojamiento) 
+        public void obtener_alojamiento(DefaultTableModel  alojamiento,String localidad, String Alojamiento) 
     {           
         try {
-            DefaultListModel listModel;
-            listModel = new DefaultListModel();
-            alojamiento.setModel(listModel);
+ 
            
             ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento);                
             while (resultado.next()){
-                listModel.addElement(resultado.getString("Nombre"));
+                String[]datos={resultado.getString("Nombre"),resultado.getString("popularidad")+" "};
+               alojamiento.addRow(datos);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);

@@ -13,7 +13,7 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, Alojamiento, precio,jList1,error,Users,name,exit,entradas,salidas,jTable1,patron,dias);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, Alojamiento, precio,jTable2,error,Users,name,exit,entradas,salidas,jTable1,patron,dias);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,8 +24,6 @@ public class Lista extends javax.swing.JFrame {
         precio = new javax.swing.JLabel();
         reservar = new javax.swing.JButton();
         anterior = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         error = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -45,6 +43,8 @@ public class Lista extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,12 +74,6 @@ public class Lista extends javax.swing.JFrame {
         anterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anterior.png"))); // NOI18N
         anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 140, 80));
-
-        jList1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jList1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jList1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 390, 250));
 
         error.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         error.setForeground(new java.awt.Color(255, 51, 51));
@@ -180,6 +174,21 @@ public class Lista extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 390, 140));
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 110, 390, 250));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
 
@@ -205,12 +214,12 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    public javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel name;
     public javax.swing.JLabel precio;
     private javax.swing.JButton reservar;
