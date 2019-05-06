@@ -41,27 +41,19 @@ public class Hotel extends Alojamiento{
     public void setEstrellas(int estrellas) {
         this.estrellas = estrellas;
     }
-    
-    
 
     public ArrayList <Hotel>  buscar_hoteles(String salida,String destino,String entrada)
     {
         ArrayList<Hotel> hoteles = new ArrayList<Hotel>();
         return hoteles;
     }
+  
     
-       
-   
-   
-
-   
-    
-    public ArrayList<reserva> Crear_array(String hotel,String fecha1, String fecha2, double precio)
+    public ArrayList<reserva> Crear_array(String alojamiento,String fecha1, String fecha2, double precio)
     {
         try {
             ArrayList<reserva> hoteles_reserva = new ArrayList<reserva>();
-              System.out.println(hotel);
-            ResultSet resultado = consul.hotel_para_reservar(hotel);
+            ResultSet resultado = consul.alojamiento_para_reservar(alojamiento);
             for(int x=0;resultado.next();x++)
             {
                 reserva reser= new reserva((x+1),resultado.getString("codigo"),precio,fecha1,fecha2);
