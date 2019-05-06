@@ -56,8 +56,9 @@ public class ControladorDestino {
                 error.setVisible(false);
             }               
         });              
-            /*Fechas*/         
-     
+            /*Fechas*/ 
+           
+         
             /*Eventos*/
             
         anterior.addMouseListener(new MouseAdapter() {
@@ -75,7 +76,40 @@ public class ControladorDestino {
                 pasar.DestinoaBienvenida();
             }
         }); 
-                
+        
+        hotel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+                if(hotel.isSelected()){
+                       error.setVisible(false);
+                }else{ 
+                       error.setVisible(true);
+                    }    
+            }
+        }); 
+        
+        casa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+                if(casa.isSelected()){
+                       error.setVisible(false);
+                }else{ 
+                       error.setVisible(true);
+                    }    
+            }
+        }); 
+        
+        apartamento.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+                if(apartamento.isSelected()){
+                       error.setVisible(false);
+                }else{ 
+                       error.setVisible(true);
+                    }    
+            }
+        }); 
+        
         buscar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {  
@@ -96,8 +130,13 @@ public class ControladorDestino {
                     Alojamiento = "c%";
                 }else if(apartamento.isSelected()){
                     Alojamiento = "a%";
-                } 
-                                 
+                }
+                
+                if(hotel.isSelected() || casa.isSelected() || apartamento.isSelected()){
+                    
+                    error.setVisible(false);
+                    error.setText("");
+                 
                     try {      
                         ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
                         
@@ -112,7 +151,10 @@ public class ControladorDestino {
                         pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias);
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
-                    }                   
+                    } 
+                }else{
+                    error.setVisible(true);
+                    error.setText("Debes elegir tipo de alojamiento");}
                 }              
             }
         }); 
