@@ -34,8 +34,8 @@ public class ControladorLista {
         modelo.setColumnIdentifiers(columnas);
         jTable1.setModel(modelo);
         
-                /*TAMAÑO DE LAS COLUMNAS*/
-          jTable1.getTableHeader().setOpaque(false);
+        /*TAMAÑO DE LAS COLUMNAS*/
+        jTable1.getTableHeader().setOpaque(false);
                  jTable1.getTableHeader().setBackground(new Color(32,136,203));
                           jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                   TableColumnModel columnModel= jTable1.getColumnModel();
@@ -52,13 +52,13 @@ public class ControladorLista {
         /*Tabla de Los Alojamientos*/
         
         
-                        /*TAMAÑO DE LAS COLUMNAS*/
-          jTable2.getTableHeader().setOpaque(false);
-                 jTable2.getTableHeader().setBackground(new Color(32,136,203));
-                          jTable2.getTableHeader().setForeground(new Color(255,255,255));
-                                  TableColumnModel columnModel2= jTable2.getColumnModel();
-                                  columnModel2.getColumn(0).setPreferredWidth(300);
-                                  columnModel2.getColumn(1).setPreferredWidth(100);
+        /*TAMAÑO DE LAS COLUMNAS*/
+        jTable2.getTableHeader().setOpaque(false);
+                jTable2.getTableHeader().setBackground(new Color(32,136,203));
+                        jTable2.getTableHeader().setForeground(new Color(255,255,255));
+                                TableColumnModel columnModel2= jTable2.getColumnModel();
+                                columnModel2.getColumn(0).setPreferredWidth(300);
+                                columnModel2.getColumn(1).setPreferredWidth(100);
         /*TAMAÑO DE LAS COLUMNAS*/
         
         /*Tabla de Los Alojamientos*/
@@ -71,19 +71,13 @@ public class ControladorLista {
         Ubicacion ubi = new Ubicacion();
         ubi.obtener_destinos(Destinos);
         Hotel hot = new Hotel(); //hay que modificar esto
-        
-       
-        
-
-        
-            /*Apenas de inicia el controlador*/    
             
-             
-
+        
+        /*Apenas de inicia el controlador*/    
             
            /*Seleccionar Alojamiento*/
-           jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-          public void mouseClicked(java.awt.event.MouseEvent e) 
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent e) 
         {
             error.setVisible(false);
             modelo.setRowCount(0);
