@@ -82,7 +82,8 @@ public class ControladorLista {
             error.setVisible(false);
             modelo.setRowCount(0);
             Cama cama = new Cama();
-            cama.grande_agregar(patron,modelo);
+            String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
+            cama.grande_agregar(dato,entradas,salidas,patron,modelo);
             precio.setText(String.valueOf(" "));
         }});
             /*Seleccionar Alojamiento*/
