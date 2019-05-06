@@ -150,7 +150,7 @@ public class Destino extends javax.swing.JFrame {
         casa.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         casa.setText("CASA");
         casa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(casa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 70, 30));
+        jPanel1.add(casa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 70, 30));
 
         alojamientos.add(apartamento);
         apartamento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
