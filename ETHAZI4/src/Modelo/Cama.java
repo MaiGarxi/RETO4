@@ -1,8 +1,13 @@
 
 package Modelo;
 
+import static ethazi4.ETHAZI4.consul;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Cama {
@@ -383,5 +388,21 @@ public class Cama {
         long ms=dia_salida.getTime()-dia_entrada.getTime();
         long dias=ms/(1000*60*60*24);       
         return (int)dias;
+    }
+    
+     public ArrayList<Cama> camas_disponibles(String fecha_inicio,String fecha_final,String id_alojamiento)
+    {
+       ArrayList<Cama> camas_disponibile=new ArrayList<Cama>();
+      ResultSet resultado= consul.consultar_camas_disponibles(id_alojamiento, fecha_inicio, fecha_final);
+        try {
+            while (resultado.next())
+            {
+                Cama quillo=new Cama();
+        
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Cama.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return camas_disponibile;
     }
 }
