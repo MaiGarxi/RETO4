@@ -14,22 +14,23 @@ import javax.swing.table.TableColumn;
 
 public class Hotel extends Alojamiento{
 
-    protected int cod_hotel,estrellas; 
+    protected int estrellas; 
+    protected String cod_hotel;
 
     public Hotel() {
     }
 
-    public Hotel(int cod_hotel, int estrellas, String Cod_alojamiento, String Nombre, int habitacion_disponible) {
+    public Hotel(String cod_hotel, int estrellas, String Cod_alojamiento, String Nombre, int habitacion_disponible) {
         super(Cod_alojamiento, Nombre, habitacion_disponible);
         this.cod_hotel = cod_hotel;
         this.estrellas = estrellas;
     }
 
-    public int getCod_hotel() {
+    public String getCod_hotel() {
         return cod_hotel;
     }
 
-    public void setCod_hotel(int cod_hotel) {
+    public void setCod_hotel(String cod_hotel) {
         this.cod_hotel = cod_hotel;
     }
 
@@ -63,7 +64,7 @@ public class Hotel extends Alojamiento{
             ResultSet resultado = consul.hotel_para_reservar(hotel);
             for(int x=0;resultado.next();x++)
             {
-                reserva reser= new reserva(Integer.parseInt(resultado.getString("Cod_hotel")),(x+1),precio,fecha1,fecha2);
+                reserva reser= new reserva((x+1),resultado.getString("codigo"),precio,fecha1,fecha2);
                 hoteles_reserva.add(reser);
             } 
             return hoteles_reserva;

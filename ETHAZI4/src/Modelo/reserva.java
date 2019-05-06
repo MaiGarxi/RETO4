@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 public class reserva {
     
-    protected int cod_reserva,cod_hotel;
+    protected int cod_reserva;
+   protected String cod_hotel;
     protected double precio;
     protected String entrada;
     protected String salida;
 
-    public reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
+    public reserva(int cod_reserva, String cod_hotel, double precio, String entrada, String salida) {
         this.cod_reserva = cod_reserva;
         this.cod_hotel = cod_hotel;
         this.precio = precio;
@@ -28,11 +29,11 @@ public class reserva {
         this.cod_reserva = cod_reserva;
     }
 
-    public int getCod_hotel() {
+    public String getCod_hotel() {
         return cod_hotel;
     }
 
-    public void setCod_hotel(int cod_hotel) {
+    public void setCod_hotel(String cod_hotel) {
         this.cod_hotel = cod_hotel;
     }
 
