@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 public class reserva {
     
-    protected int cod_reserva,cod_hotel;
+    protected String cod_hotel;
+    protected int cod_reserva;
     protected double precio;
     protected String entrada;
     protected String salida;
 
-    public reserva(int cod_reserva, int cod_hotel, double precio, String entrada, String salida) {
+    public reserva(String cod_hotel, int cod_reserva, double precio, String salida, String entrada) {
         this.cod_reserva = cod_reserva;
         this.cod_hotel = cod_hotel;
         this.precio = precio;
@@ -28,11 +29,11 @@ public class reserva {
         this.cod_reserva = cod_reserva;
     }
 
-    public int getCod_hotel() {
+    public String getCod_hotel() {
         return cod_hotel;
     }
 
-    public void setCod_hotel(int cod_hotel) {
+    public void setCod_hotel(String cod_hotel) {
         this.cod_hotel = cod_hotel;
     }
 
@@ -70,7 +71,7 @@ public class reserva {
         reservas = new ArrayList<reserva>();
         for(int x=0;hoteles.size()>x;x++)
         {
-            reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,reservas.get(x).precio,reservas.get(x).entrada,reservas.get(x).salida);
+            reserva reser= new reserva(hoteles.get(x).cod_hotel,(x+1),reservas.get(x).precio,reservas.get(x).entrada,reservas.get(x).salida);
             reservas.add(reser);        
         }
         return reservas;
