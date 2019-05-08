@@ -25,7 +25,7 @@ import javax.swing.table.TableColumnModel;
 public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos) {
           
         /*Apenas de inicia el controlador*/
      DefaultTableModel modelo = new DefaultTableModel();
@@ -140,9 +140,13 @@ public class ControladorLista {
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
+            Cama cama = new Cama();
+           patron.add(cama.Devolver_habitaciones_uno(hab,personas,ninos));
+           patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
+           patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
+           patron.add(cama.Devolver_habitaciones_cuatro(hab,personas,ninos));
             error.setVisible(false);
             modelo.setRowCount(0);
-            Cama cama = new Cama();
             String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
             cama.grande_agregar(dato,entradas,salidas,patron,modelo);
             precio.setText(String.valueOf(" "));

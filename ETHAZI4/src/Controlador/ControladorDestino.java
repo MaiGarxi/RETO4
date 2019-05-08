@@ -141,14 +141,12 @@ public class ControladorDestino {
                         ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
                         
                         int dias=cama.obtener_dia(entrada.getDate(), salida.getDate());
-                        patron.add(cama.Devolver_habitaciones_uno(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
-                        patron.add(cama.Devolver_habitaciones_dos(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
-                        patron.add(cama.Devolver_habitaciones_tres(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
-                        patron.add(cama.Devolver_habitaciones_cuatro(Integer.parseInt(hab.getValue().toString()),Integer.parseInt(adultos.getValue().toString()),Integer.parseInt( ninos.getValue().toString())));
+ 
                            
                         PasarPagina pasar= new PasarPagina();
                         
-                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,Integer.parseInt(adultos.getValue().toString()));
+                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,Integer.parseInt(adultos.getValue().toString()),Integer.parseInt(hab.getValue().toString()),Integer.parseInt(ninos.getValue().toString()));
+                    
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                     } 
