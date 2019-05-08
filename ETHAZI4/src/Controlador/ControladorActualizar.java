@@ -45,7 +45,7 @@ public class ControladorActualizar {
                 } 
                 Date date = fecha_nac.getDate();
                 if (date == null) {
-                  JOptionPane.showMessageDialog(null, "No has ingresado la Fecha de Nacimiento");
+                    JOptionPane.showMessageDialog(null, "No has ingresado la Fecha de Nacimiento");
                 }
                 String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(Actualizar.fecha_nac.getDate());
                 Usuario usu = new Usuario();

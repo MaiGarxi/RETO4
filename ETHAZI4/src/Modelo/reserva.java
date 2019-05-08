@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class reserva {
     
     protected int cod_reserva;
-   protected String cod_hotel;
+    protected String cod_hotel;
     protected double precio;
     protected String entrada;
     protected String salida;
@@ -92,9 +92,9 @@ public class reserva {
         try{
             String ruta= "src\\modelo\\Reserva.txt"; 
             FileWriter archivo = new FileWriter(ruta);
-            for(int x=0;x<reservas.size();x++)
+        for(int x=0;x<reservas.size();x++)
         {    
-          String mensaje =       " \n"
+            String mensaje =     " \n"
 				+"                                                             BIDAI-ON S.L.                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"				
                                 +" -Nombre : "+Users.get(0).nombre+" \t\t\n"
@@ -113,7 +113,7 @@ public class reserva {
             archivo.close();
             return "Archivo Creado Con Exito";         
         }catch(IOException e){
-           return  "Hubo un error";       
+            return  "Hubo un error";       
         }         
     }     
 }

@@ -39,8 +39,5 @@ public class Casa extends Alojamiento {
 
     public void setTamaño_total(float Tamaño_total) {
         this.Tamaño_total = Tamaño_total;
-    }
-
-    
-    
+    }     
 }

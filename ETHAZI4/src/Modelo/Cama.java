@@ -15,7 +15,7 @@ public class Cama {
     protected String Cod_cama;
     protected int Capacidad;
     protected int Capacidad_inf;
-     protected int Capacidad_inf_2;
+    protected int Capacidad_inf_2;
     protected String Cod_habitacion;
 
     public Cama() {
@@ -256,25 +256,25 @@ public class Cama {
     }
     
     public void grande_agregar(String nombre_hotel,String entrada,String salida,ArrayList<ArrayList> patron,DefaultTableModel modelo )
-    {Cama cama=new Cama();
-    System.out.println("Esta es la localidad  "+nombre_hotel);
-    ArrayList<Cama> camas_disponibles=new ArrayList<Cama>();
-    
-    camas_disponibles=cama.camas_disponibles( entrada, salida,nombre_hotel);
-    for(int y=0;y<camas_disponibles.size();y++)
     {
-        System.out.println(" Cama disponible "+camas_disponibles.get(y).Cod_cama);
-    }
-  cama.devolver_camas_finales(camas_disponibles, patron.get(0));
-  cama.devolver_camas_finales(camas_disponibles, patron.get(1));
-  cama.devolver_camas_finales(camas_disponibles, patron.get(2));
-  cama.devolver_camas_finales(camas_disponibles, patron.get(3));
-  
+        Cama cama=new Cama();
+        System.out.println("Esta es la localidad  "+nombre_hotel);
+        ArrayList<Cama> camas_disponibles=new ArrayList<Cama>();
+
+        camas_disponibles=cama.camas_disponibles( entrada, salida,nombre_hotel);
+        for(int y=0;y<camas_disponibles.size();y++)
+        {
+            System.out.println(" Cama disponible "+camas_disponibles.get(y).Cod_cama);
+        }
+        cama.devolver_camas_finales(camas_disponibles, patron.get(0));
+        cama.devolver_camas_finales(camas_disponibles, patron.get(1));
+        cama.devolver_camas_finales(camas_disponibles, patron.get(2));
+        cama.devolver_camas_finales(camas_disponibles, patron.get(3));  
   
         ArrayList<Integer> capacidades=new ArrayList<Integer>();
         for(int l=0;l<patron.size();l++)
         {
-        capacidades.add(orden_agregar(patron.get(l)));
+            capacidades.add(orden_agregar(patron.get(l)));
         }      
                    
         ArrayList<Cama> parad=new ArrayList<Cama>();
@@ -323,24 +323,19 @@ public class Cama {
               
     public void agregar_habitacion(ArrayList<Cama> patrones,DefaultTableModel modelo )
     {
-
         int individuales = 0,dobles = 0;
         String tipo=" ";
           for(int x=0;x<patrones.size();x++)
-        {
-       
+        {       
             if(patrones.get(x) instanceof doble)
             {
-
                 dobles=dobles+1;
             }else if(patrones.get(x) instanceof individual){
-
                 individuales=individuales+1;
             }
         }
         if(dobles>0)
-        {
-            
+        {           
             if(dobles>1)
             {
                 tipo=" "+dobles+" Habitaciones Dobles";
@@ -371,9 +366,9 @@ public class Cama {
         }
          
         if(individuales>0 || dobles>0){
-        int capacidad=individuales+(dobles*2);
-        String[]datos={tipo+" ",patrones.get(0).Capacidad_inf_2+"",capacidad+""};
-         modelo.addRow(datos);
+            int capacidad=individuales+(dobles*2);
+            String[]datos={tipo+" ",patrones.get(0).Capacidad_inf_2+"",capacidad+""};
+            modelo.addRow(datos);
         }
         
     }
@@ -408,8 +403,8 @@ public class Cama {
      public ArrayList<Cama> camas_disponibles(String fecha_inicio,String fecha_final,String id_alojamiento)
     {
         
-       ArrayList<Cama> camas_disponibile=new ArrayList<Cama>();
-      ResultSet resultado= consul.consultar_camas_disponibles(id_alojamiento, fecha_inicio, fecha_final);
+        ArrayList<Cama> camas_disponibile=new ArrayList<Cama>();
+        ResultSet resultado= consul.consultar_camas_disponibles(id_alojamiento, fecha_inicio, fecha_final);
         try {
             while (resultado.next())
             {
@@ -417,22 +412,22 @@ public class Cama {
                 System.out.println("Si hay habitaciones  "+tipo);
                 if(resultado.getString("Tipo_cama").equals("Doble"))
                 {
-                doble quillo=new doble();
-                quillo.setCapacidad(resultado.getInt("Capacidad"));
-                quillo.setCapacidad_inf(resultado.getInt("Capacidad_inf"));
-                quillo.setCod_cama(resultado.getString("Cod_cama"));
-                quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
-                camas_disponibile.add(quillo);
+                    doble quillo=new doble();
+                    quillo.setCapacidad(resultado.getInt("Capacidad"));
+                    quillo.setCapacidad_inf(resultado.getInt("Capacidad_inf"));
+                    quillo.setCod_cama(resultado.getString("Cod_cama"));
+                    quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
+                    camas_disponibile.add(quillo);
                     System.out.println("habitacion doble");
                 }
                 else{
-                individual quillo=new individual();
-                quillo.setCapacidad(resultado.getInt("Capacidad"));
-                quillo.setCapacidad_inf(resultado.getInt("Capacidad_inf"));
-                quillo.setCod_cama(resultado.getString("Cod_cama"));
-                quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
-                camas_disponibile.add(quillo);
-                System.out.println("habitacion individual");
+                    individual quillo=new individual();
+                    quillo.setCapacidad(resultado.getInt("Capacidad"));
+                    quillo.setCapacidad_inf(resultado.getInt("Capacidad_inf"));
+                    quillo.setCod_cama(resultado.getString("Cod_cama"));
+                    quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
+                    camas_disponibile.add(quillo);
+                    System.out.println("habitacion individual");
                 }
 
             }
@@ -442,34 +437,29 @@ public class Cama {
        return camas_disponibile;
     }
      
-         public void devolver_camas_finales(ArrayList<Cama> camas_disponible,ArrayList<Cama> patron)
+    public void devolver_camas_finales(ArrayList<Cama> camas_disponible,ArrayList<Cama> patron)
     {
         for(int u=0;u<patron.size();u++)
         {
             for(int l=0;l<camas_disponible.size();l++)
             {
-            if(patron.get(u).getClass()==camas_disponible.get(l).getClass())
-            {
-               
-            patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
-            patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
-            patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
-            patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
-            l=camas_disponible.size();
+                if(patron.get(u).getClass()==camas_disponible.get(l).getClass())
+                {              
+                    patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
+                    patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
+                    patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
+                    patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
+                    l=camas_disponible.size();
+                }           
             }
-            
-            }
-           if(patron.get(u).Cod_cama==null)
+            if(patron.get(u).Cod_cama==null)
             {
                 System.out.println("El patron se ha eliminado");
                 for(int f=0;f<patron.size();f++)
-             {
-            patron.remove(f);
-            }
+                {
+                    patron.remove(f);
+                }
             }      
-        }
-       
-
-     
+        }    
     } 
 }
