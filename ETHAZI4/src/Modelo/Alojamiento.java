@@ -49,7 +49,7 @@ public class Alojamiento {
         this.habitacion_disponible = habitacion_disponible;
     }
     
-    public ArrayList <String>  ordenar_destinos(ArrayList <String> Destinos,String localidad)
+    public ArrayList <String> ordenar_destinos(ArrayList <String> Destinos,String localidad)
     {                 
         String auxe;              
         for(int f=0;f<Destinos.size();f++)
@@ -98,60 +98,49 @@ public class Alojamiento {
         }
     } 
     
-        public String obtener_alojamiento(DefaultTableModel  alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin,int personas) 
+    public String obtener_alojamiento(DefaultTableModel alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin,int personas) 
     {           
         if(Alojamiento=="h%")
         {
-        try {
- 
-           
-            ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento);                
-            while (resultado.next()){
-                String[]datos={resultado.getString("Nombre"),resultado.getString("popularidad")+" "};
-               alojamiento.addRow(datos);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No existe ningún Alojamiento");
-        }
-        return "hola";
-    }
-    
-        else
-        {
-        try {
- 
-           
-            ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento,fecha_inicio,fecha_fin,personas);                
-            while (resultado.next()){
-                String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};
-               alojamiento.addRow(datos);
-               
-            }
+            try {
 
-        } catch (SQLException ex) {
-            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No existe ningún Alojamiento");
+
+                ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento);                
+                while (resultado.next()){
+                    String[]datos={resultado.getString("Nombre"),resultado.getString("popularidad")+" "};
+                   alojamiento.addRow(datos);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("No existe ningún Alojamiento");
+            }
+            return null;
+        }else{
+            try {
+                ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento,fecha_inicio,fecha_fin,personas);                
+                while (resultado.next()){
+                    String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};
+                    alojamiento.addRow(datos);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("No existe ningún Alojamiento");
+            }
         }
+            return null;
     }
-        return "hola";
-        }
-        
-        
-        public void Obtener_habitaciones(String Cod_alojamiento,DefaultTableModel  habitaciones)
-        {
-                try {
- 
-           
+                
+    public void Obtener_habitaciones(String Cod_alojamiento,DefaultTableModel  habitaciones)
+    {
+        try{
             ResultSet resultado=consul.habitaciones_casa_apar(Cod_alojamiento);
             while (resultado.next()){
                 String[]datos={resultado.getString("tipo"),resultado.getString("Descripcion")+" "};
-               habitaciones.addRow(datos);
-              
+                habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
             Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("No existe ninguna Habitacion");
         }
-        }
+    }
 }

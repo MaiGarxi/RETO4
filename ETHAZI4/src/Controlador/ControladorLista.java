@@ -25,39 +25,38 @@ public class ControladorLista {
     public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos) {
           
         /*Apenas de inicia el controlador*/
-     DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel();
         /*Tabla de Las Habitaciones*/
-         if(Alojamiento=="h%")
+        if(Alojamiento=="h%")
         {
-        String[] columnas = {"Tipo de Habitación/es", "Niños","Capacidad"};
-        modelo.setColumnIdentifiers(columnas);
-        jTable1.setModel(modelo);
-                /*TAMAÑO DE LAS COLUMNAS*/
-        jTable1.getTableHeader().setOpaque(false);
-                 jTable1.getTableHeader().setBackground(new Color(32,136,203));
-                          jTable1.getTableHeader().setForeground(new Color(255,255,255));
-                                  TableColumnModel columnModel= jTable1.getColumnModel();
-                                  columnModel.getColumn(0).setPreferredWidth(300);
-                                  columnModel.getColumn(1).setPreferredWidth(50);
-                                  columnModel.getColumn(2).setPreferredWidth(70);
-        /*TAMAÑO DE LAS COLUMNAS*/
-        
-                   /*Seleccionar Habitaciòn*/
-           
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent e) 
-        {
-            double preciox=0.0;
-            Cama cama = new Cama();
-            preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
-            preci= preciox*dias;
-            precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
-        }});
+            String[] columnas = {"Tipo de Habitación/es", "Niños","Capacidad"};
+            modelo.setColumnIdentifiers(columnas);
+            jTable1.setModel(modelo);
+                    /*TAMAÑO DE LAS COLUMNAS*/
+            jTable1.getTableHeader().setOpaque(false);
+                     jTable1.getTableHeader().setBackground(new Color(32,136,203));
+                              jTable1.getTableHeader().setForeground(new Color(255,255,255));
+                                      TableColumnModel columnModel= jTable1.getColumnModel();
+                                      columnModel.getColumn(0).setPreferredWidth(300);
+                                      columnModel.getColumn(1).setPreferredWidth(50);
+                                      columnModel.getColumn(2).setPreferredWidth(70);
+            /*TAMAÑO DE LAS COLUMNAS*/
+
+                       /*Seleccionar Habitaciòn*/
+
+            jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                double preciox=0.0;
+                Cama cama = new Cama();
+                preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
+                preci= preciox*dias;
+                precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
+            }});
            
            
             /*Seleccionar Habitación*/
-        }
-         else{
+        }else{
             String[] columnas = {"Tipo de Habitación", "Descripciòn"};
             modelo.setColumnIdentifiers(columnas);
             jTable1.setModel(modelo);
@@ -70,17 +69,16 @@ public class ControladorLista {
                                       columnModel.getColumn(1).setPreferredWidth(250);
 
                 /*TAMAÑO DE LAS COLUMNAS*/
-         }
+        }
        
         /*Tabla de Las Habitaciones*/
-         DefaultTableModel modelo2 = new DefaultTableModel();
+        DefaultTableModel modelo2 = new DefaultTableModel();
         if(Alojamiento=="h%")
         {
             String[] columnas2 = {"Nombre", "Popularidad"};
             modelo2.setColumnIdentifiers(columnas2);
             jTable2.setModel(modelo2);
-        }
-        else{
+        }else{
             String[] columnas2 = {"Nombre"," Capacidad","Popularidad"};
             modelo2.setColumnIdentifiers(columnas2);
             jTable2.setModel(modelo2);        
@@ -109,10 +107,10 @@ public class ControladorLista {
         ubi.obtener_destinos(Destinos);
         reserva reserva = new reserva(); 
         
-         if(Alojamiento=="h%")
-       {
-           jLabel2.setText("HOTEL");
-       }else{
+        if(Alojamiento=="h%")
+        {
+            jLabel2.setText("HOTEL");
+        }else{
             if(Alojamiento=="a%")
             {
                 jLabel2.setText("APARTAMENTO");
@@ -126,8 +124,8 @@ public class ControladorLista {
         
         
         /*Click en  Alojamiento*/
-       if(Alojamiento=="h%")
-       {
+        if(Alojamiento=="h%")
+        {
             jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
@@ -158,26 +156,25 @@ public class ControladorLista {
                 /*Reservar*/
         reservar.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {            
-           
-            if(jTable2.getSelectedRow()==-1)
-            {
-                error.setText("Debes Escoger un Alojamiento");                
-                error.setVisible(true);                
+            public void mouseClicked(MouseEvent e) {                       
+                if(jTable2.getSelectedRow()==-1)
+                {
+                    error.setText("Debes Escoger un Alojamiento");                
+                    error.setVisible(true);                
+                }
+                else if(jTable1.getSelectedRow()==-1)
+                {
+                    error.setText("Debes Escoger Una Reserva");
+                    error.setVisible(true);  
+
+                }
+                else if(jTable1.getSelectedRow()>-1){
+                    PasarPagina pasar= new PasarPagina(); 
+                    String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
+                    pasar.ListaaPago(reserva.Crear_array(dato,entradas, salidas,preci,patron.get(0),Users),Users);   
+                }            
             }
-            else if(jTable1.getSelectedRow()==-1)
-            {
-                error.setText("Debes Escoger Una Reserva");
-                error.setVisible(true);  
-            
-            }
-            else if(jTable1.getSelectedRow()>-1){
-                PasarPagina pasar= new PasarPagina(); 
-                String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                pasar.ListaaPago(reserva.Crear_array(dato,entradas, salidas,preci,patron.get(0),Users),Users);   
-            }            
-            }
-            });  
+        });  
         
                 /*Reservar*/  
                 
