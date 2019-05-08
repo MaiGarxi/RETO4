@@ -72,7 +72,7 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();  
                    
                     for(int i=0; i<reservas.size();i++){
-                        consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida());
+                       // consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida());
                     }
                     reserva a= new reserva();
                     System.out.println( a.crear_txt(reservas,Users));
@@ -84,7 +84,7 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();
                     Consultas con = new Consultas();
                     for(int i=0; i<reservas.size();i++){
-                    consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida());
+                    //consul.InsertarReserva(reservas.get(i).getPrecio(), reservas.get(i).getCod_hotel(), reservas.get(i).getEntrada(), reservas.get(i).getSalida());
                     }                    
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");

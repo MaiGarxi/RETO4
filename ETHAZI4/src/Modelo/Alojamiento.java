@@ -102,8 +102,10 @@ public class Alojamiento {
         }
     } 
     
-        public void obtener_alojamiento(DefaultTableModel  alojamiento,String localidad, String Alojamiento) 
+        public String obtener_alojamiento(DefaultTableModel  alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin) 
     {           
+        if(Alojamiento=="h%")
+        {
         try {
  
            
@@ -116,6 +118,44 @@ public class Alojamiento {
             Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("No existe ningún Alojamiento");
         }
+        return "hola";
     }
+    
+        else
+        {
+        try {
+ 
+           
+            ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento,fecha_inicio,fecha_fin);                
+            while (resultado.next()){
+                String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};
+               alojamiento.addRow(datos);
+               
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No existe ningún Alojamiento");
+        }
+    }
+        return "hola";
+        }
         
+        
+        public void Obtener_habitaciones(String Cod_alojamiento,DefaultTableModel  habitaciones)
+        {
+                try {
+ 
+           
+            ResultSet resultado=consul.habitaciones_casa_apar(Cod_alojamiento);
+            while (resultado.next()){
+                String[]datos={resultado.getString("tipo"),resultado.getString("Descripcion")+" "};
+               habitaciones.addRow(datos);
+              
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No existe ninguna Habitacion");
+        }
+        }
 }

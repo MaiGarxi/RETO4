@@ -15,6 +15,7 @@ public class Cama {
     protected String Cod_cama;
     protected int Capacidad;
     protected int Capacidad_inf;
+     protected int Capacidad_inf_2;
     protected String Cod_habitacion;
 
     public Cama() {
@@ -89,7 +90,7 @@ public class Cama {
         }
         if(ninos>0)
         {
-            patrones.get(0).Capacidad_inf=ninos; 
+            patrones.get(0).Capacidad_inf_2=ninos; 
         } 
          
            return patrones;    
@@ -140,7 +141,7 @@ public class Cama {
         }
             if(ninos>0)
             {
-                patrones.get(0).Capacidad_inf=ninos; 
+                patrones.get(0).Capacidad_inf_2=ninos; 
             }   
         }
         return patrones;  
@@ -161,7 +162,7 @@ public class Cama {
             patrones.add(hab);   
                if(ninos>0)
         {
-            patrones.get(0).Capacidad_inf=ninos; 
+            patrones.get(0).Capacidad_inf_2=ninos; 
            } 
         }    
         
@@ -247,7 +248,7 @@ public class Cama {
 
                 if(ninos>0)
                 {
-                    patrones.get(0).Capacidad_inf=ninos; 
+                    patrones.get(0).Capacidad_inf_2=ninos; 
                 }   
             }
         }       
@@ -259,8 +260,8 @@ public class Cama {
     System.out.println("Esta es la localidad  "+nombre_hotel);
     ArrayList<Cama> camas_disponibles=new ArrayList<Cama>();
     
-    camas_disponibles=cama.camas_disponibles(nombre_hotel, entrada, salida);
-    for(int y=0;y<=camas_disponibles.size();y++)
+    camas_disponibles=cama.camas_disponibles( entrada, salida,nombre_hotel);
+    for(int y=0;y<camas_disponibles.size();y++)
     {
         System.out.println(" Cama disponible "+camas_disponibles.get(y).Cod_cama);
     }
@@ -371,7 +372,7 @@ public class Cama {
          
         if(individuales>0 || dobles>0){
         int capacidad=individuales+(dobles*2);
-        String[]datos={tipo+" ",patrones.get(0).Capacidad_inf+"",capacidad+""};
+        String[]datos={tipo+" ",patrones.get(0).Capacidad_inf_2+"",capacidad+""};
          modelo.addRow(datos);
         }
         
@@ -406,12 +407,15 @@ public class Cama {
     
      public ArrayList<Cama> camas_disponibles(String fecha_inicio,String fecha_final,String id_alojamiento)
     {
+        
        ArrayList<Cama> camas_disponibile=new ArrayList<Cama>();
       ResultSet resultado= consul.consultar_camas_disponibles(id_alojamiento, fecha_inicio, fecha_final);
         try {
             while (resultado.next())
             {
-                if(resultado.getString("Tipo_cama")=="Doble")
+                String tipo=resultado.getString("Tipo_cama");
+                System.out.println("Si hay habitaciones  "+tipo);
+                if(resultado.getString("Tipo_cama").equals("Doble"))
                 {
                 doble quillo=new doble();
                 quillo.setCapacidad(resultado.getInt("Capacidad"));
@@ -419,6 +423,7 @@ public class Cama {
                 quillo.setCod_cama(resultado.getString("Cod_cama"));
                 quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
                 camas_disponibile.add(quillo);
+                    System.out.println("habitacion doble");
                 }
                 else{
                 individual quillo=new individual();
@@ -427,6 +432,7 @@ public class Cama {
                 quillo.setCod_cama(resultado.getString("Cod_cama"));
                 quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
                 camas_disponibile.add(quillo);
+                System.out.println("habitacion individual");
                 }
 
             }
@@ -442,8 +448,6 @@ public class Cama {
         {
             for(int l=0;l<camas_disponible.size();l++)
             {
-                System.out.println("Hola me llamo pedro");
-                System.out.println(camas_disponible.get(l).Cod_cama);
             if(patron.get(u).getClass()==camas_disponible.get(l).getClass())
             {
                 System.out.println("El Patron "+patron+"La Habitacion: "+u+" Es valido");
@@ -455,14 +459,14 @@ public class Cama {
             }
             
             }
-/*            if(patron.get(u).Cod_cama==null)
+           if(patron.get(u).Cod_cama==null)
             {
                 System.out.println("El patron se ha eliminado");
                 for(int f=0;f<patron.size();f++)
              {
             patron.remove(f);
             }
-            }      */ 
+            }      
         }
        
 

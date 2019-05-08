@@ -24,17 +24,18 @@ import javax.swing.table.TableColumnModel;
 
 public class ControladorLista {
     public double preci=0.0;
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias) {
+    public String id_alojamiento;
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2) {
           
         /*Apenas de inicia el controlador*/
-      
+     DefaultTableModel modelo = new DefaultTableModel();
         /*Tabla de Las Habitaciones*/
+         if(Alojamiento=="h%")
+        {
         String[] columnas = {"Tipo de Habitación/es", "Niños","Capacidad"};
-        DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(columnas);
         jTable1.setModel(modelo);
-        
-        /*TAMAÑO DE LAS COLUMNAS*/
+                /*TAMAÑO DE LAS COLUMNAS*/
         jTable1.getTableHeader().setOpaque(false);
                  jTable1.getTableHeader().setBackground(new Color(32,136,203));
                           jTable1.getTableHeader().setForeground(new Color(255,255,255));
@@ -43,12 +44,40 @@ public class ControladorLista {
                                   columnModel.getColumn(1).setPreferredWidth(50);
                                   columnModel.getColumn(2).setPreferredWidth(70);
         /*TAMAÑO DE LAS COLUMNAS*/
+        }
+         else{
+         String[] columnas = {"Tipo de Habitación", "Descripciòn"};
+        modelo.setColumnIdentifiers(columnas);
+        jTable1.setModel(modelo);
+                /*TAMAÑO DE LAS COLUMNAS*/
+        jTable1.getTableHeader().setOpaque(false);
+                 jTable1.getTableHeader().setBackground(new Color(32,136,203));
+                          jTable1.getTableHeader().setForeground(new Color(255,255,255));
+                                  TableColumnModel columnModel= jTable1.getColumnModel();
+                                  columnModel.getColumn(0).setPreferredWidth(100);
+                                  columnModel.getColumn(1).setPreferredWidth(250);
+
+        /*TAMAÑO DE LAS COLUMNAS*/
+         }
+        
+        
+
         
         /*Tabla de Las Habitaciones*/
+         DefaultTableModel modelo2 = new DefaultTableModel();
+        if(Alojamiento=="h%")
+        {
         String[] columnas2 = {"Nombre", "Popularidad"};
-        DefaultTableModel modelo2 = new DefaultTableModel();
         modelo2.setColumnIdentifiers(columnas2);
         jTable2.setModel(modelo2);
+        }
+        else{
+        String[] columnas2 = {"Nombre"," Capacidad","Popularidad"};
+        modelo2.setColumnIdentifiers(columnas2);
+        jTable2.setModel(modelo2);
+        
+        }
+        
         /*Tabla de Los Alojamientos*/
         
         
@@ -67,15 +96,32 @@ public class ControladorLista {
         error.setVisible(false);
         name.setText(Users.get(0).nombre);
         Alojamiento aux = new Alojamiento();
-        aux.obtener_alojamiento(modelo2,localidad,Alojamiento);
+       id_alojamiento= aux.obtener_alojamiento(modelo2,localidad,Alojamiento,entradas,salidas);
         Ubicacion ubi = new Ubicacion();
         ubi.obtener_destinos(Destinos);
-        Hotel hot = new Hotel(); //hay que modificar esto
-            
+        Hotel hot = new Hotel(); //hay que modificar esto??
         
-        /*Apenas de inicia el controlador*/    
-            
-           /*Seleccionar Alojamiento*/
+         if(Alojamiento=="h%")
+       {
+           jLabel2.setText("HOTEL");
+       }
+         else{
+          if(Alojamiento=="a%")
+       {
+           jLabel2.setText("APARTAMENTO");
+       }
+          else{
+           jLabel2.setText("CASA");
+          }
+         }
+        /*Tabla de Los Alojamientos*/
+        
+        /*Apenas de inicia el controlador*/ 
+        
+        
+        /*Click en  Alojamiento*/
+       if(Alojamiento=="h%")
+       {
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
@@ -86,7 +132,20 @@ public class ControladorLista {
             cama.grande_agregar(dato,entradas,salidas,patron,modelo);
             precio.setText(String.valueOf(" "));
         }});
-            /*Seleccionar Alojamiento*/
+       }
+       else
+       {
+       jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent e) 
+        {
+            modelo.setRowCount(0);
+            Alojamiento Aloja=new Alojamiento();
+               String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
+            Aloja.Obtener_habitaciones(dato,modelo);
+            precio.setText(String.valueOf(" Precio del alojamiento"));
+        }});
+       }
+     /*Click en Alojamiento*/
             
             
            /*Seleccionar Habitaciòn*/
@@ -137,7 +196,7 @@ public class ControladorLista {
             String localidad1 = (String) Destinos.getSelectedItem();
             Destinos.removeAllItems();
             modelo2.setRowCount(0); 
-            aux.obtener_alojamiento(modelo2, localidad1, Alojamiento);
+        id_alojamiento= aux.obtener_alojamiento(modelo2, localidad1, Alojamiento,entradas,salidas);
             ubi.obtener_destinos(Destinos,localidad1);
             modelo.setRowCount(0); 
             
