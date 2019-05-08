@@ -65,16 +65,16 @@ public class ControladorPago {
         
         confirmar.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) { 
+            public void mouseClicked(MouseEvent e) {                                 
                 if (valor==pago2){                 
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     PasarPagina pasar= new PasarPagina(); 
                     pasar.classPagoaDespedida();                     
                     for(int i=0; i<reservas.size();i++){
                         consul.InsertarReserva(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
-                    }
+                    }   
                     reserva a= new reserva();
-                    System.out.println( a.crear_txt(reservas,Users));
+                    System.out.println(a.crear_txt(reservas,Users));               
                 }
                 if (pago2>valor){
                     double cambio;
@@ -84,11 +84,13 @@ public class ControladorPago {
                     Consultas con = new Consultas();
                     for(int i=0; i<reservas.size();i++){
                         consul.InsertarReserva(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
-                    }                   
+                    }
+                    reserva a= new reserva();
+                    System.out.println(a.crear_txt(reservas,Users)); 
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                 }                  
-                }
+            }
         });
         
         bi200.addMouseListener(new MouseAdapter() {
