@@ -64,19 +64,17 @@ public class Alojamiento {
         return Destinos;       
     } 
       
-         public void obtener_destinos(JComboBox<String> destino)
+    public void obtener_destinos(JComboBox<String> destino)
     {
         try {
-            destino.removeAllItems();
-            
-            ResultSet resultado=consul.ConsultaDestino();
-            
+            destino.removeAllItems();           
+            ResultSet resultado=consul.ConsultaDestino();           
             while (resultado.next())
             {
                 destino.addItem(resultado.getString("Localidad"));
             }      
         } catch (SQLException ex) {
-            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Hubo un error");
         }
     }
          

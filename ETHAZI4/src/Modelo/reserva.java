@@ -1,21 +1,29 @@
 
 package Modelo;
 
+import static ethazi4.ETHAZI4.consul;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class reserva {
     
     protected int cod_reserva;
-    protected String cod_hotel;
+    protected String cod_alojamiento,cod_habitacion,dni;
     protected double precio;
     protected String entrada;
     protected String salida;
 
-    public reserva(int cod_reserva, String cod_hotel, double precio, String entrada, String salida) {
+    public reserva() {
+    }
+
+    public reserva(int cod_reserva, String entrada, String salida,String cod_alojamiento, String cod_habitacion, String dni, double precio) {
         this.cod_reserva = cod_reserva;
-        this.cod_hotel = cod_hotel;
+        this.cod_alojamiento = cod_alojamiento;
+        this.cod_habitacion = cod_habitacion;
+        this.dni = dni;
         this.precio = precio;
         this.entrada = entrada;
         this.salida = salida;
@@ -29,12 +37,28 @@ public class reserva {
         this.cod_reserva = cod_reserva;
     }
 
-    public String getCod_hotel() {
-        return cod_hotel;
+    public String getCod_alojamiento() {
+        return cod_alojamiento;
     }
 
-    public void setCod_hotel(String cod_hotel) {
-        this.cod_hotel = cod_hotel;
+    public void setCod_alojamiento(String cod_alojamiento) {
+        this.cod_alojamiento = cod_alojamiento;
+    }
+
+    public String getCod_habitacion() {
+        return cod_habitacion;
+    }
+
+    public void setCod_habitacion(String cod_habitacion) {
+        this.cod_habitacion = cod_habitacion;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public double getPrecio() {
@@ -60,19 +84,36 @@ public class reserva {
     public void setSalida(String salida) {
         this.salida = salida;
     }
-    
 
-    public reserva() {
+    public ArrayList<reserva> Crear_array(String alojamiento,String fecha1, String fecha2, double precio, ArrayList<Cama> patron, ArrayList<Usuario> Users)
+    {
+        ArrayList<reserva> alojamientos_reserva = new ArrayList<reserva>();
+        for (int i = 0; i < patron.size(); i++) {                
+            try {
+                
+                ResultSet resultado = consul.alojamiento_para_reservar(alojamiento);
+                for(int x=0;resultado.next();x++)
+                {
+                    reserva reser= new reserva((i+1),fecha1,fecha2,resultado.getString("codigo"),Users.get(x).getDni(),patron.get(i).getCod_habitacion(),precio);
+                    alojamientos_reserva.add(reser);
+                } 
+            } catch (SQLException ex) {
+                System.out.println("Hubo un error");
+                return null;
+            }
+        }   
+        return alojamientos_reserva;
     }
-
-    public ArrayList <reserva> Crear_reservas (ArrayList<Hotel> hoteles)
+ 
+    public ArrayList <reserva> Crear_reservas (ArrayList<Alojamiento> alojamientos)
     {
         ArrayList <reserva> reservas;
         reservas = new ArrayList<reserva>();
-        for(int x=0;hoteles.size()>x;x++)
+        for(int x=0;alojamientos.size()>x;x++)
         {
-            reserva reser= new reserva((x+1),hoteles.get(x).cod_hotel,reservas.get(x).precio,reservas.get(x).entrada,reservas.get(x).salida);
-            reservas.add(reser);        
+            reserva reser= new reserva((x+1),reservas.get(x).entrada,reservas.get(x).salida,alojamientos.get(x).Cod_alojamiento,reservas.get(x).dni,reservas.get(x).cod_habitacion,reservas.get(x).precio);
+            reservas.add(reser); 
+            
         }
         return reservas;
     }
@@ -92,7 +133,7 @@ public class reserva {
         try{
             String ruta= "src\\modelo\\Reserva.txt"; 
             FileWriter archivo = new FileWriter(ruta);
-        for(int x=0;x<reservas.size();x++)
+            for(int x=0;x<reservas.size();x++)
         {    
             String mensaje =     " \n"
 				+"                                                             BIDAI-ON S.L.                        "+" \t\n"
@@ -113,7 +154,7 @@ public class reserva {
             archivo.close();
             return "Archivo Creado Con Exito";         
         }catch(IOException e){
-            return  "Hubo un error";       
+           return  "Hubo un error";     
         }         
     }     
 }

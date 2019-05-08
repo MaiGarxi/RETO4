@@ -126,9 +126,9 @@ public class PasarPagina{
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LISTA A PAGO
-    public void ListaaPago(ArrayList<reserva>reservas,ArrayList<Usuario> Users,double preci){
+    public void ListaaPago(ArrayList<reserva>reservas,ArrayList<Usuario> Users){
         //SE CREA EL OBJ DE LA CLASE PAGO
-        obj7= new Pago(reservas,Users,preci);
+        obj7= new Pago(reservas,Users);
         obj7.setVisible(true); 
         obj6.setVisible(false);
     }  
