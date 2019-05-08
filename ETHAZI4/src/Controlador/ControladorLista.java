@@ -25,7 +25,7 @@ import javax.swing.table.TableColumnModel;
 public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas) {
           
         /*Apenas de inicia el controlador*/
      DefaultTableModel modelo = new DefaultTableModel();
@@ -44,6 +44,21 @@ public class ControladorLista {
                                   columnModel.getColumn(1).setPreferredWidth(50);
                                   columnModel.getColumn(2).setPreferredWidth(70);
         /*TAMAÑO DE LAS COLUMNAS*/
+        
+                   /*Seleccionar Habitaciòn*/
+           
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent e) 
+        {
+            double preciox=0.0;
+            Cama cama = new Cama();
+            preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
+            preci= preciox*dias;
+            precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
+        }});
+           
+           
+            /*Seleccionar Habitación*/
         }
          else{
          String[] columnas = {"Tipo de Habitación", "Descripciòn"};
@@ -96,7 +111,7 @@ public class ControladorLista {
         error.setVisible(false);
         name.setText(Users.get(0).nombre);
         Alojamiento aux = new Alojamiento();
-       id_alojamiento= aux.obtener_alojamiento(modelo2,localidad,Alojamiento,entradas,salidas);
+       id_alojamiento= aux.obtener_alojamiento(modelo2,localidad,Alojamiento,entradas,salidas,personas);
         Ubicacion ubi = new Ubicacion();
         ubi.obtener_destinos(Destinos);
         Hotel hot = new Hotel(); //hay que modificar esto??
@@ -148,20 +163,7 @@ public class ControladorLista {
      /*Click en Alojamiento*/
             
             
-           /*Seleccionar Habitaciòn*/
-           
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent e) 
-        {
-            double preciox=0.0;
-            Cama cama = new Cama();
-            preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
-            preci= preciox*dias;
-            precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
-        }});
-           
-           
-            /*Seleccionar Habitación*/
+
                         
                 /*Reservar*/
         reservar.addMouseListener(new MouseAdapter() {
@@ -196,7 +198,7 @@ public class ControladorLista {
             String localidad1 = (String) Destinos.getSelectedItem();
             Destinos.removeAllItems();
             modelo2.setRowCount(0); 
-        id_alojamiento= aux.obtener_alojamiento(modelo2, localidad1, Alojamiento,entradas,salidas);
+        id_alojamiento= aux.obtener_alojamiento(modelo2, localidad1, Alojamiento,entradas,salidas,personas);
             ubi.obtener_destinos(Destinos,localidad1);
             modelo.setRowCount(0); 
             

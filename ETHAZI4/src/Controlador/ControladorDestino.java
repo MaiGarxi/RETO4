@@ -148,7 +148,7 @@ public class ControladorDestino {
                            
                         PasarPagina pasar= new PasarPagina();
                         
-                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias);
+                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,Integer.parseInt(adultos.getValue().toString()));
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                     } 

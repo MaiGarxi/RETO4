@@ -102,7 +102,7 @@ public class Alojamiento {
         }
     } 
     
-        public String obtener_alojamiento(DefaultTableModel  alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin) 
+        public String obtener_alojamiento(DefaultTableModel  alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin,int personas) 
     {           
         if(Alojamiento=="h%")
         {
@@ -126,7 +126,7 @@ public class Alojamiento {
         try {
  
            
-            ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento,fecha_inicio,fecha_fin);                
+            ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento,fecha_inicio,fecha_fin,personas);                
             while (resultado.next()){
                 String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};
                alojamiento.addRow(datos);

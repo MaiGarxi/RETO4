@@ -450,7 +450,7 @@ public class Cama {
             {
             if(patron.get(u).getClass()==camas_disponible.get(l).getClass())
             {
-                System.out.println("El Patron "+patron+"La Habitacion: "+u+" Es valido");
+               
             patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
             patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
             patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
