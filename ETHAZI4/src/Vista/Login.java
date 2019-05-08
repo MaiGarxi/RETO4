@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.ControladorUsuario;
+import Controlador.ControladorLogin;
 import Controlador.PasarPagina;
 
 public class Login extends javax.swing.JFrame {
@@ -10,7 +10,7 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorUsuario Controlador = new ControladorUsuario(conectar,actualizar,Nuevousuario,delete,us,pass);
+        ControladorLogin Controlador = new ControladorLogin(conectar,actualizar,Nuevousuario,delete,us,pass);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
