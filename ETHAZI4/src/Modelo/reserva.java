@@ -121,10 +121,9 @@ public class reserva {
     public double calcular_total_pagar (ArrayList<reserva> reservas)
     {
         double precio_final =0;
-        for(int x=0;reservas.size()>x;x++)
-        {
-            precio_final = precio_final + reservas.get(x).precio;       
-        }
+        
+            precio_final = precio_final + reservas.get(0).precio;       
+        
         return precio_final;
     }
    

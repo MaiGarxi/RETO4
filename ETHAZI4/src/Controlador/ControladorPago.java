@@ -36,7 +36,7 @@ public class ControladorPago {
         for(int x=0;x<reservas.size();x++)
         {
         reservax.add(reservas.get(x));       
-        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Hotel: "+String.valueOf(reservax.get(x).getCod_alojamiento())+"\n"+" Entrada: "+reservax.get(x).getEntrada()+" Salida: "+reservax.get(x).getSalida()+" Precio: "+reservax.get(x).getPrecio()+" €");              
+        modelo.addElement((x+1)+") Cod_Reserva: "+String.valueOf(reservax.get(x).getCod_reserva())+"\n"+" Cod_Alojamiento: "+String.valueOf(reservax.get(x).getCod_alojamiento())+"\n"+" Entrada: "+reservax.get(x).getEntrada()+" Salida: "+reservax.get(x).getSalida());              
         }
         
         cancelar.addMouseListener(new MouseAdapter() {

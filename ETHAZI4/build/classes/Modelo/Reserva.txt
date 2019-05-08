@@ -1,0 +1,13 @@
+ 
+                                                             BIDAI-ON S.L.                         	
+ ********************************************************************************************************************** 	
+ -Nombre : Maialen 		
+ -Apellidos : Garcia Tome 		
+ -DNI : 11111111A 		
+ -Código de Reserva : 1 		
+ -Fecha de entrada: 2019-05-08 		
+ -Fecha de salida : 2019-05-09 		
+ -Número de habitación(es) :  		
+ -Número de personas que cubre la reserva :  		
+ ********************************************************************************************************************** 	
+ -Precio final: 90.0 €
