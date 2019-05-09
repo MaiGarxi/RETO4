@@ -115,7 +115,7 @@ public class ControladorDestino {
                 
                 String entradas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(entrada.getDate());                
                 String salidas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(salida.getDate());
-                
+
                 if((entradas.compareTo(salidas)) ==0){
                     error.setVisible(true);
                     error.setText("Debes escoger al menos una noche");
@@ -140,10 +140,12 @@ public class ControladorDestino {
                         ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
                         
                         int dias=calendario.obtener_dia(entrada.getDate(), salida.getDate());
-                        double precioTemp=calendario.calcularPrecioTemp(entrada.getDate(), salida.getDate());
+                        double precioTemp=calendario.calcularPrecioTemp(entradas,salidas);
+                        double precioFestivo=calendario.precioFestivo(entradas, salidas);
+                        
                            
                         PasarPagina pasar= new PasarPagina();                       
-                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,precioTemp,Integer.parseInt(adultos.getValue().toString()),Integer.parseInt(hab.getValue().toString()),Integer.parseInt(ninos.getValue().toString()));
+                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,precioTemp,precioFestivo,Integer.parseInt(adultos.getValue().toString()),Integer.parseInt(hab.getValue().toString()),Integer.parseInt(ninos.getValue().toString()));
                     
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);

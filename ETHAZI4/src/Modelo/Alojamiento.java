@@ -135,12 +135,11 @@ public class Alojamiento {
         try{
             ResultSet resultado=consul.habitaciones_casa_apar(Cod_alojamiento);
             while (resultado.next()){
-                String[]datos={resultado.getString("tipo"),resultado.getString("Descripcion")+" "};
+                String[]datos={resultado.getString("tipo"),resultado.getString("Descripción")+" "};
                 habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No existe ninguna Habitacion");
+            System.out.println("No existe ninguna Habitación");
         }
     }
 }
