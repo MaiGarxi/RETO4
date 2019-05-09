@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Alojamiento;
+import Modelo.Calendario;
 import Modelo.Cama;
 import Modelo.Ubicacion;
 import Modelo.Usuario;
@@ -22,7 +23,7 @@ public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp) {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
@@ -48,8 +49,13 @@ public class ControladorLista {
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
                 double preciox=0.0;
-                Cama cama = new Cama();
+                double precioTemp=0.0;
+                
+                Cama cama = new Cama();               
                 preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
+                
+                Calendario calendario = new Calendario();
+                
                 preci= preciox*dias;
                 precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
             }});

@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Alojamiento;
-import Modelo.Cama;
+import Modelo.Calendario;
 import Modelo.Ubicacion;
 import Modelo.Usuario;
 import com.toedter.calendar.JCalendar;
@@ -32,7 +32,7 @@ public class ControladorDestino {
         Ubicacion ubi = new Ubicacion();
         ubi.obtener_destinos(destino);
         name.setText(Users.get(0).nombre);       
-        Cama cama = new Cama();
+        Calendario calendario = new Calendario();
         Alojamiento aux = new Alojamiento();
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
@@ -48,7 +48,6 @@ public class ControladorDestino {
         salida.addPropertyChangeListener((PropertyChangeEvent evt) -> {
             String entradas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(entrada.getDate());
             String salidas = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(salida.getDate());
-            
             
             if((entradas.compareTo(salidas)) ==0){
                 error.setVisible(true);
@@ -140,12 +139,11 @@ public class ControladorDestino {
                     try {      
                         ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
                         
-                        int dias=cama.obtener_dia(entrada.getDate(), salida.getDate());
- 
+                        int dias=calendario.obtener_dia(entrada.getDate(), salida.getDate());
+                        double precioTemp=calendario.calcularPrecioBase(entrada.getDate(), salida.getDate());
                            
-                        PasarPagina pasar= new PasarPagina();
-                        
-                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,Integer.parseInt(adultos.getValue().toString()),Integer.parseInt(hab.getValue().toString()),Integer.parseInt(ninos.getValue().toString()));
+                        PasarPagina pasar= new PasarPagina();                       
+                        pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,precioTemp,Integer.parseInt(adultos.getValue().toString()),Integer.parseInt(hab.getValue().toString()),Integer.parseInt(ninos.getValue().toString()));
                     
                     } catch (SQLException ex) {
                         Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);

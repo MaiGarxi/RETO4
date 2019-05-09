@@ -5,7 +5,6 @@ import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -392,15 +391,9 @@ public class Cama {
         }
         return precio;
     }
-     
-    public int obtener_dia(Date dia_entrada, Date dia_salida) 
-    {
-        long ms=dia_salida.getTime()-dia_entrada.getTime();
-        long dias=ms/(1000*60*60*24);       
-        return (int)dias;
-    }
+        
     
-     public ArrayList<Cama> camas_disponibles(String fecha_inicio,String fecha_final,String id_alojamiento)
+    public ArrayList<Cama> camas_disponibles(String fecha_inicio,String fecha_final,String id_alojamiento)
     {
         
         ArrayList<Cama> camas_disponibile=new ArrayList<Cama>();
