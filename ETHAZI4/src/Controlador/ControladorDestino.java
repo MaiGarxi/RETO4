@@ -140,7 +140,7 @@ public class ControladorDestino {
                         ArrayList<ArrayList> patron=new ArrayList<ArrayList>();
                         
                         int dias=calendario.obtener_dia(entrada.getDate(), salida.getDate());
-                        double precioTemp=calendario.calcularPrecioBase(entrada.getDate(), salida.getDate());
+                        double precioTemp=calendario.calcularPrecioTemp(entrada.getDate(), salida.getDate());
                            
                         PasarPagina pasar= new PasarPagina();                       
                         pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,precioTemp,Integer.parseInt(adultos.getValue().toString()),Integer.parseInt(hab.getValue().toString()),Integer.parseInt(ninos.getValue().toString()));

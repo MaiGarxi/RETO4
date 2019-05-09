@@ -49,14 +49,14 @@ public class ControladorLista {
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
                 double preciox=0.0;
-                double precioTemp=0.0;
                 
                 Cama cama = new Cama();               
                 preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));
                 
-                Calendario calendario = new Calendario();
-                
                 preci= preciox*dias;
+                
+                System.out.println(precioTemp);
+                System.out.println(preci);
                 precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
             }});
            
