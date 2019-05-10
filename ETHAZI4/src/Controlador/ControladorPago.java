@@ -31,8 +31,12 @@ public class ControladorPago {
         /* MOSTRAR RESERVA*/
 
         DefaultListModel modelo = new DefaultListModel();
-        Lista.setModel(modelo);              
-        modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(0).getCod_alojamiento())+"\n"+" Entrada: "+reservas.get(0).getEntrada()+" Salida: "+reservas.get(0).getSalida());                      
+        Lista.setModel(modelo);    
+        for(int y=0;y<reservas.size();y++)
+        {
+         modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(y).getDni())+"\n"+" Entrada: "+reservas.get(y).getEntrada()+" Salida: "+reservas.get(y).getSalida());                      
+        }
+       
         
         cancelar.addMouseListener(new MouseAdapter() {
             @Override

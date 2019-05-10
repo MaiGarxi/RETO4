@@ -432,26 +432,63 @@ public class Cama {
      
     public void devolver_camas_finales(ArrayList<Cama> camas_disponible,ArrayList<Cama> patron)
     {
+        
+        ArrayList<Integer> marico=new ArrayList<Integer>();
+        
         for(int u=0;u<patron.size();u++)
         {
+            
+         
             for(int l=0;l<camas_disponible.size();l++)
             {
-                if(patron.get(u).getClass()==camas_disponible.get(l).getClass())
-                {              
-                    patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
+                if(patron.get(u).getClass()==camas_disponible.get(l).getClass())    
+                {    if(u>=1)
+                     {
+                         int lo=0;
+                         for(int ui=0;ui<marico.size();ui++)
+                         {
+                         if(marico.get(ui)==l)
+                         {
+                         lo=lo+1;
+                         }
+                         }
+                         if(lo==0)
+                         {
+                    
+                     patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
                     patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
                     patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
                     patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
+                    marico.add(l);
                     l=camas_disponible.size();
+                    
+                         
+                         }
+      
+                     }
+                      else{
+                                if(u==0)
+                                {
+                            
+                                patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
+                                patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
+                                patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
+                                patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
+                                marico.add(l);
+                                l=camas_disponible.size();
+                                
+                                }
+                        }
+                    
                 }           
             }
             if(patron.get(u).Cod_cama==null)
             {
+                System.out.println("____________________________________________________________________");
                 System.out.println("El patron se ha eliminado");
-                for(int f=0;f<patron.size();f++)
-                {
-                    patron.remove(f);
-                }
+      
+                    patron.clear();
+
             }      
         }    
     } 
