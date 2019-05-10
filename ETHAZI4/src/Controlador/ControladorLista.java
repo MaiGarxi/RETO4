@@ -22,7 +22,7 @@ public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double numeroFestivo) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo) {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
@@ -50,7 +50,7 @@ public class ControladorLista {
                 double preciox=0.0;                
                 Cama cama = new Cama();               
                 preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));                
-                preci= (preciox*dias)+(preciox*precioTemp*dias)+(preciox*numeroFestivo*0.2);
+                preci= (preciox*dias)+(preciox*precioTemp*dias)+(preciox*precioFestivo);
                 precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
             }});
            

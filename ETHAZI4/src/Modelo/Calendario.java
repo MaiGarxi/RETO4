@@ -42,7 +42,7 @@ public class Calendario {
     
     public double precioFestivo(String dia_entrada, String dia_salida){
             
-        double numeroFestivos = 0;
+        double precioFestivos = 0;
         double Festivos=0;
         
         try {         
@@ -52,12 +52,12 @@ public class Calendario {
                 Festivos=resultado.getInt("numeroFestivos");               
             }  
             if(Festivos>0){
-                numeroFestivos=Festivos;
+                precioFestivos=Festivos*0.2;
             }
             
         } catch (SQLException ex) {
             System.out.println("Hubo un error");
         }	
-        return numeroFestivos;
+        return precioFestivos;
     }
 }
