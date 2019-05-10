@@ -133,13 +133,14 @@ public class Alojamiento {
     public void Obtener_habitaciones(String Cod_alojamiento,DefaultTableModel  habitaciones)
     {
         try{
+            System.out.println(Cod_alojamiento);
             ResultSet resultado=consul.habitaciones_casa_apar(Cod_alojamiento);
             while (resultado.next()){
-                String[]datos={resultado.getString("tipo"),resultado.getString("Descripción")+" "};
+                String[]datos={resultado.getString("tipito"),resultado.getString("Descri")+" "};
                 habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
-            System.out.println("No existe ninguna Habitación");
+            System.out.println("No existe ninguna Habitación porquee?");
         }
     }
 }
