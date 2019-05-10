@@ -26,6 +26,11 @@ public class ControladorLista {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
+         Cama cama = new Cama();
+        patron.add(cama.Devolver_habitaciones_uno(hab,personas,ninos));
+                patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
+                patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
+                patron.add(cama.Devolver_habitaciones_cuatro(hab,personas,ninos));
         /*Tabla de Las Habitaciones*/
         if(Alojamiento=="h%")
         {
@@ -129,13 +134,12 @@ public class ControladorLista {
             jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                Cama cama = new Cama();
-                patron.add(cama.Devolver_habitaciones_uno(hab,personas,ninos));
-                patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
-                patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
-                patron.add(cama.Devolver_habitaciones_cuatro(hab,personas,ninos));
-                error.setVisible(false);
                 modelo.setRowCount(0);
+               
+                
+                
+                error.setVisible(false);
+               
                 String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
                 cama.grande_agregar(dato,entradas,salidas,patron,modelo);
                 precio.setText(String.valueOf(" "));
@@ -156,23 +160,39 @@ public class ControladorLista {
                 /*Reservar*/
         reservar.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {                       
-                if(jTable2.getSelectedRow()==-1)
-                {
-                    error.setText("Debes Escoger un Alojamiento");                
-                    error.setVisible(true);                
-                }
-                else if(jTable1.getSelectedRow()==-1)
-                {
-                    error.setText("Debes Escoger Una Reserva");
-                    error.setVisible(true);  
+            public void mouseClicked(MouseEvent e) {   
+                if(Alojamiento=="h%")
+                {    
+                    if(jTable2.getSelectedRow()==-1)
+                    {
+                        error.setText("Debes Escoger un Alojamiento");                
+                        error.setVisible(true);                
+                    }
+                    else if(jTable1.getSelectedRow()==-1)
+                    {
+                        error.setText("Debes Escoger Una Reserva");
+                        error.setVisible(true);  
 
+                    }
+                    else if(jTable1.getSelectedRow()>-1){
+                        PasarPagina pasar= new PasarPagina(); 
+                        String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
+                        pasar.ListaaPago(reserva.Crear_array(dato,entradas, salidas,preci,patron.get(0),Users),Users);   
+                    }            
                 }
-                else if(jTable1.getSelectedRow()>-1){
-                    PasarPagina pasar= new PasarPagina(); 
-                    String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                    pasar.ListaaPago(reserva.Crear_array(dato,entradas, salidas,preci,patron.get(0),Users),Users);   
-                }            
+                if(Alojamiento=="c%"||Alojamiento=="a%")
+                {
+                    if(jTable2.getSelectedRow()==-1)
+                    {
+                        error.setText("Debes Escoger un Alojamiento");                
+                        error.setVisible(true);                
+                    }                   
+                    else if(jTable1.getSelectedRow()>-1){
+                        PasarPagina pasar= new PasarPagina(); 
+                        String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
+                        pasar.ListaaPago(reserva.Crear_array(dato,entradas, salidas,preci,patron.get(0),Users),Users);   
+                    } 
+                }
             }
         });  
         

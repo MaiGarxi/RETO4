@@ -384,7 +384,7 @@ public class Cama {
                 precio=precio+50;
             }
         }
-        for(int u=0;u<patrones.get(0).Capacidad_inf;u++)
+        for(int u=0;u<patrones.get(0).Capacidad_inf_2;u++)
         {
             System.out.println(patrones.get(0).Capacidad_inf);
             precio=precio+20;

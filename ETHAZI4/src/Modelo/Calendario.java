@@ -50,7 +50,7 @@ public class Calendario {
             {
                 double Festivos=resultado.getInt("numeroFestivos"); 
                 if(Festivos>0){
-                precioFestivos=Festivos*0.2;
+                    precioFestivos=Festivos*0.2;
                 }
             }             
         } catch (SQLException ex) {
