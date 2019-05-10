@@ -103,8 +103,6 @@ public class Alojamiento {
         if(Alojamiento=="h%")
         {
             try {
-
-
                 ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento);                
                 while (resultado.next()){
                     String[]datos={resultado.getString("Nombre"),resultado.getString("popularidad")+" "};
@@ -133,14 +131,30 @@ public class Alojamiento {
     public void Obtener_habitaciones(String Cod_alojamiento,DefaultTableModel  habitaciones)
     {
         try{
-            System.out.println(Cod_alojamiento);
             ResultSet resultado=consul.habitaciones_casa_apar(Cod_alojamiento);
             while (resultado.next()){
                 String[]datos={resultado.getString("tipito"),resultado.getString("Descri")+" "};
                 habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
-            System.out.println("No existe ninguna Habitación porquee?");
+            System.out.println("No existe ninguna Habitación");
         }
+    }
+    
+    public double ObtenerPrecioAlojamiento(String localidad)
+    {
+        double precioTotal=0;
+        try{
+            
+            ResultSet resultado=consul.PrecioCasaApartamento(localidad);
+            while (resultado.next()){
+                int numHab=resultado.getInt("numeroHab");
+                double precio=resultado.getDouble("precio");
+                precioTotal=numHab*precio;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Hubo un error");
+        }
+        return precioTotal;
     }
 }

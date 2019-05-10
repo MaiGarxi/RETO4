@@ -26,7 +26,7 @@ public class ControladorLista {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
-         Cama cama = new Cama();
+        Cama cama = new Cama();
         patron.add(cama.Devolver_habitaciones_uno(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
@@ -52,11 +52,17 @@ public class ControladorLista {
             jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                double preciox=0.0;                
-                Cama cama = new Cama();               
+                double preciox=0.0;                         
+                Alojamiento alojamiento = new Alojamiento();
+                if(Alojamiento=="h%"){
                 preciox= (cama.obtener_precio_reserva(patron.get(jTable1.getSelectedRow())));                
                 preci= (preciox*dias)+(preciox*precioTemp*dias)+(preciox*precioFestivo);
                 precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
+                }else{                   
+                preciox=(alojamiento.ObtenerPrecioAlojamiento(String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0))));
+                preci=(preciox*dias)+(preciox*precioTemp*dias)+(preciox*precioFestivo);
+                precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
+                }
             }});
            
            
@@ -134,10 +140,7 @@ public class ControladorLista {
             jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                modelo.setRowCount(0);
-               
-                
-                
+                modelo.setRowCount(0);                                             
                 error.setVisible(false);
                
                 String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
@@ -152,7 +155,11 @@ public class ControladorLista {
                 Alojamiento Aloja=new Alojamiento();
                 String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
                 Aloja.Obtener_habitaciones(dato,modelo);
-                precio.setText(String.valueOf(" Precio del alojamiento"));
+                double preciox=0.0;                         
+                Alojamiento alojamiento = new Alojamiento();                  
+                preciox=(alojamiento.ObtenerPrecioAlojamiento(dato));
+                preci=(preciox*dias)+(preciox*precioTemp*dias)+(preciox*precioFestivo);
+                precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
             }});
        }
         /*Click en Alojamiento*/
