@@ -140,7 +140,7 @@ public class Alojamiento {
                 habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
-            System.out.println("No existe ninguna Habitación porquee?");
+            System.out.println("No existe ninguna Habitación ");
         }
     }
 }
