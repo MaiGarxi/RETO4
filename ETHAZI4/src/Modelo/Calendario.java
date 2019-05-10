@@ -43,18 +43,16 @@ public class Calendario {
     public double precioFestivo(String dia_entrada, String dia_salida){
             
         double precioFestivos = 0;
-        double Festivos=0;
         
         try {         
             ResultSet resultado=consul.ComprobarFestivos(dia_entrada, dia_salida);           
             while (resultado.next())
             {
-                Festivos=resultado.getInt("numeroFestivos");               
-            }  
-            if(Festivos>0){
+                double Festivos=resultado.getInt("numeroFestivos"); 
+                if(Festivos>0){
                 precioFestivos=Festivos*0.2;
-            }
-            
+                }
+            }             
         } catch (SQLException ex) {
             System.out.println("Hubo un error");
         }	
