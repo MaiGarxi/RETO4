@@ -34,7 +34,7 @@ public class ControladorPago {
         Lista.setModel(modelo);    
         for(int y=0;y<reservas.size();y++)
         {
-         modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(y).getDni())+"\n"+" Entrada: "+reservas.get(y).getEntrada()+" Salida: "+reservas.get(y).getSalida());                      
+         modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(y).getCod_alojamiento())+"\n"+" Entrada: "+reservas.get(y).getEntrada()+" Salida: "+reservas.get(y).getSalida());                      
         }
        
         
@@ -71,20 +71,19 @@ public class ControladorPago {
                     pasar.classPagoaDespedida();          
                     if(alojamiento=="h%")
                     {
-                    for(int i=0; i<reservas.size();i++){
-                        consul.InsertarReserva(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
-                    }   
-                    reserva a= new reserva();
-                    System.out.println(a.crear_txt(reservas,Users));
+                        for(int i=0; i<reservas.size();i++){
+                            consul.InsertarReservaHotel(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
+                        }
+                        reserva a= new reserva();
+                        System.out.println(a.crear_txt(reservas,Users));
                     }
-                    else
-                    {
-                    for(int i=0; i<reservas.size();i++){
-                        consul.InsertarReserva(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),null,reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
-                    }   
-                    reserva a= new reserva();
-                    System.out.println(a.crear_txt(reservas,Users));
-                    }
+                    else{
+                        for(int y=0; y<reservas.size();y++){
+                            consul.InsertarReservaCasaApartamento(reservas.get(y).getEntrada(), reservas.get(y).getSalida(),reservas.get(y).getCod_alojamiento(),reservas.get(y).getDni(),reservas.get(y).getPrecio());
+                        }   
+                        reserva a= new reserva();
+                        System.out.println(a.crear_txt(reservas,Users));
+                    }           
                 }
                 if (pago2>valor){
                     double cambio;
@@ -92,11 +91,21 @@ public class ControladorPago {
                     PasarPagina pasar= new PasarPagina(); 
                     pasar.classPagoaDespedida();
                     Consultas con = new Consultas();
-                    for(int i=0; i<reservas.size();i++){
-                        consul.InsertarReserva(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
+                    if(alojamiento=="h%")
+                    {
+                        for(int i=0; i<reservas.size();i++){
+                            consul.InsertarReservaHotel(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
+                        }
+                        reserva a= new reserva();
+                        System.out.println(a.crear_txt(reservas,Users));
                     }
-                    reserva a= new reserva();
-                    System.out.println(a.crear_txt(reservas,Users)); 
+                    else{
+                        for(int y=0; y<reservas.size();y++){
+                            consul.InsertarReservaCasaApartamento(reservas.get(y).getEntrada(), reservas.get(y).getSalida(),reservas.get(y).getCod_alojamiento(),reservas.get(y).getDni(),reservas.get(y).getPrecio());
+                        }   
+                        reserva a= new reserva();
+                        System.out.println(a.crear_txt(reservas,Users));
+                    } 
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                 }                  

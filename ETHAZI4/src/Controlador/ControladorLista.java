@@ -177,7 +177,7 @@ public class ControladorLista {
                     else if(jTable1.getSelectedRow()>-1){
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));                     
-                        pasar.ListaaPago(reserva.Crear_array(dato,entradas, salidas,preci,patron.get(jTable1.getSelectedRow()),Users),Users,Alojamiento);   
+                        pasar.ListaaPago(reserva.Crear_arrayHotel(dato,entradas, salidas,preci,patron.get(jTable1.getSelectedRow()),Users),Users,Alojamiento);   
                     }            
                 }
                 if(Alojamiento=="c%"||Alojamiento=="a%")
@@ -190,7 +190,7 @@ public class ControladorLista {
                     else{
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                        pasar.ListaaPago(reserva.Crear_array(dato,entradas, salidas,preci,patron.get(0),Users),Users,Alojamiento);   
+                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users),Users,Alojamiento);   
                     } 
                 }
             }

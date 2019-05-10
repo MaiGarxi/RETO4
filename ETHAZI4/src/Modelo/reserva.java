@@ -19,7 +19,18 @@ public class reserva {
     public reserva() {
     }
 
-    public reserva(int cod_reserva, String entrada, String salida,String cod_alojamiento, String cod_habitacion, String dni, double precio) {
+    public reserva(int cod_reserva, String entrada, String salida, String cod_alojamiento, String dni, double precio) {
+        this.cod_reserva = cod_reserva;
+        this.cod_alojamiento = cod_alojamiento;
+        this.dni = dni;
+        this.precio = precio;
+        this.entrada = entrada;
+        this.salida = salida;
+    }
+
+    
+    
+    public reserva(int cod_reserva, String entrada, String salida,String cod_alojamiento,String dni, String cod_habitacion, double precio) {
         this.cod_reserva = cod_reserva;
         this.cod_alojamiento = cod_alojamiento;
         this.cod_habitacion = cod_habitacion;
@@ -85,7 +96,7 @@ public class reserva {
         this.salida = salida;
     }
 
-    public ArrayList<reserva> Crear_array(String alojamiento,String fecha1, String fecha2, double precio, ArrayList<Cama> patron, ArrayList<Usuario> Users)
+    public ArrayList<reserva> Crear_arrayHotel(String alojamiento,String fecha1, String fecha2, double precio, ArrayList<Cama> patron, ArrayList<Usuario> Users)
     {
         ArrayList<reserva> alojamientos_reserva = new ArrayList<reserva>();
         for (int i = 0; i < patron.size(); i++) {                
@@ -104,8 +115,27 @@ public class reserva {
         }   
         return alojamientos_reserva;
     }
+    
+    public ArrayList<reserva> Crear_arrayCasaApartamento(String alojamiento,String fecha1, String fecha2, double precio, ArrayList<Usuario> Users)
+    {
+        ArrayList<reserva> alojamientos_reserva = new ArrayList<reserva>();               
+            try {
+                
+                ResultSet resultado = consul.alojamiento_para_reservar(alojamiento);
+                for(int x=0;resultado.next();x++)
+                {
+                    reserva reser= new reserva((x+1),fecha1,fecha2,resultado.getString("codigo"),Users.get(x).getDni(),precio);
+                    alojamientos_reserva.add(reser);
+                } 
+            } catch (SQLException ex) {
+                System.out.println("Hubo un error");
+                return null;
+            } 
+        return alojamientos_reserva;
+
+    }
  
-    public ArrayList <reserva> Crear_reservas (ArrayList<Alojamiento> alojamientos)
+    public ArrayList <reserva> Crear_reservaHotel (ArrayList<Alojamiento> alojamientos)
     {
         ArrayList <reserva> reservas;
         reservas = new ArrayList<reserva>();
