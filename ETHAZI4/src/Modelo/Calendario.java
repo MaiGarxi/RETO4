@@ -34,7 +34,7 @@ public class Calendario {
         char e =dia_entrada.charAt(6);
         char s= dia_salida.charAt(6);
 
-	if ( e==jun || e==jul || e==ago || e==sep && s==jun || s==jul || s==ago || s==sep ){ 
+	if ( (e==jun || e==jul || e==ago || e==sep) && (s==jun || s==jul || s==ago || s==sep) ){ 
             precioTemp = precioAlta;
         }
         return precioTemp;        
@@ -42,23 +42,22 @@ public class Calendario {
     
     public double precioFestivo(String dia_entrada, String dia_salida){
             
-        double precioFestivo = 0;
-        double numeroFestivos=0;
+        double numeroFestivos = 0;
+        double Festivos=0;
         
         try {         
             ResultSet resultado=consul.ComprobarFestivos(dia_entrada, dia_salida);           
             while (resultado.next())
             {
-                numeroFestivos=resultado.getInt("Fecha_festivo");               
+                Festivos=resultado.getInt("numeroFestivos");               
             }  
-            if(numeroFestivos>0){
-                precioFestivo=numeroFestivos*1.75;
-                    System.out.println("precioFestivo: "+precioFestivo);
+            if(Festivos>0){
+                numeroFestivos=Festivos;
             }
             
         } catch (SQLException ex) {
             System.out.println("Hubo un error");
         }	
-        return precioFestivo;
+        return numeroFestivos;
     }
 }
