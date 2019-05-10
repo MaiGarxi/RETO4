@@ -111,6 +111,7 @@ public class reserva {
         reservas = new ArrayList<reserva>();
         for(int x=0;alojamientos.size()>x;x++)
         {
+            
             reserva reser= new reserva((x+1),reservas.get(x).entrada,reservas.get(x).salida,alojamientos.get(x).Cod_alojamiento,reservas.get(x).dni,reservas.get(x).cod_habitacion,reservas.get(x).precio);
             reservas.add(reser); 
             

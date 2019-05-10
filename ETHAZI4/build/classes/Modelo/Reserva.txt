@@ -5,9 +5,9 @@
  -Apellidos : Garcia Tome 		
  -DNI : 11111111A 		
  -Código de Reserva : 1 		
- -Fecha de entrada: 2019-12-05 		
- -Fecha de salida : 2019-12-07 		
+ -Fecha de entrada: 2019-05-10 		
+ -Fecha de salida : 2019-05-11 		
  -Número de habitación(es) :  		
  -Número de personas que cubre la reserva :  		
  ********************************************************************************************************************** 	
- -Precio final: 176.0 €
+ -Precio final: 300.0 €
