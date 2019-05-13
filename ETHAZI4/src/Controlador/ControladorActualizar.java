@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -17,7 +18,7 @@ import javax.swing.JTextField;
 
 public class ControladorActualizar {
 
-    public ControladorActualizar(ArrayList<Usuario> actu, JRadioButton H, JRadioButton M, JButton BotonAnterior, JButton actualizar, JTextField apellidos, JPasswordField contraseña, JTextField dni, JDateChooser fecha_nac, ButtonGroup gruposexo, JTextField nombre, JPasswordField password) {
+    public ControladorActualizar(ArrayList<Usuario> actu, JRadioButton H, JRadioButton M, JButton BotonAnterior, JButton actualizar, JTextField apellidos, JPasswordField contraseña, JTextField dni, JDateChooser fecha_nac, ButtonGroup gruposexo, JTextField nombre, JPasswordField password,JLabel nombre_s,JLabel apellido,JLabel sexo_s, JLabel fecha_s) {
         
         dni.setEnabled(false);
         dni.setText(actu.get(0).dni);
@@ -49,7 +50,12 @@ public class ControladorActualizar {
                 }
                 String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(Actualizar.fecha_nac.getDate());
                 Usuario usu = new Usuario();
-                usu.Actualizar(dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText()) ;
+                Usuario actualizado =new Usuario();
+                actualizado=(usu.Actualizar(dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText())) ;
+                nombre_s.setText(nombre.getText());
+                apellido.setText(apellidos.getText());
+                sexo_s.setText(sexo);
+                fecha_s.setText(fecha);
             }    
         });
     }

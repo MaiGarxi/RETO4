@@ -79,10 +79,10 @@ public class Usuario {
             Usuario usuario= new Usuario();
             if ( (us == null) || (us.equals("")) )
             {
-                JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
+                JOptionPane.showMessageDialog(null,"No ha ingresado el DNI");
             }else if ( (pass == null) || (pass.equals("")) )
             {
-                JOptionPane.showMessageDialog(null,"No has ingresado la contraseña");
+                JOptionPane.showMessageDialog(null,"No ha ingresado la contraseña");
             }
             else if ( (pass != null) || us != null )
             {   
@@ -99,7 +99,7 @@ public class Usuario {
                     usuario.setSexo(resultado.getString("Sexo"));  
                 }          
                 if (usuario.dni==null && usuario.contraseña==null){
-                    JOptionPane.showMessageDialog(null,"El usuario "+us+" no existe o has introducido mal la contraseña");
+                    JOptionPane.showMessageDialog(null,"El usuario "+us+" no existe o ha introducido mal la contraseña");
                 } else{
                     JOptionPane.showMessageDialog(null,"Bienvenido "+usuario.nombre);
                     return usuario;
@@ -208,7 +208,7 @@ public class Usuario {
         }
     }
     
-    public void Actualizar(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
+    public Usuario Actualizar(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
        
         if ( (nombre == null) || (nombre.equals("")) )
         {
@@ -246,6 +246,7 @@ public class Usuario {
                 JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");
             }                                 
         }
+        return null;
     }
     
     public ArrayList<Usuario> crear_Array(Usuario usuario)

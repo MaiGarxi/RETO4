@@ -15,6 +15,7 @@ import Vista.Pago;
 import Vista.Usuarios;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 
 public class PasarPagina{
     
@@ -132,9 +133,9 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA USUARIOS A ACTUALIZAR
-    public void UsuariosaActualizar(ArrayList<Usuario> Users){
+    public void UsuariosaActualizar(ArrayList<Usuario> Users,JLabel nombre,JLabel apellido,JLabel sexo ,JLabel fecha){
         //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
-        obj4= new Actualizar(Users);
+        obj4= new Actualizar(Users,nombre,apellido,sexo,fecha);
         obj4.setVisible(true);
         obj9.setVisible(false);
     } 
