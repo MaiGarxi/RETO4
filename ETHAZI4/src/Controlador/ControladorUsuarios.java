@@ -9,10 +9,18 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
-public class ControladorUsuario {
+public class ControladorUsuarios {
     
-    public ControladorUsuario( JButton cancelar,JButton actualizar, JButton delete,ArrayList<Usuario> Users) {
+    public ControladorUsuarios( JButton actualizar,JButton cancelar, JButton delete,ArrayList<Usuario> Users,JButton CancelarReserva,JTextField apellidos,JTextField dni,JTextField fechanac,JTextField nombre,JTextField sexo) {
+        
+        nombre.setText(Users.get(0).nombre);
+        dni.setText(Users.get(0).dni);
+        apellidos.setText(Users.get(0).apellidos);
+        sexo.setText(Users.get(0).sexo);
+        fechanac.setText(Users.get(0).fecha);
+        
         
         PasarPagina pasar = new PasarPagina();
         
@@ -34,7 +42,7 @@ public class ControladorUsuario {
                 try {
                     recibe= usu.Login(Users.get(0).getDni(),Users.get(0).getContraseña());
                 } catch (SQLException ex) {
-                    Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 users=usu.crear_Array(recibe);
                 pasar.UsuariosaActualizar(users);

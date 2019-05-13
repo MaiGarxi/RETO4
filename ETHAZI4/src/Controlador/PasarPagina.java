@@ -136,18 +136,17 @@ public class PasarPagina{
         //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
         obj4= new Actualizar(Users);
         obj4.setVisible(true);
-        obj2.setVisible(false);
+        obj9.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE ACTUALIZAR A USUARIOS
     public void ActualizaraUsuarios(){
-        obj2.setVisible(true);
+        obj9.setVisible(true);
         obj4.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A USUARIOS
     public void DestinoaUsuarios(ArrayList<Usuario> Users){
-        //SE CREA EL OBJ DE LA CLASE USUARIOS
         obj9= new Usuarios(Users);
         obj9.setVisible(true);
         obj3.setVisible(false); 
@@ -165,7 +164,7 @@ public class PasarPagina{
         obj7.setVisible(false); 
     } 
     
-    //FUNCION PARA PASAR DE PAGO A USUARIOS
+    //FUNCION PARA PASAR DE USUARIOS A DESTINO
     public void UsuariosaDestino(){
         obj3.setVisible(true);
         obj9.setVisible(false); 
