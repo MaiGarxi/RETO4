@@ -22,7 +22,7 @@ public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo,JButton herramienta) {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
@@ -213,7 +213,16 @@ public class ControladorLista {
             /*Cambiar Destinos*/
        
            /*Eventos 
-        */           
+        */        
+        
+        herramienta.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+              PasarPagina pasar= new PasarPagina(); 
+              pasar.ListaaUsuarios();
+            }
+        });
+           
         anterior.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) { 

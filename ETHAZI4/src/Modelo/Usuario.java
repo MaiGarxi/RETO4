@@ -162,7 +162,7 @@ public class Usuario {
                                     JOptionPane.showMessageDialog(null,"Registro correcto");
                                     consul.InsertarUsuario(dni,nombre,apellidos,contraseña,sexo,fecha); 
                                     PasarPagina pasar = new PasarPagina();
-                                    pasar.NewaLogin();
+                                    pasar.NewaBasesLegales();
                                 }
                             else{
                                 JOptionPane.showMessageDialog(null,"Nombre no válido! No puede contener números");
@@ -258,7 +258,7 @@ public class Usuario {
                                        
                     consul.ActualizarUsuario(dni,nombre,apellidos,fecha,sexo,contraseña); 
                     PasarPagina pasar = new PasarPagina();
-                    pasar.ActualizaraLogin();
+                    pasar.ActualizaraUsuarios();
                 }
             else{
                 JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");

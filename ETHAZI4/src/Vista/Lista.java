@@ -13,7 +13,7 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, Alojamiento, precio,jTable2,error,Users,name,exit,entradas,salidas,jTable1,patron,dias,jLabel2,personas,habitaciones,ninos,precioTemp,precioFestivo);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, Alojamiento, precio,jTable2,error,Users,name,exit,entradas,salidas,jTable1,patron,dias,jLabel2,personas,habitaciones,ninos,precioTemp,precioFestivo,herramienta);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -25,9 +25,6 @@ public class Lista extends javax.swing.JFrame {
         reservar = new javax.swing.JButton();
         anterior = new javax.swing.JButton();
         error = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        name = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         hotel = new javax.swing.JComboBox<>();
@@ -45,6 +42,10 @@ public class Lista extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        herramienta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,24 +80,12 @@ public class Lista extends javax.swing.JFrame {
         error.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 600, 250, 30));
 
-        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        name.setText("ALEJANDRO");
-        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
-
         exit.setBackground(new java.awt.Color(204, 0, 51));
-        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         exit.setForeground(new java.awt.Color(255, 255, 255));
         exit.setText("Cerrar Sesión");
         exit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 60));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -172,7 +161,7 @@ public class Lista extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 390, 140));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 390, 140));
 
         jTable2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -192,6 +181,23 @@ public class Lista extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 110, 390, 250));
 
+        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, 30));
+
+        herramienta.setBackground(new java.awt.Color(153, 153, 153));
+        herramienta.setForeground(new java.awt.Color(153, 153, 153));
+        herramienta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/herramienta.png"))); // NOI18N
+        herramienta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(herramienta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 60));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
 
@@ -202,6 +208,7 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JButton anterior;
     private javax.swing.JLabel error;
     private javax.swing.JButton exit;
+    private javax.swing.JButton herramienta;
     public javax.swing.JComboBox<String> hotel;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;

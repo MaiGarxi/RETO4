@@ -46,7 +46,7 @@ public class ControladorNoRegistrado {
             @Override
             public void mouseClicked(MouseEvent e) { 
                 PasarPagina pasar = new PasarPagina();
-                pasar.NewaLogin();
+                pasar.NewaBasesLegales();
             }    
         });
     }

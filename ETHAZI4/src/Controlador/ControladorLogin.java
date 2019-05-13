@@ -12,7 +12,7 @@ import javax.swing.JPasswordField;
 
 public class ControladorLogin{
     
-    public ControladorLogin(JButton conectar, JButton actualizar, JButton Nuevousuario, JButton delete, TextField us, JPasswordField pass) {
+    public ControladorLogin(JButton conectar, JButton Nuevousuario, TextField us, JPasswordField pass) {
     
         
             /*Eventos 
@@ -33,23 +33,7 @@ public class ControladorLogin{
                 }
             }   
         }); 
-        
-        actualizar.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) { 
-                Usuario usu = new Usuario(); 
-                try {
-                    Usuario recibe=new Usuario();
-                    ArrayList<Usuario> users= new ArrayList<Usuario>();
-                    recibe= usu.Login(us.getText(), pass.getText());
-                    users=usu.crear_Array(recibe);
-                    PasarPagina pasar = new PasarPagina();
-                    pasar.LoginaActualizar(users);
-                } catch (SQLException ex) {
-                    System.out.println("Hubo un error");
-                }
-            } 
-        }); 
+                
         
         Nuevousuario.addMouseListener(new MouseAdapter() {
             @Override
@@ -59,13 +43,6 @@ public class ControladorLogin{
             }
         }); 
         
-        delete.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {          
-                Usuario usu = new Usuario();
-                usu.Delete(us.getText(), pass.getText());
-            }
-        });          
         
             /*Eventos*/
     }

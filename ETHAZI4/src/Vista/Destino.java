@@ -12,7 +12,7 @@ public class Destino extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users,adultos,niños,hab,hotel,casa,apartamento);
+        ControladorDestino Controlador = new ControladorDestino(buscar, anterior,destino,entrada,salida,error,name,exit,Users,adultos,niños,hab,hotel,casa,apartamento,herramienta);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -22,6 +22,7 @@ public class Destino extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
+        herramienta = new javax.swing.JButton();
         exit = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
         entrada = new com.toedter.calendar.JCalendar();
@@ -58,20 +59,25 @@ public class Destino extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        name.setText("ALEJANDRO");
-        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
+        herramienta.setBackground(new java.awt.Color(153, 153, 153));
+        herramienta.setForeground(new java.awt.Color(153, 153, 153));
+        herramienta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/herramienta.png"))); // NOI18N
+        herramienta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(herramienta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 60));
 
         exit.setBackground(new java.awt.Color(204, 0, 51));
-        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         exit.setForeground(new java.awt.Color(255, 255, 255));
         exit.setText("Cerrar Sesión");
         exit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 50));
 
         buscar.setBackground(new java.awt.Color(51, 51, 51));
         buscar.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -82,20 +88,20 @@ public class Destino extends javax.swing.JFrame {
         getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 630, 120, 70));
 
         entrada.setWeekOfYearVisible(false);
-        getContentPane().add(entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 200, 170));
+        getContentPane().add(entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 200, 170));
 
         salida.setWeekOfYearVisible(false);
-        getContentPane().add(salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 200, 170));
+        getContentPane().add(salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 200, 170));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("ENTRADA");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, 30));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, 30));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("SALIDA");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, -1, 30));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -164,7 +170,7 @@ public class Destino extends javax.swing.JFrame {
         jLabel5.setText("Tipo de Alojamiento");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 490, 310));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 490, 310));
 
         error.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         error.setForeground(new java.awt.Color(255, 51, 51));
@@ -189,6 +195,7 @@ public class Destino extends javax.swing.JFrame {
     private javax.swing.JLabel error;
     private javax.swing.JButton exit;
     private javax.swing.JSpinner hab;
+    private javax.swing.JButton herramienta;
     private javax.swing.JCheckBox hotel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

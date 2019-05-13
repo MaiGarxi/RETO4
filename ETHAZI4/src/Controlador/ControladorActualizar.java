@@ -30,7 +30,7 @@ public class ControladorActualizar {
             @Override
             public void mouseClicked(MouseEvent e) { 
                 PasarPagina pasar = new PasarPagina();
-                pasar.ActualizaraLogin();
+                pasar.ActualizaraUsuarios();
             }    
         });
         

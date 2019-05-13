@@ -23,7 +23,7 @@ public class ControladorDestino {
     
     public String Alojamiento;
     
-    public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error, JLabel name, JButton exit,ArrayList<Usuario> Users,JSpinner adultos,JSpinner ninos,JSpinner hab,JCheckBox hotel,JCheckBox casa,JCheckBox apartamento) {        
+    public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error, JLabel name, JButton exit,ArrayList<Usuario> Users,JSpinner adultos,JSpinner ninos,JSpinner hab,JCheckBox hotel,JCheckBox casa,JCheckBox apartamento,JButton herramienta) {        
       
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
@@ -60,6 +60,14 @@ public class ControladorDestino {
          
             /*Eventos*/
             
+        herramienta.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+              PasarPagina pasar= new PasarPagina(); 
+              pasar.DestinoaUsuarios();
+            }
+        });    
+        
         anterior.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          

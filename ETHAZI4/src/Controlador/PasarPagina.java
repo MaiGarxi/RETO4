@@ -4,6 +4,7 @@ package Controlador;
 import Modelo.reserva;
 import Modelo.Usuario;
 import Vista.Actualizar;
+import Vista.BasesLegales;
 import Vista.Bienvenida;
 import Vista.Despedida;
 import Vista.Destino;
@@ -11,6 +12,7 @@ import Vista.Lista;
 import Vista.Login;
 import Vista.NoRegistrado;
 import Vista.Pago;
+import Vista.Usuarios;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -24,6 +26,8 @@ public class PasarPagina{
     public static Lista obj6; 
     public static Pago obj7;
     public static Despedida obj8;
+    public static Usuarios obj9;
+    public static BasesLegales obj10;
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR A BIENVENIDA
@@ -82,20 +86,6 @@ public class PasarPagina{
         obj3.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA LOGIN A ACTUALIZAR
-    public void LoginaActualizar(ArrayList<Usuario> Users){
-        //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
-        obj4= new Actualizar(Users);
-        obj4.setVisible(true);
-        obj2.setVisible(false);
-    } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE ACTUALIZAR A LOGIN
-    public void ActualizaraLogin(){
-        obj2.setVisible(true);
-        obj4.setVisible(false);
-    } 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LOGIN A NUEVO USUARIO
     public void LoginaNew(){
         //SE CREA EL OBJ DE LA CLASE NUEVO USUARIO
@@ -105,9 +95,9 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE NUEVO USUARIO A LOGIN
-    public void NewaLogin(){
+    public void NewaBasesLegales(){
         //SE CREA EL OBJ DE LA CLASE NUEVO USUARIO
-        obj2.setVisible(true);
+        obj10.setVisible(true);
         obj5.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,10 +124,50 @@ public class PasarPagina{
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE PAGO A DESPEDIDA
-    public void classPagoaDespedida(){
+    public void PagoaDespedida(){
         //SE CREA EL OBJ DE LA CLASE DESPEDIDA
         obj8= new Despedida();
         obj8.setVisible(true);
         obj7.setVisible(false); 
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA USUARIOS A ACTUALIZAR
+    public void UsuariosaActualizar(ArrayList<Usuario> Users){
+        //SE CREA EL OBJ DE LA CLASE ACTUALIZAR
+        obj4= new Actualizar(Users);
+        obj4.setVisible(true);
+        obj2.setVisible(false);
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE ACTUALIZAR A USUARIOS
+    public void ActualizaraUsuarios(){
+        obj2.setVisible(true);
+        obj4.setVisible(false);
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE DESTINO A USUARIOS
+    public void DestinoaUsuarios(){
+        //SE CREA EL OBJ DE LA CLASE USUARIOS
+        obj9= new Usuarios();
+        obj9.setVisible(true);
+        obj3.setVisible(false); 
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE LISTA A USUARIOS
+    public void ListaaUsuarios(){
+        obj9.setVisible(true);
+        obj6.setVisible(false); 
+    } 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE PAGO A USUARIOS
+    public void PagoaUsuarios(){
+        obj9.setVisible(true);
+        obj7.setVisible(false); 
+    } 
+    
+    //FUNCION PARA PASAR DE PAGO A USUARIOS
+    public void UsuariosaDestino(){
+        obj3.setVisible(true);
+        obj9.setVisible(false); 
     } 
 }

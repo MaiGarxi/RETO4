@@ -4,7 +4,6 @@ package Modelo;
 import static ethazi4.ETHAZI4.consul;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Calendario { 

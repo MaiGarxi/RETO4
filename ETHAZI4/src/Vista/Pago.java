@@ -18,7 +18,7 @@ public class Pago extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);               
         
-        ControladorPago Controlador = new ControladorPago(Lista,reservas,Users,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,name,exit,alojamiento);
+        ControladorPago Controlador = new ControladorPago(Lista,reservas,Users,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,name,exit,alojamiento,herramienta);
         
         ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
         Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(bi200.getWidth(), bi200.getHeight(), Image.SCALE_DEFAULT));bi200.setIcon(icono);
@@ -80,9 +80,6 @@ public class Pago extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        name = new javax.swing.JLabel();
         cancelar = new javax.swing.JButton();
         confirmar = new javax.swing.JButton();
         totalAPagar = new javax.swing.JLabel();
@@ -109,23 +106,15 @@ public class Pago extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Lista = new javax.swing.JList<>();
         exit = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        herramienta = new javax.swing.JButton();
         jlabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        name.setText("ALEJANDRO");
-        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
 
         cancelar.setBackground(new java.awt.Color(51, 51, 51));
         cancelar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
@@ -191,11 +180,28 @@ public class Pago extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 680, 120));
 
         exit.setBackground(new java.awt.Color(204, 0, 51));
-        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        exit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         exit.setForeground(new java.awt.Color(255, 255, 255));
         exit.setText("Cerrar Sesión");
         exit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 30));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 60));
+
+        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        name.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, 30));
+
+        herramienta.setBackground(new java.awt.Color(153, 153, 153));
+        herramienta.setForeground(new java.awt.Color(153, 153, 153));
+        herramienta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/herramienta.png"))); // NOI18N
+        herramienta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(herramienta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 60));
 
         jlabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
@@ -216,12 +222,13 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JButton cancelar;
     public javax.swing.JButton confirmar;
     private javax.swing.JButton exit;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton herramienta;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JButton mo001;

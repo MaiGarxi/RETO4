@@ -21,7 +21,7 @@ public class ControladorPago {
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public double valor, pago2;
 
-    public ControladorPago(JList<String> Lista, ArrayList<reserva>reservas,ArrayList<Usuario> Users,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,JLabel name,JButton exit,String alojamiento) {
+    public ControladorPago(JList<String> Lista, ArrayList<reserva>reservas,ArrayList<Usuario> Users,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,JLabel name,JButton exit,String alojamiento,JButton herramienta) {
         
         name.setText(Users.get(0).nombre);
         reserva reserv = new reserva();
@@ -37,6 +37,14 @@ public class ControladorPago {
          modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(y).getCod_alojamiento())+"\n"+" Entrada: "+reservas.get(y).getEntrada()+" Salida: "+reservas.get(y).getSalida());                      
         }
        
+        
+        herramienta.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+              PasarPagina pasar= new PasarPagina(); 
+              pasar.PagoaUsuarios();
+            }
+        });
         
         cancelar.addMouseListener(new MouseAdapter() {
             @Override
@@ -68,7 +76,7 @@ public class ControladorPago {
                 if (valor==pago2){                 
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     PasarPagina pasar= new PasarPagina(); 
-                    pasar.classPagoaDespedida();          
+                    pasar.PagoaDespedida();          
                     if(alojamiento=="h%")
                     {
                         for(int i=0; i<reservas.size();i++){
@@ -89,7 +97,7 @@ public class ControladorPago {
                     double cambio;
                     cambio = calcularCambio(pago2,valor);
                     PasarPagina pasar= new PasarPagina(); 
-                    pasar.classPagoaDespedida();
+                    pasar.PagoaDespedida();
                     Consultas con = new Consultas();
                     if(alojamiento=="h%")
                     {
