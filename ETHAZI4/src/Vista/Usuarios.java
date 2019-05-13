@@ -23,19 +23,19 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        fechanac = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        sexo = new javax.swing.JTextField();
         CancelarReserva = new javax.swing.JButton();
-        apellidos = new javax.swing.JTextField();
+        dni = new javax.swing.JLabel();
         jlabel1 = new javax.swing.JLabel();
-        nombre = new javax.swing.JTextField();
-        dni = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jlabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jlabel3 = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        apellidos = new javax.swing.JLabel();
+        sexo = new javax.swing.JLabel();
+        fechanac = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,7 +74,6 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Datos Usuario");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 300, 70));
-        getContentPane().add(fechanac, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 130, -1));
 
         jTable2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -91,7 +90,6 @@ public class Usuarios extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 630, 90));
-        getContentPane().add(sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 130, -1));
 
         CancelarReserva.setBackground(new java.awt.Color(51, 51, 51));
         CancelarReserva.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -99,15 +97,17 @@ public class Usuarios extends javax.swing.JFrame {
         CancelarReserva.setText("CANCELAR RESERVA");
         CancelarReserva.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(CancelarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 160, 40));
-        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 130, -1));
+
+        dni.setBackground(new java.awt.Color(0, 0, 0));
+        dni.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        dni.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 160, 30));
 
         jlabel1.setBackground(new java.awt.Color(255, 255, 255));
         jlabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jlabel1.setForeground(new java.awt.Color(0, 0, 0));
         jlabel1.setText("DNI:");
         getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 40, 20));
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 130, -1));
-        getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 130, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -133,6 +133,26 @@ public class Usuarios extends javax.swing.JFrame {
         jlabel3.setText("SEXO:");
         getContentPane().add(jlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 50, -1));
 
+        nombre.setBackground(new java.awt.Color(0, 0, 0));
+        nombre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        nombre.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 160, 30));
+
+        apellidos.setBackground(new java.awt.Color(0, 0, 0));
+        apellidos.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        apellidos.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 160, 30));
+
+        sexo.setBackground(new java.awt.Color(0, 0, 0));
+        sexo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        sexo.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 160, 30));
+
+        fechanac.setBackground(new java.awt.Color(0, 0, 0));
+        fechanac.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        fechanac.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(fechanac, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 160, 30));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
@@ -143,11 +163,11 @@ public class Usuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelarReserva;
     private javax.swing.JButton actualizar;
-    private javax.swing.JTextField apellidos;
+    private javax.swing.JLabel apellidos;
     private javax.swing.JButton cancelar;
     private javax.swing.JButton delete;
-    private javax.swing.JTextField dni;
-    private javax.swing.JTextField fechanac;
+    private javax.swing.JLabel dni;
+    private javax.swing.JLabel fechanac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -158,7 +178,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jlabel1;
     private javax.swing.JLabel jlabel2;
     private javax.swing.JLabel jlabel3;
-    private javax.swing.JTextField nombre;
-    private javax.swing.JTextField sexo;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JLabel sexo;
     // End of variables declaration//GEN-END:variables
 }

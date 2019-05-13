@@ -185,42 +185,24 @@ public class Usuario {
         try
         {
             Usuario usuario= new Usuario();
-            if ( (us == null) || (us.equals("")) )
+            ResultSet resultado = consul.ObtenerUsuario(us,Cifrar(pass));
+            while (resultado.next())
             {
-               JOptionPane.showMessageDialog(null,"No has ingresado el DNI");
-            }
-                 else if ( (pass == null) || (pass.equals("")) )
-                 {
-                    JOptionPane.showMessageDialog(null,"No has ingresado la Contraseña");
-                 }
-                    else if ( (pass != null) || us != null )
-                    {                                           
-                         
-                        ResultSet resultado = consul.ObtenerUsuario(us,Cifrar(pass));
-                        while (resultado.next())
-                        {
-                            usuario.setDni(resultado.getString("DNI"));
-                            usuario.setNombre(resultado.getString("Nombre"));
-                            usuario.setFecha(resultado.getString("Fecha_nac"));
-                            usuario.setContraseña(Descifrar(resultado.getString("contraseña")));
-                            usuario.setApellidos(resultado.getString("Apellidos"));
-                            usuario.setSexo(resultado.getString("Sexo"));  
-                        }
-                            if (usuario.dni==null && usuario.contraseña == null){
-                                    JOptionPane.showMessageDialog(null,"No se ha podido borrar el usuario "+us+" porque no existe o has introducido mal la contraseña");
-                            } else {     
-                            int n= JOptionPane.showConfirmDialog(null, "¿Quiere borrar su usuario?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
-                            if (n == JOptionPane.YES_OPTION) 
-                            {
-                                JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
-                                                          
-                                consul.BorrarUsuario(us,pass); 
-                            }
-                                else {
-                                    JOptionPane.showMessageDialog(null, "GRACIAS");
-                                }
-                            }
-                    } 
+                usuario.setDni(resultado.getString("DNI"));
+                usuario.setNombre(resultado.getString("Nombre"));
+                usuario.setFecha(resultado.getString("Fecha_nac"));
+                usuario.setContraseña(Descifrar(resultado.getString("contraseña")));
+                usuario.setApellidos(resultado.getString("Apellidos"));
+                usuario.setSexo(resultado.getString("Sexo"));  
+            }                             
+            int n= JOptionPane.showConfirmDialog(null, "¿Quiere borrar su usuario?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
+            if (n == JOptionPane.YES_OPTION) 
+            {
+                JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
+                consul.BorrarUsuario(us,pass); 
+            }else {
+                JOptionPane.showMessageDialog(null, "GRACIAS");
+            }                                               
         }catch (SQLException ex) {
             System.out.println("Hubo un error");
         }
@@ -273,41 +255,40 @@ public class Usuario {
         return users;
     }
     
-       public static String Cifrar(String mensaje){
-                //Texto a salir (cfrado)
-                String cipher = "";
-                //Posiciones a adelantar
-                int adelantar = 3;
+    public static String Cifrar(String mensaje)
+    {
+        //Texto a salir (cfrado)
+        String cipher = "";
+        //Posiciones a adelantar
+        int adelantar = 3;
                 
-                //Convertimos el mansaje en un array de caracteres
-                char [] letras = mensaje.toCharArray();
+        //Convertimos el mansaje en un array de caracteres
+        char [] letras = mensaje.toCharArray();
  
-                //Vamos por cada caracter sumandole 3
-                for(int i=0;i<letras.length;i++){
+        //Vamos por cada caracter sumandole 3
+        for(int i=0;i<letras.length;i++){
+            // de esta manera obtenemos el codigo ascii del caracter
+            //  ((int) letras[i]) y luego a ese numero le sumamos 3
+            // ( ((int) letras[i])+ adelantar) <- quedaria asi
+            // y luego convertimos ese numero en la letra a la que hace
+            // referencia en el codigo ascii solo casteando el numero a (char)           
                         
-                        // de esta manera obtenemos el codigo ascii del caracter
-                        //  ((int) letras[i]) y luego a ese numero le sumamos 3
-                        // ( ((int) letras[i])+ adelantar) <- quedaria asi
-                        // y luego convertimos ese numero en la letra a la que hace
-                        // referencia en el codigo ascii solo casteando el numero a (char)
-                        cipher += (char)( ((int) letras[i])+ adelantar) ; 
-                }
-                //Texto cifrado
-                return cipher;
+            cipher += (char)( ((int) letras[i])+ adelantar) ; 
         }
-        
-        
-        
-        public static String Descifrar(String cipher){
+        //Texto cifrado
+        return cipher;
+    }
+     
+    public static String Descifrar(String cipher){
                 
-                String mensaje = "";
-                //Posiciones a atrasar
-                int adelantar = 3;
-                //Caracteres del mensaje
-                char [] letras = cipher.toCharArray();
-                for(int i=0;i<letras.length;i++){
-                        mensaje += (char)( ((int) letras[i])- adelantar) ; 
-                }
-                return mensaje;
+        String mensaje = "";
+        //Posiciones a atrasar
+        int adelantar = 3;
+        //Caracteres del mensaje
+        char [] letras = cipher.toCharArray();
+        for(int i=0;i<letras.length;i++){
+            mensaje += (char)( ((int) letras[i])- adelantar) ; 
         }
+        return mensaje;
+    }
 }

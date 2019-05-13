@@ -9,17 +9,22 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class ControladorUsuarios {
     
-    public ControladorUsuarios( JButton actualizar,JButton cancelar, JButton delete,ArrayList<Usuario> Users,JButton CancelarReserva,JTextField apellidos,JTextField dni,JTextField fechanac,JTextField nombre,JTextField sexo) {
+    public ControladorUsuarios( JButton actualizar,JButton cancelar, JButton delete,ArrayList<Usuario> Users,JButton CancelarReserva,JLabel apellidos,JLabel dni,JLabel fechanac,JLabel nombre,JLabel sexo) {
         
         nombre.setText(Users.get(0).nombre);
         dni.setText(Users.get(0).dni);
         apellidos.setText(Users.get(0).apellidos);
         sexo.setText(Users.get(0).sexo);
         fechanac.setText(Users.get(0).fecha);
+        dni.setEnabled(false);
+        nombre.setEnabled(false);
+        apellidos.setEnabled(false);
+        sexo.setEnabled(false);
+        fechanac.setEnabled(false);
         
         
         PasarPagina pasar = new PasarPagina();
