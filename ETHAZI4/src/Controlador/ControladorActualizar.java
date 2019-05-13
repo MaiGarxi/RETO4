@@ -55,6 +55,7 @@ public class ControladorActualizar {
                 apellido.setText(apellidos.getText());
                 sexo_s.setText(sexo);
                 fecha_s.setText(fecha);
+                actu.get(0).nombre=nombre.getText();
             }    
         });
     }

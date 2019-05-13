@@ -4,15 +4,16 @@ package Vista;
 import Controlador.ControladorUsuarios;
 import Modelo.Usuario;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 
 public class Usuarios extends javax.swing.JFrame {
 
-    public Usuarios(ArrayList<Usuario> Users) {
+    public Usuarios(ArrayList<Usuario> Users,JLabel name) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);     
         
-        ControladorUsuarios usuario = new ControladorUsuarios(actualizar,cancelar,delete,Users,CancelarReserva,apellidos,dni,fechanac,nombre,sexo);
+        ControladorUsuarios usuario = new ControladorUsuarios(actualizar,cancelar,delete,Users,CancelarReserva,apellidos,dni,fechanac,nombre,sexo,name);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

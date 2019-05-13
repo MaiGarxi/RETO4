@@ -147,8 +147,8 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A USUARIOS
-    public void DestinoaUsuarios(ArrayList<Usuario> Users){
-        obj9= new Usuarios(Users);
+    public void DestinoaUsuarios(ArrayList<Usuario> Users,JLabel name){
+        obj9= new Usuarios(Users,name);
         obj9.setVisible(true);
         obj3.setVisible(false); 
     } 
@@ -166,7 +166,7 @@ public class PasarPagina{
     } 
     
     //FUNCION PARA PASAR DE USUARIOS A DESTINO
-    public void UsuariosaDestino(){
+    public void UsuariosaDestino(ArrayList<Usuario> Users){
         obj3.setVisible(true);
         obj9.setVisible(false); 
     } 

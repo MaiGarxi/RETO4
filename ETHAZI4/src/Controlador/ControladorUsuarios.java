@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 public class ControladorUsuarios {
     
-    public ControladorUsuarios( JButton actualizar,JButton cancelar, JButton delete,ArrayList<Usuario> Users,JButton CancelarReserva,JLabel apellidos,JLabel dni,JLabel fechanac,JLabel nombre,JLabel sexo) {
+    public ControladorUsuarios( JButton actualizar,JButton cancelar, JButton delete,ArrayList<Usuario> Users,JButton CancelarReserva,JLabel apellidos,JLabel dni,JLabel fechanac,JLabel nombre,JLabel sexo,JLabel name) {
         
         nombre.setText(Users.get(0).nombre);
         dni.setText(Users.get(0).dni);
@@ -41,7 +41,8 @@ public class ControladorUsuarios {
         cancelar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-                pasar.UsuariosaDestino();               
+                pasar.UsuariosaDestino(Users);   
+                name.setText(nombre.getText());
             }
         });  
         
