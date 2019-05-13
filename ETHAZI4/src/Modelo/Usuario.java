@@ -208,7 +208,7 @@ public class Usuario {
         }
     }
     
-    public Usuario Actualizar(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
+    public void Actualizar(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
        
         if ( (nombre == null) || (nombre.equals("")) )
         {
@@ -246,7 +246,6 @@ public class Usuario {
                 JOptionPane.showMessageDialog(null,"Nombre no valido! No puede contener numeros");
             }                                 
         }
-        return null;
     }
     
     public ArrayList<Usuario> crear_Array(Usuario usuario)

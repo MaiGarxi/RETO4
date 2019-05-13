@@ -73,7 +73,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Datos Usuario");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 300, 70));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 300, 70));
 
         jTable2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(

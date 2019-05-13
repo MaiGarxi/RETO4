@@ -23,7 +23,7 @@ public class BasesLegales extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("BASES LEGELES");
+        jLabel2.setText("BASES LEGALES");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 390, 60));
 
         bases.setColumns(20);
