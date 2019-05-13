@@ -146,9 +146,9 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A USUARIOS
-    public void DestinoaUsuarios(){
+    public void DestinoaUsuarios(ArrayList<Usuario> Users){
         //SE CREA EL OBJ DE LA CLASE USUARIOS
-        obj9= new Usuarios();
+        obj9= new Usuarios(Users);
         obj9.setVisible(true);
         obj3.setVisible(false); 
     } 
