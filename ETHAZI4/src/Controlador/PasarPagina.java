@@ -102,6 +102,12 @@ public class PasarPagina{
         obj5.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE BASESLEGALES A LOGIN
+    public void BasesLegalesaLogin(){
+        obj2.setVisible(true);
+        obj10.setVisible(false);
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A LISTA
     public void DestinoaLista(String localidad,String Alojamiento,ArrayList<Usuario> Users, String entradas, String salidas,ArrayList<ArrayList> patron,int dias , double precioTemp,double precioFestivo,int personas,int habitaciones,int ninos) throws SQLException {
         //SE CREA EL OBJ DE LA CLASE LISTA
