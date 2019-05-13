@@ -19,6 +19,8 @@ public class ControladorNoRegistrado {
 
     public ControladorNoRegistrado(JRadioButton H, JRadioButton M, JButton Registrar, JTextField apellidos, JPasswordField contraseña, JTextField dni, JDateChooser fecha_nac, JTextField nombre, JPasswordField password, JPasswordField contraseña0, JButton BotonAnterior) {
         
+        PasarPagina pasar = new PasarPagina();
+        Usuario usu = new Usuario();
         Registrar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -31,22 +33,21 @@ public class ControladorNoRegistrado {
                 Date date = fecha_nac.getDate();
                 if (date == null) {
                   JOptionPane.showMessageDialog(null, "No has ingresado la Fecha de Nacimiento");
-                }
+                }               
                 String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(fecha_nac.getDate());
-                Usuario usu = new Usuario();
                 try {
                     usu.CrearUsuario(dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText());
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorNoRegistrado.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
             }    
         });
 
         BotonAnterior.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) { 
-                PasarPagina pasar = new PasarPagina();
-                pasar.NewaBasesLegales();
+            public void mouseClicked(MouseEvent e) {            
+                pasar.NewaLogin();
             }    
         });
     }

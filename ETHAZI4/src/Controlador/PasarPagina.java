@@ -95,9 +95,17 @@ public class PasarPagina{
         obj2.setVisible(false);
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCION PARA PASAR DE NUEVO USUARIO A LOGIN
-    public void NewaBasesLegales(){
+    //FUNCION PARA PASAR DE NUEVO USUARIO A LOGIN 
+    public void NewaLogin(){
         //SE CREA EL OBJ DE LA CLASE NUEVO USUARIO
+        obj2.setVisible(true);
+        obj5.setVisible(false);
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCION PARA PASAR DE NUEVO USUARIO A BASES LEGALES
+    public void NewaBasesLegales(String sexo, String apellidos, String contraseña, String dni, String fecha, String nombre, String password,String contraseña0){
+        //SE CREA EL OBJ DE LA CLASE BASES LEGALES
+        obj10 = new BasesLegales(sexo,apellidos,contraseña, dni,fecha,nombre,password,contraseña0);
         obj10.setVisible(true);
         obj5.setVisible(false);
     } 
@@ -164,13 +172,13 @@ public class PasarPagina{
         obj9.setVisible(true);
         obj6.setVisible(false); 
     } 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE PAGO A USUARIOS
     public void PagoaUsuarios(){
         obj9.setVisible(true);
         obj7.setVisible(false); 
     } 
-    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
     //FUNCION PARA PASAR DE USUARIOS A DESTINO
     public void UsuariosaDestino(ArrayList<Usuario> Users){
         obj3.setVisible(true);

@@ -158,18 +158,15 @@ public class Usuario {
                 }               
                 else{
                     if(m.matches()){
-                            if(n.matches()){ 
-                                    JOptionPane.showMessageDialog(null,"Registro correcto");
-                                    consul.InsertarUsuario(dni,nombre,apellidos,Cifrar(contraseña),sexo,fecha); 
-                                    PasarPagina pasar = new PasarPagina();
-                                    pasar.NewaBasesLegales();
-                                }
-                            else{
-                                JOptionPane.showMessageDialog(null,"Nombre no válido! No puede contener números");
-                            }                                
+                        if(n.matches()){ 
+                            PasarPagina pasar = new PasarPagina();
+                            pasar.NewaBasesLegales(sexo, apellidos, contraseña, dni, fecha, nombre, password,contraseña);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Nombre no válido! No puede contener números");
+                        }                                
                         }else{
                             JOptionPane.showMessageDialog(null,"DNI no valido! introduzca por este formato: 12345678A");
-                            } 
+                        } 
                 }
             }
         }catch (SQLException ex) {
@@ -178,6 +175,16 @@ public class Usuario {
         }
         return null;
      
+    }
+    
+    public Usuario InsertarUsuario(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password) throws SQLException{    
+            
+        JOptionPane.showMessageDialog(null,"Registro correcto");
+        consul.InsertarUsuario(dni,nombre,apellidos,Cifrar(contraseña),sexo,fecha);
+        consul.InsertarBasesLegales(dni);
+        PasarPagina pasar = new PasarPagina();
+        pasar.BasesLegalesaLogin();
+        return null;     
     }
         
     public void Delete(String us,String  pass){
