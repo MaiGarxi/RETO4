@@ -50,8 +50,7 @@ public class ControladorActualizar {
                 }
                 String fecha = (new java.text.SimpleDateFormat("yyyy-MM-dd")).format(Actualizar.fecha_nac.getDate());
                 Usuario usu = new Usuario();
-                Usuario actualizado =new Usuario();
-                actualizado=(usu.Actualizar(dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText())) ;
+                usu.Actualizar(dni.getText(), nombre.getText(), apellidos.getText(), fecha, sexo, contraseña.getText(),password.getText());
                 nombre_s.setText(nombre.getText());
                 apellido.setText(apellidos.getText());
                 sexo_s.setText(sexo);
