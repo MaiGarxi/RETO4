@@ -3,16 +3,17 @@ package Vista;
 import Controlador.ControladorActualizar;
 import Modelo.Usuario;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 
 public class Actualizar extends javax.swing.JFrame {
     
 
-    public Actualizar(ArrayList<Usuario> Users) {  
+    public Actualizar(ArrayList<Usuario> Users,JLabel nombre_s,JLabel apellidos_s,JLabel sexo_s,JLabel fecha_s) {  
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false); 
         
-        ControladorActualizar control = new ControladorActualizar(Users,H,M,BotonAnterior,actualizar,apellidos,contraseña,dni,fecha_nac,gruposexo,nombre,password);
+        ControladorActualizar control = new ControladorActualizar(Users,H,M,BotonAnterior,actualizar,apellidos,contraseña,dni,fecha_nac,gruposexo,nombre,password,nombre_s,apellidos_s,sexo_s,fecha_s);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
