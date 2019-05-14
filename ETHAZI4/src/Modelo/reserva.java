@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class reserva {
     
@@ -174,6 +175,18 @@ public class reserva {
             }
         }              
         return usuario_reserva ;
+    }
+    
+    public void Delete(String us){
+                           
+            int n= JOptionPane.showConfirmDialog(null, "¿Está seguro que quiere eliminar sus reservas?", "Borrar Reserva" , JOptionPane.YES_NO_OPTION);
+            if (n == JOptionPane.YES_OPTION) 
+            {
+                JOptionPane.showMessageDialog(null, "Reservas canceladas");               
+                consul.BorrarReserva(us);
+            }else {
+                JOptionPane.showMessageDialog(null, "GRACIAS");
+            }                                               
     }
     
     public String crear_txt(ArrayList<reserva> reservas,ArrayList<Usuario> Users)

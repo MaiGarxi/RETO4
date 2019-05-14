@@ -7,7 +7,10 @@ import bbdd.Consultas;
 import static ethazi4.ETHAZI4.consul;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,6 +19,7 @@ import javax.swing.JOptionPane;
 
 
 public class ControladorPago {
+    
     public double cambio=0, pago=0;
     public double billete200=0, billete100=0, billete50=0, billete20=0, billete10=0, billete5=0, moneda2=0, moneda1=0;  
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
@@ -36,20 +40,23 @@ public class ControladorPago {
         {
          modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(y).getCod_alojamiento())+" Entrada: "+reservas.get(y).getEntrada()+" Salida: "+reservas.get(y).getSalida());                      
         }
-       
+        
+        PasarPagina pasar= new PasarPagina(); 
         
         herramienta.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
-              pasar.PagoaUsuarios();
+                try {
+                    pasar.PagoaUsuarios(Users,name,reserv.Reservas(Users));
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        });
+        }); 
         
         cancelar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
               pasar.LoginaDestino(Users);
             }
         });
@@ -57,7 +64,6 @@ public class ControladorPago {
         exit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
               pasar.PagoaBienvenida();
             }
         });
@@ -75,7 +81,6 @@ public class ControladorPago {
             public void mouseClicked(MouseEvent e) {                                 
                 if (valor==pago2){                 
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
-                    PasarPagina pasar= new PasarPagina(); 
                     pasar.PagoaDespedida();          
                     if(alojamiento=="h%")
                     {
@@ -96,7 +101,6 @@ public class ControladorPago {
                 if (pago2>valor){
                     double cambio;
                     cambio = calcularCambio(pago2,valor);
-                    PasarPagina pasar= new PasarPagina(); 
                     pasar.PagoaDespedida();
                     Consultas con = new Consultas();
                     if(alojamiento=="h%")
