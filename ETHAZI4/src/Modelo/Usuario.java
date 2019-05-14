@@ -187,32 +187,18 @@ public class Usuario {
         return null;     
     }
         
-    public void Delete(String us,String  pass){
-           
-        try
-        {
-            Usuario usuario= new Usuario();
-            ResultSet resultado = consul.ObtenerUsuario(us,Cifrar(pass));
-            while (resultado.next())
-            {
-                usuario.setDni(resultado.getString("DNI"));
-                usuario.setNombre(resultado.getString("Nombre"));
-                usuario.setFecha(resultado.getString("Fecha_nac"));
-                usuario.setContraseña(Descifrar(resultado.getString("contraseña")));
-                usuario.setApellidos(resultado.getString("Apellidos"));
-                usuario.setSexo(resultado.getString("Sexo"));  
-            }                             
-            int n= JOptionPane.showConfirmDialog(null, "¿Quiere borrar su usuario?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
+    public void Delete(String us){
+                           
+            int n= JOptionPane.showConfirmDialog(null, "Si elimina su Usuario cancelara todas las reservas ¿Está seguro?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
             if (n == JOptionPane.YES_OPTION) 
             {
-                JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");
-                consul.BorrarUsuario(us,pass); 
+                JOptionPane.showMessageDialog(null, "Deseamos que vuelva pronto");               
+                consul.BorrarBasesLegales(us);
+                consul.BorrarReserva(us);
+                consul.BorrarUsuario(us);
             }else {
                 JOptionPane.showMessageDialog(null, "GRACIAS");
             }                                               
-        }catch (SQLException ex) {
-            System.out.println("Hubo un error");
-        }
     }
     
     public void Actualizar(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password){
@@ -262,7 +248,7 @@ public class Usuario {
         return users;
     }
     
-    public static String Cifrar(String mensaje)
+    public String Cifrar(String mensaje)
     {
         //Texto a salir (cfrado)
         String cipher = "";
@@ -286,7 +272,7 @@ public class Usuario {
         return cipher;
     }
      
-    public static String Descifrar(String cipher){
+    public String Descifrar(String cipher){
                 
         String mensaje = "";
         //Posiciones a atrasar

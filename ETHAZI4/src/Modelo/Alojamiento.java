@@ -114,7 +114,7 @@ public class Alojamiento {
             }
             return null;
         }else{
-            try {
+            try {               
                 ResultSet resultado=consul.ConsultaAlojamiento_Nombre(localidad,Alojamiento,fecha_inicio,fecha_fin,personas);                
                 while (resultado.next()){
                     String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};

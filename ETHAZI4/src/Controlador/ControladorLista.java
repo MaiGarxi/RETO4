@@ -61,7 +61,7 @@ public class ControladorLista {
            
             /*Seleccionar Habitación*/
         }else{
-            String[] columnas = {"Tipo de Habitación", "Descripciòn"};
+            String[] columnas = {"Tipo de Habitación", "Descripción"};
             modelo.setColumnIdentifiers(columnas);
             jTable1.setModel(modelo);
                 /*TAMAÑO DE LAS COLUMNAS*/
@@ -96,7 +96,7 @@ public class ControladorLista {
                 jTable2.getTableHeader().setBackground(new Color(32,136,203));
                         jTable2.getTableHeader().setForeground(new Color(255,255,255));
                                 TableColumnModel columnModel2= jTable2.getColumnModel();
-                                columnModel2.getColumn(0).setPreferredWidth(300);
+                                columnModel2.getColumn(0).setPreferredWidth(250);
                                 columnModel2.getColumn(1).setPreferredWidth(100);
         /*TAMAÑO DE LAS COLUMNAS*/
         

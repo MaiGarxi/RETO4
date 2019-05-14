@@ -34,7 +34,7 @@ public class ControladorPago {
         Lista.setModel(modelo);    
         for(int y=0;y<reservas.size();y++)
         {
-         modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(y).getCod_alojamiento())+"\n"+" Entrada: "+reservas.get(y).getEntrada()+" Salida: "+reservas.get(y).getSalida());                      
+         modelo.addElement("Alojamiento: "+String.valueOf(reservas.get(y).getCod_alojamiento())+" Entrada: "+reservas.get(y).getEntrada()+" Salida: "+reservas.get(y).getSalida());                      
         }
        
         

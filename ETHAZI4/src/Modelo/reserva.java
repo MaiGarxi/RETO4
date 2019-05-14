@@ -17,8 +17,16 @@ public class reserva {
     protected String salida;
 
     public reserva() {
+    }  
+    
+    public reserva(int cod_reserva, String entrada, String salida, String cod_alojamiento, double precio) {
+        this.cod_reserva = cod_reserva;
+        this.cod_alojamiento = cod_alojamiento;
+        this.precio = precio;
+        this.entrada = entrada;
+        this.salida = salida;
     }
-
+        
     public reserva(int cod_reserva, String entrada, String salida, String cod_alojamiento, String dni, double precio) {
         this.cod_reserva = cod_reserva;
         this.cod_alojamiento = cod_alojamiento;
@@ -27,8 +35,6 @@ public class reserva {
         this.entrada = entrada;
         this.salida = salida;
     }
-
-    
     
     public reserva(int cod_reserva, String entrada, String salida,String cod_alojamiento,String dni, String cod_habitacion, double precio) {
         this.cod_reserva = cod_reserva;
@@ -140,11 +146,9 @@ public class reserva {
         ArrayList <reserva> reservas;
         reservas = new ArrayList<reserva>();
         for(int x=0;alojamientos.size()>x;x++)
-        {
-            
+        {            
             reserva reser= new reserva((x+1),reservas.get(x).entrada,reservas.get(x).salida,alojamientos.get(x).Cod_alojamiento,reservas.get(x).dni,reservas.get(x).cod_habitacion,reservas.get(x).precio);
-            reservas.add(reser); 
-            
+            reservas.add(reser);             
         }
         return reservas;
     }
@@ -157,6 +161,21 @@ public class reserva {
         return precio_final;
     }
    
+    public ArrayList <reserva> Reservas (ArrayList<Usuario> Users) throws SQLException
+    {
+        ArrayList<reserva> usuario_reserva = new ArrayList<reserva>(); 
+        ResultSet rs = consul.ObtenerReserva(Users.get(0).dni);
+        while (rs.next())
+        {
+            for(int x=0;rs.next();x++)
+            {
+                reserva reser= new reserva (rs.getInt("Cod_reserva"),rs.getString("Fecha_entrada"),rs.getString("Fecha_salida"),rs.getString("Cod_alojamiento"),rs.getDouble("Precio"));
+                usuario_reserva.add(reser);
+            }
+        }              
+        return usuario_reserva ;
+    }
+    
     public String crear_txt(ArrayList<reserva> reservas,ArrayList<Usuario> Users)
     {      
         try{

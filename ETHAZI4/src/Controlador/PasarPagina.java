@@ -161,8 +161,8 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE DESTINO A USUARIOS
-    public void DestinoaUsuarios(ArrayList<Usuario> Users,JLabel name){
-        obj9= new Usuarios(Users,name);
+    public void DestinoaUsuarios(ArrayList<Usuario> Users,JLabel name,ArrayList<reserva>usuario_reserva) throws SQLException{
+        obj9= new Usuarios(Users,name,usuario_reserva);
         obj9.setVisible(true);
         obj3.setVisible(false); 
     } 
@@ -182,6 +182,12 @@ public class PasarPagina{
     //FUNCION PARA PASAR DE USUARIOS A DESTINO
     public void UsuariosaDestino(ArrayList<Usuario> Users){
         obj3.setVisible(true);
+        obj9.setVisible(false); 
+    } 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+    //FUNCION PARA PASAR DE USUARIOS A DESTINO
+    public void UsuariosaLogin(){
+        obj2.setVisible(true);
         obj9.setVisible(false); 
     } 
 }

@@ -3,17 +3,19 @@ package Vista;
 
 import Controlador.ControladorUsuarios;
 import Modelo.Usuario;
+import Modelo.reserva;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class Usuarios extends javax.swing.JFrame {
 
-    public Usuarios(ArrayList<Usuario> Users,JLabel name) {
+    public Usuarios(ArrayList<Usuario> Users,JLabel name,ArrayList<reserva> usuario_reserva) throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);     
         
-        ControladorUsuarios usuario = new ControladorUsuarios(actualizar,cancelar,delete,Users,CancelarReserva,apellidos,dni,fechanac,nombre,sexo,name);
+        ControladorUsuarios usuario = new ControladorUsuarios(actualizar,cancelar,delete,Users,usuario_reserva,CancelarReserva,apellidos,dni,fechanac,nombre,sexo,name,inforeservas);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -25,7 +27,7 @@ public class Usuarios extends javax.swing.JFrame {
         cancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        inforeservas = new javax.swing.JTable();
         CancelarReserva = new javax.swing.JButton();
         dni = new javax.swing.JLabel();
         jlabel1 = new javax.swing.JLabel();
@@ -76,8 +78,8 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel3.setText("Datos Usuario");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 300, 70));
 
-        jTable2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        inforeservas.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        inforeservas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -87,8 +89,23 @@ public class Usuarios extends javax.swing.JFrame {
             new String [] {
                 "Cod_Reserva", "Entrada", "Salida", "Alojamiento", "Precio"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(inforeservas);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 630, 90));
 
@@ -169,13 +186,13 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JButton delete;
     private javax.swing.JLabel dni;
     private javax.swing.JLabel fechanac;
+    private javax.swing.JTable inforeservas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JLabel jlabel2;
     private javax.swing.JLabel jlabel3;

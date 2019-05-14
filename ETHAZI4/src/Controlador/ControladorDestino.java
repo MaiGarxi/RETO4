@@ -4,6 +4,7 @@ import Modelo.Alojamiento;
 import Modelo.Calendario;
 import Modelo.Ubicacion;
 import Modelo.Usuario;
+import Modelo.reserva;
 import com.toedter.calendar.JCalendar;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -23,17 +24,20 @@ public class ControladorDestino {
     
     public String Alojamiento;
     
+    
     public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error, JLabel name, JButton exit,ArrayList<Usuario> Users,JSpinner adultos,JSpinner ninos,JSpinner hab,JCheckBox hotel,JCheckBox casa,JCheckBox apartamento,JButton herramienta) {        
       
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */
+
         error.setVisible(false);
         Ubicacion ubi = new Ubicacion();
         ubi.obtener_destinos(destino);
         name.setText(Users.get(0).nombre);       
         Calendario calendario = new Calendario();
         Alojamiento aux = new Alojamiento();
+        reserva reserva = new reserva();
         /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
         que la componen
         */    
@@ -60,18 +64,22 @@ public class ControladorDestino {
          
             /*Eventos*/
             
+        PasarPagina pasar= new PasarPagina(); 
+        
         herramienta.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
-              pasar.DestinoaUsuarios(Users,name);
+                try {
+                    pasar.DestinoaUsuarios(Users,name,reserva.Reservas(Users));
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });    
         
         anterior.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-                PasarPagina pasar= new PasarPagina(); 
+            public void mouseClicked(MouseEvent e) {                          
                 pasar.DestinoaLogin();
             }
         });  
@@ -79,7 +87,6 @@ public class ControladorDestino {
         exit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-                PasarPagina pasar= new PasarPagina(); 
                 pasar.DestinoaBienvenida();
             }
         }); 
@@ -150,9 +157,7 @@ public class ControladorDestino {
                         int dias=calendario.obtener_dia(entrada.getDate(), salida.getDate());
                         double precioTemp=calendario.calcularPrecioTemp(entradas,salidas);
                         double precioFestivo=calendario.precioFestivo(entradas, salidas);
-                        
-                           
-                        PasarPagina pasar= new PasarPagina();                       
+                                              
                         pasar.DestinoaLista((String)destino.getSelectedItem(),Alojamiento,Users, entradas,salidas,patron,dias,precioTemp,precioFestivo,Integer.parseInt(adultos.getValue().toString()),Integer.parseInt(hab.getValue().toString()),Integer.parseInt(ninos.getValue().toString()));
                     
                     } catch (SQLException ex) {
