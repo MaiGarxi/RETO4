@@ -107,13 +107,10 @@ public class ControladorPago {
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     pasar.PagoaDespedida();          
                    reserva a= new reserva();
+                   a.reservar(reservas.get(0).getEntrada(), reservas.get(0).getSalida(),reservas.get(0).getDni(),reservas.get(0).getPrecio());
                         for(int i=0; i<reservas.size();i++){
                             
-                        try {
                             a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
-                        }
                            
                         }
                        
@@ -126,13 +123,10 @@ public class ControladorPago {
                     cambio = calcularCambio(pago2,valor);
                     pasar.PagoaDespedida();
                        reserva a= new reserva();
+                       a.reservar(reservas.get(0).getEntrada(), reservas.get(0).getSalida(),reservas.get(0).getDni(),reservas.get(0).getPrecio());
                                       for(int i=0; i<reservas.size();i++){
-                            
-                        try {
-                            a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                                          System.out.println("hola "+reservas.get(i).getCod_habitacion());
+                                          a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
                            
                         }
  

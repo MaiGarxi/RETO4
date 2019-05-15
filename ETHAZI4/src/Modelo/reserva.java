@@ -242,33 +242,24 @@ public class reserva {
     
     public void pagar(String fecha_entrada,String fecha_salida,String cod_alojamiento,String dni,String habitacion ,Double precio ,String alojamiento )
     {
-        consul.InsertarReserva(fecha_entrada, fecha_salida, dni, precio);
-        ResultSet resultado=consul.obtener_cod_reserva();
-        int cod_reserva=0;
-        try {
-            while(resultado.next())
-            {
-                try {
-                    cod_reserva=resultado.getInt("codigo");
-                } catch (SQLException ex) {
-                    Logger.getLogger(reserva.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(reserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         
         if(alojamiento=="c%")
         {
-            consul.Reservar_casa(cod_reserva,cod_alojamiento);
+            consul.Insertar_casa(cod_alojamiento);
         }
         else if(alojamiento=="a%")
         {
-            consul.Reservar_apartamento(cod_reserva,cod_alojamiento);
+            consul.Insertar_apartamento(cod_alojamiento);
         }
         else{
-            consul.Reservar_hotel(cod_reserva,cod_alojamiento,habitacion);
+            consul.Insertar_hotel(cod_alojamiento,habitacion);
         }
      
+    }
+    
+    public void reservar(String fecha_entrada,String fecha_salida,String dni ,Double precio )
+    {
+        consul.InsertarReserva(fecha_entrada, fecha_salida, dni, precio);
     }
 }
