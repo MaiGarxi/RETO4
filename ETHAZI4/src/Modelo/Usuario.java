@@ -284,4 +284,21 @@ public class Usuario {
         }
         return mensaje;
     }
+    
+    public double Promocion(String dni, int codigo) throws SQLException
+    {
+        
+        double precioPromo=0;
+        
+        ResultSet resultado=consul.Promocion(dni, codigo);
+        while (resultado.next())
+            {
+                int valor =resultado.getInt("valor"); 
+                int cantidad =resultado.getInt("cantidad"); 
+                if(cantidad>0){
+                    precioPromo=valor/100;
+                }
+            }  
+        return precioPromo;
+    }
 }

@@ -14,11 +14,12 @@ public class Pago extends javax.swing.JFrame {
     public double valor, pago2;
     
     public Pago(ArrayList<reserva>reservas,ArrayList <Usuario> Users,String alojamiento) {
+        
         initComponents();
         setLocationRelativeTo(null);
         setResizable (false);               
         
-        ControladorPago Controlador = new ControladorPago(Lista,reservas,Users,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,name,exit,alojamiento,herramienta);
+        ControladorPago Controlador = new ControladorPago(Lista,reservas,Users,cancelar, reiniciar, confirmar,actualizaPago,bi200,bi100,bi50,bi20,bi10,bi5,mo2,mo1,mo01,mo02,mo05,mo001,mo002,mo005,totalAPagar,name,exit,alojamiento,herramienta,codigo,texto,OK);
         
         ImageIcon Imagen = new ImageIcon ("src/Imagenes/200.jpg");
         Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(bi200.getWidth(), bi200.getHeight(), Image.SCALE_DEFAULT));bi200.setIcon(icono);
@@ -110,6 +111,10 @@ public class Pago extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         herramienta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        codigo = new javax.swing.JTextField();
+        texto = new javax.swing.JLabel();
+        OK = new javax.swing.JButton();
         jlabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -203,7 +208,28 @@ public class Pago extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 60));
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Código Promocional:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, -1, -1));
+
+        codigo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        getContentPane().add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, 70, 30));
+
+        texto.setBackground(new java.awt.Color(255, 0, 0));
+        texto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        texto.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 230, 30));
+
+        OK.setBackground(new java.awt.Color(102, 102, 102));
+        OK.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        OK.setForeground(new java.awt.Color(255, 255, 255));
+        OK.setText("OK");
+        OK.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 225, 60, 40));
+
         jlabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
+        jlabel1.setText("Codigo Promocional:");
         getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 720));
 
         pack();
@@ -212,6 +238,7 @@ public class Pago extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> Lista;
+    private javax.swing.JButton OK;
     private javax.swing.JLabel actualizaPago;
     private javax.swing.JButton bi10;
     private javax.swing.JButton bi100;
@@ -220,9 +247,11 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JButton bi5;
     private javax.swing.JButton bi50;
     private javax.swing.JButton cancelar;
+    private javax.swing.JTextField codigo;
     public javax.swing.JButton confirmar;
     private javax.swing.JButton exit;
     private javax.swing.JButton herramienta;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -241,6 +270,7 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JButton mo2;
     private javax.swing.JLabel name;
     private javax.swing.JButton reiniciar;
+    private javax.swing.JLabel texto;
     private javax.swing.JLabel totalAPagar;
     // End of variables declaration//GEN-END:variables
 }
