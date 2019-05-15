@@ -2,7 +2,6 @@
 package Controlador;
 
 import Modelo.Usuario;
-import static ethazi4.ETHAZI4.consul;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -63,7 +62,7 @@ public class ControladorBasesLegales {
         cancelar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {  
-                int n= JOptionPane.showConfirmDialog(null, "¿Quiere aceptar las Condiciones de Uso?", "Bases Legales" , JOptionPane.YES_NO_OPTION);
+                int n= JOptionPane.showConfirmDialog(null, "Para poder registrarse debe aceptar la Ley de Protección de Datos ¿Quiere aceptar las Condiciones de Uso?", "Ley de Protección de Datos" , JOptionPane.YES_NO_OPTION);
                 if (n == JOptionPane.YES_OPTION) 
                 {
                 }else {
