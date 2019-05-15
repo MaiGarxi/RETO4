@@ -150,7 +150,7 @@ public class ControladorLista {
                 modelo.setRowCount(0);
                 Alojamiento Aloja=new Alojamiento();
                 String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                Aloja.Obtener_habitaciones(dato,modelo);
+                Aloja.Obtener_habitaciones(dato,modelo,Alojamiento);
                 double preciox=0.0;                         
                 Alojamiento alojamiento = new Alojamiento();                  
                 preciox=(alojamiento.ObtenerPrecioAlojamiento(dato));

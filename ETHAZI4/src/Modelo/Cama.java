@@ -409,7 +409,7 @@ public class Cama {
                     quillo.setCapacidad(resultado.getInt("Capacidad"));
                     quillo.setCapacidad_inf(resultado.getInt("Capacidad_inf"));
                     quillo.setCod_cama(resultado.getString("Cod_cama"));
-                    quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
+                    quillo.setCod_habitacion(resultado.getString("Cod_habitacion_hotel"));
                     camas_disponibile.add(quillo);
                     System.out.println("habitacion doble");
                 }
@@ -418,7 +418,7 @@ public class Cama {
                     quillo.setCapacidad(resultado.getInt("Capacidad"));
                     quillo.setCapacidad_inf(resultado.getInt("Capacidad_inf"));
                     quillo.setCod_cama(resultado.getString("Cod_cama"));
-                    quillo.setCod_habitacion(resultado.getString("Cod_habitacion"));
+                    quillo.setCod_habitacion(resultado.getString("Cod_habitacion_hotel"));
                     camas_disponibile.add(quillo);
                     System.out.println("habitacion individual");
                 }
