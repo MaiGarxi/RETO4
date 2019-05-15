@@ -112,8 +112,8 @@ public class Usuario {
         return null;
     }       
     
-    public Usuario CrearUsuario(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password) throws SQLException{
-    
+    public Usuario CrearUsuario(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password) throws SQLException
+    {   
         try
         {
             Usuario usuario= new Usuario();
@@ -177,8 +177,8 @@ public class Usuario {
      
     }
     
-    public Usuario InsertarUsuario(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password) throws SQLException{    
-            
+    public Usuario InsertarUsuario(String dni,String nombre,String apellidos, String fecha, String sexo, String contraseña, String password) throws SQLException
+    {               
         JOptionPane.showMessageDialog(null,"Registro correcto");
         consul.InsertarUsuario(dni,nombre,apellidos,Cifrar(contraseña),sexo,fecha);
         consul.InsertarBasesLegales(dni);
@@ -187,8 +187,8 @@ public class Usuario {
         return null;     
     }
         
-    public void Delete(String us){
-                           
+    public void Delete(String us)
+    {                          
             int n= JOptionPane.showConfirmDialog(null, "Si elimina su Usuario cancelara todas las reservas ¿Está seguro?", "Borrar Usuario" , JOptionPane.YES_NO_OPTION);
             if (n == JOptionPane.YES_OPTION) 
             {
@@ -283,5 +283,22 @@ public class Usuario {
             mensaje += (char)( ((int) letras[i])- adelantar) ; 
         }
         return mensaje;
+    }
+    
+    public double Promocion(String dni, int codigo) throws SQLException
+    {
+        
+        double precioPromo=0;
+        
+        ResultSet resultado=consul.Promocion(dni, codigo);
+        while (resultado.next())
+            {
+                int valor =resultado.getInt("valor"); 
+                int cantidad =resultado.getInt("cantidad"); 
+                if(cantidad>0){
+                    precioPromo=valor/100;
+                }
+            }  
+        return precioPromo;
     }
 }

@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 public class ControladorPago {
@@ -25,10 +26,11 @@ public class ControladorPago {
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public double valor, pago2;
 
-    public ControladorPago(JList<String> Lista, ArrayList<reserva>reservas,ArrayList<Usuario> Users,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,JLabel name,JButton exit,String alojamiento,JButton herramienta) {
+    public ControladorPago(JList<String> Lista, ArrayList<reserva>reservas,ArrayList<Usuario> Users,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,JLabel name,JButton exit,String alojamiento,JButton herramienta,JTextField codigo, JLabel texto,JButton OK) {
         
         name.setText(Users.get(0).nombre);
         reserva reserv = new reserva();
+        Usuario usu = new Usuario();
         totalAPagar.setText(reservas.get(0).getPrecio()+" €");
         valor = reserv.calcular_total_pagar(reservas);
         
@@ -53,6 +55,28 @@ public class ControladorPago {
                 }
             }
         }); 
+        
+        OK.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {          
+                double precioPromo=0;
+                try {
+                    precioPromo = usu.Promocion(Users.get(0).dni, Integer.valueOf(codigo.getText()));
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if(precioPromo==0){
+                    texto.setText("Código no válido");
+                }else if(precioPromo==0.5){
+                    texto.setText("Descuento 50%");
+                    valor =(reserv.calcular_total_pagar(reservas))+(reserv.calcular_total_pagar(reservas))*precioPromo;
+                }else if(precioPromo==0.1){
+                    texto.setText("Descuento 10%");
+                    valor =(reserv.calcular_total_pagar(reservas))+(reserv.calcular_total_pagar(reservas))*precioPromo;
+                }
+                System.out.println(precioPromo);
+            }
+        });
         
         cancelar.addMouseListener(new MouseAdapter() {
             @Override

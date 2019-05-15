@@ -30,6 +30,7 @@ public class ControladorLista {
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
         Cama cama = new Cama();
+        Usuario usu = new Usuario();
         patron.add(cama.Devolver_habitaciones_uno(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
@@ -179,7 +180,8 @@ public class ControladorLista {
                     }
                     else if(jTable1.getSelectedRow()>-1){
                         PasarPagina pasar= new PasarPagina(); 
-                        String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));                     
+                        String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));    
+                        
                         pasar.ListaaPago(reserva.Crear_arrayHotel(dato,entradas, salidas,preci,patron.get(jTable1.getSelectedRow()),Users),Users,Alojamiento);   
                     }            
                 }
@@ -224,7 +226,7 @@ public class ControladorLista {
             @Override
             public void mouseClicked(MouseEvent e) {          
                 try {
-                    pasar.DestinoaUsuarios(Users,name,reserva.Reservas(Users));
+                    pasar.ListaaUsuarios(Users,name,reserva.Reservas(Users));
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                 }
