@@ -150,10 +150,9 @@ public class Alojamiento {
         {
            
                try{
-            ResultSet resultado=consul.habitaciones_casa(Cod_alojamiento);
+            ResultSet resultado=consul.habitaciones_apartamento(Cod_alojamiento);
             while (resultado.next()){
                 String[]datos={resultado.getString("Tipo"),resultado.getString("Descripcion")+" "};
-                 System.out.println("hola");
                 habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
@@ -163,9 +162,9 @@ public class Alojamiento {
         else{
               System.out.println("En obtener c%");
         try{
-            ResultSet resultado=consul.habitaciones_apartamento(Cod_alojamiento);
+            ResultSet resultado=consul.habitaciones_casa(Cod_alojamiento);
             while (resultado.next()){
-                String[]datos={resultado.getString("tipito"),resultado.getString("Descri")+" "};
+                String[]datos={resultado.getString("Tipo"),resultado.getString("Descripcion")+" "};
                 System.out.println(datos);
                 habitaciones.addRow(datos);              
             }

@@ -109,7 +109,7 @@ public class reserva {
         for (int i = 0; i < patron.size(); i++) {                
             try {
                 
-                ResultSet resultado = consul.alojamiento_para_reservar(alojamiento);
+                ResultSet resultado = consul.hotel_para_reservar(alojamiento);
                 for(int x=0;resultado.next();x++)
                 {
                     reserva reser= new reserva((i+1),fecha1,fecha2,resultado.getString("codigo"),Users.get(x).getDni(),patron.get(i).getCod_habitacion(),precio);
@@ -123,12 +123,14 @@ public class reserva {
         return alojamientos_reserva;
     }
     
-    public ArrayList<reserva> Crear_arrayCasaApartamento(String alojamiento,String fecha1, String fecha2, double precio, ArrayList<Usuario> Users)
+    public ArrayList<reserva> Crear_arrayCasaApartamento(String alojamiento,String fecha1, String fecha2, double precio, ArrayList<Usuario> Users,String Alojamiento)
     {
         ArrayList<reserva> alojamientos_reserva = new ArrayList<reserva>();               
-            try {
+        if(Alojamiento=="c%")
+        {
+                 try {
                 
-                ResultSet resultado = consul.alojamiento_para_reservar(alojamiento);
+                ResultSet resultado = consul.casa_para_reservar(alojamiento);
                 for(int x=0;resultado.next();x++)
                 {
                     reserva reser= new reserva((x+1),fecha1,fecha2,resultado.getString("codigo"),Users.get(x).getDni(),precio);
@@ -139,6 +141,23 @@ public class reserva {
                 return null;
             } 
         return alojamientos_reserva;
+        }
+        else{
+                 try {
+                
+                ResultSet resultado = consul.apartamento_para_reservar(alojamiento);
+                for(int x=0;resultado.next();x++)
+                {
+                    reserva reser= new reserva((x+1),fecha1,fecha2,resultado.getString("codigo"),Users.get(x).getDni(),precio);
+                    alojamientos_reserva.add(reser);
+                } 
+            } catch (SQLException ex) {
+                System.out.println("Hubo un error");
+                return null;
+            } 
+        return alojamientos_reserva;
+        }
+
 
     }
  

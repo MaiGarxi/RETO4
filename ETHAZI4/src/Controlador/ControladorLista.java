@@ -193,7 +193,7 @@ public class ControladorLista {
                     else{
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users),Users,Alojamiento);   
+                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users,Alojamiento),Users,Alojamiento);   
                     } 
                 }
             }
