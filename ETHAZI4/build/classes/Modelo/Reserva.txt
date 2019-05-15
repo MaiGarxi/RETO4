@@ -1,7 +1,7 @@
  
                                                              BIDAI-ON S.L.                         	
  ********************************************************************************************************************** 	
- -Nombre : Aldo 		
+ -Nombre : aldo 		
  -Apellidos : di maggio 		
  -DNI : 12345677A 		
  -Código de Reserva : 1 		
@@ -10,4 +10,4 @@
  -Número de habitación(es) :  		
  -Número de personas que cubre la reserva :  		
  ********************************************************************************************************************** 	
- -Precio final: 640.0 €
+ -Precio final: 100.0 €

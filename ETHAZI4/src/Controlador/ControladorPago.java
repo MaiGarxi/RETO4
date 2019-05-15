@@ -82,42 +82,36 @@ public class ControladorPago {
                 if (valor==pago2){                 
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     pasar.PagoaDespedida();          
-                    if(alojamiento=="h%")
-                    {
+                   reserva a= new reserva();
                         for(int i=0; i<reservas.size();i++){
-                            consul.InsertarReservaHotel(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
+                            
+                        try {
+                            a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        reserva a= new reserva();
+                           
+                        }
+                       
+                        
                         System.out.println(a.crear_txt(reservas,Users));
-                    }
-                    else{
-                        for(int y=0; y<reservas.size();y++){
-                            consul.InsertarReservaCasaApartamento(reservas.get(y).getEntrada(), reservas.get(y).getSalida(),reservas.get(y).getCod_alojamiento(),reservas.get(y).getDni(),reservas.get(y).getPrecio());
-                        }   
-                        reserva a= new reserva();
-                        System.out.println(a.crear_txt(reservas,Users));
-                    }           
+                            
                 }
                 if (pago2>valor){
                     double cambio;
                     cambio = calcularCambio(pago2,valor);
                     pasar.PagoaDespedida();
-                    Consultas con = new Consultas();
-                    if(alojamiento=="h%")
-                    {
-                        for(int i=0; i<reservas.size();i++){
-                            consul.InsertarReservaHotel(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio());
+                       reserva a= new reserva();
+                                      for(int i=0; i<reservas.size();i++){
+                            
+                        try {
+                            a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        reserva a= new reserva();
-                        System.out.println(a.crear_txt(reservas,Users));
-                    }
-                    else{
-                        for(int y=0; y<reservas.size();y++){
-                            consul.InsertarReservaCasaApartamento(reservas.get(y).getEntrada(), reservas.get(y).getSalida(),reservas.get(y).getCod_alojamiento(),reservas.get(y).getDni(),reservas.get(y).getPrecio());
-                        }   
-                        reserva a= new reserva();
-                        System.out.println(a.crear_txt(reservas,Users));
-                    } 
+                           
+                        }
+ 
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                 }                  
