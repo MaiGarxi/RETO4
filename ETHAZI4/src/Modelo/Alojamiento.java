@@ -100,6 +100,7 @@ public class Alojamiento {
     
     public String obtener_alojamiento(DefaultTableModel alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin,int personas) 
     {           
+        
         if(Alojamiento=="h%")
         {
             try {
@@ -144,12 +145,15 @@ public class Alojamiento {
                 
     public void Obtener_habitaciones(String Cod_alojamiento,DefaultTableModel  habitaciones,String Alojamiento)
     {
+        System.out.println("En obtener Habitaciones");
         if(Alojamiento=="a%")
         {
+           
                try{
             ResultSet resultado=consul.habitaciones_casa(Cod_alojamiento);
             while (resultado.next()){
-                String[]datos={resultado.getString("tipito"),resultado.getString("Descri")+" "};
+                String[]datos={resultado.getString("Tipo"),resultado.getString("Descripcion")+" "};
+                 System.out.println("hola");
                 habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
@@ -157,10 +161,12 @@ public class Alojamiento {
         }
         }
         else{
+              System.out.println("En obtener c%");
         try{
             ResultSet resultado=consul.habitaciones_apartamento(Cod_alojamiento);
             while (resultado.next()){
                 String[]datos={resultado.getString("tipito"),resultado.getString("Descri")+" "};
+                System.out.println(datos);
                 habitaciones.addRow(datos);              
             }
         } catch (SQLException ex) {
@@ -169,20 +175,39 @@ public class Alojamiento {
     }
     }
     
-    public double ObtenerPrecioAlojamiento(String localidad)
+    public double ObtenerPrecioAlojamiento(String localidad,String Alojamiento)
     {
         double precioTotal=0;
+         if(Alojamiento=="a%")
+        {
         try{
             
-            ResultSet resultado=consul.PrecioCasaApartamento(localidad);
+            ResultSet resultado=consul.PrecioApartamento(localidad);
             while (resultado.next()){
-                int numHab=resultado.getInt("numeroHab");
                 double precio=resultado.getDouble("precio");
-                precioTotal=numHab*precio;
+                precioTotal=precio;
+                return precioTotal;
             }
         } catch (SQLException ex) {
             System.out.println("Hubo un error");
         }
-        return precioTotal;
+       
     }
+         else{
+             try{
+            
+            ResultSet resultado=consul.PrecioCasa(localidad);
+            while (resultado.next()){
+
+                double precio=resultado.getDouble("precio");
+                precioTotal=precio;
+                return precioTotal;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Hubo un error");
+        }
+          
+         }
+         return 0.0;
+}
 }

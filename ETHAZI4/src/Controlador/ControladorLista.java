@@ -153,7 +153,7 @@ public class ControladorLista {
                 Aloja.Obtener_habitaciones(dato,modelo,Alojamiento);
                 double preciox=0.0;                         
                 Alojamiento alojamiento = new Alojamiento();                  
-                preciox=(alojamiento.ObtenerPrecioAlojamiento(dato));
+                preciox=(alojamiento.ObtenerPrecioAlojamiento(dato,Alojamiento));
                 preci=(preciox*dias)+(preciox*precioTemp*dias)+(preciox*precioFestivo);
                 precio.setText(String.valueOf(preci+" € Por "+dias+" Noches"));
             }});
