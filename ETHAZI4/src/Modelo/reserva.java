@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class reserva {
@@ -21,7 +19,14 @@ public class reserva {
 
     public reserva() {
     }  
-    
+
+    public reserva(int cod_reserva, String entrada, String salida, double precio) {
+        this.cod_reserva = cod_reserva;
+        this.entrada = entrada;
+        this.salida = salida;
+        this.precio = precio;
+    }
+          
     public reserva(int cod_reserva, String entrada, String salida, String cod_alojamiento, double precio) {
         this.cod_reserva = cod_reserva;
         this.cod_alojamiento = cod_alojamiento;
@@ -109,8 +114,7 @@ public class reserva {
     {
         ArrayList<reserva> alojamientos_reserva = new ArrayList<reserva>();
         for (int i = 0; i < patron.size(); i++) {                
-            try {
-                
+            try {                
                 ResultSet resultado = consul.hotel_para_reservar(alojamiento);
                 for(int x=0;resultado.next();x++)
                 {
@@ -130,8 +134,7 @@ public class reserva {
         ArrayList<reserva> alojamientos_reserva = new ArrayList<reserva>();               
         if(Alojamiento=="c%")
         {
-                 try {
-                
+            try {               
                 ResultSet resultado = consul.casa_para_reservar(alojamiento);
                 for(int x=0;resultado.next();x++)
                 {
@@ -145,8 +148,7 @@ public class reserva {
         return alojamientos_reserva;
         }
         else{
-                 try {
-                
+            try {                
                 ResultSet resultado = consul.apartamento_para_reservar(alojamiento);
                 for(int x=0;resultado.next();x++)
                 {
@@ -159,8 +161,6 @@ public class reserva {
             } 
         return alojamientos_reserva;
         }
-
-
     }
  
     public ArrayList <reserva> Crear_reservaHotel (ArrayList<Alojamiento> alojamientos)
@@ -178,8 +178,7 @@ public class reserva {
     public double calcular_total_pagar (ArrayList<reserva> reservas)
     {
         double precio_final =0;
-        precio_final = precio_final + reservas.get(0).precio;       
-        
+        precio_final = precio_final + reservas.get(0).precio;               
         return precio_final;
     }
    
@@ -191,7 +190,7 @@ public class reserva {
         {
             for(int x=0;rs.next();x++)
             {
-                reserva reser= new reserva (rs.getInt("Cod_reserva"),rs.getString("Fecha_entrada"),rs.getString("Fecha_salida"),rs.getString("Cod_alojamiento"),rs.getDouble("Precio"));
+                reserva reser= new reserva (rs.getInt("Cod_reserva"),rs.getString("Fecha_entrada"),rs.getString("Fecha_salida"),rs.getDouble("Precio"));
                 usuario_reserva.add(reser);
             }
         }              
@@ -241,9 +240,7 @@ public class reserva {
     }    
     
     public void pagar(String fecha_entrada,String fecha_salida,String cod_alojamiento,String dni,String habitacion ,Double precio ,String alojamiento )
-    {
-
-        
+    {        
         if(alojamiento=="c%")
         {
             consul.Insertar_casa(cod_alojamiento);
@@ -254,8 +251,7 @@ public class reserva {
         }
         else{
             consul.Insertar_hotel(cod_alojamiento,habitacion);
-        }
-     
+        }     
     }
     
     public void reservar(String fecha_entrada,String fecha_salida,String dni ,Double precio )

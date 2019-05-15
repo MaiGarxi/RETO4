@@ -59,22 +59,22 @@ public class ControladorPago {
         OK.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-                double precioPromo=0;
                 try {
-                    precioPromo = usu.Promocion(Users.get(0).dni, Integer.valueOf(codigo.getText()));
-                } catch (SQLException ex) {
+                    double precioPromo = usu.Promocion(Users.get(0).dni, Integer.valueOf(codigo.getText()));
+                    if(precioPromo<0.1){
+                        texto.setText("Código no válido");
+                    }else if(precioPromo==0.5){
+                        texto.setText("Descuento 50%");
+                        valor =(reserv.calcular_total_pagar(reservas))-(reserv.calcular_total_pagar(reservas))*precioPromo;
+                        totalAPagar.setText(valor+" €");
+                    }else if(precioPromo==0.1){
+                        texto.setText("Descuento 10%");
+                        valor =(reserv.calcular_total_pagar(reservas))-(reserv.calcular_total_pagar(reservas))*precioPromo;
+                        totalAPagar.setText(valor+" €");
+                    }
+                }catch (SQLException ex) {
                     Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                if(precioPromo==0){
-                    texto.setText("Código no válido");
-                }else if(precioPromo==0.5){
-                    texto.setText("Descuento 50%");
-                    valor =(reserv.calcular_total_pagar(reservas))+(reserv.calcular_total_pagar(reservas))*precioPromo;
-                }else if(precioPromo==0.1){
-                    texto.setText("Descuento 10%");
-                    valor =(reserv.calcular_total_pagar(reservas))+(reserv.calcular_total_pagar(reservas))*precioPromo;
-                }
-                System.out.println(precioPromo);
+                }              
             }
         });
         

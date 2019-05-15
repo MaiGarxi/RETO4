@@ -294,9 +294,13 @@ public class Usuario {
         while (resultado.next())
             {
                 int valor =resultado.getInt("valor"); 
-                int cantidad =resultado.getInt("cantidad"); 
+                int cantidad =resultado.getInt("cantidad");
+                System.out.println(cantidad);
+                System.out.println(valor);
+                        
                 if(cantidad>0){
-                    precioPromo=valor/100;
+                    precioPromo=(double)valor/100;
+                    System.out.println(precioPromo);
                 }
             }  
         return precioPromo;

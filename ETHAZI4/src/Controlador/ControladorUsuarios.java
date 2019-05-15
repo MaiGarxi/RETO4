@@ -26,11 +26,10 @@ public class ControladorUsuarios {
         inforeservas.setModel(modelo);
         modelo.addColumn("Cod_reserva");
         modelo.addColumn("Entrada");
-        modelo.addColumn("Salida");
-        modelo.addColumn("Alojamiento");        
+        modelo.addColumn("Salida");  
         modelo.addColumn("Precio");
         for(int i=0;i<usuario_reserva.size();i++){
-            modelo.addRow(new Object[] {usuario_reserva.get(i).getCod_reserva(), usuario_reserva.get(i).getEntrada(), usuario_reserva.get(i).getSalida(),usuario_reserva.get(i).getCod_alojamiento(), usuario_reserva.get(i).getPrecio()});
+            modelo.addRow(new Object[] {usuario_reserva.get(i).getCod_reserva(), usuario_reserva.get(i).getEntrada(), usuario_reserva.get(i).getSalida(), usuario_reserva.get(i).getPrecio()});
         }
         
         PasarPagina pasar = new PasarPagina();
