@@ -176,37 +176,38 @@ public class Alojamiento {
     
     public double ObtenerPrecioAlojamiento(String localidad,String Alojamiento)
     {
+        
         double precioTotal=0;
-         if(Alojamiento=="a%")
+        
+        if(Alojamiento=="a%")
         {
-        try{
-            
-            ResultSet resultado=consul.PrecioApartamento(localidad);
-            while (resultado.next()){
-                double precio=resultado.getDouble("precio");
-                precioTotal=precio;
-                return precioTotal;
-            }
-        } catch (SQLException ex) {
-            System.out.println("Hubo un error");
-        }
-       
-    }
-         else{
-             try{
-            
-            ResultSet resultado=consul.PrecioCasa(localidad);
-            while (resultado.next()){
+            try{
 
+                ResultSet resultado=consul.PrecioApartamento(localidad);
+                while (resultado.next()){
+                    double precio=resultado.getDouble("precio");
+                    precioTotal=precio;
+                    return precioTotal;
+                }
+            } catch (SQLException ex) {
+                System.out.println("Hubo un error");
+            }       
+        }else{
+             try{           
+                ResultSet resultado=consul.PrecioCasa(localidad);
+                
+                while (resultado.next()){
                 double precio=resultado.getDouble("precio");
                 precioTotal=precio;
+                
                 return precioTotal;
+                }
+            } catch (SQLException ex) {
+                System.out.println("Hubo un error");
             }
-        } catch (SQLException ex) {
-            System.out.println("Hubo un error");
-        }
           
-         }
-         return 0.0;
-}
+        }
+            return 0.0;
+    }
+    
 }

@@ -437,49 +437,42 @@ public class Cama {
         
         for(int u=0;u<patron.size();u++)
         {
-            
-         
+                 
             for(int l=0;l<camas_disponible.size();l++)
             {
                 if(patron.get(u).getClass()==camas_disponible.get(l).getClass())    
-                {    if(u>=1)
-                     {
-                         int lo=0;
-                         for(int ui=0;ui<marico.size();ui++)
-                         {
-                         if(marico.get(ui)==l)
-                         {
-                         lo=lo+1;
-                         }
-                         }
-                         if(lo==0)
-                         {
-                    
-                     patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
-                    patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
-                    patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
-                    patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
-                    marico.add(l);
-                    l=camas_disponible.size();
-                    
-                         
-                         }
-      
-                     }
-                      else{
-                                if(u==0)
-                                {
-                            
-                                patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
-                                patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
-                                patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
-                                patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
-                                marico.add(l);
-                                l=camas_disponible.size();
-                                
-                                }
+                {    
+                    if(u>=1)
+                    {
+                        int lo=0;
+                        for(int ui=0;ui<marico.size();ui++)
+                        {
+                            if(marico.get(ui)==l)
+                            {
+                                lo=lo+1;
+                            }
                         }
-                    
+                        if(lo==0)
+                        {
+                            patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
+                            patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
+                            patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
+                            patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
+                            marico.add(l);
+                            l=camas_disponible.size();                         
+                        }
+      
+                    }else{
+                        if(u==0)
+                        {
+                            patron.get(u).setCapacidad(camas_disponible.get(l).Capacidad);
+                            patron.get(u).setCapacidad_inf(camas_disponible.get(l).Capacidad_inf);
+                            patron.get(u).setCod_cama(camas_disponible.get(l).Cod_cama);
+                            patron.get(u).setCod_habitacion(camas_disponible.get(l).Cod_habitacion);
+                            marico.add(l);
+                            l=camas_disponible.size();                               
+                        }
+                    }                    
                 }           
             }
             if(patron.get(u).Cod_cama==null)
@@ -487,8 +480,7 @@ public class Cama {
                 System.out.println("____________________________________________________________________");
                 System.out.println("El patron se ha eliminado");
       
-                    patron.clear();
-
+                patron.clear();
             }      
         }    
     } 
