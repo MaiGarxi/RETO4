@@ -9,7 +9,10 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -215,18 +218,22 @@ public class ControladorLista {
            /*Eventos 
         */        
         
+        PasarPagina pasar= new PasarPagina();    
+           
         herramienta.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-              PasarPagina pasar= new PasarPagina(); 
-              pasar.ListaaUsuarios();
+                try {
+                    pasar.DestinoaUsuarios(Users,name,reserva.Reservas(Users));
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        });
+        }); 
            
         anterior.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) { 
-                PasarPagina pasar= new PasarPagina(); 
+            public void mouseClicked(MouseEvent e) {                
                 pasar.ListaaDestino();
             }
             });  
@@ -234,7 +241,6 @@ public class ControladorLista {
         exit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-                PasarPagina pasar= new PasarPagina(); 
                 pasar.ListaaBienvenida();
             }
         }); 

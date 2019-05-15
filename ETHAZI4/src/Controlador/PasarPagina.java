@@ -168,13 +168,13 @@ public class PasarPagina{
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LISTA A USUARIOS
-    public void ListaaUsuarios(){
+    public void ListaaUsuarios(ArrayList<Usuario> Users,JLabel name,ArrayList<reserva>usuario_reserva){
         obj9.setVisible(true);
         obj6.setVisible(false); 
     } 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE PAGO A USUARIOS
-    public void PagoaUsuarios(){
+    public void PagoaUsuarios(ArrayList<Usuario> Users,JLabel name,ArrayList<reserva>usuario_reserva){
         obj9.setVisible(true);
         obj7.setVisible(false); 
     } 

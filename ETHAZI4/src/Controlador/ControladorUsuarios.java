@@ -34,11 +34,12 @@ public class ControladorUsuarios {
         }
         
         PasarPagina pasar = new PasarPagina();
+        Usuario usu = new Usuario();
+        reserva reser = new reserva();
         
         delete.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-                Usuario usu = new Usuario();
                 usu.Delete(Users.get(0).getDni());
                 pasar.UsuariosaLogin();               
             }
@@ -62,7 +63,7 @@ public class ControladorUsuarios {
         CancelarReserva.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {          
-                
+                reser.Delete(Users.get(0).getDni());
             }
         });        
     }
