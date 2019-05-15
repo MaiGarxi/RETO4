@@ -224,7 +224,7 @@ public class ControladorLista {
             @Override
             public void mouseClicked(MouseEvent e) {          
                 try {
-                    pasar.DestinoaUsuarios(Users,name,reserva.Reservas(Users));
+                    pasar.ListaaUsuarios(Users,name,reserva.Reservas(Users));
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                 }
