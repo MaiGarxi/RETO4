@@ -102,7 +102,7 @@ public class Lista extends javax.swing.JFrame {
         jLabel4.setText("Estrellas");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, -1));
 
-        estrellas.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        estrellas.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         estrellas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*", "**", "***", "****", "*****" }));
         jPanel1.add(estrellas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 120, 40));
 
