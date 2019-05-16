@@ -261,6 +261,14 @@ public class ControladorLista {
                     pasar.ListaaBienvenida();
                 }          
             }
-        }); 
+        });
+        
+        estrellas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+             
+                
+                
+            }}); 
     }
 }
