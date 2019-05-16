@@ -266,6 +266,7 @@ public class ControladorLista {
         estrellas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
+             jTable2.removeAll();
              
                 
                 
