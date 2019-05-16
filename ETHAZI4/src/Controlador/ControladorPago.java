@@ -46,15 +46,11 @@ public class ControladorPago {
         
         herramienta.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) { 
-                int n= JOptionPane.showConfirmDialog(null, "Si Cierra Sesión perdera toda la información de búsqueda ¿Está seguro?", "Cerrar Sesión" , JOptionPane.YES_NO_OPTION);
-                if (n == JOptionPane.YES_OPTION) 
-                { 
-                    try {
-                        pasar.PagoaUsuarios(Users,name,reserv.Reservas(Users));
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+            public void mouseClicked(MouseEvent e) {          
+                try {
+                    pasar.PagoaUsuarios(Users,name,reserv.Reservas(Users));
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }); 
@@ -92,8 +88,12 @@ public class ControladorPago {
         
         exit.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-              pasar.PagoaBienvenida();
+            public void mouseClicked(MouseEvent e) {  
+                    int n= JOptionPane.showConfirmDialog(null, "Si Cierra Sesión perdera toda la información de búsqueda ¿Está seguro?", "Cerrar Sesión" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) 
+                { 
+                    pasar.PagoaBienvenida();
+                }
             }
         });
         

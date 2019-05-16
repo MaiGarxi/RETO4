@@ -133,6 +133,12 @@ public class ControladorLista {
         
         
         /*Click en  Alojamiento*/
+        
+        if(Alojamiento==null){
+        
+        
+        }
+        
         if(Alojamiento=="h%")
         {
             jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,7 +202,7 @@ public class ControladorLista {
                     else{
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users,Alojamiento),Users,Alojamiento,patron.get(jTable1.getSelectedRow()));   
+                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users,Alojamiento),Users,Alojamiento,patron.get(0));   
                     } 
                 }
             }
@@ -247,8 +253,12 @@ public class ControladorLista {
         
         exit.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-                pasar.ListaaBienvenida();
+            public void mouseClicked(MouseEvent e) {  
+                int n= JOptionPane.showConfirmDialog(null, "Si Cierra Sesión perderá toda la información de búsqueda ¿Está seguro?", "Cerrar Sesión" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) 
+                { 
+                    pasar.ListaaBienvenida();
+                }          
             }
         }); 
     }

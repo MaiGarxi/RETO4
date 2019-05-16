@@ -185,7 +185,7 @@ public class Alojamiento {
                 ResultSet resultado=consul.PrecioApartamento(localidad);
                 while (resultado.next()){
                     double precio=resultado.getDouble("precio");
-                    precioTotal=precio;
+                    precioTotal=(Math.round(precio));
                     return precioTotal;
                 }
             } catch (SQLException ex) {
@@ -197,7 +197,7 @@ public class Alojamiento {
                 
                 while (resultado.next()){
                 double precio=resultado.getDouble("precio");
-                precioTotal=precio;
+                precioTotal=(Math.round(precio));
                 
                 return precioTotal;
                 }
