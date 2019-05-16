@@ -10,4 +10,4 @@
  -Número de habitación(es) : 1 		
  -Número de personas que cubre la reserva : 1 		
  ********************************************************************************************************************** 	
- -Precio final: 124.0 €
+ -Precio final: 320.0 €

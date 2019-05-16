@@ -19,6 +19,7 @@ public class Lista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        servicios = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         precio = new javax.swing.JLabel();
@@ -117,29 +118,37 @@ public class Lista extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 260, 170));
 
+        servicios.add(jCheckBox1);
         jCheckBox1.setText("WIFI");
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 100, -1));
 
+        servicios.add(jCheckBox2);
         jCheckBox2.setText("PISCINA");
         getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 100, -1));
 
+        servicios.add(jCheckBox3);
         jCheckBox3.setText("SPA");
         getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 100, -1));
 
+        servicios.add(jCheckBox4);
         jCheckBox4.setText("PARKING");
         getContentPane().add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 100, -1));
 
+        servicios.add(jCheckBox5);
         jCheckBox5.setText("AIRE ACONDICIONADO");
         getContentPane().add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, -1));
 
+        servicios.add(jCheckBox6);
         jCheckBox6.setText("RESTAURANTE");
-        getContentPane().add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
+        getContentPane().add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, -1));
 
+        servicios.add(jCheckBox7);
         jCheckBox7.setText("BAR");
-        getContentPane().add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 100, -1));
+        getContentPane().add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, -1));
 
+        servicios.add(jCheckBox8);
         jCheckBox8.setText("GIMNASIO");
-        getContentPane().add(jCheckBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 100, -1));
+        getContentPane().add(jCheckBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setText("HABITACIÓN/ES:");
@@ -253,5 +262,6 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JLabel name;
     public javax.swing.JLabel precio;
     private javax.swing.JButton reservar;
+    private javax.swing.ButtonGroup servicios;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="servicios">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -264,6 +268,9 @@
     </Container>
     <Component class="javax.swing.JCheckBox" name="jCheckBox1">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="WIFI"/>
       </Properties>
       <Constraints>
@@ -274,6 +281,9 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox2">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="PISCINA"/>
       </Properties>
       <Constraints>
@@ -284,6 +294,9 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox3">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="SPA"/>
       </Properties>
       <Constraints>
@@ -294,6 +307,9 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox4">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="PARKING"/>
       </Properties>
       <Constraints>
@@ -304,6 +320,9 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox5">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="AIRE ACONDICIONADO"/>
       </Properties>
       <Constraints>
@@ -314,31 +333,40 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox6">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="RESTAURANTE"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="320" width="-1" height="-1"/>
+          <AbsoluteConstraints x="150" y="320" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox7">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BAR"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="360" width="100" height="-1"/>
+          <AbsoluteConstraints x="150" y="360" width="100" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox8">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="servicios"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="GIMNASIO"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="400" width="100" height="-1"/>
+          <AbsoluteConstraints x="150" y="400" width="100" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

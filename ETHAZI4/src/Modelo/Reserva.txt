@@ -1,13 +1,13 @@
  
                                                              BIDAI-ON S.L.                         	
  ********************************************************************************************************************** 	
- -Nombre : Pepe 		
- -Apellidos : Guevara Ruiz 		
- -DNI : 11111111A 		
+ -Nombre : Isabel 		
+ -Apellidos : Cruz Gil 		
+ -DNI : 22222222A 		
  -Código de Reserva : 1 		
  -Fecha de entrada: 2019-05-16 		
  -Fecha de salida : 2019-05-17 		
  -Número de habitación(es) : 1 		
  -Número de personas que cubre la reserva : 1 		
  ********************************************************************************************************************** 	
- -Precio final: 124.0 €
+ -Precio final: 25.0 €
