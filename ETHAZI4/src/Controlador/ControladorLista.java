@@ -137,6 +137,8 @@ public class ControladorLista {
         
         if(Alojamiento==null){
         
+            //jTable2.setValueAt("No hay alojamientos disponibles", 0, 0);
+            //jTable2.setEnabled(false);
         
         }
         
