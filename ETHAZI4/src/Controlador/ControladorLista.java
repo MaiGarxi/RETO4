@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,7 +27,7 @@ public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo,JButton herramienta) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo,JButton herramienta,JCheckBox wifi, JCheckBox piscina, JCheckBox spa, JCheckBox parking, JCheckBox restaurante, JCheckBox bar, JCheckBox gimnasio, JCheckBox aire, JComboBox<String> estrellas) {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
