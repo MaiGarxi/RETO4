@@ -188,11 +188,10 @@ public class reserva {
         ResultSet rs = consul.ObtenerReserva(Users.get(0).dni);
         while (rs.next())
         {
-            for(int x=0;rs.next();x++)
-            {
+       
                 reserva reser= new reserva (rs.getInt("Cod_reserva"),rs.getString("Fecha_entrada"),rs.getString("Fecha_salida"),rs.getDouble("Precio"));
                 usuario_reserva.add(reser);
-            }
+            
         }              
         return usuario_reserva ;
     }
