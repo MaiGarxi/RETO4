@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -182,7 +183,7 @@ public class ControladorLista {
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));    
                         
-                        pasar.ListaaPago(reserva.Crear_arrayHotel(dato,entradas, salidas,preci,patron.get(jTable1.getSelectedRow()),Users),Users,Alojamiento);   
+                        pasar.ListaaPago(reserva.Crear_arrayHotel(dato,entradas, salidas,preci,patron.get(jTable1.getSelectedRow()),Users),Users,Alojamiento,patron.get(jTable1.getSelectedRow()));   
                     }            
                 }
                 if(Alojamiento=="c%"||Alojamiento=="a%")
@@ -195,7 +196,7 @@ public class ControladorLista {
                     else{
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users,Alojamiento),Users,Alojamiento);   
+                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users,Alojamiento),Users,Alojamiento,patron.get(jTable1.getSelectedRow()));   
                     } 
                 }
             }
@@ -224,11 +225,15 @@ public class ControladorLista {
            
         herramienta.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-                try {
-                    pasar.ListaaUsuarios(Users,name,reserva.Reservas(Users));
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
+            public void mouseClicked(MouseEvent e) {  
+                int n= JOptionPane.showConfirmDialog(null, "Si Cierra Sesion perderá toda la información de búsqueda ¿Está seguro?", "Cerrar Sesión" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) 
+                { 
+                    try {
+                        pasar.ListaaUsuarios(Users,name,reserva.Reservas(Users));
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ControladorLista.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         }); 

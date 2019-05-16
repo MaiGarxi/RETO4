@@ -80,8 +80,7 @@ public class Alojamiento {
          
     public void obtener_destinos(JComboBox<String> destino,String locali)
     {              
-        try {
-           
+        try {           
             Hotel ex=new Hotel();
             ArrayList<String> Destinos = new ArrayList<String>();
             ResultSet resultado=consul.ConsultaDestino();
