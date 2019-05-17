@@ -19,7 +19,6 @@ public class Lista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        servicios = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         precio = new javax.swing.JLabel();
@@ -89,7 +88,7 @@ public class Lista extends javax.swing.JFrame {
         exit.setForeground(new java.awt.Color(255, 255, 255));
         exit.setText("Cerrar Sesión");
         exit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 60));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 50));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,7 +102,7 @@ public class Lista extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, -1));
 
         estrellas.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        estrellas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "*", "**", "***", "****", "*****" }));
+        estrellas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "*", "**", "***", "****", "*****" }));
         jPanel1.add(estrellas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 120, 40));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -118,90 +117,78 @@ public class Lista extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 260, 170));
 
-        servicios.add(wifi);
         wifi.setText("WIFI");
-        getContentPane().add(wifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 100, -1));
+        getContentPane().add(wifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 100, -1));
 
-        servicios.add(piscina);
         piscina.setText("PISCINA");
-        getContentPane().add(piscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 100, -1));
+        getContentPane().add(piscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, -1));
 
-        servicios.add(spa);
         spa.setText("SPA");
-        getContentPane().add(spa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 100, -1));
+        getContentPane().add(spa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 100, -1));
 
-        servicios.add(parking);
         parking.setText("PARKING");
-        getContentPane().add(parking, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 100, -1));
+        getContentPane().add(parking, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 100, -1));
 
-        servicios.add(aire);
         aire.setText("AIRE ACONDICIONADO");
-        getContentPane().add(aire, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, -1));
+        getContentPane().add(aire, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
 
-        servicios.add(restaurante);
         restaurante.setText("RESTAURANTE");
-        getContentPane().add(restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, -1));
+        getContentPane().add(restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
 
-        servicios.add(bar);
         bar.setText("BAR");
-        getContentPane().add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, -1));
+        getContentPane().add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 100, -1));
 
-        servicios.add(gimnasio);
         gimnasio.setText("GIMNASIO");
-        getContentPane().add(gimnasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 100, -1));
+        getContentPane().add(gimnasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setText("HABITACIÓN/ES:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 270, 40));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 200, 40));
 
-        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setAutoscrolls(true);
         jScrollPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane3.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
-        jTable1.setFont(new java.awt.Font("Source Sans Pro", 1, 14)); // NOI18N
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, ""},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
+        ));
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.setDoubleBuffered(true);
+        jTable1.setFillsViewportHeight(true);
         jTable1.setRowHeight(40);
         jTable1.setSelectionBackground(new java.awt.Color(232, 57, 95));
         jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setShowVerticalLines(false);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 390, 140));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 660, 170));
 
+        jTable2.setAutoCreateRowSorter(true);
         jTable2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
+        jTable2.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable2.setFillsViewportHeight(true);
         jTable2.setRowHeight(40);
         jScrollPane2.setViewportView(jTable2);
 
@@ -260,7 +247,6 @@ public class Lista extends javax.swing.JFrame {
     public javax.swing.JLabel precio;
     private javax.swing.JButton reservar;
     private javax.swing.JCheckBox restaurante;
-    private javax.swing.ButtonGroup servicios;
     private javax.swing.JCheckBox spa;
     private javax.swing.JCheckBox wifi;
     // End of variables declaration//GEN-END:variables

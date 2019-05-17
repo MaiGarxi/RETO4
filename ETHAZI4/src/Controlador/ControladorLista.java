@@ -37,6 +37,7 @@ public class ControladorLista {
                 patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_cuatro(hab,personas,ninos));
+                
         /*Tabla de Las Habitaciones*/
         if(Alojamiento=="h%")
         {
@@ -49,8 +50,8 @@ public class ControladorLista {
                               jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                       TableColumnModel columnModel= jTable1.getColumnModel();
                                       columnModel.getColumn(0).setPreferredWidth(300);
-                                      columnModel.getColumn(1).setPreferredWidth(50);
-                                      columnModel.getColumn(2).setPreferredWidth(70);
+                                      columnModel.getColumn(1).setPreferredWidth(200);
+                                      columnModel.getColumn(2).setPreferredWidth(200);
             /*TAMAÑO DE LAS COLUMNAS*/
 
                        /*Seleccionar Habitaciòn*/
@@ -67,7 +68,7 @@ public class ControladorLista {
            
             /*Seleccionar Habitación*/
         }else{
-            String[] columnas = {"Tipo de Habitación", "Descripción"};
+            String[] columnas = {"Tipo", "Descripción"};
             modelo.setColumnIdentifiers(columnas);
             jTable1.setModel(modelo);
                 /*TAMAÑO DE LAS COLUMNAS*/
@@ -75,39 +76,38 @@ public class ControladorLista {
                      jTable1.getTableHeader().setBackground(new Color(32,136,203));
                               jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                       TableColumnModel columnModel= jTable1.getColumnModel();
-                                      columnModel.getColumn(0).setPreferredWidth(100);
-                                      columnModel.getColumn(1).setPreferredWidth(250);
+                                      columnModel.getColumn(0).setPreferredWidth(80);
+                                      columnModel.getColumn(1).setPreferredWidth(2500);
 
                 /*TAMAÑO DE LAS COLUMNAS*/
         }
        
-        /*Tabla de Las Habitaciones*/
+        /*Tabla de Las Alojamientos*/
         DefaultTableModel modelo2 = new DefaultTableModel();
         if(Alojamiento=="h%")
         {
             String[] columnas2 = {"Nombre", "Popularidad"};
             modelo2.setColumnIdentifiers(columnas2);
             jTable2.setModel(modelo2);
-        }else{
-            String[] columnas2 = {"Nombre"," Capacidad","Popularidad"};
-            modelo2.setColumnIdentifiers(columnas2);
-            jTable2.setModel(modelo2);        
-        }
-        
-        /*Tabla de Los Alojamientos*/
-        
-        
-        /*TAMAÑO DE LAS COLUMNAS*/
-        jTable2.getTableHeader().setOpaque(false);
+            /*TAMAÑO DE LAS COLUMNAS*/
+            jTable2.getTableHeader().setOpaque(false);
                 jTable2.getTableHeader().setBackground(new Color(32,136,203));
                         jTable2.getTableHeader().setForeground(new Color(255,255,255));
                                 TableColumnModel columnModel2= jTable2.getColumnModel();
-                                columnModel2.getColumn(0).setPreferredWidth(250);
+                                columnModel2.getColumn(0).setPreferredWidth(285);
                                 columnModel2.getColumn(1).setPreferredWidth(100);
-        /*TAMAÑO DE LAS COLUMNAS*/
-        
-        /*Tabla de Los Alojamientos*/
-        
+        }else{
+            String[] columnas2 = {"Nombre"," Capacidad","Popularidad"};
+            modelo2.setColumnIdentifiers(columnas2);
+            jTable2.setModel(modelo2);
+            /*TAMAÑO DE LAS COLUMNAS*/
+            jTable2.getTableHeader().setOpaque(false);
+                jTable2.getTableHeader().setBackground(new Color(32,136,203));
+                        jTable2.getTableHeader().setForeground(new Color(255,255,255));
+                        TableColumnModel columnModel2= jTable2.getColumnModel();
+                        columnModel2.getColumn(0).setPreferredWidth(230);
+                        columnModel2.getColumn(1).setPreferredWidth(80);
+        }       
         
         error.setVisible(false);
         name.setText(Users.get(0).nombre);
@@ -128,7 +128,6 @@ public class ControladorLista {
                 jLabel2.setText("CASA");
             }
         }
-        /*Tabla de Los Alojamientos*/
         
         /*Apenas de inicia el controlador*/ 
         
