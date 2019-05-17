@@ -190,7 +190,7 @@ public class Pago extends javax.swing.JFrame {
         exit.setForeground(new java.awt.Color(255, 255, 255));
         exit.setText("Cerrar Sesión");
         exit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 60));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 120, 50));
 
         jPanel2.setBackground(new java.awt.Color(102, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
