@@ -114,7 +114,7 @@ public class ControladorLista {
         Alojamiento aux = new Alojamiento();
         id_alojamiento= aux.obtener_alojamiento(modelo2,localidad,Alojamiento,entradas,salidas,personas);
         Ubicacion ubi = new Ubicacion();
-        ubi.obtener_destinos(Destinos);
+        ubi.obtener_destinos(Destinos,localidad);
         reserva reserva = new reserva(); 
         
         if(Alojamiento=="h%")
