@@ -265,13 +265,17 @@ public class ControladorLista {
             }
         });
         
-        estrellas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent e) 
-            {
-             jTable2.removeAll();
+        estrellas.addActionListener ((ActionEvent e) -> {
+              String localidad1 = (String) Destinos.getSelectedItem();
+             modelo2.setRowCount(0); 
+             modelo.setRowCount(0); 
+              String estrellitas = (String) estrellas.getSelectedItem();
+              System.out.println(estrellitas);
+              aux.obtener_hotel_estrellas(modelo2,localidad1,Alojamiento,entradas,salidas,personas,estrellitas);
+           
              
-                
-                
-            }}); 
+         
+              
+            }); 
     }
 }
