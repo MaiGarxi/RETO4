@@ -268,9 +268,16 @@ public class ControladorLista {
               String localidad1 = (String) Destinos.getSelectedItem();
              modelo2.setRowCount(0); 
              modelo.setRowCount(0); 
+             
               String estrellitas = (String) estrellas.getSelectedItem();
-              System.out.println(estrellitas);
-              aux.obtener_hotel_estrellas(modelo2,localidad1,Alojamiento,entradas,salidas,personas,estrellitas);
+              if(estrellitas.equals("Todos"))
+              {
+              aux.obtener_alojamiento(modelo2,localidad1,Alojamiento,entradas,salidas,personas);
+              }
+              else{aux.obtener_hotel_estrellas(modelo2,localidad1,Alojamiento,entradas,salidas,personas,estrellitas);
+              }
+             
+              
            
              
          
