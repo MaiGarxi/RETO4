@@ -49,9 +49,9 @@ public class ControladorLista {
                      jTable1.getTableHeader().setBackground(new Color(32,136,203));
                               jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                       TableColumnModel columnModel= jTable1.getColumnModel();
-                                      columnModel.getColumn(0).setPreferredWidth(300);
-                                      columnModel.getColumn(1).setPreferredWidth(200);
-                                      columnModel.getColumn(2).setPreferredWidth(200);
+                                      columnModel.getColumn(0).setPreferredWidth(270);
+                                      columnModel.getColumn(1).setPreferredWidth(195);
+                                      columnModel.getColumn(2).setPreferredWidth(190);
             /*TAMAÑO DE LAS COLUMNAS*/
 
                        /*Seleccionar Habitaciòn*/
