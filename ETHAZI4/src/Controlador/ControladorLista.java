@@ -28,7 +28,7 @@ public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo,JButton herramienta,JCheckBox wifi, JCheckBox piscina, JCheckBox spa, JCheckBox parking, JCheckBox restaurante, JCheckBox bar, JCheckBox gimnasio, JCheckBox aire, JComboBox<String> estrellas) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo,JButton herramienta,JCheckBox wifi, JCheckBox piscina, JCheckBox spa, JCheckBox parking, JCheckBox restaurante, JCheckBox bar, JCheckBox gimnasio, JCheckBox aire, JComboBox<String> estrellas,JLabel JLabel4) {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
@@ -60,9 +60,9 @@ public class ControladorLista {
                      jTable1.getTableHeader().setBackground(new Color(32,136,203));
                               jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                       TableColumnModel columnModel= jTable1.getColumnModel();
-                                      columnModel.getColumn(0).setPreferredWidth(270);
-                                      columnModel.getColumn(1).setPreferredWidth(195);
-                                      columnModel.getColumn(2).setPreferredWidth(190);
+                                      columnModel.getColumn(0).setPreferredWidth(275);
+                                      columnModel.getColumn(1).setPreferredWidth(200);
+                                      columnModel.getColumn(2).setPreferredWidth(200);
             /*TAMAÑO DE LAS COLUMNAS*/
 
                        /*Seleccionar Habitaciòn*/
@@ -135,8 +135,21 @@ public class ControladorLista {
             if(Alojamiento=="a%")
             {
                 jLabel2.setText("APARTAMENTO");
+                estrellas.setVisible(false);
+                JLabel4.setVisible(false);
+                piscina.setVisible(false);
+                parking.setVisible(false);
+                bar.setVisible(false);
+                gimnasio.setVisible(false);
+                restaurante.setVisible(false);
             }else{
                 jLabel2.setText("CASA");
+                estrellas.setVisible(false);
+                JLabel4.setVisible(false);
+                parking.setVisible(false);
+                bar.setVisible(false);
+                gimnasio.setVisible(false);
+                restaurante.setVisible(false);
             }
         }
         
