@@ -114,7 +114,7 @@ public class ControladorLista {
         Alojamiento aux = new Alojamiento();
         id_alojamiento= aux.obtener_alojamiento(modelo2,localidad,Alojamiento,entradas,salidas,personas);
         Ubicacion ubi = new Ubicacion();
-        ubi.obtener_destinos(Destinos);
+        ubi.obtener_destinos(Destinos,localidad);
         reserva reserva = new reserva(); 
         
         if(Alojamiento=="h%")
@@ -264,13 +264,17 @@ public class ControladorLista {
             }
         });
         
-        estrellas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent e) 
-            {
-             jTable2.removeAll();
+        estrellas.addActionListener ((ActionEvent e) -> {
+              String localidad1 = (String) Destinos.getSelectedItem();
+             modelo2.setRowCount(0); 
+             modelo.setRowCount(0); 
+              String estrellitas = (String) estrellas.getSelectedItem();
+              System.out.println(estrellitas);
+              aux.obtener_hotel_estrellas(modelo2,localidad1,Alojamiento,entradas,salidas,personas,estrellitas);
+           
              
-                
-                
-            }}); 
+         
+              
+            }); 
     }
 }

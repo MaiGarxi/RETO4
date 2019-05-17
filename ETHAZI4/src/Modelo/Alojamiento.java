@@ -208,5 +208,39 @@ public class Alojamiento {
         }
             return 0.0;
     }
+
+       public String obtener_hotel_estrellas(DefaultTableModel alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin,int personas,String estrellas) 
+    {       
+        System.out.println(localidad);
+        int estrellita=1;
+        String patricio="";
+        for(int u=1;u<=5;u++)
+        {
+        patricio=patricio+"*";
+  
+            if(patricio.equals(estrellas))
+            {
+            estrellita=u;
+            }
+        }
+        if(Alojamiento=="h%")
+        {
+            try {
+                ResultSet resultado=consul.Consultahotel_Nombre(localidad,estrellita);                
+                while (resultado.next()){
+                    String[]datos={resultado.getString("Nombre"),resultado.getString("popularidad")+" "};
+                   alojamiento.addRow(datos);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("No existe ningún Hotel");
+            }
+            return null;
+        }else{
+           
+            return null;
+    }
+    }
+
     
 }
