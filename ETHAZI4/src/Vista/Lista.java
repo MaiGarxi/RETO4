@@ -171,7 +171,7 @@ public class Lista extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 660, 170));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 680, 170));
 
         jTable2.setAutoCreateRowSorter(true);
         jTable2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
