@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -226,6 +227,7 @@ public class ControladorLista {
                 /*Reservar*/  
                 
             /*Cambiar Destinos*/
+        
              
         Destinos.addActionListener ((ActionEvent e) -> {
             String localidad1 = (String) Destinos.getSelectedItem();
@@ -233,12 +235,27 @@ public class ControladorLista {
             modelo2.setRowCount(0); 
             id_alojamiento= aux.obtener_alojamiento(modelo2, localidad1, Alojamiento,entradas,salidas,personas);
             ubi.obtener_destinos(Destinos,localidad1);
-            modelo.setRowCount(0); 
-            
+            modelo.setRowCount(0);                     
             precio.setText(String.valueOf(" "));
+            
+            /*estrellas.removeAllItems(); 
+            ArrayList<String> estrella = new ArrayList();    
+            estrella.add(0, "Todos");
+            estrella.add(1, "*");
+            estrella.add(2, "**");
+            estrella.add(3, "***"); 
+            estrella.add(4, "****"); 
+
+            for(int i=0;i<estrella.size();i++)
+            {          
+                estrellas.addItem(estrella.get(0)); 
+            }
+            String estrellitas = (String) estrellas.getSelectedItem();*/
         });
+
             /*Cambiar Destinos*/
-       
+                       
+
            /*Eventos 
         */        
         
@@ -278,9 +295,10 @@ public class ControladorLista {
         });
         
         estrellas.addActionListener ((ActionEvent e) -> {
-              String localidad1 = (String) Destinos.getSelectedItem();
-             modelo2.setRowCount(0); 
-             modelo.setRowCount(0); 
+            
+            String localidad1 = (String) Destinos.getSelectedItem();
+            modelo2.setRowCount(0); 
+            modelo.setRowCount(0); 
              
               String estrellitas = (String) estrellas.getSelectedItem();
               if(estrellitas.equals("Todos"))
@@ -288,13 +306,7 @@ public class ControladorLista {
               aux.obtener_alojamiento(modelo2,localidad1,Alojamiento,entradas,salidas,personas);
               }
               else{aux.obtener_hotel_estrellas(modelo2,localidad1,Alojamiento,entradas,salidas,personas,estrellitas);
-              }
-             
-              
-           
-             
-         
-              
-            }); 
+              }                      
+        }); 
     }
 }
