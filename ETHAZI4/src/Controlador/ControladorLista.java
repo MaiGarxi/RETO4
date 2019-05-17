@@ -7,6 +7,7 @@ import Modelo.Usuario;
 import Modelo.reserva;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
@@ -38,6 +39,16 @@ public class ControladorLista {
                 patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_cuatro(hab,personas,ninos));
+                
+                
+
+            
+
+                    
+                    
+  
+                  
+                
                 
         /*Tabla de Las Habitaciones*/
         if(Alojamiento=="h%")
@@ -306,7 +317,86 @@ public class ControladorLista {
               aux.obtener_alojamiento(modelo2,localidad1,Alojamiento,entradas,salidas,personas);
               }
               else{aux.obtener_hotel_estrellas(modelo2,localidad1,Alojamiento,entradas,salidas,personas,estrellitas);
-              }                      
-        }); 
+
+              }
+          
+            }); 
+        
+        
+        wifi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+               String consulta="Where ";
+               int cantidad=0;
+               if(wifi.isSelected())
+               {
+                consulta=consulta+"hotel_servicio.Cod_servicio=1"; 
+                 cantidad=cantidad+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(cantidad>0)
+                   {
+                   consulta=consulta+" AND";
+                   }
+                 consulta=consulta+"hotel_servicio.Cod_servicio=2";  
+                 cantidad=cantidad+1;  
+               }
+                 if(spa.isSelected())
+               {
+                               if(cantidad>0)
+                   {
+                   consulta=consulta+" AND";
+                   }
+                 consulta=consulta+"hotel_servicio.Cod_servicio=3";  
+                 cantidad=cantidad+1; 
+               }
+                  if(parking.isSelected())
+               {
+                               if(cantidad>0)
+                   {
+                   consulta=consulta+" AND";
+                   }
+                 consulta=consulta+"hotel_servicio.Cod_servicio=4";  
+                 cantidad=cantidad+1; 
+               }
+                   if(aire.isSelected())
+               {
+                               if(cantidad>0)
+                   {
+                   consulta=consulta+" AND";
+                   }
+                 consulta=consulta+"hotel_servicio.Cod_servicio=5";  
+                 cantidad=cantidad+1; 
+               }
+                    if(restaurante.isSelected())
+               {
+                               if(cantidad>0)
+                   {
+                   consulta=consulta+" AND";
+                   }
+                 consulta=consulta+"hotel_servicio.Cod_servicio=6";  
+                 cantidad=cantidad+1; 
+               }
+                     if(bar.isSelected())
+               {
+                               if(cantidad>0)
+                   {
+                   consulta=consulta+" AND";
+                   }
+                 consulta=consulta+"hotel_servicio.Cod_servicio=7";  
+                 cantidad=cantidad+1; 
+               }
+                      if(gimnasio.isSelected())
+               {
+                               if(cantidad>0)
+                   {
+                   consulta=consulta+" AND";
+                   }
+                 consulta=consulta+"hotel_servicio.Cod_servicio=8";  
+                 cantidad=cantidad+1; 
+               }
+            }}); 
+
     }
 }
