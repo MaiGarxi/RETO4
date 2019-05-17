@@ -13,7 +13,7 @@ public class Lista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable (false);
         
-        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, Alojamiento, precio,jTable2,error,Users,name,exit,entradas,salidas,jTable1,patron,dias,jLabel2,personas,habitaciones,ninos,precioTemp,precioFestivo,herramienta,wifi,piscina,spa,parking,restaurante,bar,gimnasio,aire,estrellas);
+        ControladorLista Controlador = new ControladorLista(reservar, anterior, hotel,localidad, Alojamiento, precio,jTable2,error,Users,name,exit,entradas,salidas,jTable1,patron,dias,jLabel2,personas,habitaciones,ninos,precioTemp,precioFestivo,herramienta,wifi,piscina,spa,parking,restaurante,bar,gimnasio,aire,estrellas,jLabel4);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -118,28 +118,28 @@ public class Lista extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 260, 170));
 
         wifi.setText("WIFI");
-        getContentPane().add(wifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 100, -1));
+        getContentPane().add(wifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, -1));
 
         piscina.setText("PISCINA");
-        getContentPane().add(piscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, -1));
+        getContentPane().add(piscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 100, -1));
 
         spa.setText("SPA");
         getContentPane().add(spa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 100, -1));
 
         parking.setText("PARKING");
-        getContentPane().add(parking, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 100, -1));
+        getContentPane().add(parking, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 100, -1));
 
         aire.setText("AIRE ACONDICIONADO");
-        getContentPane().add(aire, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
+        getContentPane().add(aire, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
 
         restaurante.setText("RESTAURANTE");
-        getContentPane().add(restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
+        getContentPane().add(restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
 
         bar.setText("BAR");
-        getContentPane().add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 100, -1));
+        getContentPane().add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 100, -1));
 
         gimnasio.setText("GIMNASIO");
-        getContentPane().add(gimnasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, -1));
+        getContentPane().add(gimnasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setText("HABITACIÓN/ES:");
