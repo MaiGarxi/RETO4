@@ -240,10 +240,9 @@ public class Alojamiento {
     }
     }
     
-       public String obtener_alojamiento_servicio(DefaultTableModel alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin,int personas,String query,String estrellas) 
+    public String obtener_alojamiento_servicio(DefaultTableModel alojamiento,String localidad, String Alojamiento,String fecha_inicio,String fecha_fin,int personas,String query,String estrellas) 
     {           
-        System.out.println(query);
-              int estrellita=1;
+        int estrellita=1;
         String patricio="";
         for(int u=1;u<=5;u++)
         {
@@ -254,55 +253,49 @@ public class Alojamiento {
             estrellita=u;
             }
         }
-      if(estrellas.equals("Todos"))
+        if(estrellas.equals("Todos"))
               {
                   estrellita=0;
               }
         if(Alojamiento=="h%")
-        {
-            
-            
+        {          
             try { 
                 ResultSet resultado=consul.Consultahotel_Nombre_servicio(localidad,query,estrellita);                
                 while (resultado.next()){
-                    System.out.println(resultado.getString("Nombre"));
                     String[]datos={resultado.getString("Nombre"),resultado.getString("popularidad")+" "};
-                   alojamiento.addRow(datos);
+                    alojamiento.addRow(datos);
                 }
-            } catch (SQLException ex) {
+            }catch (SQLException ex) {
                 Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("No existe ningún Hotel");
             }
             return null;
         }else{
              if(Alojamiento=="a%"){
-               try {               
+                try {               
                 ResultSet resultado=consul.Consulta_apartamento_Nombre_servicio(localidad,fecha_inicio,fecha_fin,personas,query);                
                 while (resultado.next()){
                     String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};
                     alojamiento.addRow(datos);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("No existe ningún Alojamiento");
-            }
-             }
-             else{
-            try {               
-                ResultSet resultado=consul.Consultacasa_Nombre_servicio(localidad,fecha_inicio,fecha_fin,personas,query);                
-                while (resultado.next()){
-                    String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};
-                    alojamiento.addRow(datos);
+                }catch (SQLException ex) {
+                    Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("No existe ningún Alojamiento");
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("No existe ningún Alojamiento");
+            }else{
+                try {               
+                    ResultSet resultado=consul.Consultacasa_Nombre_servicio(localidad,fecha_inicio,fecha_fin,personas,query);                
+                    while (resultado.next()){
+                        String[]datos={resultado.getString("Nombre"),resultado.getString("Capacidad")+" ",resultado.getString("popularidad")+" "};
+                        alojamiento.addRow(datos);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Hotel.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("No existe ningún Alojamiento");
+                }
             }
-        }
             return null;
+        }
     }
-    }
- 
-
     
 }

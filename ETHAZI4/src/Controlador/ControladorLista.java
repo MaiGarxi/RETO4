@@ -425,34 +425,33 @@ public class ControladorLista {
         
         piscina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent e) 
-            {
-                
-               String consulta=" ";
-                               String codigo=" ";
-                 if(Alojamiento=="h%")
-        {
-            codigo="hotel_servicio.";
-        }
+            {               
+                String consulta=" ";
+                String codigo=" ";
+                if(Alojamiento=="h%")
+                {
+                    codigo="hotel_servicio.";
+                }
                   if(Alojamiento=="a%"){
                           codigo="apartamento_servicio.";
                   }
                    if(Alojamiento=="c%"){
                            codigo="casa_servicio.";
                    }
-              int numero=0;
-               if(piscina.isSelected())
-               {
-                consulta=consulta+codigo+"Cod_servicio=2"; 
-                numero=numero+1;
-               }
+                int numero=0;
+                if(piscina.isSelected())
+                {
+                    consulta=consulta+codigo+"Cod_servicio=2"; 
+                    numero=numero+1;
+                }
                 if(wifi.isSelected())
-               {
+                {
                    if(numero>0)
                    {
                      consulta=consulta+" OR ";
                    }
                    consulta=consulta+codigo+"Cod_servicio=1"; 
-                  numero=numero+1;
+                   numero=numero+1;
                }
                  if(spa.isSelected())
                {
