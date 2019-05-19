@@ -292,7 +292,7 @@ public class ControladorLista {
             public void mouseClicked(MouseEvent e) {                
                 pasar.ListaaDestino();
             }
-            });  
+        });  
         
         exit.addMouseListener(new MouseAdapter() {
             @Override

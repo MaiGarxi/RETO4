@@ -19,6 +19,7 @@ public class Lista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         precio = new javax.swing.JLabel();
@@ -117,27 +118,35 @@ public class Lista extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 260, 170));
 
+        buttonGroup1.add(wifi);
         wifi.setText("WIFI");
         getContentPane().add(wifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, -1));
 
+        buttonGroup1.add(piscina);
         piscina.setText("PISCINA");
         getContentPane().add(piscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 100, -1));
 
+        buttonGroup1.add(spa);
         spa.setText("SPA");
         getContentPane().add(spa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 100, -1));
 
+        buttonGroup1.add(parking);
         parking.setText("PARKING");
         getContentPane().add(parking, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 100, -1));
 
+        buttonGroup1.add(aire);
         aire.setText("AIRE ACONDICIONADO");
         getContentPane().add(aire, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
 
+        buttonGroup1.add(restaurante);
         restaurante.setText("RESTAURANTE");
         getContentPane().add(restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
 
+        buttonGroup1.add(bar);
         bar.setText("BAR");
         getContentPane().add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 100, -1));
 
+        buttonGroup1.add(gimnasio);
         gimnasio.setText("GIMNASIO");
         getContentPane().add(gimnasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 100, -1));
 
@@ -221,6 +230,7 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JCheckBox aire;
     private javax.swing.JButton anterior;
     private javax.swing.JCheckBox bar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel error;
     private javax.swing.JComboBox<String> estrellas;
     private javax.swing.JButton exit;
