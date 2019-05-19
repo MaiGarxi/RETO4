@@ -1,10 +1,9 @@
 
 package Controlador;
 
+import Modelo.Cama;
 import Modelo.reserva;
 import Modelo.Usuario;
-import bbdd.Consultas;
-import static ethazi4.ETHAZI4.consul;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -26,7 +25,7 @@ public class ControladorPago {
     public double moneda05=0, moneda02=0, moneda01=0, moneda005=0, moneda002=0, moneda001=0;
     public double valor, pago2;
 
-    public ControladorPago(JList<String> Lista, ArrayList<reserva>reservas,ArrayList<Usuario> Users,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,JLabel name,JButton exit,String alojamiento,JButton herramienta,JTextField codigo, JLabel texto,JButton OK) {
+    public ControladorPago(JList<String> Lista, ArrayList<reserva>reservas,ArrayList<Usuario> Users,ArrayList<Cama> cama,JButton cancelar, JButton reiniciar, JButton confirmar,JLabel actualizaPago, JButton bi200, JButton bi100,JButton bi50, JButton bi20, JButton bi10, JButton bi5, JButton mo2, JButton mo1, JButton mo01, JButton mo02, JButton mo05, JButton mo001, JButton mo002, JButton mo005, JLabel totalAPagar,JLabel name,JButton exit,String alojamiento,JButton herramienta,JTextField codigo, JLabel texto,JButton OK) {
         
         name.setText(Users.get(0).nombre);
         reserva reserv = new reserva();
@@ -61,16 +60,18 @@ public class ControladorPago {
             public void mouseClicked(MouseEvent e) {          
                 try {
                     double precioPromo = usu.Promocion(Users.get(0).dni, Integer.valueOf(codigo.getText()));
-                    if(precioPromo<0.1){
+                    if(precioPromo<0){
                         texto.setText("Código no válido");
                     }else if(precioPromo==0.5){
                         texto.setText("Descuento 50%");
                         valor =(reserv.calcular_total_pagar(reservas))-(reserv.calcular_total_pagar(reservas))*precioPromo;
                         totalAPagar.setText(valor+" €");
+                        reservas.get(0).setPrecio(valor);
                     }else if(precioPromo==0.1){
                         texto.setText("Descuento 10%");
                         valor =(reserv.calcular_total_pagar(reservas))-(reserv.calcular_total_pagar(reservas))*precioPromo;
                         totalAPagar.setText(valor+" €");
+                        reservas.get(0).setPrecio(valor);
                     }
                 }catch (SQLException ex) {
                     Logger.getLogger(ControladorPago.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,8 +88,12 @@ public class ControladorPago {
         
         exit.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-              pasar.PagoaBienvenida();
+            public void mouseClicked(MouseEvent e) {  
+                    int n= JOptionPane.showConfirmDialog(null, "Si Cierra Sesión perdera toda la información de búsqueda ¿Está seguro?", "Cerrar Sesión" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) 
+                { 
+                    pasar.PagoaBienvenida();
+                }
             }
         });
         
@@ -106,30 +111,23 @@ public class ControladorPago {
                 if (valor==pago2){                 
                     JOptionPane.showMessageDialog(null, "Pago realizado"); 
                     pasar.PagoaDespedida();          
-                   reserva a= new reserva();
-                   a.reservar(reservas.get(0).getEntrada(), reservas.get(0).getSalida(),reservas.get(0).getDni(),reservas.get(0).getPrecio());
-                        for(int i=0; i<reservas.size();i++){
-                            
-                            a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
-                           
-                        }
-                       
-                        
-                        System.out.println(a.crear_txt(reservas,Users));
-                            
+                    reserva a= new reserva();
+                    a.reservar(reservas.get(0).getEntrada(), reservas.get(0).getSalida(),reservas.get(0).getDni(),reservas.get(0).getPrecio());
+                    for(int i=0; i<reservas.size();i++){
+                        a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
+                    }
+                     System.out.println(a.crear_txt(reservas,Users,cama));
                 }
                 if (pago2>valor){
                     double cambio;
                     cambio = calcularCambio(pago2,valor);
                     pasar.PagoaDespedida();
-                       reserva a= new reserva();
-                       a.reservar(reservas.get(0).getEntrada(), reservas.get(0).getSalida(),reservas.get(0).getDni(),reservas.get(0).getPrecio());
-                                      for(int i=0; i<reservas.size();i++){
-                                          System.out.println("hola "+reservas.get(i).getCod_habitacion());
-                                          a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
-                           
-                        }
- 
+                    reserva a= new reserva();
+                    a.reservar(reservas.get(0).getEntrada(), reservas.get(0).getSalida(),reservas.get(0).getDni(),reservas.get(0).getPrecio());
+                    for(int i=0; i<reservas.size();i++){
+                        a.pagar(reservas.get(i).getEntrada(), reservas.get(i).getSalida(),reservas.get(i).getCod_alojamiento(),reservas.get(i).getDni(),reservas.get(i).getCod_habitacion(),reservas.get(i).getPrecio(),alojamiento);
+                    } 
+                    System.out.println(a.crear_txt(reservas,Users,cama));
                 } else if (pago2<valor){
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese una cantidad igual o superior al precio total");
                 }                  

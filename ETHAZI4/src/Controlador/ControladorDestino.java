@@ -27,9 +27,7 @@ public class ControladorDestino {
     
     public ControladorDestino(JButton buscar, JButton anterior,JComboBox<String> destino, JCalendar entrada, JCalendar salida, JLabel error, JLabel name, JButton exit,ArrayList<Usuario> Users,JSpinner adultos,JSpinner ninos,JSpinner hab,JCheckBox hotel,JCheckBox casa,JCheckBox apartamento,JButton herramienta) {        
       
-        /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
-        que la componen
-        */
+        /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos que la componen*/
 
         error.setVisible(false);
         Ubicacion ubi = new Ubicacion();
@@ -38,9 +36,8 @@ public class ControladorDestino {
         Calendario calendario = new Calendario();
         Alojamiento aux = new Alojamiento();
         reserva reserva = new reserva();
-        /*Cosas que hace antes de los eventos (es decir apenas se carga la pagina y los elementos
-        que la componen
-        */    
+        
+        /*Cosas que hace antes de los eventos es decir apenas se carga la pagina y los elementos que la componen*/    
            
             /*Fechas*/        
         entrada.setMinSelectableDate(new Date());

@@ -40,7 +40,5 @@ public class Apartamento extends Alojamiento {
     public void setCod_casa(String Cod_casa) {
         this.Cod_casa = Cod_casa;
     }
-    
-    
-    
+   
 }

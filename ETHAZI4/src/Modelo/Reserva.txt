@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+=======
+ 
+                                                             BIDAI-ON S.L.                         	
+ ********************************************************************************************************************** 	
+ -Nombre : Isabel 		
+ -Apellidos : Cruz Gil 		
+ -DNI : 22222222A 		
+ -Código de Reserva : 1 		
+ -Fecha de entrada: 2019-05-17 		
+ -Fecha de salida : 2019-05-19 		
+ -Número de habitación(es) : 1 		
+ -Número de personas que cubre la reserva : 1 		
+ ********************************************************************************************************************** 	
+ -Precio final: 50.0 €
+>>>>>>> f3caa8759108dede98ca364723c5021540de77df

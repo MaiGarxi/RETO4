@@ -85,7 +85,7 @@ public class Ubicacion {
     public void obtener_destinos(JComboBox<String> destino,String locali)
     {              
         try {
-           
+           System.out.println("------------"+locali);
             Ubicacion ex=new Ubicacion();
             ArrayList<String> Destinos = new ArrayList<String>();
             ResultSet resultado=consul.ConsultaDestino();

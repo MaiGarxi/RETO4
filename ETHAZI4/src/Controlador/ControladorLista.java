@@ -7,15 +7,19 @@ import Modelo.Usuario;
 import Modelo.reserva;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -25,7 +29,7 @@ public class ControladorLista {
     public double preci=0.0;
     public String id_alojamiento;
     
-    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo,JButton herramienta) {
+    public ControladorLista(JButton reservar, JButton anterior, JComboBox<String>Destinos,String localidad, String Alojamiento, JLabel precio,JTable jTable2,JLabel error,ArrayList<Usuario> Users,JLabel name,JButton exit,String entradas, String salidas,JTable jTable1,ArrayList<ArrayList> patron,int dias,JLabel jLabel2,int personas,int hab,int ninos,double precioTemp, double precioFestivo,JButton herramienta,JCheckBox wifi, JCheckBox piscina, JCheckBox spa, JCheckBox parking, JCheckBox restaurante, JCheckBox bar, JCheckBox gimnasio, JCheckBox aire, JComboBox<String> estrellas,JLabel JLabel4) {
           
         /*Apenas de inicia el controlador*/
         DefaultTableModel modelo = new DefaultTableModel();
@@ -35,6 +39,17 @@ public class ControladorLista {
                 patron.add(cama.Devolver_habitaciones_dos(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_tres(hab,personas,ninos));
                 patron.add(cama.Devolver_habitaciones_cuatro(hab,personas,ninos));
+                
+                
+
+            
+
+                    
+                    
+  
+                  
+                
+                
         /*Tabla de Las Habitaciones*/
         if(Alojamiento=="h%")
         {
@@ -46,9 +61,9 @@ public class ControladorLista {
                      jTable1.getTableHeader().setBackground(new Color(32,136,203));
                               jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                       TableColumnModel columnModel= jTable1.getColumnModel();
-                                      columnModel.getColumn(0).setPreferredWidth(300);
-                                      columnModel.getColumn(1).setPreferredWidth(50);
-                                      columnModel.getColumn(2).setPreferredWidth(70);
+                                      columnModel.getColumn(0).setPreferredWidth(275);
+                                      columnModel.getColumn(1).setPreferredWidth(200);
+                                      columnModel.getColumn(2).setPreferredWidth(200);
             /*TAMAÑO DE LAS COLUMNAS*/
 
                        /*Seleccionar Habitaciòn*/
@@ -65,7 +80,7 @@ public class ControladorLista {
            
             /*Seleccionar Habitación*/
         }else{
-            String[] columnas = {"Tipo de Habitación", "Descripción"};
+            String[] columnas = {"Tipo", "Descripción"};
             modelo.setColumnIdentifiers(columnas);
             jTable1.setModel(modelo);
                 /*TAMAÑO DE LAS COLUMNAS*/
@@ -73,46 +88,45 @@ public class ControladorLista {
                      jTable1.getTableHeader().setBackground(new Color(32,136,203));
                               jTable1.getTableHeader().setForeground(new Color(255,255,255));
                                       TableColumnModel columnModel= jTable1.getColumnModel();
-                                      columnModel.getColumn(0).setPreferredWidth(100);
-                                      columnModel.getColumn(1).setPreferredWidth(250);
+                                      columnModel.getColumn(0).setPreferredWidth(80);
+                                      columnModel.getColumn(1).setPreferredWidth(2500);
 
                 /*TAMAÑO DE LAS COLUMNAS*/
         }
        
-        /*Tabla de Las Habitaciones*/
+        /*Tabla de Las Alojamientos*/
         DefaultTableModel modelo2 = new DefaultTableModel();
         if(Alojamiento=="h%")
         {
             String[] columnas2 = {"Nombre", "Popularidad"};
             modelo2.setColumnIdentifiers(columnas2);
             jTable2.setModel(modelo2);
-        }else{
-            String[] columnas2 = {"Nombre"," Capacidad","Popularidad"};
-            modelo2.setColumnIdentifiers(columnas2);
-            jTable2.setModel(modelo2);        
-        }
-        
-        /*Tabla de Los Alojamientos*/
-        
-        
-        /*TAMAÑO DE LAS COLUMNAS*/
-        jTable2.getTableHeader().setOpaque(false);
+            /*TAMAÑO DE LAS COLUMNAS*/
+            jTable2.getTableHeader().setOpaque(false);
                 jTable2.getTableHeader().setBackground(new Color(32,136,203));
                         jTable2.getTableHeader().setForeground(new Color(255,255,255));
                                 TableColumnModel columnModel2= jTable2.getColumnModel();
-                                columnModel2.getColumn(0).setPreferredWidth(250);
+                                columnModel2.getColumn(0).setPreferredWidth(285);
                                 columnModel2.getColumn(1).setPreferredWidth(100);
-        /*TAMAÑO DE LAS COLUMNAS*/
-        
-        /*Tabla de Los Alojamientos*/
-        
+        }else{
+            String[] columnas2 = {"Nombre"," Capacidad","Popularidad"};
+            modelo2.setColumnIdentifiers(columnas2);
+            jTable2.setModel(modelo2);
+            /*TAMAÑO DE LAS COLUMNAS*/
+            jTable2.getTableHeader().setOpaque(false);
+                jTable2.getTableHeader().setBackground(new Color(32,136,203));
+                        jTable2.getTableHeader().setForeground(new Color(255,255,255));
+                        TableColumnModel columnModel2= jTable2.getColumnModel();
+                        columnModel2.getColumn(0).setPreferredWidth(230);
+                        columnModel2.getColumn(1).setPreferredWidth(80);
+        }       
         
         error.setVisible(false);
         name.setText(Users.get(0).nombre);
         Alojamiento aux = new Alojamiento();
         id_alojamiento= aux.obtener_alojamiento(modelo2,localidad,Alojamiento,entradas,salidas,personas);
         Ubicacion ubi = new Ubicacion();
-        ubi.obtener_destinos(Destinos);
+        ubi.obtener_destinos(Destinos,localidad);
         reserva reserva = new reserva(); 
         
         if(Alojamiento=="h%")
@@ -122,16 +136,36 @@ public class ControladorLista {
             if(Alojamiento=="a%")
             {
                 jLabel2.setText("APARTAMENTO");
+                estrellas.setVisible(false);
+                JLabel4.setVisible(false);
+                piscina.setVisible(false);
+                parking.setVisible(false);
+                bar.setVisible(false);
+                gimnasio.setVisible(false);
+                restaurante.setVisible(false);
             }else{
                 jLabel2.setText("CASA");
+                estrellas.setVisible(false);
+                JLabel4.setVisible(false);
+                parking.setVisible(false);
+                bar.setVisible(false);
+                gimnasio.setVisible(false);
+                restaurante.setVisible(false);
             }
         }
-        /*Tabla de Los Alojamientos*/
         
         /*Apenas de inicia el controlador*/ 
         
         
         /*Click en  Alojamiento*/
+        
+        if(Alojamiento==null){
+        
+            //jTable2.setValueAt("No hay alojamientos disponibles", 0, 0);
+            //jTable2.setEnabled(false);
+        
+        }
+        
         if(Alojamiento=="h%")
         {
             jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -182,7 +216,7 @@ public class ControladorLista {
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));    
                         
-                        pasar.ListaaPago(reserva.Crear_arrayHotel(dato,entradas, salidas,preci,patron.get(jTable1.getSelectedRow()),Users),Users,Alojamiento);   
+                        pasar.ListaaPago(reserva.Crear_arrayHotel(dato,entradas, salidas,preci,patron.get(jTable1.getSelectedRow()),Users),Users,Alojamiento,patron.get(jTable1.getSelectedRow()));   
                     }            
                 }
                 if(Alojamiento=="c%"||Alojamiento=="a%")
@@ -195,7 +229,7 @@ public class ControladorLista {
                     else{
                         PasarPagina pasar= new PasarPagina(); 
                         String dato=String.valueOf(jTable2.getValueAt(jTable2.getSelectedRow(),0));
-                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users,Alojamiento),Users,Alojamiento);   
+                        pasar.ListaaPago(reserva.Crear_arrayCasaApartamento(dato,entradas, salidas,preci,Users,Alojamiento),Users,Alojamiento,patron.get(0));   
                     } 
                 }
             }
@@ -204,6 +238,7 @@ public class ControladorLista {
                 /*Reservar*/  
                 
             /*Cambiar Destinos*/
+        
              
         Destinos.addActionListener ((ActionEvent e) -> {
             String localidad1 = (String) Destinos.getSelectedItem();
@@ -211,12 +246,27 @@ public class ControladorLista {
             modelo2.setRowCount(0); 
             id_alojamiento= aux.obtener_alojamiento(modelo2, localidad1, Alojamiento,entradas,salidas,personas);
             ubi.obtener_destinos(Destinos,localidad1);
-            modelo.setRowCount(0); 
-            
+            modelo.setRowCount(0);                     
             precio.setText(String.valueOf(" "));
+            
+            /*estrellas.removeAllItems(); 
+            ArrayList<String> estrella = new ArrayList();    
+            estrella.add(0, "Todos");
+            estrella.add(1, "*");
+            estrella.add(2, "**");
+            estrella.add(3, "***"); 
+            estrella.add(4, "****"); 
+
+            for(int i=0;i<estrella.size();i++)
+            {          
+                estrellas.addItem(estrella.get(0)); 
+            }
+            String estrellitas = (String) estrellas.getSelectedItem();*/
         });
+
             /*Cambiar Destinos*/
-       
+                       
+
            /*Eventos 
         */        
         
@@ -224,11 +274,15 @@ public class ControladorLista {
            
         herramienta.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-                try {
-                    pasar.ListaaUsuarios(Users,name,reserva.Reservas(Users));
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControladorDestino.class.getName()).log(Level.SEVERE, null, ex);
+            public void mouseClicked(MouseEvent e) {  
+                int n= JOptionPane.showConfirmDialog(null, "Si Cierra Sesion perderá toda la información de búsqueda ¿Está seguro?", "Cerrar Sesión" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) 
+                { 
+                    try {
+                        pasar.ListaaUsuarios(Users,name,reserva.Reservas(Users));
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ControladorLista.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         }); 
@@ -242,9 +296,833 @@ public class ControladorLista {
         
         exit.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {          
-                pasar.ListaaBienvenida();
+            public void mouseClicked(MouseEvent e) {  
+                int n= JOptionPane.showConfirmDialog(null, "Si Cierra Sesión perderá toda la información de búsqueda ¿Está seguro?", "Cerrar Sesión" , JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) 
+                { 
+                    pasar.ListaaBienvenida();
+                }          
             }
-        }); 
+        });
+        
+        estrellas.addActionListener ((ActionEvent e) -> {
+            
+            String localidad1 = (String) Destinos.getSelectedItem();
+            modelo2.setRowCount(0); 
+            modelo.setRowCount(0); 
+             
+              String estrellitas = (String) estrellas.getSelectedItem();
+              if(estrellitas.equals("Todos"))
+              {
+              aux.obtener_alojamiento(modelo2,localidad1,Alojamiento,entradas,salidas,personas);
+              }
+              else{aux.obtener_hotel_estrellas(modelo2,localidad1,Alojamiento,entradas,salidas,personas,estrellitas);
+
+              }
+          
+            }); 
+        
+        
+        wifi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+               String consulta=" ";
+              int numero=0;
+               if(wifi.isSelected())
+               {
+                consulta=consulta+codigo+"Cod_servicio=1"; 
+                numero=numero+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   consulta=consulta+codigo+"Cod_servicio=2"; 
+                  numero=numero+1;
+               }
+                 if(spa.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                 consulta=consulta+codigo+"Cod_servicio=3"; 
+              numero=numero+1;
+               }
+                  if(parking.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=4"; 
+                  numero=numero+1;
+               }
+                   if(aire.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                  consulta=consulta+codigo+"Cod_servicio=5"; 
+                numero=numero+1;
+               }
+                    if(restaurante.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                   consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(bar.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                  consulta=consulta+codigo+"Cod_servicio=7"; 
+                numero=numero+1;
+               }
+                      if(gimnasio.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                 consulta=consulta+codigo+"Cod_servicio=8"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+        
+        piscina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+               String consulta=" ";
+                               String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+              int numero=0;
+               if(piscina.isSelected())
+               {
+                consulta=consulta+codigo+"Cod_servicio=2"; 
+                numero=numero+1;
+               }
+                if(wifi.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   consulta=consulta+codigo+"Cod_servicio=1"; 
+                  numero=numero+1;
+               }
+                 if(spa.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                  consulta=consulta+codigo+"Cod_servicio=3"; 
+              numero=numero+1;
+               }
+                  if(parking.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=4"; 
+                  numero=numero+1;
+               }
+                   if(aire.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                   consulta=consulta+codigo+"Cod_servicio=5"; 
+                numero=numero+1;
+               }
+                    if(restaurante.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                   consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(bar.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                   consulta=consulta+codigo+"Cod_servicio=7"; 
+                numero=numero+1;
+               }
+                      if(gimnasio.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                   consulta=consulta+codigo+"Cod_servicio=8"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+        
+        spa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+               String consulta=" ";
+                               String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+              int numero=0;
+               if(spa.isSelected())
+               {
+                  consulta=consulta+codigo+"Cod_servicio=3"; 
+                numero=numero+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   consulta=consulta+codigo+"Cod_servicio=2"; 
+                  numero=numero+1;
+               }
+                 if(wifi.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                   consulta=consulta+codigo+"Cod_servicio=1"; 
+              numero=numero+1;
+               }
+                  if(parking.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=4"; 
+                  numero=numero+1;
+               }
+                   if(aire.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                   consulta=consulta+codigo+"Cod_servicio=5"; 
+                numero=numero+1;
+               }
+                    if(restaurante.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                   consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(bar.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                  consulta=consulta+codigo+"Cod_servicio=7"; 
+                numero=numero+1;
+               }
+                      if(gimnasio.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                  consulta=consulta+codigo+"Cod_servicio=8"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+        
+        parking.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+               String consulta=" ";
+                               String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+              int numero=0;
+               if(parking.isSelected())
+               {
+                  consulta=consulta+codigo+"Cod_servicio=4"; 
+                numero=numero+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   consulta=consulta+codigo+"Cod_servicio=2"; 
+                  numero=numero+1;
+               }
+                 if(spa.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                  consulta=consulta+codigo+"Cod_servicio=3"; 
+              numero=numero+1;
+               }
+                  if(wifi.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=1"; 
+                  numero=numero+1;
+               }
+                   if(aire.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                 consulta=consulta+codigo+"Cod_servicio=5"; 
+                numero=numero+1;
+               }
+                    if(restaurante.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                  consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(bar.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                 consulta=consulta+codigo+"Cod_servicio=7"; 
+                numero=numero+1;
+               }
+                      if(gimnasio.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                 consulta=consulta+codigo+"Cod_servicio=8"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+        
+        aire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+               String consulta=" ";
+                               String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+              int numero=0;
+               if(aire.isSelected())
+               {
+                consulta=consulta+codigo+"Cod_servicio=5"; 
+                numero=numero+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   consulta=consulta+codigo+"Cod_servicio=2"; 
+                  numero=numero+1;
+               }
+                 if(spa.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                  consulta=consulta+codigo+"Cod_servicio=3"; 
+              numero=numero+1;
+               }
+                  if(parking.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=4"; 
+                  numero=numero+1;
+               }
+                   if(wifi.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                   consulta=consulta+codigo+"Cod_servicio=1"; 
+                numero=numero+1;
+               }
+                    if(restaurante.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                 consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(bar.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                  consulta=consulta+codigo+"Cod_servicio=7"; 
+                numero=numero+1;
+               }
+                      if(gimnasio.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                   consulta=consulta+codigo+"Cod_servicio=8"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+        
+       restaurante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+               String consulta=" ";
+                               String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+              int numero=0;
+               if(restaurante.isSelected())
+               {
+                  consulta=consulta+codigo+"Cod_servicio=6"; 
+                numero=numero+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   consulta=consulta+codigo+"Cod_servicio=2"; 
+                  numero=numero+1;
+               }
+                 if(spa.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                  consulta=consulta+codigo+"Cod_servicio=3"; 
+              numero=numero+1;
+               }
+                  if(parking.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=4"; 
+                  numero=numero+1;
+               }
+                   if(aire.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                consulta=consulta+codigo+"Cod_servicio=5"; 
+                numero=numero+1;
+               }
+                    if(wifi.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                   consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(bar.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                   consulta=consulta+codigo+"Cod_servicio=7";  
+                numero=numero+1;
+               }
+                      if(gimnasio.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                consulta=consulta+codigo+"Cod_servicio=8"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+        
+        bar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+               String consulta=" ";
+                               String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+              int numero=0;
+               if(bar.isSelected())
+               {
+                  consulta=consulta+codigo+"Cod_servicio=7"; 
+                numero=numero+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                  consulta=consulta+codigo+"Cod_servicio=2"; 
+                  numero=numero+1;
+               }
+                 if(spa.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                 consulta=consulta+codigo+"Cod_servicio=3"; 
+              numero=numero+1;
+               }
+                  if(parking.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=4";   
+                  numero=numero+1;
+               }
+                   if(aire.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                   consulta=consulta+codigo+"Cod_servicio=5"; 
+                numero=numero+1;
+               }
+                    if(restaurante.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                 consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(wifi.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                   consulta=consulta+codigo+"Cod_servicio=1"; 
+                numero=numero+1;
+               }
+                      if(gimnasio.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                  consulta=consulta+codigo+"Cod_servicio=8"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+        
+        gimnasio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+               String consulta=" ";
+                               String codigo=" ";
+                 if(Alojamiento=="h%")
+        {
+            codigo="hotel_servicio.";
+        }
+                  if(Alojamiento=="a%"){
+                          codigo="apartamento_servicio.";
+                  }
+                   if(Alojamiento=="c%"){
+                           codigo="casa_servicio.";
+                   }
+              int numero=0;
+               if(gimnasio.isSelected())
+               {
+                  consulta=consulta+codigo+"Cod_servicio=8"; 
+                numero=numero+1;
+               }
+                if(piscina.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                  consulta=consulta+codigo+"Cod_servicio=2"; 
+                  numero=numero+1;
+               }
+                 if(spa.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                   consulta=consulta+codigo+"Cod_servicio=3"; 
+              numero=numero+1;
+               }
+                  if(parking.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+            
+                   consulta=consulta+codigo+"Cod_servicio=4"; 
+                  numero=numero+1;
+               }
+                   if(aire.isSelected())
+               {
+                   if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+                   
+                   consulta=consulta+codigo+"Cod_servicio=5";  
+                numero=numero+1;
+               }
+                    if(restaurante.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+              
+                  consulta=consulta+codigo+"Cod_servicio=6"; 
+                 numero=numero+1;
+               }
+                     if(bar.isSelected())
+               {
+                    if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+           
+                 consulta=consulta+codigo+"Cod_servicio=7"; 
+                numero=numero+1;
+               }
+                      if(wifi.isSelected())
+               {
+                     if(numero>0)
+                   {
+                     consulta=consulta+" OR ";
+                   }
+             
+                   consulta=consulta+codigo+"Cod_servicio=1"; 
+           numero=numero+1;
+               }
+     
+                      String localidad1 = (String) Destinos.getSelectedItem();
+                        String estrellitas = (String) estrellas.getSelectedItem();
+                      Alojamiento Alojax=new Alojamiento(); 
+                      System.out.println(Alojamiento);
+                      modelo2.setRowCount(0); 
+                     modelo.setRowCount(0); 
+                      Alojax.obtener_alojamiento_servicio(modelo2,localidad1,Alojamiento,entradas,salidas,personas,consulta,estrellitas);
+            }}); 
+
     }
 }

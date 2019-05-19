@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import Modelo.Cama;
 import Modelo.reserva;
 import Modelo.Usuario;
 import Vista.Actualizar;
@@ -131,9 +132,9 @@ public class PasarPagina{
     }  
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCION PARA PASAR DE LISTA A PAGO
-    public void ListaaPago(ArrayList<reserva>reservas,ArrayList<Usuario> Users,String alojamiento){
+    public void ListaaPago(ArrayList<reserva>reservas,ArrayList<Usuario> Users,String alojamiento,ArrayList <Cama> cama){
         //SE CREA EL OBJ DE LA CLASE PAGO
-        obj7= new Pago(reservas,Users,alojamiento);
+        obj7= new Pago(reservas,Users,alojamiento,cama);
         obj7.setVisible(true); 
         obj6.setVisible(false);
     }  

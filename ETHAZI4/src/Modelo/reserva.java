@@ -208,29 +208,40 @@ public class reserva {
             }                                               
     }
     
-    public String crear_txt(ArrayList<reserva> reservas,ArrayList<Usuario> Users)
+    public String crear_txt(ArrayList<reserva> reservas,ArrayList<Usuario> Users,ArrayList<Cama> camas)
     {      
         try{
+            int capacidad=0;
+            for(int italia=0;italia<camas.size();italia++)
+            {
+                if(camas.get(italia) instanceof doble)
+                {
+                capacidad=capacidad+2;
+                }
+                else{
+                capacidad=capacidad+1;
+                }
+            
+            }
+            
             String ruta= "src\\modelo\\Reserva.txt"; 
             FileWriter archivo = new FileWriter(ruta);
-            for(int x=0;x<reservas.size();x++)
-        {    
+    
             String mensaje =     " \n"
 				+"                                                             BIDAI-ON S.L.                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"				
                                 +" -Nombre : "+Users.get(0).nombre+" \t\t\n"
                                 +" -Apellidos : "+Users.get(0).apellidos +" \t\t\n"
-                                +" -DNI : "+Users.get(x).dni +" \t\t\n"
-				+" -Código de Reserva : " +reservas.get(x).cod_reserva+" \t\t\n"
-                                +" -Fecha de entrada: " +reservas.get(x).entrada+" \t\t\n"
-                                +" -Fecha de salida : " +reservas.get(x).salida+" \t\t\n"
-                                +" -Número de habitación(es) : " +" \t\t\n"
-                                +" -Número de personas que cubre la reserva : "+" \t\t\n"
-				+" **********************************************************************************************************************"+" \t\n"
-				
-				+" -Precio final: " +reservas.get(x).precio+" €";
+                                +" -DNI : "+Users.get(0).dni +" \t\t\n"
+				+" -Código de Reserva : " +reservas.get(0).cod_reserva+" \t\t\n"
+                                +" -Fecha de entrada: " +reservas.get(0).entrada+" \t\t\n"
+                                +" -Fecha de salida : " +reservas.get(0).salida+" \t\t\n"
+                                +" -Número de habitación(es) : "+camas.size()+" \t\t\n"
+                                +" -Número de personas que cubre la reserva : "+capacidad+" \t\t\n"
+				+" **********************************************************************************************************************"+" \t\n"			
+				+" -Precio final: " +reservas.get(0).getPrecio()+" €";
                                 archivo.write(mensaje);
-        }
+        
             archivo.close();
             return "Archivo Creado Con Exito";         
         }catch(IOException e){
